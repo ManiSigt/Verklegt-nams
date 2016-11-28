@@ -1,6 +1,6 @@
 # C++ objects and libs
 
-*.slo
+*.slo //han solo?
 *.lo
 *.o
 *.a

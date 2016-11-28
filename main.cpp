@@ -1,12 +1,18 @@
+
 #include <iostream>
+#include "classui.h"
 
 using namespace std;
 
-int main(int argc, char *argv[])
+
+int main()
 {
-    int a;
-    cin >> a;
-    cout << a << endl;
+    classUI ui;
+
+    ui.run();
 
     return 0;
 }
+
+
+
