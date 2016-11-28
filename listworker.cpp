@@ -39,5 +39,5 @@ void ListWorker::addNewPerson()
 
 void ListWorker::viewAll(vector<person>& per)
 {
-    data.readFromFile(per);
+    data.readFromFile();
 }

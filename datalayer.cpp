@@ -21,7 +21,7 @@ void DataLayer::writeToFile(string name, char gender, int yearOfBirth, int yearO
      myfile.close();
 }
 
-void DataLayer::readFromFile(vector<person>& per)
+void DataLayer::readFromFile()
 {
 
 }

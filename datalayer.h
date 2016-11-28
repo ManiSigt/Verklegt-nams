@@ -18,7 +18,9 @@ class DataLayer
 public:
     DataLayer();
     void writeToFile(string name, char gender, int yearOfBirth, int yearOfDeath);
-    void readFromFile(vector<person>& per);
+    void readFromFile();
+private;
+    vector<person> persons;
 };
 
 #endif // DATALAYER_H
