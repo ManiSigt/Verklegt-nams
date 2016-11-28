@@ -4,14 +4,15 @@
 #include <string>
 #include <vector>
 
+using namespace std;
+
 struct person{
-    string _name;
-    char _gender;
-    int _yearOfBirth;
-    int _yearOfDeath;
+    string _name = "1";
+    char _gender = '1';
+    int _yearOfBirth = 1;
+    int _yearOfDeath = 1;
 };
 
-using namespace std;
 
 class DataLayer
 {
@@ -19,7 +20,7 @@ public:
     DataLayer();
     void writeToFile(string name, char gender, int yearOfBirth, int yearOfDeath);
     void readFromFile();
-private;
+private:
     vector<person> persons;
 };
 

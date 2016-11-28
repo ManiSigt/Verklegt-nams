@@ -37,7 +37,7 @@ void ListWorker::addNewPerson()
     data.writeToFile(name, gender, yearOfBirth, yearOfDeath);
 }
 
-void ListWorker::viewAll(vector<person>& per)
+void ListWorker::viewAll()
 {
     data.readFromFile();
 }
