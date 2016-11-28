@@ -22,11 +22,18 @@ void ListWorker::addNewPerson()
     std::getline(std::cin,name);
     cout << "Input gender (M/F): ";
     cin >> gender;
-    cout << "Input year of birth: ";
-    cin >> yearOfBirth;
-    cout << "Input year of birth: ";
-    cin >> yearOfDeath;
-
+    if (gender == 'm' || gender == 'M' || gender == 'f' || gender == 'F')
+    {
+       cout << "Input year of birth: ";
+       cin >> yearOfBirth;
+       cout << "Input year of birth: ";
+       cin >> yearOfDeath;
+    }
+    else
+    {
+        cout << "Invalid gender! Try again." << endl;
+        addNewPerson();
+    }
     data.writeToFile(name, gender, yearOfBirth, yearOfDeath);
 }
 

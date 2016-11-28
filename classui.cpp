@@ -42,7 +42,7 @@ void classUI::select(string ch)
     view();
     }
     else if(ch == "search"){
-
+        cout << "Destroy" << endl;
     }
 }
 void classUI::view()

@@ -21,3 +21,4 @@ HEADERS += \
 
 DISTFILES += \
     example.txt
+
