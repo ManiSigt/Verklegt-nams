@@ -47,5 +47,5 @@ void classUI::select(string ch)
 }
 void classUI::view()
 {
-
+    list.viewAll();
 }

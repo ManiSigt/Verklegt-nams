@@ -18,6 +18,7 @@ void ListWorker::addNewPerson()
     int yearOfDeath = 0;
 
     cout << "Input Name: ";
+    cin.ignore();
     std::getline(std::cin,name);
     cout << "Input gender (M/F): ";
     cin >> gender;
@@ -27,4 +28,9 @@ void ListWorker::addNewPerson()
     cin >> yearOfDeath;
 
     data.writeToFile(name, gender, yearOfBirth, yearOfDeath);
+}
+
+void ListWorker::viewAll()
+{
+    data.readFromFile();
 }
