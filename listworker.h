@@ -18,7 +18,7 @@ class ListWorker
 public:
     ListWorker();
     void addNewPerson();
-    void viewAll();
+    void viewAll(vector<person>& per);
 private:
     DataLayer data;
     vector<person> persons;
