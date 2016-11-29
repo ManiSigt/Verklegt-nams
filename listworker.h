@@ -13,8 +13,12 @@ public:
     void addNewPerson();
     void viewAll();
     void search();
+<<<<<<< HEAD
     void sortNames();
     void sortBirth();
+=======
+    void removePerson();
+>>>>>>> 01eb54e979057cfef67f47eaaf5cc9e0a4cfac3b
 
 private:
     DataLayer data;

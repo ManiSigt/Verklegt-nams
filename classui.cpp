@@ -20,6 +20,7 @@ void classUI::run()
         cout << "List of things: " << endl;
         cout << "###########################" << endl;
         cout << "add - Add to the list" << endl;
+        cout << "remove - Remove from the list" << endl;
         cout << "view - View the entire list" << endl;
         cout << "search - Search the list" << endl;
         cout << "sort - Sort the list by name/yearofbirth" << endl;
@@ -62,6 +63,9 @@ void classUI::select(string ch)
     }
     else if(ch == "search" || ch == "Search" || ch == "SEARCH"){
         searching();
+    }
+    else if(ch == "remove" || ch == "Remove" || ch == "REMOVE"){
+        list.removePerson();
     }
 }
 void classUI::view()

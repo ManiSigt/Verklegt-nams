@@ -83,6 +83,7 @@ void ListWorker::search()
         cout << "Error reading input" << endl;
     }
 }
+<<<<<<< HEAD
 void ListWorker::sortNames()
 {
     data.sortNames(getPersons);
@@ -90,4 +91,23 @@ void ListWorker::sortNames()
 void ListWorker::sortBirth()
 {
     data.sortBirth(getPersons);
+=======
+
+void ListWorker::removePerson()
+{
+    string name;
+    cout << "Enter a name that you want to remove: ";
+/*    getline(cin, name);
+
+    for(size_t i = 0; i < getPersons.size(); ++i)
+    {
+        if(getPersons[i] == name)
+        {
+            getPersons.erase(getPersons.begin() + i);
+            cout << "Person removed!" << endl;
+        }
+    }
+*/
+    //data.removeFromFile();
+>>>>>>> 01eb54e979057cfef67f47eaaf5cc9e0a4cfac3b
 }
