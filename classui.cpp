@@ -35,13 +35,13 @@ void classUI::run()
 
 void classUI::select(string ch)
 {
-    if(ch == "add"){
+    if(ch == "add" || ch == "ADD" || ch == "Add" ){
         list.addNewPerson();
     }
-    else if(ch == "view"){
+    else if(ch == "view" || ch == "Veiw" || ch == "VEIW"){
     view();
     }
-    else if(ch == "search"){
+    else if(ch == "search" || ch == "Search" || ch == "SEARCH"){
         cout << "Destroy" << endl;
     }
 }
