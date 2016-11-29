@@ -34,6 +34,8 @@ void ListWorker::addNewPerson()
         cout << "Invalid gender! Try again." << endl;
         addNewPerson();
     }
+    Person p(name, gender, yearOfBirth, yearOfDeath);
+    getPersons.push_back(p);
     data.writeToFile(name, gender, yearOfBirth, yearOfDeath);
 }
 
@@ -45,7 +47,14 @@ void ListWorker::viewAll()
         cout << "\t" << "Name: " << getPersons[i].getName() << endl;
         cout << "\t" << "Gender: " << getPersons[i].getGender() << endl;
         cout << "\t" << "Year of birth: " << getPersons[i].getBirth() << endl;
-        cout << "\t" << "Year of death: " << getPersons[i].getDeath() << endl;
+        if(getPersons[i].getDeath() == 0)
+        {
+            cout << "\t" << "Year of death: Still kickin'"  << endl;
+        }
+        else
+        {
+            cout << "\t" << "Year of death: " << getPersons[i].getDeath() << endl;
+        }
     }
     cout << "#########################################" << endl;
     cout << endl;
