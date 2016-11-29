@@ -13,6 +13,8 @@ public:
     void addNewPerson();
     void viewAll();
     void search();
+    void sortNames();
+    void sortBirth();
 
 private:
     DataLayer data;

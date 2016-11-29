@@ -3,6 +3,7 @@
 #include <fstream>
 #include <iostream>
 #include <vector>
+#include <algorithm>
 
 using namespace std;
 
@@ -66,4 +67,19 @@ void DataLayer::readFromFile(vector<Person>& getPersons)
         cout << getPersons[i]._name << endl;
     }
 }
-
+bool sortByName(const Person &lhs, const Person &rhs)
+{
+    return lhs.getName() < rhs.getName();
+}
+bool sortByAge(const Person &lhs, const Person &rhs)
+{
+    return lhs.getBirth() < rhs.getBirth();
+}
+void DataLayer::sortNames(vector<Person>& getPersons)
+{
+    std::sort(getPersons.begin(),getPersons.end(), sortByName);
+}
+void DataLayer::sortBirth(vector<Person>& getPersons)
+{
+    std::sort(getPersons.begin(),getPersons.end(), sortByAge);
+}

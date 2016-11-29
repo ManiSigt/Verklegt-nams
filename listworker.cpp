@@ -83,4 +83,11 @@ void ListWorker::search()
         cout << "Error reading input" << endl;
     }
 }
-
+void ListWorker::sortNames()
+{
+    data.sortNames(getPersons);
+}
+void ListWorker::sortBirth()
+{
+    data.sortBirth(getPersons);
+}

@@ -22,6 +22,7 @@ void classUI::run()
         cout << "add - Add to the list" << endl;
         cout << "view - View the entire list" << endl;
         cout << "search - Search the list" << endl;
+        cout << "sort - Sort the list by name/yearofbirth" << endl;
         cout << "exit - Exit" << endl;
         cin >> choice;
         if (choice != "exit"){
@@ -39,8 +40,25 @@ void classUI::select(string ch)
     if(ch == "add" || ch == "ADD" || ch == "Add" ){
         list.addNewPerson();
     }
-    else if(ch == "view" || ch == "Veiw" || ch == "VEIW"){
+    else if(ch == "view" || ch == "Veiw" || ch == "VEIW")
+    {
     view();
+    }
+    else if(ch == "sort")
+    {
+        string sortcho;
+        cout << "Enter 'name' or 'year'" << endl;
+        cin >> sortcho;
+
+        if(sortcho == "name")
+        {
+            list.sortNames();
+        }
+        else if(sortcho == "year")
+        {
+            list.sortBirth();
+        }
+
     }
     else if(ch == "search" || ch == "Search" || ch == "SEARCH"){
         searching();
