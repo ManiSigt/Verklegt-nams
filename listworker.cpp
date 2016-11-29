@@ -39,8 +39,18 @@ void ListWorker::addNewPerson()
 
 void ListWorker::viewAll()
 {
-
+    for(unsigned int i = 0; i < getPersons.size(); i++)
+    {
+        cout << "#########################################" << endl;
+        cout << "\t" << "Name: " << getPersons[i].getName() << endl;
+        cout << "\t" << "Gender: " << getPersons[i].getGender() << endl;
+        cout << "\t" << "Year of birth: " << getPersons[i].getBirth() << endl;
+        cout << "\t" << "Year of death: " << getPersons[i].getDeath() << endl;
+    }
+    cout << "#########################################" << endl;
+    cout << endl;
 }
+
 void ListWorker::search()
 {
     string searchChoice;

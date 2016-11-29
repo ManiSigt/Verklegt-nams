@@ -61,9 +61,8 @@ void DataLayer::readFromFile(vector<Person>& getPersons)
         myfile.close();
       }
       else cout << "Unable to open file";
-    for(unsigned int i = 0; i < getPersons.size(); i++)
-    {
-        cout << getPersons[i]._name << endl;
-    }
+
 }
+
+
 
