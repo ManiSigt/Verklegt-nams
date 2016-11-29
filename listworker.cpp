@@ -39,7 +39,7 @@ void ListWorker::addNewPerson()
 
 void ListWorker::viewAll()
 {
-    getPersons = data.readFromFile();
+
 }
 void ListWorker::search()
 {

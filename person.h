@@ -28,10 +28,7 @@ public:
         return _yearOfDeath;
     }
 
-    string getName() const;
-    char getGender() const;
-    int yearOfBirth() const;
-    int yearOfDeath() const;
+
 
 private:
     string _name;
