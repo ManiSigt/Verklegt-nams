@@ -41,3 +41,5 @@ void ListWorker::viewAll()
 {
     data.readFromFile();
 }
+
+

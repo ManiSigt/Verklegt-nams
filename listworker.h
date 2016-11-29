@@ -12,6 +12,7 @@ public:
     ListWorker();
     void addNewPerson();
     void viewAll();
+
 private:
     DataLayer data;
 };
