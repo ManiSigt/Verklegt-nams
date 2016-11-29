@@ -7,7 +7,7 @@ using namespace std;
 
 ListWorker::ListWorker()
 {
-
+    data.readFromFile(getPersons);
 }
 
 void ListWorker::addNewPerson()
@@ -39,7 +39,7 @@ void ListWorker::addNewPerson()
 
 void ListWorker::viewAll()
 {
-    getPersons = data.readFromFile();
+
 }
 void ListWorker::search()
 {
