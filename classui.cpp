@@ -18,7 +18,7 @@ void classUI::run()
     do
     {
         cout << "List of things: " << endl;
-        cout << "###########################" << endl;
+        cout << "#########################################" << endl;
         cout << "add - Add to the list" << endl;
         cout << "remove - Remove from the list" << endl;
         cout << "view - View the entire list" << endl;
@@ -48,7 +48,7 @@ void classUI::select(string ch)
     else if(ch == "sort")
     {
         string sortcho;
-        cout << "Enter 'name' or 'year'" << endl;
+        cout << "Enter 'name' or 'year' and then re-enter the 'view' command." << endl;
         cin >> sortcho;
 
         if(sortcho == "name")

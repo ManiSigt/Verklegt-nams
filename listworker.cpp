@@ -34,6 +34,8 @@ void ListWorker::addNewPerson()
         cout << "Invalid gender! Try again." << endl;
         addNewPerson();
     }
+    Person p(name, gender, yearOfBirth, yearOfDeath);
+    getPersons.push_back(p);
     data.writeToFile(name, gender, yearOfBirth, yearOfDeath);
 }
 
@@ -45,7 +47,14 @@ void ListWorker::viewAll()
         cout << "\t" << "Name: " << getPersons[i].getName() << endl;
         cout << "\t" << "Gender: " << getPersons[i].getGender() << endl;
         cout << "\t" << "Year of birth: " << getPersons[i].getBirth() << endl;
-        cout << "\t" << "Year of death: " << getPersons[i].getDeath() << endl;
+        if(getPersons[i].getDeath() == 0)
+        {
+            cout << "\t" << "Year of death: Still kickin'"  << endl;
+        }
+        else
+        {
+            cout << "\t" << "Year of death: " << getPersons[i].getDeath() << endl;
+        }
     }
     cout << "#########################################" << endl;
     cout << endl;
@@ -83,10 +92,10 @@ void ListWorker::search()
             cout << "Enter a Year you want to search for: ";
             cin >> yearsearch;
             //if ( std::find(getPersons.begin(), getPersons.end(), yearsearch) != getPersons.end() )
-//               cout << "We found the name you were looking for" << endl;
+              // cout << "We found the name you were looking for" << endl;
               // TODO: Setja inn þannig að allt prentist út tengt þessu fæðingarári.
-           // else
-              // cout << "Sorry that year is not in our database, but you can add a new instance in the 'Add' section in the main menu" << endl;
+            //else
+              //cout << "Sorry that year is not in our database, but you can add a new instance in the 'Add' section in the main menu" << endl;
     }
     else
     {
