@@ -26,7 +26,7 @@ void ListWorker::addNewPerson()
     {
        cout << "Input year of birth: ";
        cin >> yearOfBirth;
-       cout << "Input year of birth: ";
+       cout << "Input year of death: ";
        cin >> yearOfDeath;
     }
     else

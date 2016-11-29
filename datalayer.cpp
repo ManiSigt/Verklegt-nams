@@ -31,18 +31,19 @@ void DataLayer::readFromFile()
       {
         while ( getline (myfile,line) )
         {
+
           cout << line << '\n';
 
           if(persons[p]._name == "1" && persons[p]._gender == '1' && persons[p]._yearOfBirth == 1 && persons[p]._yearOfDeath == 1)
           {
-             persons.push_back(person());
+              persons.push_back(person());
               persons[p]._name = line;
           }
-          else if(persons[p]._name != "1" && persons[p]._gender == '1')
+          else if(persons[p]._name != "1" && persons[p]._gender == '1' && persons[p].yearOfBirth == 1 && persons[p].yearOfDeath == 1)
           {
               persons[p]._gender = line[0];
           }
-          else if(persons[p]._name != "1" && persons[p]._gender != '1' && persons[p]._yearOfBirth == 1)
+          else if(persons[p]._name != "1" && persons[p]._gender != '1' && persons[p]._yearOfBirth == 1 && persons[p].yearOfDeath == 1)
           {
               persons[p]._yearOfBirth = stoi(line);
           }
@@ -52,6 +53,7 @@ void DataLayer::readFromFile()
               p++;
           }
         }
+        persons.pop_back();
         myfile.close();
       }
       else cout << "Unable to open file";
