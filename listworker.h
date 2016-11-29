@@ -13,6 +13,7 @@ public:
     void addNewPerson();
     void viewAll();
     void search();
+    void removePerson();
 
 private:
     DataLayer data;

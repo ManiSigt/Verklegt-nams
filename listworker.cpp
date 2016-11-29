@@ -84,3 +84,20 @@ void ListWorker::search()
     }
 }
 
+void ListWorker::removePerson()
+{
+    string name;
+    cout << "Enter a name that you want to remove: ";
+/*    getline(cin, name);
+
+    for(size_t i = 0; i < getPersons.size(); ++i)
+    {
+        if(getPersons[i] == name)
+        {
+            getPersons.erase(getPersons.begin() + i);
+            cout << "Person removed!" << endl;
+        }
+    }
+*/
+    //data.removeFromFile();
+}
