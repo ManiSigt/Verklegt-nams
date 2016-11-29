@@ -12,6 +12,8 @@ public:
     ListWorker();
     void addNewPerson();
     void viewAll();
+    void search();
+
 private:
     DataLayer data;
     vector<Person> getPersons;

@@ -3,6 +3,8 @@
 #include <iostream>
 #include <string>
 #include "listworker.h"
+#include <algorithm>
+
 
 using namespace std;
 
@@ -16,6 +18,7 @@ public:
     void searching();
 private:
     ListWorker list;
+
 };
 
 #endif // CLASSUI_H

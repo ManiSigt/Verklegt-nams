@@ -22,7 +22,7 @@ void DataLayer::writeToFile(string name, char gender, int yearOfBirth, int yearO
      myfile.close();
 }
 
-vector<Person> DataLayer::readFromFile()
+void DataLayer::readFromFile(vector<Person>& getPersons)
 {
     string line;
     string name = "1";       //notað til að tékka hvort búið sé að lesa inn nafnið.
@@ -51,7 +51,7 @@ vector<Person> DataLayer::readFromFile()
 
               yearOfDeath = stoi(line);
               Person p(name, gender, yearOfBirth, yearOfDeath);
-              persons.push_back(p);
+              getPersons.push_back(p);
               name = "1";
               gender = '1';
               yearOfBirth = 1;
@@ -61,11 +61,9 @@ vector<Person> DataLayer::readFromFile()
         myfile.close();
       }
       else cout << "Unable to open file";
-    for(unsigned int i = 0; i < persons.size(); i++)
+    for(unsigned int i = 0; i < getPersons.size(); i++)
     {
-        cout << persons[i]._name << endl;
+        cout << getPersons[i]._name << endl;
     }
-    return persons;
 }
-
 
