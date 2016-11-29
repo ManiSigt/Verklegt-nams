@@ -105,8 +105,8 @@ void ListWorker::sortBirth()
 
 void ListWorker::removePerson()
 {
-    /*string name;
-    cout << "Enter a name that you want to remove: ";
+    string name;
+    cout << "Enter a name of a person that you want to remove: ";
     getline(cin, name);
 
     for(size_t i = 0; i < getPersons.size(); ++i)
@@ -117,7 +117,10 @@ void ListWorker::removePerson()
             cout << "Person removed!" << endl;
         }
     }
-*/
-    //data.removeFromFile();
+  //  data.removeFromFile();
 
+}
+bool equals (const Person &lhs, const string name)
+{
+    return lhs.getName() == searchChoise;
 }

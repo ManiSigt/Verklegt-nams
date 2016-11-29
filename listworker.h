@@ -19,6 +19,7 @@ public:
 
     void removePerson();
 
+    friend bool equals (const Person &lhs, const string searchChoice);
 
 private:
     DataLayer data;
