@@ -7,8 +7,13 @@ using namespace std;
 class Person
 {
 public:
+    Person();
     Person(string name, char gender, int birth, int death);
     friend class DataLayer;
+    string getName() const;
+    char getGender() const;
+    int yearOfBirth() const;
+    int yearOfDeath() const;
 private:
     string _name;
     char _gender;
