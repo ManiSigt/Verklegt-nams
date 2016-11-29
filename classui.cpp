@@ -48,7 +48,7 @@ void classUI::select(string ch)
     else if(ch == "sort")
     {
         string sortcho;
-        cout << "Enter 'name' or 'year'" << endl;
+        cout << "Enter 'name' or 'year' and then re-enter the 'view' command." << endl;
         cin >> sortcho;
 
         if(sortcho == "name")
