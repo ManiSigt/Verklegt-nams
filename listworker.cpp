@@ -92,10 +92,10 @@ void ListWorker::search()
             cout << "Enter a Year you want to search for: ";
             cin >> yearsearch;
             //if ( std::find(getPersons.begin(), getPersons.end(), yearsearch) != getPersons.end() )
-//               cout << "We found the name you were looking for" << endl;
+              // cout << "We found the name you were looking for" << endl;
               // TODO: Setja inn þannig að allt prentist út tengt þessu fæðingarári.
-           // else
-              // cout << "Sorry that year is not in our database, but you can add a new instance in the 'Add' section in the main menu" << endl;
+            //else
+              //cout << "Sorry that year is not in our database, but you can add a new instance in the 'Add' section in the main menu" << endl;
     }
     else
     {

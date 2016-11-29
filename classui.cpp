@@ -18,7 +18,7 @@ void classUI::run()
     do
     {
         cout << "List of things: " << endl;
-        cout << "###########################" << endl;
+        cout << "#########################################" << endl;
         cout << "add - Add to the list" << endl;
         cout << "remove - Remove from the list" << endl;
         cout << "view - View the entire list" << endl;
