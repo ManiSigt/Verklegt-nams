@@ -9,6 +9,22 @@ class Person
 public:
     Person(string name, char gender, int birth, int death);
     friend class DataLayer;
+    string getName() const
+    {
+        return _name;
+    }
+    int getGender() const
+    {
+        return _gender;
+    }
+    int getBirth() const
+    {
+        return _yearOfBirth;
+    }
+    int getDeath() const
+    {
+        return _yearOfDeath;
+    }
 private:
     string _name;
     char _gender;
