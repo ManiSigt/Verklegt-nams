@@ -1,8 +1,8 @@
 #ifndef LISTWORKER_H
 #define LISTWORKER_H
 #include "datalayer.h"
+#include "person.h"
 #include <iostream>
-
 
 using namespace std;
 
@@ -14,6 +14,7 @@ public:
     void viewAll();
 private:
     DataLayer data;
+    vector<Person> getPersons;
 };
 
 #endif // LISTWORKER_H

@@ -12,12 +12,14 @@ TEMPLATE = app
 SOURCES += main.cpp \
     classui.cpp \
     listworker.cpp \
-    datalayer.cpp
+    datalayer.cpp \
+    person.cpp
 
 HEADERS += \
     classui.h \
     listworker.h \
-    datalayer.h
+    datalayer.h \
+    person.h
 
 DISTFILES += \
     example.txt

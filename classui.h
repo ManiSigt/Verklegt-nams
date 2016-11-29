@@ -13,6 +13,7 @@ public:
     void run();
     void select(string ch);
     void view();
+    void searching();
 private:
     ListWorker list;
 };
