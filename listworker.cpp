@@ -61,3 +61,42 @@ void ListWorker::saveFile()
         data.writeToFile(saveName, saveGender, saveYearOfBirth, saveYearOfDeath, saveComment);
     }
 }
+bool ListWorker::nameSearcher(string name)
+{
+    for(unsigned int i = 0; i < getPersons.size(); i++)
+    {
+        if(name == getName(i))
+        {
+             return true;
+             break;
+        }
+    }
+
+    return false;
+}
+bool ListWorker::genderSearcher(char gender)
+{
+    for(unsigned int i = 0; i < getPersons.size(); i++)
+    {
+        if(gender == getGender(i))
+        {
+             return true;
+             break;
+        }
+    }
+
+    return false;
+}
+bool ListWorker::yearSearcher(int year)
+{
+    for(unsigned int i = 0; i < getPersons.size(); i++)
+    {
+        if(year == getBirth(i))
+        {
+             return true;
+             break;
+        }
+    }
+
+    return false;
+}

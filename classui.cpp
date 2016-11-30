@@ -205,10 +205,10 @@ void ClassUI::search()
                     namesearch =  list.getName(i);
                     view(i);
                 }
-                else if(i+1 == list.getPersonsSize())
-                {
-                    cout << "Sorry that name is not in our database, but you can add a new instance in the 'Add' section in the main menu" << endl;
-                }
+            }
+            if(list.nameSearcher(namesearch) == false)
+            {
+                cout << "Sorry that name is not in our database, but you can add a new instance in the 'Add' section in the main menu" << endl;
             }
         }
         else if (searchChoice == "Gender" || searchChoice == "GENDER" || searchChoice == "gender")
@@ -235,10 +235,10 @@ void ClassUI::search()
                     gendersearch = list.getGender(i);
                     view(i);
                 }
-                else if(i+1 == list.getPersonsSize())
-                {
-                    cout << "Sorry that gender is not in our database, but you can add a new instance in the 'Add' section in the main menu" << endl;
-                }
+            }
+            if(list.genderSearcher(gendersearch) == false)
+            {
+                cout << "Sorry that gender is not in our database, but you can add a new instance in the 'Add' section in the main menu" << endl;
             }
         }
         else if (searchChoice == "year" || searchChoice == "YEAR" || searchChoice == "Year")
@@ -255,10 +255,10 @@ void ClassUI::search()
                         yearsearch = list.getBirth(i);
                         view(i);
                     }
-                    else if(i+1 == list.getPersonsSize())
-                    {
-                        cout << "Sorry that year is not in our database, but you can add a new instance in the 'Add' section in the main menu" << endl;
-                    }
+                }
+                if(list.yearSearcher(yearsearch) == false)
+                {
+                    cout << "Sorry that year is not in our database, but you can add a new instance in the 'Add' section in the main menu" << endl;
                 }
         }
         else
