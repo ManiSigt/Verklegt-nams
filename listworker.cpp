@@ -39,6 +39,12 @@ bool ListWorker::removePerson(string name)
     }
     return false;
 }
+int ListWorker::getNameSize(int n) const
+{
+    string name = getPersons[n]._getName();
+    int size = name.size();
+    return size;
+}
 void ListWorker::saveFile()
 {
     string saveName, saveComment;

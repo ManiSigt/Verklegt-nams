@@ -38,12 +38,8 @@ public:
     {
         return getPersons[n]._getComment();
     }
-    int getNameSize(int n) const
-    {
-        string name = getPersons[n]._getName();
-        int size = name.size();
-        return size;
-    }
+    int getNameSize(int n) const;
+
     int getPersonsSize() const
     {
         return getPersons.size();

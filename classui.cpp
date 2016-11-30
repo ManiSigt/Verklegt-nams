@@ -31,7 +31,7 @@ void ClassUI::run()
         cout << "view" << "\t" << "View the entire database" << endl;
         cout << "save" << "\t" << "Save the database" << endl;
         cout << "search" << "\t" << "Search the database" << endl;
-        cout << "sort" << "\t" << "Sort the database by name/yearofbirth" << endl;
+        cout << "sort" << "\t" << "Sort the database" << endl;
         cout << "exit" << "\t" << "Exit" << endl;
 
         cout << "Enter your command: ";
