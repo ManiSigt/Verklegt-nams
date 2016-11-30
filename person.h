@@ -11,21 +11,25 @@ public:
     Person(string name, char gender, int birth, int death);
     friend class DataLayer;
 
-    string getName() const
+    string _getName() const
     {
         return _name;
     }
-    char getGender() const
+    char _getGender() const
     {
         return _gender;
     }
-    int getBirth() const
+    int _getBirth() const
     {
         return _yearOfBirth;
     }
-    int getDeath() const
+    int _getDeath() const
     {
         return _yearOfDeath;
+    }
+    int _getNameSize()
+    {
+        return _name.size();
     }
 
 
