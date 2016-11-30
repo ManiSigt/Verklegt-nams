@@ -21,6 +21,7 @@ public:
     void remove();
     void addPerson();
     void save();
+    void yo();
 
 
 private:

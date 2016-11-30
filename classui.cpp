@@ -73,6 +73,10 @@ void classUI::select(string ch)
     else if(ch == "save" || ch == "Save" || ch == "SAVE"){
         save();
     }
+    else if(ch == "yo" || ch == "Yo" || ch == "yO" || ch == "YO")
+    {
+        yo();
+    }
     else
     {
         cout << "Invalid input" << endl;
@@ -268,4 +272,19 @@ void classUI::viewAll()
     {
         view(i);
     }
+}
+void classUI::yo()
+{
+    cout << endl;
+    cout << "`8.`8888.      ,8'     ,o888888o.     " << endl;
+    cout << " `8.`8888.    ,8'   . 8888     `88.   " << endl;
+    cout << "  `8.`8888.  ,8'   ,8 8888       `8b  " << endl;
+    cout << "   `8.`8888.,8'    88 8888        `8b " << endl;
+    cout << "    `8.`88888'     88 8888         88 " << endl;
+    cout << "     `8. 8888      88 8888         88 " << endl;
+    cout << "      `8 8888      88 8888        ,8P " << endl;
+    cout << "       8 8888      `8 8888       ,8P  " << endl;
+    cout << "       8 8888       ` 8888     ,88'   " << endl;
+    cout << "       8 8888          `8888888P'     " << endl;
+    cout << endl;
 }
