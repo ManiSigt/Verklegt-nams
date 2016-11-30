@@ -14,7 +14,8 @@ public:
     classUI();
     void run();
     void select(string ch);
-    void view();
+    void view(int i);
+    void viewAll();
     void search();
     void searching();
     void remove();
