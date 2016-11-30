@@ -12,7 +12,7 @@ public:
     ListWorker();
     void addNewPerson();
     void viewAll();
-    void search();
+
 
     void sortNames();
     void sortBirth();

@@ -15,6 +15,7 @@ public:
     void run();
     void select(string ch);
     void view();
+    void search();
     void searching();
 
 
