@@ -40,9 +40,11 @@ void classUI::run()
 void classUI::select(string ch)
 {
     if(ch == "add" || ch == "ADD" || ch == "Add" ){
-        list.addNewPerson();
+        addPerson();
     }
+
     else if(ch == "view" || ch == "View" || ch == "VIEW")
+
     {
     view();
     }
@@ -129,6 +131,34 @@ void classUI::searching()
     cout << "Gender -- Searches for a Gender" << endl;
     cout << "Year -- Searches for a year born" << endl;
     search();
+
+    search();
+}
+void classUI::addPerson()
+{
+    string name;
+    char gender;
+    int yearOfBirth = 0;
+    int yearOfDeath = 0;
+
+    cout << "Input Name: ";
+    cin.ignore();
+    std::getline(std::cin,name);
+    cout << "Input gender (M/F): ";
+    cin >> gender;
+    if (gender == 'm' || gender == 'M' || gender == 'f' || gender == 'F')
+    {
+       cout << "Input year of birth: ";
+       cin >> yearOfBirth;
+       cout << "Input year of death: ";
+       cin >> yearOfDeath;
+    }
+    else
+    {
+        cout << "Invalid gender! Try again." << endl;
+        addPerson();
+    }
+    list.addNewPerson(name, gender, yearOfBirth, yearOfDeath);
 
 }
 

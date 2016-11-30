@@ -10,30 +10,9 @@ ListWorker::ListWorker()
     data.readFromFile(getPersons);
 }
 
-void ListWorker::addNewPerson()
+void ListWorker::addNewPerson(string name, char gender, int yearOfBirth, int yearOfDeath)
 {
-    string name;
-    char gender;
-    int yearOfBirth = 0;
-    int yearOfDeath = 0;
 
-    cout << "Input Name: ";
-    cin.ignore();
-    std::getline(std::cin,name);
-    cout << "Input gender (M/F): ";
-    cin >> gender;
-    if (gender == 'm' || gender == 'M' || gender == 'f' || gender == 'F')
-    {
-       cout << "Input year of birth: ";
-       cin >> yearOfBirth;
-       cout << "Input year of death: ";
-       cin >> yearOfDeath;
-    }
-    else
-    {
-        cout << "Invalid gender! Try again." << endl;
-        addNewPerson();
-    }
     Person p(name, gender, yearOfBirth, yearOfDeath);
     getPersons.push_back(p);
     data.writeToFile(name, gender, yearOfBirth, yearOfDeath);
@@ -88,9 +67,5 @@ void ListWorker::removePerson()
     }
   //  data.removeFromFile();
 
-}
-bool equals (const Person &lhs, const string name)
-{
-    return lhs.getName() == searchChoise;
 }
 */
