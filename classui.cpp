@@ -34,6 +34,7 @@ void ClassUI::run()
         cout << "sort" << "\t" << "Sort the database by name/yearofbirth" << endl;
         cout << "exit" << "\t" << "Exit" << endl;
 
+        cout << "Enter your command: ";
         cin >> choice;
         if (choice != "exit"){
            select(choice);
