@@ -61,8 +61,9 @@ void DataLayer::readFromFile(vector<Person>& getPersons)
               gender = '1';
               yearOfBirth = 1;
               yearOfDeath = 1;
-              string comment = "1";
+              comment = "1";
           }
+
         }
     myfile.close();
     }
