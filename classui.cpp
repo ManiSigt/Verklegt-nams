@@ -310,9 +310,9 @@ void ClassUI::yo()
 
 string ClassUI::getQuotes()
 {
-    string quotes[3] = {"A good programmer is someone who always looks both ways before crossing a one-way street. (Doug Linder)",
-                        "Programming is like sex. One mistake and you have to support it for the rest of your life. (Michael Sinz)",
-                        "Walking on water and developing software from a specification are easy if both are frozen. (Edward V Berard)"
+    string quotes[3] = {"\"A good programmer is someone who always looks both ways before crossing a one-way street.\" (Doug Linder)",
+                        "\"Programming is like sex. One mistake and you have to support it for the rest of your life.\" (Michael Sinz)",
+                        "\"Walking on water and developing software from a specification are easy if both are frozen.\" (Edward V Berard)"
                        };
     int v1 = 0;
     srand (time(NULL));
