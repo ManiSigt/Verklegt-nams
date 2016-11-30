@@ -12,7 +12,7 @@ class ListWorker
 public:
     ListWorker();
     void addNewPerson(string name, char gender, int yearOfBirth, int yearOFDeath, string comment);
-    void viewAll();
+
 
     void sortNames();
     void sortBirth();
