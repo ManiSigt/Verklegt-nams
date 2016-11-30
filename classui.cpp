@@ -119,7 +119,7 @@ void ClassUI::view(int i)
     cout  << "|" << list.getBirth(i);
     if(list.getDeath(i) == 0)
     {
-        cout << "\t" << "|Still kickin'"  << endl;
+        cout << "\t" << "| n/a"  << endl;
     }
     else
     {
