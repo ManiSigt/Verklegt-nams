@@ -42,7 +42,7 @@ void classUI::select(string ch)
     if(ch == "add" || ch == "ADD" || ch == "Add" ){
         list.addNewPerson();
     }
-    else if(ch == "view" || ch == "Veiw" || ch == "VEIW")
+    else if(ch == "view" || ch == "View" || ch == "VIEW")
     {
     view();
     }
@@ -73,20 +73,50 @@ void classUI::view()
 {
     for(unsigned int i = 0; i < list.getPersons.size(); i++)
     {
-        cout << "#########################################" << endl;
-        cout << "\t" << "Name: " << list.getPersons[i].getName() << endl;
-        cout << "\t" << "Gender: " << list.getPersons[i].getGender() << endl;
-        cout << "\t" << "Year of birth: " << list.getPersons[i].getBirth() << endl;
-        if(list.getPersons[i].getDeath() == 0)
+        int nameSize  = list.getPersons[i].getNameSize();
+        cout << nameSize << endl;
+        cout << endl;
+        cout << "Name" << "\t" << "\t" << "\t" << "\t" << "Gender" << "\t" << "Born" << "\t" << "Death" << "\t" << endl;
+        cout << "-----------------------------------------------------------" << endl;
+        cout << list.getPersons[i].getName();
+        if(nameSize > 0 && nameSize <= 7)
         {
-            cout << "\t" << "Year of death: 'Still kickin'"  << endl;
+            cout << "\t" << "\t" << "\t" << "\t";
+        }
+        else if(nameSize > 7 && nameSize <= 15)
+        {
+            cout << "\t" << "\t" << "\t";
+        }
+        else if(nameSize > 15 && nameSize <= 23)
+        {
+            cout << "\t" << "\t";
+        }
+        else if(nameSize > 23 && nameSize <= 31)
+        {
+            cout << "\t";
+        }
+
+        if(list.getPersons[i].getGender() == 'M')
+        {
+            cout << "Male" << "\t";
         }
         else
         {
-            cout << "\t" << "Year of death: " << list.getPersons[i].getDeath() << endl;
+            cout << "Female" << "\t";
         }
+        cout << list.getPersons[i].getBirth();
+        if(list.getPersons[i].getDeath() == 0)
+        {
+            cout << "\t" << "Still kickin'"  << endl;
+        }
+        else
+        {
+            cout << "\t" << list.getPersons[i].getDeath() << endl;
+        }
+        cout << endl;
+
     }
-    cout << "#########################################" << endl;
+    cout << "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -" << endl;
     cout << endl;
 }
 

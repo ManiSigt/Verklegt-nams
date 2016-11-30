@@ -27,6 +27,10 @@ public:
     {
         return _yearOfDeath;
     }
+    int getNameSize()
+    {
+        return _name.size();
+    }
 
 
 
