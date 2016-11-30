@@ -67,11 +67,11 @@ void DataLayer::readFromFile(vector<Person>& getPersons)
 
 bool sortByName(const Person &lhs, const Person &rhs)
 {
-    return lhs.getName() < rhs.getName();
+    return lhs._getName() < rhs._getName();
 }
 bool sortByAge(const Person &lhs, const Person &rhs)
 {
-    return lhs.getBirth() < rhs.getBirth();
+    return lhs._getBirth() < rhs._getBirth();
 }
 void DataLayer::sortNames(vector<Person>& getPersons)
 {

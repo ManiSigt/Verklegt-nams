@@ -19,7 +19,7 @@ void classUI::run()
     do
     {
         cout << "List of things: " << endl;
-        cout << "#########################################" << endl;
+        cout << "-----------------------------------------------------------" << endl;
         cout << "add - Add to the list" << endl;
         cout << "remove - Remove from the list" << endl;
         cout << "view - View the entire list" << endl;
@@ -71,14 +71,13 @@ void classUI::select(string ch)
 }
 void classUI::view()
 {
-    for(unsigned int i = 0; i < list.getPersons.size(); i++)
+    for(int i = 0; i < list.getPersonsSize(); i++)
     {
-        int nameSize  = list.getPersons[i].getNameSize();
-        cout << nameSize << endl;
+        int nameSize  = list.getNameSize(i);
         cout << endl;
         cout << "Name" << "\t" << "\t" << "\t" << "\t" << "Gender" << "\t" << "Born" << "\t" << "Death" << "\t" << endl;
         cout << "-----------------------------------------------------------" << endl;
-        cout << list.getPersons[i].getName();
+        cout << list.getName(i);
         if(nameSize > 0 && nameSize <= 7)
         {
             cout << "\t" << "\t" << "\t" << "\t";
@@ -96,7 +95,7 @@ void classUI::view()
             cout << "\t";
         }
 
-        if(list.getPersons[i].getGender() == 'M')
+        if(list.getGender(i) == 'M')
         {
             cout << "Male" << "\t";
         }
@@ -104,14 +103,14 @@ void classUI::view()
         {
             cout << "Female" << "\t";
         }
-        cout << list.getPersons[i].getBirth();
-        if(list.getPersons[i].getDeath() == 0)
+        cout << list.getBirth(i);
+        if(list.getDeath(i) == 0)
         {
             cout << "\t" << "Still kickin'"  << endl;
         }
         else
         {
-            cout << "\t" << list.getPersons[i].getDeath() << endl;
+            cout << "\t" << list.getDeath(i) << endl;
         }
         cout << endl;
 

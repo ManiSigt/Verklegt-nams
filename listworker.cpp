@@ -112,6 +112,7 @@ void ListWorker::sortBirth()
 {
     data.sortBirth(getPersons);
 }
+
 /*
 void ListWorker::removePerson()
 {
