@@ -1,0 +1,55 @@
+Charles Babbage
+M
+1791
+1871
+Mathematician
+Don Estridge
+M
+1937
+1985
+father of the IBM PC
+Philipp Matthäus Hahn
+M
+1739
+1790
+Priestermechaniker
+Steve Jobs
+M
+1955
+2011
+Co-founder og Apple inc.
+Daphne Koller
+F
+1968
+0
+Computer Scientist
+Linus Torvalds
+M
+1969
+0
+maker of Linux
+Ada Lovelace
+F
+1815
+1852
+Programmer
+Alan Turing
+M
+1912
+1954
+Cryptoanalysis of the Enigma
+Douglas Engelbart
+M
+1925
+2013
+inventor of the mouse
+Frances E. Allen
+F
+1932
+0
+Computer Scientist
+Sheila Greibach
+F
+1939
+0
+Greibach's theorem
