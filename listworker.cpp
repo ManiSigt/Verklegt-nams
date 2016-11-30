@@ -65,4 +65,18 @@ bool ListWorker::removePerson(string name)
     }
     return false;
 }
+void ListWorker::saveFile()
+{
+    string saveName;
+    char saveGender;
+    int saveYearOfBirth, saveYearOfDeath;
+    for(unsigned int i = 0; i < getPersons.size(); i++)
+    {
+        saveName = getName(i);
+        saveGender = getGender(i);
+        saveYearOfBirth = getBirth(i);
+        saveYearOfDeath = getDeath(i);
+        data.writeToFile(saveName, saveGender, saveYearOfBirth, saveYearOfDeath);
+    }
 
+}
