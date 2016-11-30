@@ -3,6 +3,7 @@
 #include "datalayer.h"
 #include "person.h"
 #include <iostream>
+#include <string>
 
 using namespace std;
 
@@ -10,9 +11,8 @@ class ListWorker
 {
 public:
     ListWorker();
-    void addNewPerson();
+    void addNewPerson(string name, char gender, int yearOfBirth, int yearOFDeath);
     void viewAll();
-    void search();
 
     void sortNames();
     void sortBirth();
