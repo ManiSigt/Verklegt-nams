@@ -52,7 +52,7 @@ void ListWorker::sortBirth()
 }
 
 
-void ListWorker::removePerson(string name)
+bool ListWorker::removePerson(string name)
 {
 
     for(size_t i = 0; i < getPersons.size(); ++i)
@@ -60,10 +60,9 @@ void ListWorker::removePerson(string name)
         if(name == getPersons[i]._getName())
         {
             getPersons.erase(getPersons.begin() + i);
-            cout << "Person removed!" << endl;
+            return true;
         }
     }
-  //  data.removeFromFile();
-
+    return false;
 }
 

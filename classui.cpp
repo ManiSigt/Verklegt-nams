@@ -173,9 +173,11 @@ void classUI::search()
                 if(namesearch == list.getName(i))
                 {
                     namesearch =  list.getName(i);
-
                     cout << "We found the name you were looking for" << endl;
-                    cout << namesearch << "\t" << endl;
+                    cout << "Name" << "\t" << "\t" << "\t" << "\t" << "Gender" << "\t" << "Born" << "\t" << "Death" << "\t" << endl;
+                    cout << "-----------------------------------------------------------" << endl;
+                    cout << namesearch << "\t" << list.getGender(i) << "\t" << list.getBirth(i) << "\t" << list.getDeath(i) << endl;
+                    cout << "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -" << endl;
                 }
             }
             /*if ( eitthvad dot)
@@ -241,7 +243,14 @@ void classUI::remove()
     string name;
     cout << "Enter a name of person that you want to remove: ";
     cin >> name;
-    list.removePerson(name);
+    if (list.removePerson(name) == true)
+    {
+        cout << "Person removed!" << endl;
+    }
+    else
+    {
+        cout << "Person not found!" << endl;
+    }
 
 
 }
