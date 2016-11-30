@@ -42,7 +42,7 @@ void classUI::select(string ch)
     if(ch == "add" || ch == "ADD" || ch == "Add" ){
         list.addNewPerson();
     }
-    else if(ch == "view" || ch == "Veiw" || ch == "VEIW")
+    else if(ch == "view" || ch == "View" || ch == "VIEW")
     {
     view();
     }
