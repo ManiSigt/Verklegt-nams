@@ -19,11 +19,12 @@ public:
 
     void removePerson();
 
-    friend bool equals (const Person &lhs, const string searchChoice);
 
+    friend bool equals (const Person &lhs, const string searchChoice);
+    vector<Person> getPersons;
 private:
     DataLayer data;
-    vector<Person> getPersons;
+
 };
 
 #endif // LISTWORKER_H

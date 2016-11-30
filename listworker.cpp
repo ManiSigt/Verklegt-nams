@@ -40,7 +40,7 @@ void ListWorker::addNewPerson()
 }
 
 void ListWorker::viewAll()
-{
+{/*
     for(unsigned int i = 0; i < getPersons.size(); i++)
     {
         cout << "#########################################" << endl;
@@ -58,6 +58,7 @@ void ListWorker::viewAll()
     }
     cout << "#########################################" << endl;
     cout << endl;
+    */
 }
 
 void ListWorker::search()
@@ -111,7 +112,7 @@ void ListWorker::sortBirth()
 {
     data.sortBirth(getPersons);
 }
-
+/*
 void ListWorker::removePerson()
 {
     string name;
@@ -133,3 +134,4 @@ bool equals (const Person &lhs, const string name)
 {
     return lhs.getName() == searchChoise;
 }
+*/

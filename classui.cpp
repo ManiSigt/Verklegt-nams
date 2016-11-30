@@ -3,6 +3,7 @@
 #include <iostream>
 #include <string>
 #include <algorithm>
+#include <vector>
 
 using namespace std;
 
@@ -65,12 +66,28 @@ void classUI::select(string ch)
         searching();
     }
     else if(ch == "remove" || ch == "Remove" || ch == "REMOVE"){
-        list.removePerson();
+        //list.removePerson();
     }
 }
 void classUI::view()
 {
-    list.viewAll();
+    for(unsigned int i = 0; i < list.getPersons.size(); i++)
+    {
+        cout << "#########################################" << endl;
+        cout << "\t" << "Name: " << list.getPersons[i].getName() << endl;
+        cout << "\t" << "Gender: " << list.getPersons[i].getGender() << endl;
+        cout << "\t" << "Year of birth: " << list.getPersons[i].getBirth() << endl;
+        if(list.getPersons[i].getDeath() == 0)
+        {
+            cout << "\t" << "Year of death: 'Still kickin'"  << endl;
+        }
+        else
+        {
+            cout << "\t" << "Year of death: " << list.getPersons[i].getDeath() << endl;
+        }
+    }
+    cout << "#########################################" << endl;
+    cout << endl;
 }
 
 void classUI::searching()
