@@ -48,21 +48,20 @@ void classUI::select(string ch)
     {
     viewAll();
     }
-    else if(ch == "sort" || ch == "Sort" || ch == "SORT")
+    else if(ch == "sort")
     {
         string sortcho;
         cout << "Enter 'name' or 'year' and then re-enter the 'view' command." << endl;
         cin >> sortcho;
 
-        if(sortcho == "name" || sortcho == "Name" || sortcho == "NAME")
+        if(sortcho == "name")
         {
             list.sortNames();
         }
-        else if(sortcho == "year" || sortcho == "Year" || sortcho == "YEAR")
+        else if(sortcho == "year")
         {
             list.sortBirth();
         }
-        viewAll();
 
     }
     else if(ch == "search" || ch == "Search" || ch == "SEARCH"){
@@ -178,47 +177,43 @@ void classUI::search()
         cin >> searchChoice;
         if (searchChoice == "Name" || searchChoice == "name" || searchChoice == "NAME")
         {
-                string namesearch;
-                cout << "Enter a name you want to search for: ";
-                cin >> namesearch;
+            string namesearch;
+            cout << "Enter a name you want to search for: ";
+            cin >> namesearch;
 
 
-                for(int i = 0; i < list.getPersonsSize();++i)
+            for(int i = 0; i < list.getPersonsSize();++i)
+            {
+                if(namesearch == list.getName(i))
                 {
-                    if(namesearch == list.getName(i))
-                    {
-                        namesearch =  list.getName(i);
-                        view(i);
-                    }
+                    namesearch =  list.getName(i);
+                    view(i);
                 }
-                /*if ( eitthvad dot)
+                else if(i+1 == list.getPersonsSize())
                 {
                     cout << "Sorry that name is not in our database, but you can add a new instance in the 'Add' section in the main menu" << endl;
-                }*/
-
+                }
+            }
         }
         else if (searchChoice == "Gender" || searchChoice == "GENDER" || searchChoice == "gender")
         {
-                char gendersearch;
+            char gendersearch;
 
-                cout << "Enter a Gender you want to search for: (m/f)";
-                cin >> gendersearch;
+            cout << "Enter a Gender you want to search for: (m/f)";
+            cin >> gendersearch;
 
-                for(int i = 0; i < list.getPersonsSize();++i)
+            for(int i = 0; i < list.getPersonsSize();++i)
+            {
+                if(gendersearch == list.getGender(i))
                 {
-                    if(gendersearch == list.getGender(i))
-                    {
-                        gendersearch = list.getGender(i);
-                        view(i);
-                        cout << "blabla" << endl;
-                    }
+                    gendersearch = list.getGender(i);
+                    view(i);
                 }
-                /*
-                if (eitthvad dot)
+                else if(i+1 == list.getPersonsSize())
                 {
                     cout << "Sorry that gender is not in our database, but you can add a new instance in the 'Add' section in the main menu" << endl;
-                }*/
-
+                }
+            }
         }
         else if (searchChoice == "year" || searchChoice == "YEAR" || searchChoice == "Year")
         {
@@ -232,23 +227,19 @@ void classUI::search()
                     if(yearsearch == list.getBirth(i))
                     {
                         yearsearch = list.getBirth(i);
-
-                         view(i);
+                        view(i);
                     }
-                }/*
-                if (eitthvad dot)
-                {
-                    cout << "Sorry that year is not in our database, but you can add a new instance in the 'Add' section in the main menu" << endl;
-                }*/
-           }
+                    else if(i+1 == list.getPersonsSize())
+                    {
+                        cout << "Sorry that year is not in our database, but you can add a new instance in the 'Add' section in the main menu" << endl;
+                    }
+                }
+        }
         else
         {
             cout << "Error reading input" << endl;
         }
-
 }
-
-
 void classUI::remove()
 {
     string name;
