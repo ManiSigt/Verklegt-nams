@@ -7,7 +7,7 @@ using namespace std;
 
 int main()
 {
-    classUI ui;
+    ClassUI ui;
 
     ui.run();
 
