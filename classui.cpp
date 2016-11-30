@@ -131,8 +131,6 @@ void classUI::searching()
     cout << "Gender -- Searches for a Gender" << endl;
     cout << "Year -- Searches for a year born" << endl;
     search();
-
-    search();
 }
 void classUI::addPerson()
 {
@@ -171,6 +169,15 @@ void classUI::search()
             string namesearch;
             cout << "Enter a name you want to search for: ";
             cin >> namesearch;
+
+            for(int i = 0; i < list.getPersons.size();++i)
+            {
+                if(namesearch == list.getPersons[i].getName())
+                {
+                    namesearch = namesearch + " " + list.getPersons[i].getName();
+                    cout << namesearch;
+                }
+            }
             //if( std::find(getPersons.begin(), getPersons.end(), namesearch) != getPersons.end() )
               //cout << "We found the name you were looking for" << endl;
               //TODO: Setja inn þannig að allt prentist út tengt þessu nafni.
