@@ -49,7 +49,6 @@ public:
         return getPersons.size();
     }
 
-    friend bool equals (const Person &lhs, const string searchChoice);
     void saveFile();
 
 private:

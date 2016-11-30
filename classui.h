@@ -8,10 +8,10 @@
 
 using namespace std;
 
-class classUI
+class ClassUI
 {
 public:
-    classUI();
+    ClassUI();
     void run();
     void select(string ch);
     void view(int i);

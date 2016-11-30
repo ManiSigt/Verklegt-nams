@@ -7,18 +7,20 @@
 
 using namespace std;
 
-classUI::classUI()
+ClassUI::ClassUI()
 {
 
 }
 
-void classUI::run()
+void ClassUI::run()
 {
     bool runOn = true;
     string choice;
     do
     {
         cout << "Welcome to the Amazing Database: " << endl;
+        cout << "-----------------------------------------------------------" << endl;
+        cout << "Quote of the day: " << "quote og the day" << endl;
         cout << "-----------------------------------------------------------" << endl;
         cout << "add" << "\t" << "Add a person to the database" << endl;
         cout << "remove" << "\t" << "Remove a person from the database" << endl;
@@ -38,7 +40,7 @@ void classUI::run()
     }while(runOn == true);
 }
 
-void classUI::select(string ch)
+void ClassUI::select(string ch)
 {
     if(ch == "add" || ch == "ADD" || ch == "Add" ){
         addPerson();
@@ -82,7 +84,7 @@ void classUI::select(string ch)
         cout << "Invalid input" << endl;
     }
 }
-void classUI::view(int i)
+void ClassUI::view(int i)
 {
     int nameSize  = list.getNameSize(i);
     cout << endl;
@@ -130,7 +132,7 @@ void classUI::view(int i)
     cout << endl;
 }
 
-void classUI::searching()
+void ClassUI::searching()
 {
 
     cout << "----------Select any of the following options----------" << endl;
@@ -140,7 +142,7 @@ void classUI::searching()
     cout << "Year -- Searches for a year born" << endl;
     search();
 }
-void classUI::addPerson()
+void ClassUI::addPerson()
 {
     string name;
     char gender;
@@ -155,6 +157,14 @@ void classUI::addPerson()
     cin >> gender;
     if (gender == 'm' || gender == 'M' || gender == 'f' || gender == 'F')
     {
+        if(gender == 'M')
+        {
+            gender = 'm';
+        }
+        else if (gender == 'F')
+        {
+            gender = 'f';
+        }
        cout << "Input year of birth: ";
        cin >> yearOfBirth;
        cout << "Input year of death: ";
@@ -171,7 +181,7 @@ void classUI::addPerson()
 
 }
 
-void classUI::search()
+void ClassUI::search()
 {
         string searchChoice;
         cin >> searchChoice;
@@ -199,8 +209,18 @@ void classUI::search()
         {
             char gendersearch;
 
+
             cout << "Enter a Gender you want to search for: (m/f)";
             cin >> gendersearch;
+            if(gendersearch == 'M')
+                {
+                     gendersearch = 'm';
+                }
+            else if (gendersearch == 'F')
+                {
+                     gendersearch = 'f';
+                }
+
 
             for(int i = 0; i < list.getPersonsSize();++i)
             {
@@ -240,7 +260,7 @@ void classUI::search()
             cout << "Error reading input" << endl;
         }
 }
-void classUI::remove()
+void ClassUI::remove()
 {
     string name;
     cout << "Enter a name of person that you want to remove: ";
@@ -254,18 +274,18 @@ void classUI::remove()
         cout << "Person not found!" << endl;
     }
 }
-void classUI::save()
+void ClassUI::save()
 {
     list.saveFile();
 }
-void classUI::viewAll()
+void ClassUI::viewAll()
 {
     for(int i = 0; i < list.getPersonsSize(); i++)
     {
         view(i);
     }
 }
-void classUI::yo()
+void ClassUI::yo()
 {
     cout << endl;
     cout << "`8.`8888.      ,8'     ,o888888o.     " << endl;
