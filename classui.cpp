@@ -166,16 +166,22 @@ void classUI::search()
     if (searchChoice == "Name" || searchChoice == "name" || searchChoice == "NAME")
     {
             string namesearch;
+            string errorName;
             cout << "Enter a name you want to search for: ";
             cin >> namesearch;
-
-            for(int i = 0; i < list.getPersons.size();++i)
+            errorName = namesearch;
+            for(int i = 0; i < list.getPersonsSize();++i)
             {
-                if(namesearch == list.getPersons[i].getName())
+                if(namesearch == list.getName(i))
                 {
-                    namesearch = namesearch + " " + list.getPersons[i].getName();
-                    cout << namesearch;
+                    namesearch = namesearch + " " + list.getName(i);
+                    cout << "We found the name you were looking for" << endl;
+                    cout << namesearch << endl;
                 }
+            }
+            if (errorName == namesearch)
+            {
+                cout << "Sorry that name is not in our database, but you can add a new instance in the 'Add' section in the main menu" << endl;
             }
             //if( std::find(getPersons.begin(), getPersons.end(), namesearch) != getPersons.end() )
               //cout << "We found the name you were looking for" << endl;
