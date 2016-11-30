@@ -70,6 +70,10 @@ void classUI::select(string ch)
     else if(ch == "remove" || ch == "Remove" || ch == "REMOVE"){
         remove();
     }
+    else
+    {
+        cout << "Invalid input" << endl;
+    }
 }
 void classUI::view()
 {
