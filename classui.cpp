@@ -20,15 +20,13 @@ void ClassUI::run()
     {
         cout << "Welcome to the Amazing Database: " << endl;
         cout << "-----------------------------------------------------------" << endl;
-        cout << "Quote of the day: " << "quote og the day" << endl;
-        cout << "-----------------------------------------------------------" << endl;
-        cout << "add" << "\t" << "Add a person to the database" << endl;
-        cout << "remove" << "\t" << "Remove a person from the database" << endl;
-        cout << "view" << "\t" << "View the entire database" << endl;
-        cout << "save" << "\t" << "Save the database" << endl;
-        cout << "search" << "\t" << "Search the database" << endl;
-        cout << "sort" << "\t" << "Sort the database by name/yearofbirth" << endl;
-        cout << "exit" << "\t" << "Exit" << endl;
+        cout << "add" << "\t" << "Add a person to the database." << endl;
+        cout << "remove" << "\t" << "Remove a person from the database." << endl;
+        cout << "view" << "\t" << "View the entire database." << endl;
+        cout << "save" << "\t" << "Save the database." << endl;
+        cout << "search" << "\t" << "Search the database." << endl;
+        cout << "sort" << "\t" << "Sort the database by name/yearofbirth." << endl;
+        cout << "exit" << "\t" << "Exit." << endl;
         cin >> choice;
         if (choice != "exit"){
            select(choice);
@@ -146,6 +144,7 @@ void ClassUI::addPerson()
 {
     string name;
     char gender;
+    char yesOrNo;
     int yearOfBirth = 0;
     int yearOfDeath = 0;
     string comment;
@@ -157,20 +156,19 @@ void ClassUI::addPerson()
     cin >> gender;
     if (gender == 'm' || gender == 'M' || gender == 'f' || gender == 'F')
     {
-        if(gender == 'M')
-        {
-            gender = 'm';
-        }
-        else if (gender == 'F')
-        {
-            gender = 'f';
-        }
        cout << "Input year of birth: ";
        cin >> yearOfBirth;
-       cout << "Input year of death: ";
-       cin >> yearOfDeath;
-       cout << "Input a comment: ";
-       cin >> comment;
+
+       cout << "Is the individual deceased? (y/n)";
+       cin >> yesOrNo;
+       if (yesOrNo == 'Y' || yesOrNo == 'y')
+       {
+            cout << "Input year of death: ";
+            cin >> yearOfDeath;
+       }
+        cout << "Input a comment about the individual: ";
+        cin >> comment;
+
     }
     else
     {
