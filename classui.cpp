@@ -20,6 +20,8 @@ void ClassUI::run()
     {
         cout << "Welcome to the Amazing Database: " << endl;
         cout << "-----------------------------------------------------------" << endl;
+        cout << "Quote of the day: " << "quote og the day" << endl;
+        cout << "-----------------------------------------------------------" << endl;
         cout << "add" << "\t" << "Add a person to the database" << endl;
         cout << "remove" << "\t" << "Remove a person from the database" << endl;
         cout << "view" << "\t" << "View the entire database" << endl;
