@@ -12,14 +12,10 @@ ListWorker::ListWorker()
 
 void ListWorker::addNewPerson(string name, char gender, int yearOfBirth, int yearOfDeath, string comment)
 {
-
     Person p(name, gender, yearOfBirth, yearOfDeath, comment);
     getPersons.push_back(p);
     data.writeToFile(name, gender, yearOfBirth, yearOfDeath, comment);
 }
-
-
-
 
 void ListWorker::sortNames()
 {
@@ -29,7 +25,6 @@ void ListWorker::sortBirth()
 {
     data.sortBirth(getPersons);
 }
-
 
 bool ListWorker::removePerson(string name)
 {
@@ -59,5 +54,4 @@ void ListWorker::saveFile()
         saveComment = getComment(i);
         data.writeToFile(saveName, saveGender, saveYearOfBirth, saveYearOfDeath, saveComment);
     }
-
 }

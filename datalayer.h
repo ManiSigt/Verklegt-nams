@@ -19,6 +19,7 @@ public:
     void sortBirth(vector<Person>& getPersons);
     friend bool sortByAge(const Person &lhs, const Person &rhs);
     void deleteFile();
+    int stringToNumber(string st);
 };
 
 #endif // DATALAYER_H

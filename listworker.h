@@ -16,7 +16,6 @@ public:
 
     void sortNames();
     void sortBirth();
-
     bool removePerson(string name);
 
     string getName(int n) const

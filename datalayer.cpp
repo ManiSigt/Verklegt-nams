@@ -46,11 +46,11 @@ void DataLayer::readFromFile(vector<Person>& getPersons)
           }
           else if(name != "1" && gender != '1' && yearOfBirth == 1 && yearOfDeath == 1 && comment == "1")
           {
-              yearOfBirth = stoi(line);
+              yearOfBirth = stringToNumber(line);
           }
           else if(name != "1" && gender != '1' && yearOfBirth != 1 && yearOfDeath == 1 && comment == "1")
           {
-              yearOfDeath = stoi(line);
+              yearOfDeath = stringToNumber(line);
           }
           else if(name != "1" && gender != '1' && yearOfBirth != 1 && yearOfDeath != 1 && comment == "1")
           {
@@ -92,6 +92,12 @@ void DataLayer::deleteFile()
     ofstream myfile;
     myfile.open("amazingDatabase.txt");
     myfile.close();
+}
+int DataLayer::stringToNumber(string st)
+{
+    string text = st;
+    int value = atoi(text.c_str());
+    return value;
 }
 
 
