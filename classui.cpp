@@ -196,15 +196,16 @@ void classUI::search()
         {
                 char gendersearch;
 
-                cout << "Enter a Gender you want to search for: ";
+                cout << "Enter a Gender you want to search for: (m/f)";
                 cin >> gendersearch;
 
                 for(int i = 0; i < list.getPersonsSize();++i)
                 {
                     if(gendersearch == list.getGender(i))
                     {
-                        gendersearch = gendersearch  + list.getGender(i);
+                        gendersearch = list.getGender(i);
                         view(i);
+                        cout << "blabla" << endl;
                     }
                 }
                 /*
@@ -225,7 +226,7 @@ void classUI::search()
                 {
                     if(yearsearch == list.getBirth(i))
                     {
-                        yearsearch = yearsearch + list.getBirth(i);
+                        yearsearch = list.getBirth(i);
 
                          view(i);
                     }
@@ -241,6 +242,7 @@ void classUI::search()
         }
 
 }
+
 
 void classUI::remove()
 {
