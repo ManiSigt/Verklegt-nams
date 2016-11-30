@@ -77,9 +77,10 @@ void classUI::view()
     {
         int nameSize  = list.getNameSize(i);
         cout << endl;
-        cout << "Name" << "\t" << "\t" << "\t" << "\t" << "Gender" << "\t" << "Born" << "\t" << "Death" << "\t" << endl;
-        cout << "-----------------------------------------------------------" << endl;
-        cout << list.getName(i);
+        cout << "|Name" << "\t" << "\t" << "\t" << "\t" << "|Gender " << "|Born " << "\t" << "|Death  |" << endl;
+        cout << "|-------------------------------|-------|-------|-------|" << endl;
+
+        cout << "|" << list.getName(i);
         if(nameSize > 0 && nameSize <= 7)
         {
             cout << "\t" << "\t" << "\t" << "\t";
@@ -99,25 +100,26 @@ void classUI::view()
 
         if(list.getGender(i) == 'M')
         {
-            cout << "Male" << "\t";
+            cout << "|Male" << "\t";
         }
         else
         {
-            cout << "Female" << "\t";
+            cout << "|Female" << "\t";
         }
-        cout << list.getBirth(i);
+        cout << "|" << list.getBirth(i);
         if(list.getDeath(i) == 0)
         {
-            cout << "\t" << "Still kickin'"  << endl;
+            cout << "\t" << "|Still kickin'"  << endl;
         }
         else
         {
-            cout << "\t" << list.getDeath(i) << endl;
+            cout << "\t" << "|" << list.getDeath(i) << "   |" << endl;
         }
+        cout << "|" << "RocketScientist" << endl;
         cout << endl;
 
     }
-    cout << "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -" << endl;
+    cout << "|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -" << endl;
     cout << endl;
 }
 
