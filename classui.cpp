@@ -46,7 +46,7 @@ void classUI::select(string ch)
     else if(ch == "view" || ch == "View" || ch == "VIEW")
 
     {
-    view();
+    viewAll();
     }
     else if(ch == "sort")
     {
@@ -75,54 +75,50 @@ void classUI::select(string ch)
         cout << "Invalid input" << endl;
     }
 }
-void classUI::view()
+void classUI::view(int i)
 {
-    for(int i = 0; i < list.getPersonsSize(); i++)
+    int nameSize  = list.getNameSize(i);
+    cout << endl;
+    cout << "|Name" << "\t" << "\t" << "\t" << "\t" << "|Gender " << "|Born " << "\t" << "|Death  |" << endl;
+    cout << "|-------------------------------|-------|-------|-------|" << endl;
+
+    cout << "|" << list.getName(i);
+    if(nameSize > 0 && nameSize <= 7)
     {
-        int nameSize  = list.getNameSize(i);
-        cout << endl;
-        cout << "|Name" << "\t" << "\t" << "\t" << "\t" << "|Gender " << "|Born " << "\t" << "|Death  |" << endl;
-        cout << "|-------------------------------|-------|-------|-------|" << endl;
-
-        cout << "|" << list.getName(i);
-        if(nameSize > 0 && nameSize <= 7)
-        {
-            cout << "\t" << "\t" << "\t" << "\t";
-        }
-        else if(nameSize > 7 && nameSize <= 15)
-        {
-            cout << "\t" << "\t" << "\t";
-        }
-        else if(nameSize > 15 && nameSize <= 23)
-        {
-            cout << "\t" << "\t";
-        }
-        else if(nameSize > 23 && nameSize <= 31)
-        {
-            cout << "\t";
-        }
-
-        if(list.getGender(i) == 'M')
-        {
-            cout << "|Male" << "\t";
-        }
-        else
-        {
-            cout << "|Female" << "\t";
-        }
-        cout << "|" << list.getBirth(i);
-        if(list.getDeath(i) == 0)
-        {
-            cout << "\t" << "|Still kickin'"  << endl;
-        }
-        else
-        {
-            cout << "\t" << "|" << list.getDeath(i) << "   |" << endl;
-        }
-        cout << "|" << "RocketScientist" << endl;
-        cout << endl;
-
+        cout << "\t" << "\t" << "\t" << "\t";
     }
+    else if(nameSize > 7 && nameSize <= 15)
+    {
+        cout << "\t" << "\t" << "\t";
+    }
+    else if(nameSize > 15 && nameSize <= 23)
+    {
+        cout << "\t" << "\t";
+    }
+    else if(nameSize > 23 && nameSize <= 31)
+    {
+        cout << "\t";
+    }
+
+    if(list.getGender(i) == 'M')
+    {
+        cout << "|Male" << "\t";
+    }
+    else
+    {
+        cout << "|Female" << "\t";
+    }
+    cout << "|" << list.getBirth(i);
+    if(list.getDeath(i) == 0)
+    {
+        cout << "\t" << "|Still kickin'"  << endl;
+    }
+    else
+    {
+        cout << "\t" << "|" << list.getDeath(i) << "   |" << endl;
+    }
+    cout << "|" << "RocketScientist" << endl;
+    cout << endl;
     cout << "|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -" << endl;
     cout << endl;
 }
@@ -182,10 +178,7 @@ void classUI::search()
                 {
                     namesearch =  list.getName(i);
                     cout << "We found the name you were looking for" << endl;
-                    cout << "Name" << "\t" << "\t" << "\t" << "\t" << "Gender" << "\t" << "Born" << "\t" << "Death" << "\t" << endl;
-                    cout << "-----------------------------------------------------------" << endl;
-                    cout << namesearch << "\t" << list.getGender(i) << "\t" << list.getBirth(i) << "\t" << list.getDeath(i) << endl;
-                    cout << "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -" << endl;
+                    view(i);
                 }
             }
             /*if ( eitthvad dot)
@@ -197,9 +190,9 @@ void classUI::search()
     else if (searchChoice == "Gender" || searchChoice == "GENDER" || searchChoice == "gender")
     {
             char gendersearch;
-            char genderError;
-            cout << "Enter a Gender you want to search for: ";
 
+            cout << "Enter a Gender you want to search for: ";
+            cin >> gendersearch;
 
             for(int i = 0; i < list.getPersonsSize();++i)
             {
@@ -208,7 +201,7 @@ void classUI::search()
                     gendersearch = gendersearch  + list.getGender(i);
 
                     cout << "We found the gender you were looking for" << endl;
-                    cout << gendersearch << "\t" << endl;
+                    view(i);
                 }
             }
             /*
@@ -232,7 +225,7 @@ void classUI::search()
                     yearsearch = yearsearch + list.getBirth(i);
 
                     cout << "We found the year you were looking for" << endl;
-                    cout << yearsearch << "\t"<< endl;
+                     view(i);
                 }
             }/*
             if (eitthvad dot)
@@ -261,4 +254,11 @@ void classUI::remove()
     }
 
 
+}
+void classUI::viewAll()
+{
+    for(int i = 0; i < list.getPersonsSize(); i++)
+    {
+        view(i);
+    }
 }
