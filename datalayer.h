@@ -18,7 +18,7 @@ public:
     friend bool sortByName(const Person &lhs, const Person &rhs);
     void sortBirth(vector<Person>& getPersons);
     friend bool sortByAge(const Person &lhs, const Person &rhs);
-
+    void deleteFile();
 };
 
 #endif // DATALAYER_H

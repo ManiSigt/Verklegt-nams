@@ -14,7 +14,7 @@ DataLayer::DataLayer()
 
 void DataLayer::writeToFile(string name, char gender, int yearOfBirth, int yearOfDeath)
 {
-     ofstream myfile("example.txt", ios::app);
+     ofstream myfile("amazingDatabase.txt", ios::app);
      myfile << name << endl;
      myfile << gender << endl;
      myfile << yearOfBirth << endl;
@@ -30,7 +30,7 @@ void DataLayer::readFromFile(vector<Person>& getPersons)
     char gender = '1';
     int yearOfBirth = 1;
     int yearOfDeath = 1;
-    ifstream myfile ("example.txt");
+    ifstream myfile ("amazingDatabase.txt");
     if (myfile.is_open())
       {
         while ( getline (myfile,line) )
@@ -81,6 +81,12 @@ void DataLayer::sortBirth(vector<Person>& getPersons)
 {
     std::sort(getPersons.begin(),getPersons.end(), sortByAge);
 }
-
+void DataLayer::deleteFile()
+{
+    remove("amazingDatabase.txt");
+    ofstream myfile;
+    myfile.open("amazingDatabase.txt");
+    myfile.close();
+}
 
 

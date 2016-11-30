@@ -77,9 +77,10 @@ void classUI::view()
     {
         int nameSize  = list.getNameSize(i);
         cout << endl;
-        cout << "Name" << "\t" << "\t" << "\t" << "\t" << "Gender" << "\t" << "Born" << "\t" << "Death" << "\t" << endl;
-        cout << "-----------------------------------------------------------" << endl;
-        cout << list.getName(i);
+        cout << "|Name" << "\t" << "\t" << "\t" << "\t" << "|Gender " << "|Born " << "\t" << "|Death  |" << endl;
+        cout << "|-------------------------------|-------|-------|-------|" << endl;
+
+        cout << "|" << list.getName(i);
         if(nameSize > 0 && nameSize <= 7)
         {
             cout << "\t" << "\t" << "\t" << "\t";
@@ -99,25 +100,26 @@ void classUI::view()
 
         if(list.getGender(i) == 'M')
         {
-            cout << "Male" << "\t";
+            cout << "|Male" << "\t";
         }
         else
         {
-            cout << "Female" << "\t";
+            cout << "|Female" << "\t";
         }
-        cout << list.getBirth(i);
+        cout << "|" << list.getBirth(i);
         if(list.getDeath(i) == 0)
         {
-            cout << "\t" << "Still kickin'"  << endl;
+            cout << "\t" << "|Still kickin'"  << endl;
         }
         else
         {
-            cout << "\t" << list.getDeath(i) << endl;
+            cout << "\t" << "|" << list.getDeath(i) << "   |" << endl;
         }
+        cout << "|" << "RocketScientist" << endl;
         cout << endl;
 
     }
-    cout << "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -" << endl;
+    cout << "|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -" << endl;
     cout << endl;
 }
 
@@ -166,53 +168,74 @@ void classUI::search()
     if (searchChoice == "Name" || searchChoice == "name" || searchChoice == "NAME")
     {
             string namesearch;
-            string errorName;
             cout << "Enter a name you want to search for: ";
             cin >> namesearch;
-            errorName = namesearch;
+
 
             for(int i = 0; i < list.getPersonsSize();++i)
             {
                 if(namesearch == list.getName(i))
                 {
-                    namesearch = namesearch + " " + list.getName(i);
-
+                    namesearch =  list.getName(i);
                     cout << "We found the name you were looking for" << endl;
-                    cout << namesearch << endl;
+                    cout << "Name" << "\t" << "\t" << "\t" << "\t" << "Gender" << "\t" << "Born" << "\t" << "Death" << "\t" << endl;
+                    cout << "-----------------------------------------------------------" << endl;
+                    cout << namesearch << "\t" << list.getGender(i) << "\t" << list.getBirth(i) << "\t" << list.getDeath(i) << endl;
+                    cout << "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -" << endl;
                 }
             }
-            if (errorName == namesearch)
+            /*if ( eitthvad dot)
             {
                 cout << "Sorry that name is not in our database, but you can add a new instance in the 'Add' section in the main menu" << endl;
-            }
-            //if( std::find(getPersons.begin(), getPersons.end(), namesearch) != getPersons.end() )
-              //cout << "We found the name you were looking for" << endl;
-              //TODO: Setja inn þannig að allt prentist út tengt þessu nafni.
-            //else
-             //cout << "Sorry that name is not in our database, but you can add a new instance in the 'Add' section in the main menu" << endl;
+            }*/
+
     }
     else if (searchChoice == "Gender" || searchChoice == "GENDER" || searchChoice == "gender")
     {
             char gendersearch;
+            char genderError;
             cout << "Enter a Gender you want to search for: ";
-            cin >> gendersearch;
-            //if ( std::find(getPersons.begin(), getPersons.end(), gendersearch) != getPersons.end() )
-               //cout << "We found the name you were looking for" << endl;
-             // TODO: Setja inn þannig að allt prentist út tengt þessu kyni.
-            //else
-               //cout << "Sorry that gender is not in our database, but you can add a new instance in the 'Add' section in the main menu" << endl;
+
+
+            for(int i = 0; i < list.getPersonsSize();++i)
+            {
+                if(gendersearch == list.getGender(i))
+                {
+                    gendersearch = gendersearch  + list.getGender(i);
+
+                    cout << "We found the gender you were looking for" << endl;
+                    cout << gendersearch << "\t" << endl;
+                }
+            }
+            /*
+            if (eitthvad dot)
+            {
+                cout << "Sorry that gender is not in our database, but you can add a new instance in the 'Add' section in the main menu" << endl;
+            }*/
+
     }
     else if (searchChoice == "year" || searchChoice == "YEAR" || searchChoice == "Year")
     {
             int yearsearch;
             cout << "Enter a Year you want to search for: ";
             cin >> yearsearch;
-            //if ( std::find(getPersons.begin(), getPersons.end(), yearsearch) != getPersons.end() )
-              // cout << "We found the name you were looking for" << endl;
-              // TODO: Setja inn þannig að allt prentist út tengt þessu fæðingarári.
-            //else
-              //cout << "Sorry that year is not in our database, but you can add a new instance in the 'Add' section in the main menu" << endl;
-    }
+
+
+            for(int i = 0; i < list.getPersonsSize();++i)
+            {
+                if(yearsearch == list.getBirth(i))
+                {
+                    yearsearch = yearsearch + list.getBirth(i);
+
+                    cout << "We found the year you were looking for" << endl;
+                    cout << yearsearch << "\t"<< endl;
+                }
+            }/*
+            if (eitthvad dot)
+            {
+                cout << "Sorry that year is not in our database, but you can add a new instance in the 'Add' section in the main menu" << endl;
+            }*/
+       }
     else
     {
         cout << "Error reading input" << endl;
