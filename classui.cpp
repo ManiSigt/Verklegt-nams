@@ -156,6 +156,14 @@ void classUI::addPerson()
     cin >> gender;
     if (gender == 'm' || gender == 'M' || gender == 'f' || gender == 'F')
     {
+        if(gender == 'M')
+        {
+            gender = 'm';
+        }
+        else if (gender == 'F')
+        {
+            gender = 'f';
+        }
        cout << "Input year of birth: ";
        cin >> yearOfBirth;
        cout << "Input year of death: ";
@@ -203,6 +211,14 @@ void classUI::search()
 
                 cout << "Enter a Gender you want to search for: (m/f)";
                 cin >> gendersearch;
+                if(gendersearch == 'M')
+                    {
+                         gendersearch = 'm';
+                    }
+                else if (gendersearch == 'F')
+                    {
+                         gendersearch = 'f';
+                    }
 
                 for(int i = 0; i < list.getPersonsSize();++i)
                 {
