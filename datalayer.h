@@ -12,7 +12,7 @@ class DataLayer
 public:
     DataLayer();
 
-    void writeToFile(string name, char gender, int yearOfBirth, int yearOfDeath);
+    void writeToFile(string name, char gender, int yearOfBirth, int yearOfDeath, string comment);
     void readFromFile(vector<Person>& getPersons);
     void sortNames(vector<Person>& getPersons);
     friend bool sortByName(const Person &lhs, const Person &rhs);

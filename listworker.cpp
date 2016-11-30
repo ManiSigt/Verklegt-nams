@@ -10,12 +10,12 @@ ListWorker::ListWorker()
     data.readFromFile(getPersons);
 }
 
-void ListWorker::addNewPerson(string name, char gender, int yearOfBirth, int yearOfDeath)
+void ListWorker::addNewPerson(string name, char gender, int yearOfBirth, int yearOfDeath, string comment)
 {
 
-    Person p(name, gender, yearOfBirth, yearOfDeath);
+    Person p(name, gender, yearOfBirth, yearOfDeath, comment);
     getPersons.push_back(p);
-    data.writeToFile(name, gender, yearOfBirth, yearOfDeath);
+    data.writeToFile(name, gender, yearOfBirth, yearOfDeath, comment);
 }
 
 void ListWorker::viewAll()
@@ -67,7 +67,7 @@ bool ListWorker::removePerson(string name)
 }
 void ListWorker::saveFile()
 {
-    string saveName;
+    string saveName, saveComment;
     char saveGender;
     int saveYearOfBirth, saveYearOfDeath;
     for(unsigned int i = 0; i < getPersons.size(); i++)
@@ -76,7 +76,8 @@ void ListWorker::saveFile()
         saveGender = getGender(i);
         saveYearOfBirth = getBirth(i);
         saveYearOfDeath = getDeath(i);
-        data.writeToFile(saveName, saveGender, saveYearOfBirth, saveYearOfDeath);
+        saveComment = getComment(i);
+        data.writeToFile(saveName, saveGender, saveYearOfBirth, saveYearOfDeath, saveComment);
     }
 
 }

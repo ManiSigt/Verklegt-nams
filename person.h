@@ -8,7 +8,7 @@ class Person
 {
 public:
     Person();
-    Person(string name, char gender, int birth, int death);
+    Person(string name, char gender, int birth, int death, string comment);
     friend class DataLayer;
 
     string _getName() const
@@ -31,7 +31,10 @@ public:
     {
         return _name.size();
     }
-
+    string _getComment() const
+    {
+        return _comment;
+    }
 
 
 private:
@@ -39,6 +42,7 @@ private:
     char _gender;
     int _yearOfBirth;
     int _yearOfDeath;
+    string _comment;
 };
 
 #endif // PERSON_H
