@@ -32,6 +32,7 @@ void classUI::run()
            select(choice);
         }
         else{
+            list.saveFile();
             runOn = false;
         }
 
