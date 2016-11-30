@@ -10,12 +10,12 @@ ListWorker::ListWorker()
     data.readFromFile(getPersons);
 }
 
-void ListWorker::addNewPerson(string name, char gender, int yearOfBirth, int yearOfDeath)
+void ListWorker::addNewPerson(string name, char gender, int yearOfBirth, int yearOfDeath, string comment)
 {
 
-    Person p(name, gender, yearOfBirth, yearOfDeath);
+    Person p(name, gender, yearOfBirth, yearOfDeath, comment);
     getPersons.push_back(p);
-    data.writeToFile(name, gender, yearOfBirth, yearOfDeath);
+    data.writeToFile(name, gender, yearOfBirth, yearOfDeath, comment);
 }
 
 void ListWorker::viewAll()

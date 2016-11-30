@@ -75,10 +75,11 @@ void classUI::view(int i)
 {
     int nameSize  = list.getNameSize(i);
     cout << endl;
-    cout << "|Name" << "\t" << "\t" << "\t" << "\t" << "|Gender " << "|Born " << "\t" << "|Death  |" << endl;
-    cout << "|-------------------------------|-------|-------|-------|" << endl;
+    cout << "--------------------------------------------------------------" << endl;
+    cout << "Name" << "\t" << "\t" << "\t" << "\t" << "|Gender " << "|Born " << "\t" << "|Death" << endl;
+    cout << "--------------------------------|-------|-------|-------------" << endl;
 
-    cout << "|" << list.getName(i);
+    cout << list.getName(i);
     if(nameSize > 0 && nameSize <= 7)
     {
         cout << "\t" << "\t" << "\t" << "\t";
@@ -96,7 +97,7 @@ void classUI::view(int i)
         cout << "\t";
     }
 
-    if(list.getGender(i) == 'M')
+    if(list.getGender(i) == 'M' || list.getGender(i) == 'm')
     {
         cout << "|Male" << "\t";
     }
@@ -104,18 +105,17 @@ void classUI::view(int i)
     {
         cout << "|Female" << "\t";
     }
-    cout << "|" << list.getBirth(i);
+    cout  << "|" << list.getBirth(i);
     if(list.getDeath(i) == 0)
     {
         cout << "\t" << "|Still kickin'"  << endl;
     }
     else
     {
-        cout << "\t" << "|" << list.getDeath(i) << "   |" << endl;
+        cout << "\t" << "|" << list.getDeath(i)  << endl;
     }
-    cout << "|" << "RocketScientist" << endl;
-    cout << endl;
-    cout << "|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -" << endl;
+    cout << list.getComment(i) << endl;
+    cout << "--------------------------------------------------------------" << endl;
     cout << endl;
 }
 
@@ -135,6 +135,7 @@ void classUI::addPerson()
     char gender;
     int yearOfBirth = 0;
     int yearOfDeath = 0;
+    string comment;
 
     cout << "Input Name: ";
     cin.ignore();
@@ -147,13 +148,15 @@ void classUI::addPerson()
        cin >> yearOfBirth;
        cout << "Input year of death: ";
        cin >> yearOfDeath;
+       cout << "Input a comment: ";
+       cin >> comment;
     }
     else
     {
         cout << "Invalid gender! Try again." << endl;
         addPerson();
     }
-    list.addNewPerson(name, gender, yearOfBirth, yearOfDeath);
+    list.addNewPerson(name, gender, yearOfBirth, yearOfDeath, comment);
 
 }
 

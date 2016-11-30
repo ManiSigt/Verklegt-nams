@@ -11,7 +11,7 @@ class ListWorker
 {
 public:
     ListWorker();
-    void addNewPerson(string name, char gender, int yearOfBirth, int yearOFDeath);
+    void addNewPerson(string name, char gender, int yearOfBirth, int yearOFDeath, string comment);
     void viewAll();
 
     void sortNames();
@@ -34,6 +34,10 @@ public:
     int getDeath(int n) const
     {
         return getPersons[n]._getDeath();
+    }
+    string getComment(int n) const
+    {
+        return getPersons[n]._getComment();
     }
     int getNameSize(int n) const
     {
