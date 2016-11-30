@@ -33,6 +33,7 @@ void ClassUI::run()
         cout << "search" << "\t" << "Search the database" << endl;
         cout << "sort" << "\t" << "Sort the database by name/yearofbirth" << endl;
         cout << "exit" << "\t" << "Exit" << endl;
+
         cin >> choice;
         if (choice != "exit"){
            select(choice);
@@ -125,7 +126,7 @@ void ClassUI::view(int i)
     cout  << "|" << list.getBirth(i);
     if(list.getDeath(i) == 0)
     {
-        cout << "\t" << "|Still kickin'"  << endl;
+        cout << "\t" << "| n/a"  << endl;
     }
     else
     {
@@ -150,6 +151,7 @@ void ClassUI::addPerson()
 {
     string name;
     char gender;
+    char yesOrNo;
     int yearOfBirth = 0;
     int yearOfDeath = 0;
     string comment;
@@ -161,20 +163,19 @@ void ClassUI::addPerson()
     cin >> gender;
     if (gender == 'm' || gender == 'M' || gender == 'f' || gender == 'F')
     {
-        if(gender == 'M')
-        {
-            gender = 'm';
-        }
-        else if (gender == 'F')
-        {
-            gender = 'f';
-        }
        cout << "Input year of birth: ";
        cin >> yearOfBirth;
-       cout << "Input year of death: ";
-       cin >> yearOfDeath;
-       cout << "Input a comment: ";
-       cin >> comment;
+
+       cout << "Is the individual deceased? (y/n)";
+       cin >> yesOrNo;
+       if (yesOrNo == 'Y' || yesOrNo == 'y')
+       {
+            cout << "Input year of death: ";
+            cin >> yearOfDeath;
+       }
+        cout << "Input a comment about the individual: ";
+        cin >> comment;
+
     }
     else
     {
