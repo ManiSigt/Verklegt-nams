@@ -7,12 +7,12 @@
 
 using namespace std;
 
-classUI::classUI()
+ClassUI::ClassUI()
 {
 
 }
 
-void classUI::run()
+void ClassUI::run()
 {
     bool runOn = true;
     string choice;
@@ -38,7 +38,7 @@ void classUI::run()
     }while(runOn == true);
 }
 
-void classUI::select(string ch)
+void ClassUI::select(string ch)
 {
     if(ch == "add" || ch == "ADD" || ch == "Add" ){
         addPerson();
@@ -82,7 +82,7 @@ void classUI::select(string ch)
         cout << "Invalid input" << endl;
     }
 }
-void classUI::view(int i)
+void ClassUI::view(int i)
 {
     int nameSize  = list.getNameSize(i);
     cout << endl;
@@ -130,7 +130,7 @@ void classUI::view(int i)
     cout << endl;
 }
 
-void classUI::searching()
+void ClassUI::searching()
 {
 
     cout << "----------Select any of the following options----------" << endl;
@@ -140,7 +140,7 @@ void classUI::searching()
     cout << "Year -- Searches for a year born" << endl;
     search();
 }
-void classUI::addPerson()
+void ClassUI::addPerson()
 {
     string name;
     char gender;
@@ -171,7 +171,7 @@ void classUI::addPerson()
 
 }
 
-void classUI::search()
+void ClassUI::search()
 {
         string searchChoice;
         cin >> searchChoice;
@@ -248,7 +248,7 @@ void classUI::search()
 }
 
 
-void classUI::remove()
+void ClassUI::remove()
 {
     string name;
     cout << "Enter a name of person that you want to remove: ";
@@ -262,18 +262,18 @@ void classUI::remove()
         cout << "Person not found!" << endl;
     }
 }
-void classUI::save()
+void ClassUI::save()
 {
     list.saveFile();
 }
-void classUI::viewAll()
+void ClassUI::viewAll()
 {
     for(int i = 0; i < list.getPersonsSize(); i++)
     {
         view(i);
     }
 }
-void classUI::yo()
+void ClassUI::yo()
 {
     cout << endl;
     cout << "`8.`8888.      ,8'     ,o888888o.     " << endl;
