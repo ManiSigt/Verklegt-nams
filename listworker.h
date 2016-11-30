@@ -13,7 +13,6 @@ public:
     ListWorker();
     void addNewPerson(string name, char gender, int yearOfBirth, int yearOFDeath, string comment);
 
-
     void sortNames();
     void sortBirth();
     bool removePerson(string name);

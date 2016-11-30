@@ -175,8 +175,8 @@ void ClassUI::addPerson()
             cin >> yearOfDeath;
        }
         cout << "Input a comment about the individual: ";
-        cin >> comment;
-
+        cin.ignore();
+        std::getline(std::cin,comment);
     }
     else
     {
