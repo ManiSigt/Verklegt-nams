@@ -17,7 +17,7 @@ public:
     void sortNames();
     void sortBirth();
 
-    void removePerson(string name);
+    bool removePerson(string name);
 
     string getName(int n) const
     {

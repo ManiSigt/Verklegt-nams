@@ -224,7 +224,14 @@ void classUI::remove()
     string name;
     cout << "Enter a name of person that you want to remove: ";
     cin >> name;
-    list.removePerson(name);
+    if (list.removePerson(name) == true)
+    {
+        cout << "Person removed!" << endl;
+    }
+    else
+    {
+        cout << "Person not found!" << endl;
+    }
 
 
 }
