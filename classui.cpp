@@ -70,14 +70,12 @@ void classUI::select(string ch)
     else if(ch == "remove" || ch == "Remove" || ch == "REMOVE"){
         remove();
     }
-<<<<<<< HEAD
     else if(ch == "save" || ch == "Save" || ch == "SAVE"){
         save();
-=======
+    }
     else
     {
         cout << "Invalid input" << endl;
->>>>>>> 130e316d28e4d2e5fceaab70c0c882d94a99317c
     }
 }
 void classUI::view(int i)

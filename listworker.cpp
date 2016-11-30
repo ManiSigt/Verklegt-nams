@@ -67,7 +67,7 @@ bool ListWorker::removePerson(string name)
 }
 void ListWorker::saveFile()
 {
-    string saveName;
+    string saveName, saveComment;
     char saveGender;
     int saveYearOfBirth, saveYearOfDeath;
     for(unsigned int i = 0; i < getPersons.size(); i++)
@@ -76,7 +76,8 @@ void ListWorker::saveFile()
         saveGender = getGender(i);
         saveYearOfBirth = getBirth(i);
         saveYearOfDeath = getDeath(i);
-        data.writeToFile(saveName, saveGender, saveYearOfBirth, saveYearOfDeath);
+        saveComment = getComment(i);
+        data.writeToFile(saveName, saveGender, saveYearOfBirth, saveYearOfDeath, saveComment);
     }
 
 }
