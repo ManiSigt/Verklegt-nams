@@ -68,7 +68,7 @@ void classUI::select(string ch)
         searching();
     }
     else if(ch == "remove" || ch == "Remove" || ch == "REMOVE"){
-        //list.removePerson();
+        remove();
     }
 }
 void classUI::view()
@@ -170,11 +170,13 @@ void classUI::search()
             cout << "Enter a name you want to search for: ";
             cin >> namesearch;
             errorName = namesearch;
+
             for(int i = 0; i < list.getPersonsSize();++i)
             {
                 if(namesearch == list.getName(i))
                 {
                     namesearch = namesearch + " " + list.getName(i);
+
                     cout << "We found the name you were looking for" << endl;
                     cout << namesearch << endl;
                 }
@@ -215,4 +217,14 @@ void classUI::search()
     {
         cout << "Error reading input" << endl;
     }
+}
+
+void classUI::remove()
+{
+    string name;
+    cout << "Enter a name of person that you want to remove: ";
+    cin >> name;
+    list.removePerson(name);
+
+
 }

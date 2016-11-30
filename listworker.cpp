@@ -51,16 +51,13 @@ void ListWorker::sortBirth()
     data.sortBirth(getPersons);
 }
 
-/*
-void ListWorker::removePerson()
+
+void ListWorker::removePerson(string name)
 {
-    string name;
-    cout << "Enter a name of a person that you want to remove: ";
-    getline(cin, name);
 
     for(size_t i = 0; i < getPersons.size(); ++i)
     {
-        if(getPersons[i] == name)
+        if(name == getPersons[i]._getName())
         {
             getPersons.erase(getPersons.begin() + i);
             cout << "Person removed!" << endl;
@@ -69,4 +66,4 @@ void ListWorker::removePerson()
   //  data.removeFromFile();
 
 }
-*/
+

@@ -17,6 +17,7 @@ public:
     void view();
     void search();
     void searching();
+    void remove();
     void addPerson();
 
 
