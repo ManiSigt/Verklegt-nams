@@ -46,7 +46,7 @@ void classUI::select(string ch)
     else if(ch == "view" || ch == "View" || ch == "VIEW")
 
     {
-    view();
+    viewAll();
     }
     else if(ch == "sort")
     {
@@ -71,54 +71,50 @@ void classUI::select(string ch)
         remove();
     }
 }
-void classUI::view()
+void classUI::view(int i)
 {
-    for(int i = 0; i < list.getPersonsSize(); i++)
+    int nameSize  = list.getNameSize(i);
+    cout << endl;
+    cout << "|Name" << "\t" << "\t" << "\t" << "\t" << "|Gender " << "|Born " << "\t" << "|Death  |" << endl;
+    cout << "|-------------------------------|-------|-------|-------|" << endl;
+
+    cout << "|" << list.getName(i);
+    if(nameSize > 0 && nameSize <= 7)
     {
-        int nameSize  = list.getNameSize(i);
-        cout << endl;
-        cout << "|Name" << "\t" << "\t" << "\t" << "\t" << "|Gender " << "|Born " << "\t" << "|Death  |" << endl;
-        cout << "|-------------------------------|-------|-------|-------|" << endl;
-
-        cout << "|" << list.getName(i);
-        if(nameSize > 0 && nameSize <= 7)
-        {
-            cout << "\t" << "\t" << "\t" << "\t";
-        }
-        else if(nameSize > 7 && nameSize <= 15)
-        {
-            cout << "\t" << "\t" << "\t";
-        }
-        else if(nameSize > 15 && nameSize <= 23)
-        {
-            cout << "\t" << "\t";
-        }
-        else if(nameSize > 23 && nameSize <= 31)
-        {
-            cout << "\t";
-        }
-
-        if(list.getGender(i) == 'M')
-        {
-            cout << "|Male" << "\t";
-        }
-        else
-        {
-            cout << "|Female" << "\t";
-        }
-        cout << "|" << list.getBirth(i);
-        if(list.getDeath(i) == 0)
-        {
-            cout << "\t" << "|Still kickin'"  << endl;
-        }
-        else
-        {
-            cout << "\t" << "|" << list.getDeath(i) << "   |" << endl;
-        }
-        cout << "|" << "RocketScientist" << endl;
-        cout << endl;
-
+        cout << "\t" << "\t" << "\t" << "\t";
     }
+    else if(nameSize > 7 && nameSize <= 15)
+    {
+        cout << "\t" << "\t" << "\t";
+    }
+    else if(nameSize > 15 && nameSize <= 23)
+    {
+        cout << "\t" << "\t";
+    }
+    else if(nameSize > 23 && nameSize <= 31)
+    {
+        cout << "\t";
+    }
+
+    if(list.getGender(i) == 'M')
+    {
+        cout << "|Male" << "\t";
+    }
+    else
+    {
+        cout << "|Female" << "\t";
+    }
+    cout << "|" << list.getBirth(i);
+    if(list.getDeath(i) == 0)
+    {
+        cout << "\t" << "|Still kickin'"  << endl;
+    }
+    else
+    {
+        cout << "\t" << "|" << list.getDeath(i) << "   |" << endl;
+    }
+    cout << "|" << "RocketScientist" << endl;
+    cout << endl;
     cout << "|- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -" << endl;
     cout << endl;
 }
@@ -248,4 +244,11 @@ void classUI::remove()
     list.removePerson(name);
 
 
+}
+void classUI::viewAll()
+{
+    for(int i = 0; i < list.getPersonsSize(); i++)
+    {
+        view(i);
+    }
 }
