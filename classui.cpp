@@ -4,6 +4,7 @@
 #include <string>
 #include <algorithm>
 #include <vector>
+#include <time.h>
 
 using namespace std;
 
@@ -16,11 +17,14 @@ void ClassUI::run()
 {
     bool runOn = true;
     string choice;
+
+    cout << "\t" << "Welcome to the Amazing Database " << endl;
+    cout << "-----------------------------------------------------------" << endl;
+    cout << "\t" << "Quote of the day: " << endl;
+    cout << getQuotes() << endl;
     do
     {
-        cout << "Welcome to the Amazing Database: " << endl;
-        cout << "-----------------------------------------------------------" << endl;
-        cout << "Quote of the day: " << "quote og the day" << endl;
+
         cout << "-----------------------------------------------------------" << endl;
         cout << "add" << "\t" << "Add a person to the database" << endl;
         cout << "remove" << "\t" << "Remove a person from the database" << endl;
@@ -299,4 +303,17 @@ void ClassUI::yo()
     cout << "       8 8888       ` 8888     ,88'   " << endl;
     cout << "       8 8888          `8888888P'     " << endl;
     cout << endl;
+}
+
+
+string ClassUI::getQuotes()
+{
+    string quotes[3] = {"A good programmer is someone who always looks both ways before crossing a one-way street. (Doug Linder)",
+                        "Programming is like sex. One mistake and you have to support it for the rest of your life. (Michael Sinz)",
+                        "Walking on water and developing software from a specification are easy if both are frozen. (Edward V Berard)"
+                       };
+    int v1 = 0;
+    srand (time(NULL));
+    v1 = rand() % 3;
+    return quotes[v1];
 }

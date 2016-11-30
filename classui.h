@@ -24,8 +24,10 @@ public:
     void yo();
 
 
+
 private:
     ListWorker list;
+    string getQuotes();
 
 };
 
