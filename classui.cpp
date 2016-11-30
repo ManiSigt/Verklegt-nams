@@ -54,12 +54,12 @@ void ClassUI::select(string ch)
 
     else if(ch == "view" || ch == "View" || ch == "VIEW")
     {
-    viewAll();
+        viewAll();
     }
     else if(ch == "sort")
     {
         string sortcho;
-        cout << "Enter 'name' or 'year' and then re-enter the 'view' command." << endl;
+        cout << "Enter 'name' or 'year'" << endl;
         cin >> sortcho;
 
         if(sortcho == "name")
@@ -70,7 +70,7 @@ void ClassUI::select(string ch)
         {
             list.sortBirth();
         }
-
+        viewAll();
     }
     else if(ch == "search" || ch == "Search" || ch == "SEARCH"){
         searching();
