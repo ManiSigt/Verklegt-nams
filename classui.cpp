@@ -175,9 +175,11 @@ void classUI::search()
                 if(namesearch == list.getName(i))
                 {
                     namesearch =  list.getName(i);
-
                     cout << "We found the name you were looking for" << endl;
-                    cout << namesearch << "\t" << endl;
+                    cout << "Name" << "\t" << "\t" << "\t" << "\t" << "Gender" << "\t" << "Born" << "\t" << "Death" << "\t" << endl;
+                    cout << "-----------------------------------------------------------" << endl;
+                    cout << namesearch << "\t" << list.getGender(i) << "\t" << list.getBirth(i) << "\t" << list.getDeath(i) << endl;
+                    cout << "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -" << endl;
                 }
             }
             /*if ( eitthvad dot)
