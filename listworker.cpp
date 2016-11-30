@@ -49,6 +49,7 @@ void ListWorker::saveFile()
     string saveName, saveComment;
     char saveGender;
     int saveYearOfBirth, saveYearOfDeath;
+    data.deleteFile();
     for(unsigned int i = 0; i < getPersons.size(); i++)
     {
         saveName = getName(i);

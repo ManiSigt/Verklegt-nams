@@ -18,15 +18,15 @@ void classUI::run()
     string choice;
     do
     {
-        cout << "List of things: " << endl;
+        cout << "Welcome to the Amazing Database: " << endl;
         cout << "-----------------------------------------------------------" << endl;
-        cout << "add - Add to the list" << endl;
-        cout << "remove - Remove from the list" << endl;
-        cout << "view - View the entire list" << endl;
-        cout << "save - save the file" << endl;
-        cout << "search - Search the list" << endl;
-        cout << "sort - Sort the list by name/yearofbirth" << endl;
-        cout << "exit - Exit" << endl;
+        cout << "add" << "\t" << "Add a person to the database" << endl;
+        cout << "remove" << "\t" << "Remove a person from the database" << endl;
+        cout << "view" << "\t" << "View the entire database" << endl;
+        cout << "save" << "\t" << "Save the database" << endl;
+        cout << "search" << "\t" << "Search the database" << endl;
+        cout << "sort" << "\t" << "Sort the database by name/yearofbirth" << endl;
+        cout << "exit" << "\t" << "Exit" << endl;
         cin >> choice;
         if (choice != "exit"){
            select(choice);
@@ -35,7 +35,6 @@ void classUI::run()
             list.saveFile();
             runOn = false;
         }
-
     }while(runOn == true);
 }
 
