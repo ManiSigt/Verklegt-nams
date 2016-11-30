@@ -23,6 +23,7 @@ void classUI::run()
         cout << "add - Add to the list" << endl;
         cout << "remove - Remove from the list" << endl;
         cout << "view - View the entire list" << endl;
+        cout << "save - save the file" << endl;
         cout << "search - Search the list" << endl;
         cout << "sort - Sort the list by name/yearofbirth" << endl;
         cout << "exit - Exit" << endl;
@@ -44,7 +45,6 @@ void classUI::select(string ch)
     }
 
     else if(ch == "view" || ch == "View" || ch == "VIEW")
-
     {
     view();
     }
@@ -69,6 +69,9 @@ void classUI::select(string ch)
     }
     else if(ch == "remove" || ch == "Remove" || ch == "REMOVE"){
         remove();
+    }
+    else if(ch == "save" || ch == "Save" || ch == "SAVE"){
+        save();
     }
 }
 void classUI::view()
@@ -255,6 +258,8 @@ void classUI::remove()
     {
         cout << "Person not found!" << endl;
     }
-
-
+}
+void classUI::save()
+{
+    list.saveFile();
 }

@@ -19,6 +19,7 @@ public:
     void searching();
     void remove();
     void addPerson();
+    void save();
 
 
 private:
