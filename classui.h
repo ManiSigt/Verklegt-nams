@@ -16,6 +16,7 @@ public:
     void select(string ch);
     void view();
     void searching();
+    void remove();
 
 
 private:

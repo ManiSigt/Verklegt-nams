@@ -17,7 +17,7 @@ public:
     void sortNames();
     void sortBirth();
 
-    void removePerson();
+    void removePerson(string name);
 
 
     friend bool equals (const Person &lhs, const string searchChoice);

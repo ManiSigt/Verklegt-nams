@@ -66,7 +66,7 @@ void classUI::select(string ch)
         searching();
     }
     else if(ch == "remove" || ch == "Remove" || ch == "REMOVE"){
-        //list.removePerson();
+        remove();
     }
 }
 void classUI::view()
@@ -99,5 +99,15 @@ void classUI::searching()
     cout << "Gender -- Searches for a Gender" << endl;
     cout << "Year -- Searches for a year born" << endl;
     list.search();
+
+}
+
+void classUI::remove()
+{
+    string name;
+    cout << "Enter a name of person that you want to remove: ";
+    cin >> name;
+    list.removePerson(name);
+
 
 }
