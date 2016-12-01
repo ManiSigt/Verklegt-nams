@@ -286,7 +286,7 @@ void ClassUI::search()
         }
         else if (searchChoice == "4")
         {
-            run();
+            mainMenu();
         }
         else
         {
