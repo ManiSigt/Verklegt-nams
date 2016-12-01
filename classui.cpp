@@ -37,7 +37,8 @@ void ClassUI::run()
         cout << "Enter your command: ";
         cin >> choice;
 
-        if (choice != "7"){
+        if (choice != "7")
+        {
            select(choice);
         }
         else{
@@ -60,18 +61,18 @@ void ClassUI::select(string ch)
     }
     else if(ch == "6")
     {
-        int sortcho;
+        string sortcho;
         cout << "Enter your sort command" << endl;
         cout << "------------------------" << endl;
         cout << " (1) - Sort by alphabetical order" << endl;
         cout << " (2) - sort by chronological order" << endl;
         cin >> sortcho;
 
-        if(sortcho == 1)
+        if(sortcho == "1")
         {
             list.sortNames();
         }
-        else if(sortcho == 2)
+        else if(sortcho == "2")
         {
             list.sortBirth();
         }
@@ -205,9 +206,9 @@ void ClassUI::addPerson()
 
 void ClassUI::search()
 {
-        int searchChoice;
+        string searchChoice;
         cin >> searchChoice;
-        if (searchChoice == 1)
+        if (searchChoice == "1")
         {
 
             string namesearch;
@@ -229,7 +230,7 @@ void ClassUI::search()
                 cout << "Sorry that name is not in our database, but you can add a new instance in the 'Add' section in the main menu" << endl;
             }
         }
-        else if (searchChoice == 2)
+        else if (searchChoice == "2")
         {
             char gendersearch;
 
@@ -259,7 +260,7 @@ void ClassUI::search()
                 cout << "Sorry that gender is not in our database, but you can add a new instance in the 'Add' section in the main menu" << endl;
             }
         }
-        else if (searchChoice == 3)
+        else if (searchChoice == "3")
         {
                 int yearsearch;
                 cout << "Enter a year you want to search for: ";
