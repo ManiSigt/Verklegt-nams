@@ -11,8 +11,8 @@ class ClassUI
 {
 public:
     ClassUI();
-    void addPerson();
-    void mainMenu();
+    void addPerson();   //add a person to the database
+    void mainMenu();    //this is the main menu for the program. It shows all commands to interact.
     void remove();
     void run();
     void save();
