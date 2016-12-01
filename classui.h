@@ -19,8 +19,8 @@ public:
     void viewAll();             // This prints out the whole list of scientists, Name, Gender, Birth year, Death year and a comment.
     void yo();                  // Secret phase
 private:
-    bool runOn = true;          // Too keep the main menu going, if this is false the program wil shut down.
-    ListWorker list;            // Making a instance of ListWorker.
+    bool runOn = true;
+    ListWorker list;
     string getQuotes();         // The random quote generator.
 
 };
