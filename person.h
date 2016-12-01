@@ -9,7 +9,6 @@ class Person
 public:
     Person();
     Person(string name, char gender, int birth, int death, string comment);
-    friend class DataLayer;
     string _getName() const
     {
         return _name;

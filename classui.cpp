@@ -54,50 +54,25 @@ void ClassUI::select(string ch)
     {
         addPerson();
     }
-
+    else if(ch == "2")
+    {
+        remove();
+    }
     else if(ch == "3")
     {
         viewAll();
     }
-    else if(ch == "6")
+    else if(ch == "4")
     {
-        string sortcho;
-        cout << "Enter a sort command (1 - 3):" << endl;
-        cout << "--------------------------------------------------------------" << endl;
-        cout << " (1) - Sort by alphabetical order" << endl;
-        cout << " (2) - Sort by chronological order" << endl;
-        cout << " (3) - Return to main menu" << endl;
-        cout << "Enter your command (1 - 2): ";
-        cin >> sortcho;
-        cout << endl;
-
-        if(sortcho == "1")
-        {
-            list.sortNames();
-             viewAll();
-        }
-        else if(sortcho == "2")
-        {
-            list.sortBirth();
-             viewAll();
-        }
-        else if(sortcho == "3")
-        {
-            mainMenu();
-        }
-
+        save();
     }
     else if(ch == "5")
     {
         searching();
     }
-    else if(ch == "2")
+        else if(ch == "6")
     {
-        remove();
-    }
-    else if(ch == "4")
-    {
-        save();
+        sorting();
     }
     else if(ch == "yo")
     {
@@ -356,6 +331,7 @@ void ClassUI::remove()
 void ClassUI::save()
 {
     list.saveFile();
+    cout << "Database saved." << endl;
 }
 void ClassUI::viewAll()
 {
@@ -391,4 +367,31 @@ string ClassUI::getQuotes()
     srand (time(NULL));
     v1 = rand() % 5;
     return quotes[v1];
+}
+void ClassUI::sorting()
+{
+    string sortcho;
+    cout << "Enter a sort command (1 - 3):" << endl;
+    cout << "--------------------------------------------------------------" << endl;
+    cout << " (1) - Sort by alphabetical order" << endl;
+    cout << " (2) - Sort by chronological order" << endl;
+    cout << " (3) - Return to main menu" << endl;
+    cout << "Enter your command (1 - 2): ";
+    cin >> sortcho;
+    cout << endl;
+
+    if(sortcho == "1")
+    {
+        list.sortNames();
+         viewAll();
+    }
+    else if(sortcho == "2")
+    {
+        list.sortBirth();
+         viewAll();
+    }
+    else if(sortcho == "3")
+    {
+        mainMenu();
+    }
 }

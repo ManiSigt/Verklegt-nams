@@ -12,13 +12,13 @@ class ListWorker
 public:
     ListWorker();
     void addNewPerson(string name, char gender, int yearOfBirth, int yearOFDeath, string comment);
-    bool nameSearcher(string name);
     bool genderSearcher(char gender);
-    bool yearSearcher(int year);
-    void sortNames();
-    void sortBirth();
+    bool nameSearcher(string name);
     bool removePerson(string name);
     bool removePersonFound(string name);
+    void sortBirth();
+    void sortNames();
+    bool yearSearcher(int year);
     string getName(int n) const
     {
         return getPersons[n]._getName();;

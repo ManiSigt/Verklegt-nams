@@ -12,24 +12,25 @@ class ClassUI
 {
 public:
     ClassUI();
-    void run();
+    void addPerson();
     void mainMenu();
-    void select(string ch);
-    void view(int i);
-    void viewAll();
+    void remove();
+    void run();
+    void save();
     void search();
     void searching();
-    void remove();
-    void addPerson();
-    void save();
+    void select(string ch);
+    void sorting();
+    void view(int i);
+    void viewAll();
     void yo();
 
 
 
 private:
+    bool runOn = true;
     ListWorker list;
     string getQuotes();
-    bool runOn = true;
 
 };
 
