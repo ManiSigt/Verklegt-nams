@@ -193,9 +193,12 @@ void ClassUI::search()
         cin >> searchChoice;
         if (searchChoice == "Name" || searchChoice == "name" || searchChoice == "NAME")
         {
+
             string namesearch;
             cout << "Enter a name you want to search for: ";
-            cin >> namesearch;
+            //cin >> namesearch;
+            cin.ignore();
+            std::getline(std::cin,namesearch);
 
 
             for(int i = 0; i < list.getPersonsSize();++i)
@@ -216,15 +219,15 @@ void ClassUI::search()
             char gendersearch;
 
 
-            cout << "Enter a Gender you want to search for: (m/f)";
+            cout << "Enter a Gender you want to search for: (M/F)";
             cin >> gendersearch;
-            if(gendersearch == 'M')
+            if(gendersearch == 'm')
                 {
-                     gendersearch = 'm';
+                     gendersearch = 'M';
                 }
-            else if (gendersearch == 'F')
+            else if (gendersearch == 'f')
                 {
-                     gendersearch = 'f';
+                     gendersearch = 'F';
                 }
 
 
