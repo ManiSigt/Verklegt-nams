@@ -155,6 +155,7 @@ void ClassUI::searching()
     cout << " (1) - Name -- Searches for a name." << endl;
     cout << " (2) - Gender -- Searches for a Gender." << endl;
     cout << " (3) - Year -- Searches for a year born." << endl;
+    cout << " (4) - Exit -- Exit to the main menu" << endl;
     search();
 }
 void ClassUI::addPerson()
@@ -228,6 +229,7 @@ void ClassUI::search()
             if(list.nameSearcher(namesearch) == false)
             {
                 cout << "Sorry that name is not in our database, but you can add a new instance in the 'Add' section in the main menu." << endl;
+                searching();
             }
         }
         else if (searchChoice == "2")
@@ -258,6 +260,7 @@ void ClassUI::search()
             if(list.genderSearcher(gendersearch) == false)
             {
                 cout << "Sorry that gender is not in our database, but you can add a new instance in the 'Add' section in the main menu." << endl;
+                searching();
             }
         }
         else if (searchChoice == "3")
@@ -278,11 +281,17 @@ void ClassUI::search()
                 if(list.yearSearcher(yearsearch) == false)
                 {
                     cout << "Sorry that year is not in our database, but you can add a new instance in the 'Add' section in the main menu." << endl;
+                    searching();
                 }
+        }
+        else if (searchChoice == "4")
+        {
+            run();
         }
         else
         {
             cout << "Error reading input. Please enter a number between 1- 3." << endl;
+            search();
         }
 }
 void ClassUI::remove()
