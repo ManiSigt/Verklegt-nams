@@ -12,25 +12,25 @@ class ListWorker
 public:
     ListWorker();
     void addNewPerson(string name, char gender, int yearOfBirth, int yearOFDeath, string comment); //Adds a person to the vector persons and adds them to the database.
-    bool genderSearcher(char gender);           //
-    bool nameSearcher(string name);             //
+    bool genderSearcher(char gender);           // Searches for a specific gender within the vector using a for loop.
+    bool nameSearcher(string name);             // Searches for a specific name within the vector using a for loop.
     bool removePerson(string name);             // Remove person from the vector.
     bool removePersonFound(string name);        // Check if person to remove is found or not.
     void sortBirth();                           // Calls the function sortBirth from the datalayer class.
     void sortNames();                           // Calls the function sortNames from the datalayer class.
     void sortGender();                          // Calls the function sortGender from the datalayer class.
-    bool yearSearcher(int year);                //
+    bool yearSearcher(int year);                // Searches for a specific year within the vector using a for loop.
     string getName(int n) const                 //Make _name from persons available.
     {
-        return persons[n]._getName();;
+        return persons[n]._getName();
     }
     char getGender(int n) const                 //Make _gender from persons available.
     {
-        return persons[n]._getGender();;
+        return persons[n]._getGender();
     }
     int getBirth(int n) const                   //Make _yearOfBirth from persons available.
     {
-        return persons[n]._getBirth();;
+        return persons[n]._getBirth();
     }
     int getDeath(int n) const                   //Make _yearOfDeath from persons available.
     {
