@@ -7,34 +7,34 @@ using namespace std;
 
 ListWorker::ListWorker()
 {
-    data.readFromFile(getPersons);
+    data.readFromFile(persons);
 }
 void ListWorker::addNewPerson(string name, char gender, int yearOfBirth, int yearOfDeath, string comment)
 {
     Person p(name, gender, yearOfBirth, yearOfDeath, comment);
-    getPersons.push_back(p);
+    persons.push_back(p);
     data.writeToFile(name, gender, yearOfBirth, yearOfDeath, comment);
 }
 void ListWorker::sortNames()
 {
-    data.sortNames(getPersons);
+    data.sortNames(persons);
 }
 void ListWorker::sortBirth()
 {
-    data.sortBirth(getPersons);
+    data.sortBirth(persons);
 }
 void ListWorker::sortGender()
 {
-    data.sortGender(getPersons);
+    data.sortGender(persons);
 }
 bool ListWorker::removePerson(string name)
 {
 
-    for(size_t i = 0; i < getPersons.size(); ++i)
+    for(size_t i = 0; i < persons.size(); ++i)
     {
-        if(name == getPersons[i]._getName())
+        if(name == persons[i]._getName())
         {
-            getPersons.erase(getPersons.begin() + i);
+            persons.erase(persons.begin() + i);
             return true;
         }
     }
@@ -42,9 +42,9 @@ bool ListWorker::removePerson(string name)
 }
 bool ListWorker::removePersonFound(string name)
 {
-    for(size_t i = 0; i < getPersons.size(); ++i)
+    for(size_t i = 0; i < persons.size(); ++i)
     {
-        if(name == getPersons[i]._getName())
+        if(name == persons[i]._getName())
         {
             return true;
         }
@@ -53,7 +53,7 @@ bool ListWorker::removePersonFound(string name)
 }
 int ListWorker::getNameSize(int n) const
 {
-    string name = getPersons[n]._getName();
+    string name = persons[n]._getName();
     int size = name.size();
     return size;
 }
@@ -64,7 +64,7 @@ void ListWorker::saveFile()
     int saveYearOfBirth, saveYearOfDeath;
     data.deleteFile();
 
-    for(unsigned int i = 0; i < getPersons.size(); i++)
+    for(unsigned int i = 0; i < persons.size(); i++)
     {
         saveName = getName(i);
         saveGender = getGender(i);
@@ -76,7 +76,7 @@ void ListWorker::saveFile()
 }
 bool ListWorker::nameSearcher(string name)
 {
-    for(unsigned int i = 0; i < getPersons.size(); i++)
+    for(unsigned int i = 0; i < persons.size(); i++)
     {
         std::size_t found = getName(i).find(name);
         if (found!=std::string::npos)
@@ -89,7 +89,7 @@ bool ListWorker::nameSearcher(string name)
 }
 bool ListWorker::genderSearcher(char gender)
 {
-    for(unsigned int i = 0; i < getPersons.size(); i++)
+    for(unsigned int i = 0; i < persons.size(); i++)
     {
         if(gender == getGender(i))
         {
@@ -101,7 +101,7 @@ bool ListWorker::genderSearcher(char gender)
 }
 bool ListWorker::yearSearcher(int year)
 {
-    for(unsigned int i = 0; i < getPersons.size(); i++)
+    for(unsigned int i = 0; i < persons.size(); i++)
     {
         if(year == getBirth(i))
         {
