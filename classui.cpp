@@ -174,7 +174,7 @@ void ClassUI::addPerson()
        cout << "Input year of birth: ";
        cin >> yearOfBirth;
 
-       cout << "Is the individual deceased? (y/n)";
+       cout << "Is the individual deceased? (y/n) ";
        cin >> yesOrNo;
 
        if (yesOrNo == 'Y' || yesOrNo == 'y')
@@ -192,7 +192,7 @@ void ClassUI::addPerson()
         addPerson();
     }
 
-    cout << "Are you sure that you want to add this person? (y/n)"; // Þetta er ógeðslegur texti, endilega finnum eitthvað skárra
+    cout << "Are you sure that you want to add this person? (y/n) ";
     string validatePerson;
     cin >> validatePerson;
 
@@ -203,7 +203,7 @@ void ClassUI::addPerson()
     }
     else
     {
-        cout << "Operation addPerson aborted!" << endl; // Endilega komið með tillögu að breytingu á þessum texta
+        cout << "Person not added!" << endl;
     }
 }
 void ClassUI::search()
