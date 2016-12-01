@@ -62,7 +62,7 @@ void ClassUI::select(string ch)
     {
         string sortcho;
         cout << "Enter a sort command (1 - 3):" << endl;
-        cout << "------------------------" << endl;
+        cout << "--------------------------------------------------------------" << endl;
         cout << " (1) - Sort by alphabetical order" << endl;
         cout << " (2) - Sort by chronological order" << endl;
         cout << " (3) - Return to main menu" << endl;
