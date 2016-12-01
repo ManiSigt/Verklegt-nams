@@ -14,8 +14,8 @@ public:
     void addNewPerson(string name, char gender, int yearOfBirth, int yearOFDeath, string comment); //Adds a person to the vector persons and adds them to the database.
     bool genderSearcher(char gender);           //
     bool nameSearcher(string name);             //
-    bool removePerson(string name);             //
-    bool removePersonFound(string name);        //
+    bool removePerson(string name);             // Remove person from the vector.
+    bool removePersonFound(string name);        // Check if person to remove is found or not.
     void sortBirth();                           // Calls the function sortBirth from the datalayer class.
     void sortNames();                           // Calls the function sortNames from the datalayer class.
     void sortGender();                          // Calls the function sortGender from the datalayer class.
