@@ -32,12 +32,13 @@ void ClassUI::mainMenu()
         cout << " (4) - "  << "Save the database." << endl;
         cout << " (5) - "  << "Search the database." << endl;
         cout << " (6) - "  << "Sort the database." << endl;
-        cout << " (7) - "  << "Exit." << endl;
+        cout << " (7) - "  << "Edit a scientist." << endl;
+        cout << " (8) - "  << "Exit." << endl;
         cout << "Enter your command (1 - 7): ";
         cin >> choice;
         cout << endl;
 
-        if (choice != "7")
+        if (choice != "8")
         {
            select(choice);
         }
@@ -73,6 +74,10 @@ void ClassUI::select(string ch)
     else if(ch == "6")
     {
         sorting();
+    }
+    else if(ch == "7")
+    {
+        editPerson();
     }
     else if(ch == "yo")
     {
@@ -416,4 +421,19 @@ void ClassUI::sorting()
         mainMenu();
     }
 }
-
+void ClassUI::editPerson()
+{
+    string name;
+    cout << "Enter the full name of the person that you want to edit: ";
+    cin.ignore();
+    std::getline(std::cin,name);
+    if(list.removePersonFound(name))
+    {
+        list.removePerson(name);
+        addPerson();
+    }
+    else
+    {
+        cout << "Person not found!" << endl;
+    }
+}

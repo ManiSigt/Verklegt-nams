@@ -21,6 +21,7 @@ public:
     void sortNames();                           // Calls the function sortNames from the datalayer class.
     void sortGender();                          // Calls the function sortGender from the datalayer class.
     bool yearSearcher(int year);                // Searches for a specific year within the vector using a for loop.
+    int editPersonFinder(string name);                //Comment með engu bili. Illa nett.
     string getName(int n) const                 // Make _name from persons available.
     {
         return persons[n]._getName();
