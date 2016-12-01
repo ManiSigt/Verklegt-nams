@@ -13,7 +13,7 @@ class ClassUI
 public:
     ClassUI();
     void run();
-    void select(int ch);
+    void select(string ch);
     void view(int i);
     void viewAll();
     void search();
