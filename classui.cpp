@@ -15,13 +15,18 @@ ClassUI::ClassUI()
 
 void ClassUI::run()
 {
-    bool runOn = true;
-    string choice;
+
 
     cout << "\t" << "Welcome to the Amazing Database! " << endl;
     cout << "-----------------------------------------------------------" << endl;
     cout << "\t" << "   *** Quote of the day ***" << endl;
     cout << getQuotes() << endl;
+    mainMenu();
+}
+void ClassUI::mainMenu()
+{
+    bool runOn = true;
+    string choice;
     do
     {
 
@@ -65,18 +70,25 @@ void ClassUI::select(string ch)
         cout << "Enter your sort command (1, 2):" << endl;
         cout << "------------------------" << endl;
         cout << " (1) - Sort by alphabetical order" << endl;
-        cout << " (2) - sort by chronological order" << endl;
+        cout << " (2) - Sort by chronological order" << endl;
+        cout << " (3) - Return to main menu" << endl;
         cin >> sortcho;
 
         if(sortcho == "1")
         {
             list.sortNames();
+             viewAll();
         }
         else if(sortcho == "2")
         {
             list.sortBirth();
+             viewAll();
         }
-        viewAll();
+        else if(sortcho == "3")
+        {
+            mainMenu();
+        }
+
     }
     else if(ch == "5")
     {
@@ -286,7 +298,7 @@ void ClassUI::search()
         }
         else if (searchChoice == "4")
         {
-            run();
+            mainMenu();
         }
         else
         {
