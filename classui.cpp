@@ -164,10 +164,10 @@ void ClassUI::searching()
 
     cout << "----------Select any of the following commands----------" << endl;
     cout << "What do you want to search for? " << endl;
-    cout << " (1) - Name -- Searches for a name." << endl;
-    cout << " (2) - Gender -- Searches for a Gender." << endl;
-    cout << " (3) - Year -- Searches for a year born." << endl;
-    cout << " (4) - Exit -- Exit to the main menu" << endl;
+    cout << " (1) - Searches for a name." << endl;
+    cout << " (2) - Searches for a Gender." << endl;
+    cout << " (3) - Searches for a year born." << endl;
+    cout << " (4) - Return to main menu" << endl;
     search();
 }
 void ClassUI::addPerson()
