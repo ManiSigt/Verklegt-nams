@@ -129,6 +129,7 @@ void ClassUI::view(int i)
     {
         cout << "\t" << "|" << list.getDeath(i)  << endl;
     }
+
     cout << list.getComment(i) << endl;
     cout << "--------------------------------------------------------------" << endl;
     cout << endl;
@@ -182,6 +183,7 @@ void ClassUI::addPerson()
             cout << "Input year of death: ";
             cin >> yearOfDeath;
        }
+
        cout << "Input a comment about the individual: ";
        cin.ignore();
        std::getline(std::cin,comment);
