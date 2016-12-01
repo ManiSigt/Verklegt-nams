@@ -26,8 +26,8 @@ void ClassUI::mainMenu()
     do
     {
         cout << "--------------------------------------------------------------" << endl;
-        cout << " (1) - "  << "Add a person to the database." << endl;
-        cout << " (2) - "  << "Remove a person from the database." << endl;
+        cout << " (1) - "  << "Add a scientist to the database." << endl;
+        cout << " (2) - "  << "Remove a scientist from the database." << endl;
         cout << " (3) - "  << "View the entire database." << endl;
         cout << " (4) - "  << "Save the database." << endl;
         cout << " (5) - "  << "Search the database." << endl;
@@ -231,7 +231,7 @@ void ClassUI::search()
 
         if(list.nameSearcher(namesearch) == false)
         {
-            cout << "Sorry that name is not in our database, but you can add a new instance in the 'Add' section in the main menu." << endl;
+            cout << "Sorry that name is not in our database, but you can add a new scientist in the 'Add section' in the main menu." << endl;
             searching();
         }
     }
@@ -262,7 +262,7 @@ void ClassUI::search()
 
         if(list.genderSearcher(gendersearch) == false)
         {
-            cout << "Sorry that gender is not in our database, but you can add a new instance in the 'Add' section in the main menu." << endl;
+            cout << "Sorry that gender is not in our database, but you can add a new scientist in the 'Add section' in the main menu." << endl;
             searching();
         }
     }
@@ -283,7 +283,7 @@ void ClassUI::search()
 
             if(list.yearSearcher(yearsearch) == false)
             {
-                cout << "Sorry that year is not in our database, but you can add a new instance in the 'Add' section in the main menu." << endl;
+                cout << "Sorry that year is not in our database, but you can add a new scientist in the 'Add section' in the main menu." << endl;
                 searching();
             }
     }
@@ -375,7 +375,7 @@ string ClassUI::getQuotes()
 void ClassUI::sorting()
 {
     string sortcho;
-    cout << "Enter a sort command (1 - 4):" << endl;
+    cout << "Enter a sort command:" << endl;
     cout << "--------------------------------------------------------------" << endl;
     cout << " (1) - Sort by alphabetical order." << endl;
     cout << " (2) - Sort by chronological order." << endl;
