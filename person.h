@@ -13,6 +13,10 @@ public:
     {
         return _name;
     }
+    string _getComment() const
+    {
+        return _comment;
+    }
     char _getGender() const
     {
         return _gender;
@@ -29,10 +33,7 @@ public:
     {
         return _name.size();
     }
-    string _getComment() const
-    {
-        return _comment;
-    }
+
 
 private:
     string _name;
