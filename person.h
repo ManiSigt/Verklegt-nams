@@ -8,7 +8,7 @@ class Person
 {
 public:
     Person();
-    Person(string name, char gender, int birth, int death, string comment);
+    Person(string name, char gender, int birth, int death, string comment); // Class constructor for variables.
     string _getName() const
     {
         return _name;
