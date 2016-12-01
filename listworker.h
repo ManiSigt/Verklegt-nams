@@ -18,6 +18,7 @@ public:
     void sortNames();
     void sortBirth();
     bool removePerson(string name);
+    bool removePersonFound(string name);
 
     string getName(int n) const
     {

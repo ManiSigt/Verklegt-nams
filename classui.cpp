@@ -288,12 +288,28 @@ void ClassUI::search()
 void ClassUI::remove()
 {
     string name;
-    cout << "Enter a name of person that you want to remove: ";
+    cout << "Enter the full name of the person that you want to remove: ";
     cin.ignore();
     std::getline(std::cin,name);
-    if (list.removePerson(name) == true)
+    if (list.removePersonFound(name) == true)
     {
-        cout << "Person removed!" << endl;
+        char validateRemove;
+        cout << "Person found!" << endl;
+        cout << "Are you sure you want to remove this person? (y/n): ";
+        cin >> validateRemove;
+
+        if(validateRemove == 'y' || validateRemove == 'Y')
+        {
+            if(list.removePerson(name) == true)
+            {
+                cout << "Person removed!" << endl;
+            }
+            else
+            {
+                cout << "Person not removed!" << endl;
+            }
+        }
+
     }
     else
     {

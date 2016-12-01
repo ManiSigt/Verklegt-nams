@@ -33,12 +33,25 @@ bool ListWorker::removePerson(string name)
     {
         if(name == getPersons[i]._getName())
         {
+
             getPersons.erase(getPersons.begin() + i);
             return true;
         }
     }
     return false;
 }
+bool ListWorker::removePersonFound(string name)
+{
+    for(size_t i = 0; i < getPersons.size(); ++i)
+    {
+        if(name == getPersons[i]._getName())
+        {
+            return true;
+        }
+    }
+    return false;
+}
+
 int ListWorker::getNameSize(int n) const
 {
     string name = getPersons[n]._getName();
