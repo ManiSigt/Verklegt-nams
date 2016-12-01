@@ -41,7 +41,8 @@ void ClassUI::mainMenu()
         {
            select(choice);
         }
-        else{
+        else
+        {
             list.saveFile();
             runOn = false;
         }
@@ -110,11 +111,13 @@ void ClassUI::select(string ch)
 void ClassUI::view(int i)
 {
     int nameSize  = list.getNameSize(i);
+
     cout << endl;
     cout << "--------------------------------------------------------------" << endl;
     cout << "Name" << "\t" << "\t" << "\t" << "\t" << "|Gender " << "|Born " << "\t" << "|Death" << endl;
     cout << "--------------------------------|-------|-------|-------------" << endl;
     cout << list.getName(i);
+
     if(nameSize > 0 && nameSize <= 7)
     {
         cout << "\t" << "\t" << "\t" << "\t";
@@ -140,7 +143,9 @@ void ClassUI::view(int i)
     {
         cout << "|Female" << "\t";
     }
+
     cout  << "|" << list.getBirth(i);
+
     if(list.getDeath(i) == 0)
     {
         cout << "\t" << "| n/a"  << endl;
@@ -168,17 +173,18 @@ void ClassUI::searching()
 void ClassUI::addPerson()
 {
     string name;
+    string comment;
     char gender;
     char yesOrNo;
     int yearOfBirth = 0;
     int yearOfDeath = 0;
-    string comment;
 
     cout << "Input Name: ";
     cin.ignore();
     std::getline(std::cin,name);
     cout << "Input gender (M/F): ";
     cin >> gender;
+
     if (gender == 'm')
     {
         gender = 'M';
@@ -187,6 +193,7 @@ void ClassUI::addPerson()
     {
         gender = 'F';
     }
+
     if (gender == 'm' || gender == 'M' || gender == 'f' || gender == 'F')
     {
        cout << "Input year of birth: ";
@@ -194,23 +201,26 @@ void ClassUI::addPerson()
 
        cout << "Is the individual deceased? (y/n)";
        cin >> yesOrNo;
+
        if (yesOrNo == 'Y' || yesOrNo == 'y')
        {
             cout << "Input year of death: ";
             cin >> yearOfDeath;
        }
-        cout << "Input a comment about the individual: ";
-        cin.ignore();
-        std::getline(std::cin,comment);
+       cout << "Input a comment about the individual: ";
+       cin.ignore();
+       std::getline(std::cin,comment);
     }
     else
     {
         cout << "Invalid gender! Try again." << endl;
         addPerson();
     }
+
     cout << "Are you sure that you want to add this person? (y/n)"; // Þetta er ógeðslegur texti, endilega finnum eitthvað skárra
     string validatePerson;
     cin >> validatePerson;
+
     if(validatePerson == "y")
     {
         cout << "New person added!" << endl;
@@ -227,6 +237,7 @@ void ClassUI::search()
     cout << "Enter your command (1 - 4): ";
     cin >> searchChoice;
     cout << endl;
+
     if (searchChoice == "1")
     {
         string namesearch;
@@ -242,6 +253,7 @@ void ClassUI::search()
                 view(i);
             }
         }
+
         if(list.nameSearcher(namesearch) == false)
         {
             cout << "Sorry that name is not in our database, but you can add a new instance in the 'Add' section in the main menu." << endl;
@@ -254,6 +266,7 @@ void ClassUI::search()
 
         cout << "Enter a gender you want to search for: (M/F)";
         cin >> gendersearch;
+
         if(gendersearch == 'm')
             {
                  gendersearch = 'M';
@@ -271,6 +284,7 @@ void ClassUI::search()
                 view(i);
             }
         }
+
         if(list.genderSearcher(gendersearch) == false)
         {
             cout << "Sorry that gender is not in our database, but you can add a new instance in the 'Add' section in the main menu." << endl;
@@ -291,6 +305,7 @@ void ClassUI::search()
                     view(i);
                 }
             }
+
             if(list.yearSearcher(yearsearch) == false)
             {
                 cout << "Sorry that year is not in our database, but you can add a new instance in the 'Add' section in the main menu." << endl;
@@ -313,6 +328,7 @@ void ClassUI::remove()
     cout << "Enter the full name of the person that you want to remove: ";
     cin.ignore();
     std::getline(std::cin,name);
+
     if (list.removePersonFound(name) == true)
     {
         char validateRemove;

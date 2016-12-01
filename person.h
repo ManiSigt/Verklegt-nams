@@ -37,10 +37,11 @@ public:
 
 private:
     string _name;
+    string _comment;
     char _gender;
     int _yearOfBirth;
     int _yearOfDeath;
-    string _comment;
+
 };
 
 #endif // PERSON_H

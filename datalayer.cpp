@@ -25,10 +25,11 @@ void DataLayer::readFromFile(vector<Person>& getPersons)
 {
     string line;
     string name = "1";       //notað til að tékka hvort búið sé að lesa inn nafnið.
+    string comment = "1";
     char gender = '1';
     int yearOfBirth = 1;
     int yearOfDeath = 1;
-    string comment = "1";
+
     ifstream myfile ("amazingDatabase.txt");
     if (myfile.is_open())
       {

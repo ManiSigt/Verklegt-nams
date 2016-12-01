@@ -30,7 +30,6 @@ bool ListWorker::removePerson(string name)
     {
         if(name == getPersons[i]._getName())
         {
-
             getPersons.erase(getPersons.begin() + i);
             return true;
         }
@@ -60,6 +59,7 @@ void ListWorker::saveFile()
     char saveGender;
     int saveYearOfBirth, saveYearOfDeath;
     data.deleteFile();
+
     for(unsigned int i = 0; i < getPersons.size(); i++)
     {
         saveName = getName(i);
