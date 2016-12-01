@@ -30,13 +30,13 @@ void ClassUI::mainMenu()
     {
 
         cout << "-----------------------------------------------------------" << endl;
-        cout << " (1) - Add" << "\t" << "Add a person to the database." << endl;
-        cout << " (2) - Remove" << "\t" << "Remove a person from the database." << endl;
-        cout << " (3) - View" << "\t" << "View the entire database." << endl;
-        cout << " (4) - Save" << "\t" << "Save the database." << endl;
-        cout << " (5) - Search" << "\t" << "Search the database." << endl;
-        cout << " (6) - Sort" << "\t" << "Sort the database." << endl;
-        cout << " (7) - Exit" << "\t" << "Exit." << endl;
+        cout << " (1) - " << "\t" << "Add a person to the database." << endl;
+        cout << " (2) - " << "\t" << "Remove a person from the database." << endl;
+        cout << " (3) - " << "\t" << "View the entire database." << endl;
+        cout << " (4) - " << "\t" << "Save the database." << endl;
+        cout << " (5) - " << "\t" << "Search the database." << endl;
+        cout << " (6) - " << "\t" << "Sort the database." << endl;
+        cout << " (7) - " << "\t" << "Exit." << endl;
 
         cout << "Enter your command (1 - 7): ";
         cin >> choice;
@@ -235,6 +235,7 @@ void ClassUI::search()
     string searchChoice;
     cout << "Enter your command (1 - 4): ";
     cin >> searchChoice;
+    cout << endl;
     if (searchChoice == "1")
     {
 
