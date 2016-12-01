@@ -232,93 +232,93 @@ void ClassUI::addPerson()
 
 void ClassUI::search()
 {
-        string searchChoice;
-        cout << "Enter your command (1 - 4): ";
-        cin >> searchChoice;
-        if (searchChoice == "1")
-        {
+    string searchChoice;
+    cout << "Enter your command (1 - 4): ";
+    cin >> searchChoice;
+    if (searchChoice == "1")
+    {
 
-            string namesearch;
-            cout << "Enter a name you want to search for: ";
-            cin.ignore();
-            std::getline(std::cin,namesearch);
+        string namesearch;
+        cout << "Enter a name you want to search for: ";
+        cin.ignore();
+        std::getline(std::cin,namesearch);
+
+        for(int i = 0; i < list.getPersonsSize();++i)
+        {
+            std::size_t found = list.getName(i).find(namesearch);
+            if (found!=std::string::npos)
+            {
+                view(i);
+            }
+
+        }
+        if(list.nameSearcher(namesearch) == false)
+        {
+            cout << "Sorry that name is not in our database, but you can add a new instance in the 'Add' section in the main menu." << endl;
+            searching();
+        }
+    }
+    else if (searchChoice == "2")
+    {
+        char gendersearch;
+
+
+        cout << "Enter a gender you want to search for: (M/F)";
+        cin >> gendersearch;
+        if(gendersearch == 'm')
+            {
+                 gendersearch = 'M';
+            }
+        else if (gendersearch == 'f')
+            {
+                 gendersearch = 'F';
+            }
+
+
+        for(int i = 0; i < list.getPersonsSize();++i)
+        {
+            if(gendersearch == list.getGender(i))
+            {
+                gendersearch = list.getGender(i);
+                view(i);
+            }
+        }
+        if(list.genderSearcher(gendersearch) == false)
+        {
+            cout << "Sorry that gender is not in our database, but you can add a new instance in the 'Add' section in the main menu." << endl;
+            searching();
+        }
+    }
+    else if (searchChoice == "3")
+    {
+            int yearsearch;
+            cout << "Enter a year you want to search for: ";
+            cin >> yearsearch;
+
 
             for(int i = 0; i < list.getPersonsSize();++i)
             {
-                std::size_t found = list.getName(i).find(namesearch);
-                if (found!=std::string::npos)
+                if(yearsearch == list.getBirth(i))
                 {
-                    view(i);
-                }
-
-            }
-            if(list.nameSearcher(namesearch) == false)
-            {
-                cout << "Sorry that name is not in our database, but you can add a new instance in the 'Add' section in the main menu." << endl;
-                searching();
-            }
-        }
-        else if (searchChoice == "2")
-        {
-            char gendersearch;
-
-
-            cout << "Enter a gender you want to search for: (M/F)";
-            cin >> gendersearch;
-            if(gendersearch == 'm')
-                {
-                     gendersearch = 'M';
-                }
-            else if (gendersearch == 'f')
-                {
-                     gendersearch = 'F';
-                }
-
-
-            for(int i = 0; i < list.getPersonsSize();++i)
-            {
-                if(gendersearch == list.getGender(i))
-                {
-                    gendersearch = list.getGender(i);
+                    yearsearch = list.getBirth(i);
                     view(i);
                 }
             }
-            if(list.genderSearcher(gendersearch) == false)
+            if(list.yearSearcher(yearsearch) == false)
             {
-                cout << "Sorry that gender is not in our database, but you can add a new instance in the 'Add' section in the main menu." << endl;
+                cout << "Sorry that year is not in our database, but you can add a new instance in the 'Add' section in the main menu." << endl;
                 searching();
             }
-        }
-        else if (searchChoice == "3")
-        {
-                int yearsearch;
-                cout << "Enter a year you want to search for: ";
-                cin >> yearsearch;
-
-
-                for(int i = 0; i < list.getPersonsSize();++i)
-                {
-                    if(yearsearch == list.getBirth(i))
-                    {
-                        yearsearch = list.getBirth(i);
-                        view(i);
-                    }
-                }
-                if(list.yearSearcher(yearsearch) == false)
-                {
-                    cout << "Sorry that year is not in our database, but you can add a new instance in the 'Add' section in the main menu." << endl;
-                    searching();
-                }
-        }
-        else if (searchChoice == "4")
-        {
-            mainMenu();
-        }
-        else
-        {
-            cout << "Error reading input. Please enter a number between 1- 3." << endl;
-            search();
-        }
+    }
+    else if (searchChoice == "4")
+    {
+        mainMenu();
+    }
+    else
+    {
+        cout << "Error reading input. Please enter a number between 1- 3." << endl;
+        search();
+    }
 }
 void ClassUI::remove()
 {

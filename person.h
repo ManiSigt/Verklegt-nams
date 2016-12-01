@@ -10,7 +10,6 @@ public:
     Person();
     Person(string name, char gender, int birth, int death, string comment);
     friend class DataLayer;
-
     string _getName() const
     {
         return _name;
@@ -35,7 +34,6 @@ public:
     {
         return _comment;
     }
-
 
 private:
     string _name;
