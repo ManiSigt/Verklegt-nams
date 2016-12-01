@@ -217,8 +217,18 @@ void ClassUI::addPerson()
         cout << "Invalid gender! Try again." << endl;
         addPerson();
     }
-    list.addNewPerson(name, gender, yearOfBirth, yearOfDeath, comment);
-
+    cout << "Are you sure that you want to add this person? yes or no: "; // Þetta er ógeðslegur texti, endilega finnum eitthvað skárra
+    string validatePerson;
+    cin >> validatePerson;
+    if(validatePerson == "yes")
+    {
+        cout << "New person added!" << endl;
+        list.addNewPerson(name, gender, yearOfBirth, yearOfDeath, comment);
+    }
+    else
+    {
+        cout << "Operation addPerson aborted!" << endl; // Endilega komið með tillögu að breytingu á þessum texta
+    }
 }
 
 void ClassUI::search()
