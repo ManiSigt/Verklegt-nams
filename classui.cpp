@@ -41,6 +41,7 @@ void ClassUI::mainMenu()
 
         cout << "Enter your command (1 - 7): ";
         cin >> choice;
+        cout << endl;
 
         if (choice != "7")
         {
@@ -67,12 +68,14 @@ void ClassUI::select(string ch)
     else if(ch == "6")
     {
         string sortcho;
-        cout << "Enter your sort command (1, 2):" << endl;
+        cout << "Enter a sort command (1 - 3):" << endl;
         cout << "------------------------" << endl;
         cout << " (1) - Sort by alphabetical order" << endl;
         cout << " (2) - Sort by chronological order" << endl;
         cout << " (3) - Return to main menu" << endl;
+        cout << "Enter your command (1 - 2): ";
         cin >> sortcho;
+        cout << endl;
 
         if(sortcho == "1")
         {
@@ -163,7 +166,7 @@ void ClassUI::searching()
 {
 
     cout << "----------Select any of the following commands----------" << endl;
-    cout << "What do you want to search for? " << endl;
+    cout << "What do you want to search for? (1 - 4)" << endl;
     cout << " (1) - Name -- Searches for a name." << endl;
     cout << " (2) - Gender -- Searches for a Gender." << endl;
     cout << " (3) - Year -- Searches for a year born." << endl;
@@ -220,6 +223,7 @@ void ClassUI::addPerson()
 void ClassUI::search()
 {
         string searchChoice;
+        cout << "Enter your command (1 - 4): ";
         cin >> searchChoice;
         if (searchChoice == "1")
         {
