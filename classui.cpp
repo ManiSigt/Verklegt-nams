@@ -12,11 +12,8 @@ ClassUI::ClassUI()
 {
 
 }
-
 void ClassUI::run()
 {
-
-
     cout << "\t" << "Welcome to the Amazing Database! " << endl;
     cout << "-----------------------------------------------------------" << endl;
     cout << "\t" << "   *** Quote of the day ***" << endl;
@@ -28,7 +25,6 @@ void ClassUI::mainMenu()
     string choice;
     do
     {
-
         cout << "-----------------------------------------------------------" << endl;
         cout << " (1) - " << "\t" << "Add a person to the database." << endl;
         cout << " (2) - " << "\t" << "Remove a person from the database." << endl;
@@ -37,7 +33,6 @@ void ClassUI::mainMenu()
         cout << " (5) - " << "\t" << "Search the database." << endl;
         cout << " (6) - " << "\t" << "Sort the database." << endl;
         cout << " (7) - " << "\t" << "Exit." << endl;
-
         cout << "Enter your command (1 - 7): ";
         cin >> choice;
         cout << endl;
@@ -52,7 +47,6 @@ void ClassUI::mainMenu()
         }
     }while(runOn == true);
 }
-
 void ClassUI::select(string ch)
 {
     if(ch == "1")
@@ -104,7 +98,7 @@ void ClassUI::select(string ch)
     {
         save();
     }
-    else if(ch == "8")
+    else if(ch == "yo")
     {
         yo();
     }
@@ -120,7 +114,6 @@ void ClassUI::view(int i)
     cout << "--------------------------------------------------------------" << endl;
     cout << "Name" << "\t" << "\t" << "\t" << "\t" << "|Gender " << "|Born " << "\t" << "|Death" << endl;
     cout << "--------------------------------|-------|-------|-------------" << endl;
-
     cout << list.getName(i);
     if(nameSize > 0 && nameSize <= 7)
     {
@@ -160,7 +153,6 @@ void ClassUI::view(int i)
     cout << "--------------------------------------------------------------" << endl;
     cout << endl;
 }
-
 void ClassUI::searching()
 {
 
@@ -229,7 +221,6 @@ void ClassUI::addPerson()
         cout << "Operation addPerson aborted!" << endl; // Endilega komið með tillögu að breytingu á þessum texta
     }
 }
-
 void ClassUI::search()
 {
     string searchChoice;
@@ -238,7 +229,6 @@ void ClassUI::search()
     cout << endl;
     if (searchChoice == "1")
     {
-
         string namesearch;
         cout << "Enter a name you want to search for: ";
         cin.ignore();
@@ -251,7 +241,6 @@ void ClassUI::search()
             {
                 view(i);
             }
-
         }
         if(list.nameSearcher(namesearch) == false)
         {
@@ -263,7 +252,6 @@ void ClassUI::search()
     {
         char gendersearch;
 
-
         cout << "Enter a gender you want to search for: (M/F)";
         cin >> gendersearch;
         if(gendersearch == 'm')
@@ -274,7 +262,6 @@ void ClassUI::search()
             {
                  gendersearch = 'F';
             }
-
 
         for(int i = 0; i < list.getPersonsSize();++i)
         {
@@ -295,7 +282,6 @@ void ClassUI::search()
             int yearsearch;
             cout << "Enter a year you want to search for: ";
             cin >> yearsearch;
-
 
             for(int i = 0; i < list.getPersonsSize();++i)
             {
@@ -345,7 +331,6 @@ void ClassUI::remove()
                 cout << "Person not removed!" << endl;
             }
         }
-
     }
     else
     {
@@ -378,8 +363,6 @@ void ClassUI::yo()
     cout << "       8 8888          `8888888P'     " << endl;
     cout << endl;
 }
-
-
 string ClassUI::getQuotes()
 {
     string quotes[5] = {"\"A good programmer is someone who always looks both ways before crossing a one-way street.\" (Doug Linder)",
