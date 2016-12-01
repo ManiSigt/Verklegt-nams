@@ -11,11 +11,11 @@ class ClassUI
 {
 public:
     ClassUI();
-    void addPerson();
-    void mainMenu();
-    void remove();
-    void run();
-    void save();
+    void addPerson();           //
+    void mainMenu();            // This prints out the main menu and checks for exit input.
+    void remove();              //
+    void run();                 // This prints out a welcome message and prints out a random quote, then calls main menu.
+    void save();                //
     void search();              // checks what option you took in searching and then asks for what keyword you want to search for, and looks it up in the database and prints it out
     void searching();           // prints out the options to search for in search then calls search.
     void select(string ch);
