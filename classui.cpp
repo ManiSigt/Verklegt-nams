@@ -377,10 +377,10 @@ void ClassUI::sorting()
     string sortcho;
     cout << "Enter a sort command (1 - 4):" << endl;
     cout << "--------------------------------------------------------------" << endl;
-    cout << " (1) - Sort by alphabetical order" << endl;
-    cout << " (2) - Sort by chronological order" << endl;
-    cout << " (3) - Sort by gender" << endl;
-    cout << " (4) - Return to main menu" << endl;
+    cout << " (1) - Sort by alphabetical order." << endl;
+    cout << " (2) - Sort by chronological order." << endl;
+    cout << " (3) - Sort by gender." << endl;
+    cout << " (4) - Return to main menu." << endl;
     cout << "Enter your command (1 - 4): ";
     cin >> sortcho;
     cout << endl;
