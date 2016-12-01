@@ -11,7 +11,6 @@ DataLayer::DataLayer()
 {
 
 }
-
 void DataLayer::writeToFile(string name, char gender, int yearOfBirth, int yearOfDeath, string comment)
 {
      ofstream myfile("amazingDatabase.txt", ios::app);
@@ -22,7 +21,6 @@ void DataLayer::writeToFile(string name, char gender, int yearOfBirth, int yearO
      myfile << comment << endl;
      myfile.close();
 }
-
 void DataLayer::readFromFile(vector<Person>& getPersons)
 {
     string line;
@@ -63,13 +61,11 @@ void DataLayer::readFromFile(vector<Person>& getPersons)
               yearOfDeath = 1;
               comment = "1";
           }
-
         }
     myfile.close();
     }
     else cout << "Unable to open file";
 }
-
 bool sortByName(const Person &lhs, const Person &rhs)
 {
     return lhs._getName() < rhs._getName();
