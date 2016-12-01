@@ -138,9 +138,9 @@ void ClassUI::searching()
 
     cout << "-------------Select any of the following commands-------------" << endl;
     cout << "What do you want to search for?" << endl;
-    cout << " (1) - Searches for a name." << endl;
-    cout << " (2) - Searches for a gender." << endl;
-    cout << " (3) - Searches for a year born." << endl;
+    cout << " (1) - Search by name." << endl;
+    cout << " (2) - Search by gender." << endl;
+    cout << " (3) - Search by year of birth." << endl;
     cout << " (4) - Return to main menu." << endl;
 
     search();

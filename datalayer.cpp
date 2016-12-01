@@ -24,7 +24,7 @@ void DataLayer::writeToFile(string name, char gender, int yearOfBirth, int yearO
 void DataLayer::readFromFile(vector<Person>& getPersons)
 {
     string line;
-    string name = "1";       //notað til að tékka hvort búið sé að lesa inn nafnið.
+    string name = "1";
     string comment = "1";
     char gender = '1';
     int yearOfBirth = 1;
