@@ -13,6 +13,7 @@ class ClassUI
 public:
     ClassUI();
     void run();
+    void mainMenu();
     void select(string ch);
     void view(int i);
     void viewAll();
@@ -28,6 +29,7 @@ public:
 private:
     ListWorker list;
     string getQuotes();
+    bool runOn = true;
 
 };
 

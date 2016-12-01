@@ -15,13 +15,17 @@ ClassUI::ClassUI()
 
 void ClassUI::run()
 {
-    bool runOn = true;
-    string choice;
+
 
     cout << "\t" << "Welcome to the Amazing Database! " << endl;
     cout << "-----------------------------------------------------------" << endl;
     cout << "\t" << "   *** Quote of the day ***" << endl;
     cout << getQuotes() << endl;
+    mainMenu();
+}
+void ClassUI::mainMenu()
+{
+    string choice;
     do
     {
 
@@ -36,6 +40,7 @@ void ClassUI::run()
 
         cout << "Enter your command (1 - 7): ";
         cin >> choice;
+        cout << endl;
 
         if (choice != "7")
         {
@@ -62,21 +67,30 @@ void ClassUI::select(string ch)
     else if(ch == "6")
     {
         string sortcho;
-        cout << "Enter your sort command (1, 2):" << endl;
+        cout << "Enter a sort command (1 - 3):" << endl;
         cout << "------------------------" << endl;
         cout << " (1) - Sort by alphabetical order" << endl;
-        cout << " (2) - sort by chronological order" << endl;
+        cout << " (2) - Sort by chronological order" << endl;
+        cout << " (3) - Return to main menu" << endl;
+        cout << "Enter your command (1 - 2): ";
         cin >> sortcho;
+        cout << endl;
 
         if(sortcho == "1")
         {
             list.sortNames();
+             viewAll();
         }
         else if(sortcho == "2")
         {
             list.sortBirth();
+             viewAll();
         }
-        viewAll();
+        else if(sortcho == "3")
+        {
+            mainMenu();
+        }
+
     }
     else if(ch == "5")
     {
@@ -151,10 +165,12 @@ void ClassUI::searching()
 {
 
     cout << "----------Select any of the following commands----------" << endl;
-    cout << "What do you want to search for? " << endl;
-    cout << " (1) - Name -- Searches for a name." << endl;
-    cout << " (2) - Gender -- Searches for a Gender." << endl;
-    cout << " (3) - Year -- Searches for a year born." << endl;
+    cout << "What do you want to search for? (1 - 4)" << endl;
+    cout << " (1) - Searches for a name." << endl;
+    cout << " (2) - Searches for a Gender." << endl;
+    cout << " (3) - Searches for a year born." << endl;
+    cout << " (4) - Return to main menu" << endl;
+
     search();
 }
 void ClassUI::addPerson()
@@ -200,13 +216,24 @@ void ClassUI::addPerson()
         cout << "Invalid gender! Try again." << endl;
         addPerson();
     }
-    list.addNewPerson(name, gender, yearOfBirth, yearOfDeath, comment);
-
+    cout << "Are you sure that you want to add this person? yes or no: "; // Þetta er ógeðslegur texti, endilega finnum eitthvað skárra
+    string validatePerson;
+    cin >> validatePerson;
+    if(validatePerson == "yes")
+    {
+        cout << "New person added!" << endl;
+        list.addNewPerson(name, gender, yearOfBirth, yearOfDeath, comment);
+    }
+    else
+    {
+        cout << "Operation addPerson aborted!" << endl; // Endilega komið með tillögu að breytingu á þessum texta
+    }
 }
 
 void ClassUI::search()
 {
         string searchChoice;
+        cout << "Enter your command (1 - 4): ";
         cin >> searchChoice;
         if (searchChoice == "1")
         {
@@ -228,6 +255,7 @@ void ClassUI::search()
             if(list.nameSearcher(namesearch) == false)
             {
                 cout << "Sorry that name is not in our database, but you can add a new instance in the 'Add' section in the main menu." << endl;
+                searching();
             }
         }
         else if (searchChoice == "2")
@@ -258,6 +286,7 @@ void ClassUI::search()
             if(list.genderSearcher(gendersearch) == false)
             {
                 cout << "Sorry that gender is not in our database, but you can add a new instance in the 'Add' section in the main menu." << endl;
+                searching();
             }
         }
         else if (searchChoice == "3")
@@ -278,11 +307,17 @@ void ClassUI::search()
                 if(list.yearSearcher(yearsearch) == false)
                 {
                     cout << "Sorry that year is not in our database, but you can add a new instance in the 'Add' section in the main menu." << endl;
+                    searching();
                 }
+        }
+        else if (searchChoice == "4")
+        {
+            mainMenu();
         }
         else
         {
             cout << "Error reading input. Please enter a number between 1- 3." << endl;
+            search();
         }
 }
 void ClassUI::remove()

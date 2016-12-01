@@ -11,7 +11,7 @@ int main()
 
     ui.run();
 
-    cout << "yo!";
+    cout << "yo! ";
 
     return 0;
 }
