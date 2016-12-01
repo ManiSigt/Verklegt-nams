@@ -137,7 +137,7 @@ void ClassUI::searching()
 {
 
     cout << "-------------Select any of the following commands-------------" << endl;
-    cout << "What do you want to search for? (1 - 4)" << endl;
+    cout << "What do you want to search for?" << endl;
     cout << " (1) - Searches for a name." << endl;
     cout << " (2) - Searches for a Gender." << endl;
     cout << " (3) - Searches for a year born." << endl;
@@ -220,7 +220,7 @@ void ClassUI::search()
         cin.ignore();
         std::getline(std::cin,namesearch);
 
-        for(int i = 0; i < list.getPersonsSize();++i)
+        for(int i = 0; i < list.personsSize();++i)
         {
             std::size_t found = list.getName(i).find(namesearch);
             if (found!=std::string::npos)
@@ -251,7 +251,7 @@ void ClassUI::search()
                  gendersearch = 'F';
             }
 
-        for(int i = 0; i < list.getPersonsSize();++i)
+        for(int i = 0; i < list.personsSize();++i)
         {
             if(gendersearch == list.getGender(i))
             {
@@ -272,7 +272,7 @@ void ClassUI::search()
             cout << "Enter a year you want to search for: ";
             cin >> yearsearch;
 
-            for(int i = 0; i < list.getPersonsSize();++i)
+            for(int i = 0; i < list.personsSize();++i)
             {
                 if(yearsearch == list.getBirth(i))
                 {
@@ -335,7 +335,7 @@ void ClassUI::save()
 }
 void ClassUI::viewAll()
 {
-    for(int i = 0; i < list.getPersonsSize(); i++)
+    for(int i = 0; i < list.personsSize(); i++)
     {
         view(i);
     }
