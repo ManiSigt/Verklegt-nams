@@ -12,7 +12,9 @@ class ListWorker
 public:
     ListWorker();
     void addNewPerson(string name, char gender, int yearOfBirth, int yearOFDeath, string comment);
-
+    bool nameSearcher(string name);
+    bool genderSearcher(char gender);
+    bool yearSearcher(int year);
     void sortNames();
     void sortBirth();
     bool removePerson(string name);
