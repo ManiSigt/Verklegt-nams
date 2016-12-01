@@ -16,6 +16,8 @@ public:
     void sortBirth(vector<Person>& getPersons);                                                     //sorts the vector by year of birth
     friend bool sortByAge(const Person &lhs, const Person &rhs);                                    //
     friend bool sortByName(const Person &lhs, const Person &rhs);                                   //
+    friend bool sortByGender(const Person &lhs, const Person &rhs);                                 //
+    void sortGender(vector<Person>& getPersons);                                                     //
     void sortNames(vector<Person>& getPersons);                                                     //sorts the vector by names of people
     int stringToNumber(string st);                                                                  //convert string to int
     void writeToFile(string name, char gender, int yearOfBirth, int yearOfDeath, string comment);   //writes person to the file amazingDataBase.txt

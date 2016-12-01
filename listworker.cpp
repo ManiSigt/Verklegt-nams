@@ -23,6 +23,10 @@ void ListWorker::sortBirth()
 {
     data.sortBirth(getPersons);
 }
+void ListWorker::sortGender()
+{
+    data.sortGender(getPersons);
+}
 bool ListWorker::removePerson(string name)
 {
 

@@ -75,6 +75,10 @@ bool sortByAge(const Person &lhs, const Person &rhs)
 {
     return lhs._getBirth() < rhs._getBirth();
 }
+bool sortByGender(const Person &lhs, const Person &rhs)
+{
+    return lhs._getGender() < rhs._getGender();
+}
 void DataLayer::sortNames(vector<Person>& getPersons)
 {
     std::sort(getPersons.begin(),getPersons.end(), sortByName);
@@ -82,6 +86,10 @@ void DataLayer::sortNames(vector<Person>& getPersons)
 void DataLayer::sortBirth(vector<Person>& getPersons)
 {
     std::sort(getPersons.begin(),getPersons.end(), sortByAge);
+}
+void DataLayer::sortGender(vector<Person>& getPersons)
+{
+    std::sort(getPersons.begin(),getPersons.end(), sortByGender);
 }
 void DataLayer::deleteFile()
 {
