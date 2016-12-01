@@ -16,7 +16,7 @@ ClassUI::ClassUI()
 void ClassUI::run()
 {
     bool runOn = true;
-    string choice;
+    int choice;
 
     cout << "\t" << "Welcome to the Amazing Database " << endl;
     cout << "-----------------------------------------------------------" << endl;
@@ -26,17 +26,17 @@ void ClassUI::run()
     {
 
         cout << "-----------------------------------------------------------" << endl;
-        cout << "add" << "\t" << "Add a person to the database" << endl;
-        cout << "remove" << "\t" << "Remove a person from the database" << endl;
-        cout << "view" << "\t" << "View the entire database" << endl;
-        cout << "save" << "\t" << "Save the database" << endl;
-        cout << "search" << "\t" << "Search the database" << endl;
-        cout << "sort" << "\t" << "Sort the database" << endl;
-        cout << "exit" << "\t" << "Exit" << endl;
+        cout << " (1) - Add" << "\t" << "Add a person to the database" << endl;
+        cout << " (2) - Remove" << "\t" << "Remove a person from the database" << endl;
+        cout << " (3) - View" << "\t" << "View the entire database" << endl;
+        cout << " (4) - Save" << "\t" << "Save the database" << endl;
+        cout << " (5) - Search" << "\t" << "Search the database" << endl;
+        cout << " (6) - Sort" << "\t" << "Sort the database" << endl;
+        cout << " (7) - Exit" << "\t" << "Exit" << endl;
 
         cout << "Enter your command: ";
         cin >> choice;
-        if (choice != "exit"){
+        if (choice != 7){
            select(choice);
         }
         else{
@@ -46,42 +46,45 @@ void ClassUI::run()
     }while(runOn == true);
 }
 
-void ClassUI::select(string ch)
+void ClassUI::select(int ch)
 {
-    if(ch == "add" || ch == "ADD" || ch == "Add" ){
+    if(ch == 1){
         addPerson();
     }
 
-    else if(ch == "view" || ch == "View" || ch == "VIEW")
+    else if(ch == 3)
     {
         viewAll();
     }
-    else if(ch == "sort")
+    else if(ch == 6)
     {
-        string sortcho;
-        cout << "Enter 'name' or 'year'" << endl;
+        int sortcho;
+        cout << "Enter your sort command" << endl;
+        cout << "------------------------" << endl;
+        cout << " (1) - Sort by alphabetical order" << endl;
+        cout << " (2) - sort by chronological order" << endl;
         cin >> sortcho;
 
-        if(sortcho == "name")
+        if(sortcho == 1)
         {
             list.sortNames();
         }
-        else if(sortcho == "year")
+        else if(sortcho == 2)
         {
             list.sortBirth();
         }
         viewAll();
     }
-    else if(ch == "search" || ch == "Search" || ch == "SEARCH"){
+    else if(ch == 5){
         searching();
     }
-    else if(ch == "remove" || ch == "Remove" || ch == "REMOVE"){
+    else if(ch == 2){
         remove();
     }
-    else if(ch == "save" || ch == "Save" || ch == "SAVE"){
+    else if(ch == 4){
         save();
     }
-    else if(ch == "yo" || ch == "Yo" || ch == "yO" || ch == "YO")
+    else if(ch == 8)
     {
         yo();
     }
@@ -141,11 +144,11 @@ void ClassUI::view(int i)
 void ClassUI::searching()
 {
 
-    cout << "----------Select any of the following options----------" << endl;
+    cout << "----------Select any of the following commands----------" << endl;
     cout << "What do you want to search for? " << endl;
-    cout << "Name -- Searches for a name" << endl;
-    cout << "Gender -- Searches for a Gender" << endl;
-    cout << "Year -- Searches for a year born" << endl;
+    cout << " (1) - Name -- Searches for a name" << endl;
+    cout << " (2) - Gender -- Searches for a Gender" << endl;
+    cout << " (3) - Year -- Searches for a year born" << endl;
     search();
 }
 void ClassUI::addPerson()
@@ -197,9 +200,9 @@ void ClassUI::addPerson()
 
 void ClassUI::search()
 {
-        string searchChoice;
+        int searchChoice;
         cin >> searchChoice;
-        if (searchChoice == "Name" || searchChoice == "name" || searchChoice == "NAME")
+        if (searchChoice == 1)
         {
 
             string namesearch;
@@ -222,12 +225,12 @@ void ClassUI::search()
                 cout << "Sorry that name is not in our database, but you can add a new instance in the 'Add' section in the main menu" << endl;
             }
         }
-        else if (searchChoice == "Gender" || searchChoice == "GENDER" || searchChoice == "gender")
+        else if (searchChoice == 2)
         {
             char gendersearch;
 
 
-            cout << "Enter a Gender you want to search for: (M/F)";
+            cout << "Enter a gender you want to search for: (M/F)";
             cin >> gendersearch;
             if(gendersearch == 'm')
                 {
@@ -252,10 +255,10 @@ void ClassUI::search()
                 cout << "Sorry that gender is not in our database, but you can add a new instance in the 'Add' section in the main menu" << endl;
             }
         }
-        else if (searchChoice == "year" || searchChoice == "YEAR" || searchChoice == "Year")
+        else if (searchChoice == 3)
         {
                 int yearsearch;
-                cout << "Enter a Year you want to search for: ";
+                cout << "Enter a year you want to search for: ";
                 cin >> yearsearch;
 
 
