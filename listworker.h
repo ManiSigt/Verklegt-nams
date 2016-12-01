@@ -19,7 +19,6 @@ public:
     void sortBirth();
     bool removePerson(string name);
     bool removePersonFound(string name);
-
     string getName(int n) const
     {
         return getPersons[n]._getName();;
@@ -41,12 +40,10 @@ public:
         return getPersons[n]._getComment();
     }
     int getNameSize(int n) const;
-
     int getPersonsSize() const
     {
         return getPersons.size();
     }
-
     void saveFile();
 
 private:

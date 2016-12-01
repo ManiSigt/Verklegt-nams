@@ -99,5 +99,3 @@ int DataLayer::stringToNumber(string st)
     int value = atoi(text.c_str());
     return value;
 }
-
-

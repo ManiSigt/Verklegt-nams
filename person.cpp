@@ -15,6 +15,3 @@ Person::Person(string name, char gender, int birth, int death, string comment)
     _comment = comment;
 }
 
-
-
-
