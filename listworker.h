@@ -18,7 +18,7 @@ public:
     bool removePersonFound(string name);        //
     void sortBirth();                           //
     void sortNames();                           //
-    void sortGender();                           //
+    void sortGender();                          //
     bool yearSearcher(int year);                //
     string getName(int n) const                 //Make _name from getPersons available.
     {
