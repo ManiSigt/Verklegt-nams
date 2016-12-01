@@ -25,7 +25,7 @@ void ClassUI::mainMenu()
     string choice;
     do
     {
-        cout << "-----------------------------------------------------------" << endl;
+        cout << "--------------------------------------------------------------" << endl;
         cout << " (1) - " << "\t" << "Add a person to the database." << endl;
         cout << " (2) - " << "\t" << "Remove a person from the database." << endl;
         cout << " (3) - " << "\t" << "View the entire database." << endl;
