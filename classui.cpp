@@ -15,7 +15,7 @@ ClassUI::ClassUI()
 void ClassUI::run()
 {
     cout << "\t" << "Welcome to the Amazing Database! " << endl;
-    cout << "-----------------------------------------------------------" << endl;
+    cout << "--------------------------------------------------------------" << endl;
     cout << "\t" << "   *** Quote of the day ***" << endl;
     cout << getQuotes() << endl;
     mainMenu();
@@ -25,7 +25,7 @@ void ClassUI::mainMenu()
     string choice;
     do
     {
-        cout << "-----------------------------------------------------------" << endl;
+        cout << "--------------------------------------------------------------" << endl;
         cout << " (1) - " << "\t" << "Add a person to the database." << endl;
         cout << " (2) - " << "\t" << "Remove a person from the database." << endl;
         cout << " (3) - " << "\t" << "View the entire database." << endl;
@@ -63,7 +63,7 @@ void ClassUI::select(string ch)
     {
         string sortcho;
         cout << "Enter a sort command (1 - 3):" << endl;
-        cout << "------------------------" << endl;
+        cout << "--------------------------------------------------------------" << endl;
         cout << " (1) - Sort by alphabetical order" << endl;
         cout << " (2) - Sort by chronological order" << endl;
         cout << " (3) - Return to main menu" << endl;
@@ -161,7 +161,7 @@ void ClassUI::view(int i)
 void ClassUI::searching()
 {
 
-    cout << "----------Select any of the following commands----------" << endl;
+    cout << "-------------Select any of the following commands-------------" << endl;
     cout << "What do you want to search for? (1 - 4)" << endl;
     cout << " (1) - Searches for a name." << endl;
     cout << " (2) - Searches for a Gender." << endl;
