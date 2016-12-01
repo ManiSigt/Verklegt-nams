@@ -16,9 +16,9 @@ public:
     bool nameSearcher(string name);             //
     bool removePerson(string name);             //
     bool removePersonFound(string name);        //
-    void sortBirth();                           //
-    void sortNames();                           //
-    void sortGender();                           //
+    void sortBirth();                           // Calls the function sortBirth from the datalayer class.
+    void sortNames();                           // Calls the function sortNames from the datalayer class.
+    void sortGender();                          // Calls the function sortGender from the datalayer class.
     bool yearSearcher(int year);                //
     string getName(int n) const                 //Make _name from persons available.
     {
@@ -41,7 +41,7 @@ public:
         return persons[n]._getComment();
     }
     int getNameSize(int n) const;               //Returns the size of _name from persons.
-    int personsSize() const                  //Returns the size of vector persons.
+    int personsSize() const                     //Returns the size of vector persons.
     {
         return persons.size();
     }
@@ -49,7 +49,7 @@ public:
 
 private:
     DataLayer data;
-    vector<Person> persons;                  //The vector containing all persons from the database.
+    vector<Person> persons;                     //The vector containing all persons from the database.
 };
 
 #endif // LISTWORKER_H
