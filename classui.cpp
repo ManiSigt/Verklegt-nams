@@ -18,7 +18,7 @@ void ClassUI::run()
     bool runOn = true;
     string choice;
 
-    cout << "\t" << "Welcome to the Amazing Database " << endl;
+    cout << "\t" << "Welcome to the Amazing Database! " << endl;
     cout << "-----------------------------------------------------------" << endl;
     cout << "\t" << "   *** Quote of the day ***" << endl;
     cout << getQuotes() << endl;
@@ -26,15 +26,15 @@ void ClassUI::run()
     {
 
         cout << "-----------------------------------------------------------" << endl;
-        cout << " (1) - Add" << "\t" << "Add a person to the database" << endl;
-        cout << " (2) - Remove" << "\t" << "Remove a person from the database" << endl;
-        cout << " (3) - View" << "\t" << "View the entire database" << endl;
-        cout << " (4) - Save" << "\t" << "Save the database" << endl;
-        cout << " (5) - Search" << "\t" << "Search the database" << endl;
-        cout << " (6) - Sort" << "\t" << "Sort the database" << endl;
-        cout << " (7) - Exit" << "\t" << "Exit" << endl;
+        cout << " (1) - Add" << "\t" << "Add a person to the database." << endl;
+        cout << " (2) - Remove" << "\t" << "Remove a person from the database." << endl;
+        cout << " (3) - View" << "\t" << "View the entire database." << endl;
+        cout << " (4) - Save" << "\t" << "Save the database." << endl;
+        cout << " (5) - Search" << "\t" << "Search the database." << endl;
+        cout << " (6) - Sort" << "\t" << "Sort the database." << endl;
+        cout << " (7) - Exit" << "\t" << "Exit." << endl;
 
-        cout << "Enter your command: ";
+        cout << "Enter your command (1 - 7): ";
         cin >> choice;
 
         if (choice != "7")
@@ -62,7 +62,7 @@ void ClassUI::select(string ch)
     else if(ch == "6")
     {
         string sortcho;
-        cout << "Enter your sort command" << endl;
+        cout << "Enter your sort command (1, 2):" << endl;
         cout << "------------------------" << endl;
         cout << " (1) - Sort by alphabetical order" << endl;
         cout << " (2) - sort by chronological order" << endl;
@@ -96,7 +96,7 @@ void ClassUI::select(string ch)
     }
     else
     {
-        cout << "Invalid input" << endl;
+        cout << "Invalid input. Please enter a number between 1 - 7." << endl;
     }
 }
 void ClassUI::view(int i)
@@ -152,9 +152,9 @@ void ClassUI::searching()
 
     cout << "----------Select any of the following commands----------" << endl;
     cout << "What do you want to search for? " << endl;
-    cout << " (1) - Name -- Searches for a name" << endl;
-    cout << " (2) - Gender -- Searches for a Gender" << endl;
-    cout << " (3) - Year -- Searches for a year born" << endl;
+    cout << " (1) - Name -- Searches for a name." << endl;
+    cout << " (2) - Gender -- Searches for a Gender." << endl;
+    cout << " (3) - Year -- Searches for a year born." << endl;
     search();
 }
 void ClassUI::addPerson()
@@ -227,7 +227,7 @@ void ClassUI::search()
             }
             if(list.nameSearcher(namesearch) == false)
             {
-                cout << "Sorry that name is not in our database, but you can add a new instance in the 'Add' section in the main menu" << endl;
+                cout << "Sorry that name is not in our database, but you can add a new instance in the 'Add' section in the main menu." << endl;
             }
         }
         else if (searchChoice == "2")
@@ -257,7 +257,7 @@ void ClassUI::search()
             }
             if(list.genderSearcher(gendersearch) == false)
             {
-                cout << "Sorry that gender is not in our database, but you can add a new instance in the 'Add' section in the main menu" << endl;
+                cout << "Sorry that gender is not in our database, but you can add a new instance in the 'Add' section in the main menu." << endl;
             }
         }
         else if (searchChoice == "3")
@@ -277,12 +277,12 @@ void ClassUI::search()
                 }
                 if(list.yearSearcher(yearsearch) == false)
                 {
-                    cout << "Sorry that year is not in our database, but you can add a new instance in the 'Add' section in the main menu" << endl;
+                    cout << "Sorry that year is not in our database, but you can add a new instance in the 'Add' section in the main menu." << endl;
                 }
         }
         else
         {
-            cout << "Error reading input" << endl;
+            cout << "Error reading input. Please enter a number between 1- 3." << endl;
         }
 }
 void ClassUI::remove()
