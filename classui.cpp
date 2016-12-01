@@ -20,7 +20,7 @@ void ClassUI::run()
 
     cout << "\t" << "Welcome to the Amazing Database " << endl;
     cout << "-----------------------------------------------------------" << endl;
-    cout << "\t" << "Quote of the day: " << endl;
+    cout << "\t" << "   *** Quote of the day ***" << endl;
     cout << getQuotes() << endl;
     do
     {
