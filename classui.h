@@ -1,11 +1,6 @@
 #ifndef CLASSUI_H
 #define CLASSUI_H
-#include <iostream>
-#include <string>
 #include "listworker.h"
-#include <algorithm>
-
-using namespace std;
 
 class ClassUI
 {
