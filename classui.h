@@ -29,6 +29,7 @@ public:
 private:
     ListWorker list;
     string getQuotes();
+    bool runOn = true;
 
 };
 

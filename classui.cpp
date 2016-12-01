@@ -25,7 +25,6 @@ void ClassUI::run()
 }
 void ClassUI::mainMenu()
 {
-    bool runOn = true;
     string choice;
     do
     {
