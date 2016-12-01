@@ -19,32 +19,32 @@ public:
     void sortBirth();                           //
     void sortNames();                           //
     bool yearSearcher(int year);                //
-    string getName(int n) const                 //
+    string getName(int n) const                 //make _name from getPersons available
     {
         return getPersons[n]._getName();;
     }
-    char getGender(int n) const                 //
+    char getGender(int n) const                 //make _gender from getPersons available
     {
         return getPersons[n]._getGender();;
     }
-    int getBirth(int n) const                   //
+    int getBirth(int n) const                   //make _yearOfBirth from getPersons available
     {
         return getPersons[n]._getBirth();;
     }
-    int getDeath(int n) const                   //
+    int getDeath(int n) const                   //make _yearOfDeath from getPersons available
     {
         return getPersons[n]._getDeath();
     }
-    string getComment(int n) const              //
+    string getComment(int n) const              //make _comment from getPersons available
     {
         return getPersons[n]._getComment();
     }
-    int getNameSize(int n) const;               //returns the size of string name
+    int getNameSize(int n) const;               //returns the size of _name from getPersons
     int getPersonsSize() const                  //returns the size of vector getPersons
     {
         return getPersons.size();
     }
-    void saveFile();                            //
+    void saveFile();                            //deletes the file and makes a new one, and reads the vector into the new file
 
 private:
     DataLayer data;
