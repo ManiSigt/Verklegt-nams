@@ -26,13 +26,13 @@ void ClassUI::mainMenu()
     do
     {
         cout << "--------------------------------------------------------------" << endl;
-        cout << " (1) - " << "\t" << "Add a person to the database." << endl;
-        cout << " (2) - " << "\t" << "Remove a person from the database." << endl;
-        cout << " (3) - " << "\t" << "View the entire database." << endl;
-        cout << " (4) - " << "\t" << "Save the database." << endl;
-        cout << " (5) - " << "\t" << "Search the database." << endl;
-        cout << " (6) - " << "\t" << "Sort the database." << endl;
-        cout << " (7) - " << "\t" << "Exit." << endl;
+        cout << " (1) - "  << "Add a person to the database." << endl;
+        cout << " (2) - "  << "Remove a person from the database." << endl;
+        cout << " (3) - "  << "View the entire database." << endl;
+        cout << " (4) - "  << "Save the database." << endl;
+        cout << " (5) - "  << "Search the database." << endl;
+        cout << " (6) - "  << "Sort the database." << endl;
+        cout << " (7) - "  << "Exit." << endl;
         cout << "Enter your command (1 - 7): ";
         cin >> choice;
         cout << endl;
