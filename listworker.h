@@ -11,6 +11,7 @@ class ListWorker
 {
 public:
     ListWorker();
+
     void addNewPerson(string name, char gender, int yearOfBirth, int yearOFDeath, string comment); //Adds a person to the vector persons and adds them to the database.
     bool genderSearcher(char gender);           // Searches for a specific gender within the vector using a for loop.
     bool nameSearcher(string name);             // Searches for a specific name within the vector using a for loop.
@@ -24,32 +25,32 @@ public:
     {
         return persons[n]._getName();
     }
-    char getGender(int n) const                 //Make _gender from persons available.
+    char getGender(int n) const                 // Make _gender from persons available.
     {
         return persons[n]._getGender();
     }
-    int getBirth(int n) const                   //Make _yearOfBirth from persons available.
+    int getBirth(int n) const                   // Make _yearOfBirth from persons available.
     {
         return persons[n]._getBirth();
     }
-    int getDeath(int n) const                   //Make _yearOfDeath from persons available.
+    int getDeath(int n) const                   // Make _yearOfDeath from persons available.
     {
         return persons[n]._getDeath();
     }
-    string getComment(int n) const              //Make _comment from persons available.
+    string getComment(int n) const              // Make _comment from persons available.
     {
         return persons[n]._getComment();
     }
-    int getNameSize(int n) const;               //Returns the size of _name from persons.
-    int personsSize() const                     //Returns the size of vector persons.
+    int getNameSize(int n) const;               // Returns the size of _name from persons.
+    int personsSize() const                     // Returns the size of vector persons.
     {
         return persons.size();
     }
-    void saveFile();                            //Deletes the file and makes a new one, and reads the vector into the new file.
+    void saveFile();                            // Deletes the file and makes a new one, and reads the vector into the new file.
 
 private:
     DataLayer data;
-    vector<Person> persons;                     //The vector containing all persons from the database.
+    vector<Person> persons;                     // The vector containing all persons from the database.
 };
 
 #endif // LISTWORKER_H
