@@ -75,13 +75,16 @@ void ClassUI::select(int ch)
         }
         viewAll();
     }
-    else if(ch == 5){
+    else if(ch == 5)
+    {
         searching();
     }
-    else if(ch == 2){
+    else if(ch == 2)
+    {
         remove();
     }
-    else if(ch == 4){
+    else if(ch == 4)
+    {
         save();
     }
     else if(ch == 8)
