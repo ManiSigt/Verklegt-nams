@@ -174,7 +174,11 @@ void ClassUI::addPerson()
     {
        cout << "Input year of birth: ";
        cin >> yearOfBirth;
-
+       if (yearOfBirth < 0 || yearOfBirth > 2016)
+       {
+           cout << "not a valid year of birth" << endl;
+           return addPerson();
+       }
        cout << "Is the individual deceased? (y/n) ";
        cin >> yesOrNo;
 
@@ -182,6 +186,11 @@ void ClassUI::addPerson()
        {
             cout << "Input year of death: ";
             cin >> yearOfDeath;
+            if(yearOfBirth > yearOfDeath)
+            {
+                cout << "Not a valid year of death" << endl;
+                return addPerson();
+            }
        }
 
        cout << "Input a comment about the individual: ";
@@ -407,3 +416,4 @@ void ClassUI::sorting()
         mainMenu();
     }
 }
+
