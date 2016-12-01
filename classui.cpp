@@ -208,14 +208,14 @@ void ClassUI::search()
             cin.ignore();
             std::getline(std::cin,namesearch);
 
-
             for(int i = 0; i < list.getPersonsSize();++i)
             {
-                if(namesearch == list.getName(i))
+                std::size_t found = list.getName(i).find(namesearch);
+                if (found!=std::string::npos)
                 {
-                    namesearch =  list.getName(i);
                     view(i);
                 }
+
             }
             if(list.nameSearcher(namesearch) == false)
             {
