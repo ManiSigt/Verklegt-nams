@@ -70,7 +70,7 @@ void ClassUI::select(string ch)
     {
         searching();
     }
-        else if(ch == "6")
+    else if(ch == "6")
     {
         sorting();
     }
