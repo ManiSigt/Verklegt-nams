@@ -322,6 +322,10 @@ void ClassUI::remove()
                 cout << "Person not removed!" << endl;
             }
         }
+        else
+        {
+            cout << "Person not removed!" << endl;
+        }
     }
     else
     {
