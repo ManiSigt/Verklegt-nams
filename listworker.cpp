@@ -65,10 +65,11 @@ bool ListWorker::nameSearcher(string name)
 {
     for(unsigned int i = 0; i < getPersons.size(); i++)
     {
-        if(name == getName(i))
+        std::size_t found = getName(i).find(name);
+        if (found!=std::string::npos)
         {
-             return true;
-             break;
+            return true;
+            break;
         }
     }
 

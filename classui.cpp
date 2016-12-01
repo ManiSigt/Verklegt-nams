@@ -207,7 +207,6 @@ void ClassUI::search()
 
             string namesearch;
             cout << "Enter a name you want to search for: ";
-            //cin >> namesearch;
             cin.ignore();
             std::getline(std::cin,namesearch);
 
