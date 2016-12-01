@@ -16,7 +16,7 @@ ClassUI::ClassUI()
 void ClassUI::run()
 {
     bool runOn = true;
-    int choice;
+    string choice;
 
     cout << "\t" << "Welcome to the Amazing Database " << endl;
     cout << "-----------------------------------------------------------" << endl;
@@ -36,7 +36,8 @@ void ClassUI::run()
 
         cout << "Enter your command: ";
         cin >> choice;
-        if (choice != 7){
+
+        if (choice != "7"){
            select(choice);
         }
         else{
@@ -46,17 +47,18 @@ void ClassUI::run()
     }while(runOn == true);
 }
 
-void ClassUI::select(int ch)
+void ClassUI::select(string ch)
 {
-    if(ch == 1){
+    if(ch == "1")
+    {
         addPerson();
     }
 
-    else if(ch == 3)
+    else if(ch == "3")
     {
         viewAll();
     }
-    else if(ch == 6)
+    else if(ch == "6")
     {
         int sortcho;
         cout << "Enter your sort command" << endl;
@@ -75,19 +77,19 @@ void ClassUI::select(int ch)
         }
         viewAll();
     }
-    else if(ch == 5)
+    else if(ch == "5")
     {
         searching();
     }
-    else if(ch == 2)
+    else if(ch == "2")
     {
         remove();
     }
-    else if(ch == 4)
+    else if(ch == "4")
     {
         save();
     }
-    else if(ch == 8)
+    else if(ch == "8")
     {
         yo();
     }
