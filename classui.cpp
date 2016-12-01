@@ -216,10 +216,10 @@ void ClassUI::addPerson()
         cout << "Invalid gender! Try again." << endl;
         addPerson();
     }
-    cout << "Are you sure that you want to add this person? yes or no: "; // Þetta er ógeðslegur texti, endilega finnum eitthvað skárra
+    cout << "Are you sure that you want to add this person? (y/n)"; // Þetta er ógeðslegur texti, endilega finnum eitthvað skárra
     string validatePerson;
     cin >> validatePerson;
-    if(validatePerson == "yes")
+    if(validatePerson == "y")
     {
         cout << "New person added!" << endl;
         list.addNewPerson(name, gender, yearOfBirth, yearOfDeath, comment);
