@@ -111,3 +111,8 @@ bool ListWorker::yearSearcher(int year)
     }
     return false;
 }
+/*void ListWorker::editPerson(int i, string newName, s)
+{
+    persons[i]._name = newName;
+}
+*/

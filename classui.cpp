@@ -53,6 +53,7 @@ void ClassUI::select(string ch)
 {
     if(ch == "1")
     {
+        cin.ignore();           // When using editPerson it will ignore the first letter unless this ignore is here rather then in addPerson
         addPerson();
     }
     else if(ch == "2")
@@ -161,7 +162,6 @@ void ClassUI::addPerson()
     int yearOfDeath = 0;
 
     cout << "Input Name: ";
-    cin.ignore();
     std::getline(std::cin,name);
     cout << "Input gender (M/F): ";
     cin >> gender;
