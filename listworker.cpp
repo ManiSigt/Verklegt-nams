@@ -114,3 +114,15 @@ bool ListWorker::yearSearcher(int year)
     }
     return false;
 }
+bool ListWorker::ageSearcher(int age)
+{
+    for(unsigned int i = 0; i < persons.size(); i++)
+    {
+        if(age == getAge(i))
+        {
+             return true;
+             break;
+        }
+    }
+    return false;
+}

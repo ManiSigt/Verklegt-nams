@@ -13,6 +13,7 @@ public:
     ListWorker();
 
     void addNewPerson(string name, char gender, int yearOfBirth, int yearOFDeath, string comment); //Adds a person to the vector persons and adds them to the database.
+    bool ageSearcher(int age);              // Searches for a specific age within the vector using a for loop.
     bool genderSearcher(char gender);           // Searches for a specific gender within the vector using a for loop.
     bool nameSearcher(string name);             // Searches for a specific name within the vector using a for loop.
     bool removePerson(string name);             // Remove person from the vector.
