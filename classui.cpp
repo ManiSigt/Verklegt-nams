@@ -314,7 +314,7 @@ void ClassUI::search()
     else if (searchChoice == "4")
     {
         int agesearch;
-        cout << "Enter a year you want to search for: ";
+        cout << "Enter a age you want to search for: ";
         cin >> agesearch;
 
         for(int i = 0; i < list.personsSize();++i)
@@ -328,7 +328,7 @@ void ClassUI::search()
 
         if(list.ageSearcher(agesearch) == false)
         {
-            cout << "Sorry that year is not in our database, but you can add a new scientist in the 'Add section' in the main menu." << endl;
+            cout << "Sorry that age is not in our database, but you can add a new scientist in the 'Add section' in the main menu." << endl;
             searching();
         }
     }
