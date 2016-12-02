@@ -89,6 +89,8 @@ void ClassUI::select(string ch)
     else
     {
         cout << "Invalid input. Please enter a number between 1 - 7." << endl;
+        cout << "Press any key to continue...";
+        cin.get();
     }
 }
 void ClassUI::view(int i)
@@ -179,6 +181,8 @@ void ClassUI::addPerson()
        if (yearOfBirth < 0 || yearOfBirth > 2016)
        {
            cout << "not a valid year of birth" << endl;
+           cout << "Press any key to continue...";
+           cin.get();
            return addPerson();
        }
        cout << "Is the individual deceased? (y/n) ";
@@ -191,6 +195,8 @@ void ClassUI::addPerson()
             if(yearOfBirth > yearOfDeath)
             {
                 cout << "Not a valid year of death" << endl;
+                cout << "Press any key to continue...";
+                cin.get();
                 return addPerson();
             }
        }
@@ -202,6 +208,8 @@ void ClassUI::addPerson()
     else
     {
         cout << "Invalid gender! Try again." << endl;
+        cout << "Press any key to continue...";
+        cin.get();
         return addPerson();
     }
 
@@ -218,6 +226,8 @@ void ClassUI::addPerson()
     {
         cout << "Person not added!" << endl;
     }
+    cout << "Press any key to continue...";
+    cin.get();
 }
 void ClassUI::search()
 {
@@ -308,6 +318,7 @@ void ClassUI::search()
     }
     else if (searchChoice == "4")
     {
+        clearTheScreen();
         mainMenu();
     }
     else
@@ -437,6 +448,7 @@ void ClassUI::sorting()
     }
     else if(sortcho == "4")
     {
+        clearTheScreen();
         mainMenu();
     }
 }
