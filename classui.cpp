@@ -224,7 +224,8 @@ void ClassUI::searching()
     cout << " (1) - Search by name." << endl;
     cout << " (2) - Search by gender." << endl;
     cout << " (3) - Search by year of birth." << endl;
-    cout << " (4) - Return to main menu." << endl;
+    cout << " (4) - Search by age." << endl;
+    cout << " (5) - Return to main menu." << endl;
 
     search();
 }
@@ -311,6 +312,27 @@ void ClassUI::search()
             }
     }
     else if (searchChoice == "4")
+    {
+        int agesearch;
+        cout << "Enter a year you want to search for: ";
+        cin >> agesearch;
+
+        for(int i = 0; i < list.personsSize();++i)
+        {
+            if(agesearch == list.getAge(i))
+            {
+                agesearch = list.getAge(i);
+                view(i);
+            }
+        }
+
+        if(list.ageSearcher(agesearch) == false)
+        {
+            cout << "Sorry that year is not in our database, but you can add a new scientist in the 'Add section' in the main menu." << endl;
+            searching();
+        }
+    }
+    else if (searchChoice == "5")
     {
         mainMenu();
     }
