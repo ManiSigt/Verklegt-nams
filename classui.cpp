@@ -15,7 +15,6 @@ ClassUI::ClassUI()
 }
 void ClassUI::mainMenu()
 {
-    clearTheScreen();
     if (firstRun == true)
     {
         cout << "\t" << "Welcome to the Amazing Database! " << endl;
@@ -89,8 +88,6 @@ void ClassUI::select(string ch)
     else
     {
         cout << "Invalid input. Please enter a number between 1 - 7." << endl;
-        cout << "Press any key to continue...";
-        cin.get();
     }
 }
 void ClassUI::view(int i)
@@ -141,7 +138,6 @@ void ClassUI::view(int i)
 }
 void ClassUI::viewAll()
 {
-    clearTheScreen();
     cout << "--------------------------------------------------------------" << endl;
     cout << "Name" << "\t" << "\t" << "\t" << "\t" << "|Gender " << "|Born " << "\t" << "|Death" << endl;
     cout << "--------------------------------|-------|-------|-------------" << endl;
@@ -149,12 +145,9 @@ void ClassUI::viewAll()
     {
         view(i);
     }
-    cout << "Press any key to continue..." << endl;
-    cin.get();
 }
 void ClassUI::searching()
 {
-    clearTheScreen();
     cout << "-------------Select any of the following commands-------------" << endl;
     cout << "What do you want to search for?" << endl;
     cout << " (1) - Search by name." << endl;
@@ -166,7 +159,6 @@ void ClassUI::searching()
 }
 void ClassUI::addPerson()
 {
-    clearTheScreen();
     string name;
     string comment;
     char gender;
@@ -195,8 +187,6 @@ void ClassUI::addPerson()
        if (yearOfBirth < 0 || yearOfBirth > 2016)
        {
            cout << "not a valid year of birth" << endl;
-           cout << "Press any key to continue...";
-           cin.get();
            return addPerson();
        }
        cout << "Is the individual deceased? (y/n) ";
@@ -209,8 +199,6 @@ void ClassUI::addPerson()
             if(yearOfBirth > yearOfDeath)
             {
                 cout << "Not a valid year of death" << endl;
-                cout << "Press any key to continue...";
-                cin.get();
                 return addPerson();
             }
        }
@@ -222,8 +210,6 @@ void ClassUI::addPerson()
     else
     {
         cout << "Invalid gender! Try again." << endl;
-        cout << "Press any key to continue...";
-        cin.get();
         return addPerson();
     }
 
@@ -240,8 +226,6 @@ void ClassUI::addPerson()
     {
         cout << "Person not added!" << endl;
     }
-    cout << "Press any key to continue...";
-    cin.get();
 }
 void ClassUI::search()
 {
@@ -269,8 +253,6 @@ void ClassUI::search()
         if(list.nameSearcher(namesearch) == false)
         {
             cout << "Sorry that name is not in our database, but you can add a new scientist in the 'Add section' in the main menu." << endl;
-            cout << "Press any key to continue...";
-            cin.get();
             searching();
         }
     }
@@ -302,8 +284,6 @@ void ClassUI::search()
         if(list.genderSearcher(gendersearch) == false)
         {
             cout << "Sorry that gender is not in our database, but you can add a new scientist in the 'Add section' in the main menu." << endl;
-            cout << "Press any key to continue...";
-            cin.get();
             searching();
         }
     }
@@ -325,27 +305,21 @@ void ClassUI::search()
             if(list.yearSearcher(yearsearch) == false)
             {
                 cout << "Sorry that year is not in our database, but you can add a new scientist in the 'Add section' in the main menu." << endl;
-                cout << "Press any key to continue...";
-                cin.get();
                 searching();
             }
     }
     else if (searchChoice == "4")
     {
-        clearTheScreen();
         mainMenu();
     }
     else
     {
         cout << "Error reading input. Please enter a number between 1- 3." << endl;
-        cout << "Press any key to continue...";
-        cin.get();
         search();
     }
 }
 void ClassUI::remove()
 {
-    clearTheScreen();
     string name;
     cout << "Enter the full name of the person that you want to remove: ";
     cin.ignore();
@@ -378,16 +352,12 @@ void ClassUI::remove()
     {
         cout << "Person not found!" << endl;
     }
-    cout << "Press any key to continue...";
-    cin.get();
+
 }
 void ClassUI::save()
 {
-    clearTheScreen();
     list.saveFile();
     cout << "Database saved." << endl;
-    cout << "Press any key to continue...";
-    cin.get();
 }
 void ClassUI::yo()
 {
@@ -403,8 +373,6 @@ void ClassUI::yo()
     cout << "       8 8888       ` 8888     ,88'   " << endl;
     cout << "       8 8888          `8888888P'     " << endl;
     cout << endl;
-    cout << "Press any key to continue...";
-    cin.get();
 }
 string ClassUI::getQuotes()
 {
@@ -421,7 +389,6 @@ string ClassUI::getQuotes()
 }
 void ClassUI::sorting()
 {
-    clearTheScreen();
     string sortcho;
     cout << "Enter a sort command:" << endl;
     cout << "--------------------------------------------------------------" << endl;
@@ -450,13 +417,11 @@ void ClassUI::sorting()
     }
     else if(sortcho == "4")
     {
-        clearTheScreen();
         mainMenu();
     }
 }
 void ClassUI::editPerson()
 {
-    clearTheScreen();
     string name;
     cout << "Enter the full name of the person that you want to edit: ";
     cin.ignore();
@@ -473,7 +438,8 @@ void ClassUI::editPerson()
         cin.get();
     }
 }
-void ClassUI::clearTheScreen()
+/*
+void ClassUI::clearTheScreen() //
 {
     #if defined(__linux__) || defined(__unix__) || defined(__APPLE__)
         system("clear");
@@ -483,3 +449,4 @@ void ClassUI::clearTheScreen()
         system("cls");
     #endif
 }
+*/

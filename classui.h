@@ -24,7 +24,7 @@ private:
     ListWorker list;
     string getQuotes();         // The random quote generator.
     bool firstRun = true;
-    char anyKey;
+
 };
 
 #endif // CLASSUI_H
