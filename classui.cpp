@@ -32,12 +32,13 @@ void ClassUI::mainMenu()
         cout << " (4) - "  << "Save the database." << endl;
         cout << " (5) - "  << "Search the database." << endl;
         cout << " (6) - "  << "Sort the database." << endl;
-        cout << " (7) - "  << "Exit." << endl;
+        cout << " (7) - "  << "Edit a scientist." << endl;
+        cout << " (8) - "  << "Exit." << endl;
         cout << "Enter your command (1 - 7): ";
         cin >> choice;
         cout << endl;
 
-        if (choice != "7")
+        if (choice != "8")
         {
            select(choice);
         }
@@ -73,6 +74,10 @@ void ClassUI::select(string ch)
     else if(ch == "6")
     {
         sorting();
+    }
+    else if(ch == "7")
+    {
+        editPerson();
     }
     else if(ch == "yo")
     {
@@ -169,7 +174,11 @@ void ClassUI::addPerson()
     {
        cout << "Input year of birth: ";
        cin >> yearOfBirth;
-
+       if (yearOfBirth < 0 || yearOfBirth > 2016)
+       {
+           cout << "not a valid year of birth" << endl;
+           return addPerson();
+       }
        cout << "Is the individual deceased? (y/n) ";
        cin >> yesOrNo;
 
@@ -177,6 +186,11 @@ void ClassUI::addPerson()
        {
             cout << "Input year of death: ";
             cin >> yearOfDeath;
+            if(yearOfBirth > yearOfDeath)
+            {
+                cout << "Not a valid year of death" << endl;
+                return addPerson();
+            }
        }
 
        cout << "Input a comment about the individual: ";
@@ -405,5 +419,21 @@ void ClassUI::sorting()
     else if(sortcho == "4")
     {
         mainMenu();
+    }
+}
+void ClassUI::editPerson()
+{
+    string name;
+    cout << "Enter the full name of the person that you want to edit: ";
+    cin.ignore();
+    std::getline(std::cin,name);
+    if(list.removePersonFound(name))
+    {
+        list.removePerson(name);
+        addPerson();
+    }
+    else
+    {
+        cout << "Person not found!" << endl;
     }
 }
