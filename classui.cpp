@@ -353,7 +353,7 @@ void ClassUI::remove()
     if (list.removePersonFound(name) == true)
     {
         char validateRemove;
-        cout << "scientist found!" << endl;
+        cout << "Scientist found!" << endl;
         cout << "Are you sure you want to remove this scientist? (y/n): ";
         cin >> validateRemove;
 
