@@ -93,10 +93,6 @@ void ClassUI::view(int i)
 {
     int nameSize  = list.getNameSize(i);
 
-    cout << endl;
-    cout << "--------------------------------------------------------------" << endl;
-    cout << "Name" << "\t" << "\t" << "\t" << "\t" << "|Gender " << "|Born " << "\t" << "|Death" << endl;
-    cout << "--------------------------------|-------|-------|-------------" << endl;
     cout << list.getName(i);
 
     if(nameSize > 0 && nameSize <= 7)
@@ -137,8 +133,7 @@ void ClassUI::view(int i)
     }
 
     cout << list.getComment(i) << endl;
-    cout << "--------------------------------------------------------------" << endl;
-    cout << endl;
+
 }
 void ClassUI::searching()
 {
@@ -355,10 +350,15 @@ void ClassUI::save()
 }
 void ClassUI::viewAll()
 {
+    cout << "--------------------------------------------------------------" << endl;
+    cout << "Name" << "\t" << "\t" << "\t" << "\t" << "|Gender " << "|Born " << "\t" << "|Death" << endl;
+    cout << "--------------------------------|-------|-------|-------------" << endl;
     for(int i = 0; i < list.personsSize(); i++)
     {
         view(i);
+        cout << "--------------------------------------------------------------" << endl;
     }
+
 }
 void ClassUI::yo()
 {
