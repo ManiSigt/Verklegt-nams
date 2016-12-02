@@ -203,18 +203,18 @@ void ClassUI::addPerson()
         return select("1");
     }
 
-    cout << "Are you sure that you want to add this person? (y/n) ";
+    cout << "Are you sure that you want to add this scientist? (y/n) ";
     string validatePerson;
     cin >> validatePerson;
 
     if(validatePerson == "y")
     {
-        cout << "New person added!" << endl;
+        cout << "New scientist added!" << endl;
         list.addNewPerson(name, gender, yearOfBirth, yearOfDeath, comment);
     }
     else
     {
-        cout << "Person not added!" << endl;
+        cout << "scientist not added!" << endl;
     }
 }
 void ClassUI::searching()
@@ -324,36 +324,36 @@ void ClassUI::remove()
 {
     string name;
     cout << "--------------------------------------------------------------" << endl;
-    cout << "Enter the full name of the person that you want to remove: ";
+    cout << "Enter the full name of the scientist that you want to remove: ";
     cin.ignore();
     std::getline(std::cin,name);
 
     if (list.removePersonFound(name) == true)
     {
         char validateRemove;
-        cout << "Person found!" << endl;
-        cout << "Are you sure you want to remove this person? (y/n): ";
+        cout << "scientist found!" << endl;
+        cout << "Are you sure you want to remove this scientist? (y/n): ";
         cin >> validateRemove;
 
         if(validateRemove == 'y' || validateRemove == 'Y')
         {
             if(list.removePerson(name) == true)
             {
-                cout << "Person removed!" << endl;
+                cout << "Scientist removed!" << endl;
             }
             else
             {
-                cout << "Person not removed!" << endl;
+                cout << "Scientist not removed!" << endl;
             }
         }
         else
         {
-            cout << "Person not removed!" << endl;
+            cout << "Scientist not removed!" << endl;
         }
     }
     else
     {
-        cout << "Person not found!" << endl;
+        cout << "Serson not found!" << endl;
     }
 
 }
@@ -432,7 +432,7 @@ void ClassUI::sorting()
 void ClassUI::editPerson()
 {
     string name;
-    cout << "Enter the full name of the person that you want to edit: ";
+    cout << "Enter the full name of the Scientist that you want to edit: ";
     cin.ignore();
     std::getline(std::cin,name);
     if(list.removePersonFound(name))
@@ -442,7 +442,7 @@ void ClassUI::editPerson()
     }
     else
     {
-        cout << "Person not found!" << endl;
+        cout << "Scientist not found!" << endl;
         cout << "Press any key to continue...";
         cin.get();
     }
