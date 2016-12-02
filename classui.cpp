@@ -137,6 +137,20 @@ void ClassUI::view(int i)
     }
 
     cout << list.getComment(i) << endl;
+    cout << "--------------------------------------------------------------" << endl;
+}
+void ClassUI::viewAll()
+{
+    clearTheScreen();
+    cout << "--------------------------------------------------------------" << endl;
+    cout << "Name" << "\t" << "\t" << "\t" << "\t" << "|Gender " << "|Born " << "\t" << "|Death" << endl;
+    cout << "--------------------------------|-------|-------|-------------" << endl;
+    for(int i = 0; i < list.personsSize(); i++)
+    {
+        view(i);
+    }
+    cout << "Press any key to continue..." << endl;
+    cin.get();
 }
 void ClassUI::searching()
 {
@@ -374,18 +388,6 @@ void ClassUI::save()
     cout << "Database saved." << endl;
     cout << "Press any key to continue...";
     cin.get();
-}
-void ClassUI::viewAll()
-{
-    clearTheScreen();
-    cout << "--------------------------------------------------------------" << endl;
-    cout << "Name" << "\t" << "\t" << "\t" << "\t" << "|Gender " << "|Born " << "\t" << "|Death" << endl;
-    cout << "--------------------------------|-------|-------|-------------" << endl;
-    for(int i = 0; i < list.personsSize(); i++)
-    {
-        view(i);
-        cout << "--------------------------------------------------------------" << endl;
-    }
 }
 void ClassUI::yo()
 {
