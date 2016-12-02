@@ -7,7 +7,7 @@ int main()
 {
     ClassUI ui;
 
-    ui.run();
+    ui.mainMenu();
 
     return 0;
 }

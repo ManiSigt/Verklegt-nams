@@ -29,7 +29,6 @@ void DataLayer::readFromFile(vector<Person>& getPersons)
     char gender = '1';
     int yearOfBirth = 1;
     int yearOfDeath = 1;
-
     ifstream myfile ("amazingDatabase.txt");
     if (myfile.is_open())
       {

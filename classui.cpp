@@ -13,18 +13,18 @@ ClassUI::ClassUI()
 {
 
 }
-void ClassUI::run()
-{
-    cout << "\t" << "Welcome to the Amazing Database! " << endl;
-    cout << "--------------------------------------------------------------" << endl;
-    cout << "\t" << "   *** Quote of the day ***" << endl;
-    cout << getQuotes() << endl;
-    cout << "--------------------------------------------------------------" << endl;
-    mainMenu();
-}
 void ClassUI::mainMenu()
 {
     clearTheScreen();
+    if (firstRun == true)
+    {
+        cout << "\t" << "Welcome to the Amazing Database! " << endl;
+        cout << "--------------------------------------------------------------" << endl;
+        cout << "\t" << "   *** Quote of the day ***" << endl;
+        cout << getQuotes() << endl;
+        cout << "--------------------------------------------------------------" << endl;
+        firstRun = false;
+    }
     string choice;
     do
     {
@@ -36,7 +36,7 @@ void ClassUI::mainMenu()
         cout << " (6) - "  << "Sort the database." << endl;
         cout << " (7) - "  << "Edit a scientist." << endl;
         cout << " (8) - "  << "Exit." << endl;
-        cout << "Enter your command (1 - 7): ";
+        cout << "Enter your command (1 - 8): ";
         cin >> choice;
         cout << "--------------------------------------------------------------" << endl;
         if (choice != "8")
@@ -245,6 +245,8 @@ void ClassUI::search()
         if(list.nameSearcher(namesearch) == false)
         {
             cout << "Sorry that name is not in our database, but you can add a new scientist in the 'Add section' in the main menu." << endl;
+            cout << "Press any key to continue...";
+            cin.get();
             searching();
         }
     }
@@ -276,6 +278,8 @@ void ClassUI::search()
         if(list.genderSearcher(gendersearch) == false)
         {
             cout << "Sorry that gender is not in our database, but you can add a new scientist in the 'Add section' in the main menu." << endl;
+            cout << "Press any key to continue...";
+            cin.get();
             searching();
         }
     }
@@ -297,6 +301,8 @@ void ClassUI::search()
             if(list.yearSearcher(yearsearch) == false)
             {
                 cout << "Sorry that year is not in our database, but you can add a new scientist in the 'Add section' in the main menu." << endl;
+                cout << "Press any key to continue...";
+                cin.get();
                 searching();
             }
     }
@@ -307,6 +313,8 @@ void ClassUI::search()
     else
     {
         cout << "Error reading input. Please enter a number between 1- 3." << endl;
+        cout << "Press any key to continue...";
+        cin.get();
         search();
     }
 }
@@ -345,12 +353,16 @@ void ClassUI::remove()
     {
         cout << "Person not found!" << endl;
     }
+    cout << "Press any key to continue...";
+    cin.get();
 }
 void ClassUI::save()
 {
     clearTheScreen();
     list.saveFile();
     cout << "Database saved." << endl;
+    cout << "Press any key to continue...";
+    cin.get();
 }
 void ClassUI::viewAll()
 {
@@ -378,6 +390,8 @@ void ClassUI::yo()
     cout << "       8 8888       ` 8888     ,88'   " << endl;
     cout << "       8 8888          `8888888P'     " << endl;
     cout << endl;
+    cout << "Press any key to continue...";
+    cin.get();
 }
 string ClassUI::getQuotes()
 {
@@ -441,6 +455,8 @@ void ClassUI::editPerson()
     else
     {
         cout << "Person not found!" << endl;
+        cout << "Press any key to continue...";
+        cin.get();
     }
 }
 void ClassUI::clearTheScreen()
