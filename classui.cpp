@@ -232,7 +232,7 @@ void ClassUI::searching()
 void ClassUI::search()
 {
     string searchChoice;
-    cout << "Enter your command (1 - 4): ";
+    cout << "Enter your command (1 - 5): ";
     cin >> searchChoice;
     cout << endl;
 
