@@ -19,6 +19,7 @@ void ClassUI::run()
     cout << "--------------------------------------------------------------" << endl;
     cout << "\t" << "   *** Quote of the day ***" << endl;
     cout << getQuotes() << endl;
+    cout << "--------------------------------------------------------------" << endl;
     mainMenu();
 }
 void ClassUI::mainMenu()
@@ -26,7 +27,6 @@ void ClassUI::mainMenu()
     string choice;
     do
     {
-        cout << "--------------------------------------------------------------" << endl;
         cout << " (1) - "  << "Add a scientist to the database." << endl;
         cout << " (2) - "  << "Remove a scientist from the database." << endl;
         cout << " (3) - "  << "View the entire database." << endl;
@@ -133,7 +133,6 @@ void ClassUI::view(int i)
     }
 
     cout << list.getComment(i) << endl;
-
 }
 void ClassUI::searching()
 {
@@ -149,7 +148,6 @@ void ClassUI::searching()
 }
 void ClassUI::addPerson()
 {
-    system("CLS");
     string name;
     string comment;
     char gender;
@@ -351,7 +349,6 @@ void ClassUI::save()
 }
 void ClassUI::viewAll()
 {
-    cout << "--------------------------------------------------------------" << endl;
     cout << "Name" << "\t" << "\t" << "\t" << "\t" << "|Gender " << "|Born " << "\t" << "|Death" << endl;
     cout << "--------------------------------|-------|-------|-------------" << endl;
     for(int i = 0; i < list.personsSize(); i++)
@@ -359,7 +356,6 @@ void ClassUI::viewAll()
         view(i);
         cout << "--------------------------------------------------------------" << endl;
     }
-
 }
 void ClassUI::yo()
 {
