@@ -16,7 +16,7 @@ public:
     void sortNames(vector<Person>& getPersons);                                                     // Sorts the vector by names of people.
     void sortBirth(vector<Person>& getPersons);                                                     // Sorts the vector by year of birth.
     void sortGender(vector<Person>& getPersons);                                                    // Sorts the vector by gender.
-    void sortAge(vector<Person>& getPersons);                                                    // Sorts the vector by age.
+    void sortAge(vector<Person>& getPersons);                                                       // Sorts the vector by age.
     void deleteFile();                                                                              // Delete the file amazingDataBase.txt.
     int stringToNumber(string st);                                                                  // Convert a string to a int.
  };
