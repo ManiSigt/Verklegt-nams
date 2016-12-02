@@ -185,7 +185,7 @@ void ClassUI::addPerson()
 
        if (yesOrNo == 'Y' || yesOrNo == 'y')
        {
-            cout << "Input year of death: ";
+            cout << "Enter a year of death: ";
             cin >> yearOfDeath;
             if(yearOfBirth > yearOfDeath)
             {
