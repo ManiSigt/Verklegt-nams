@@ -36,8 +36,7 @@ void ClassUI::mainMenu()
         cout << " (8) - "  << "Exit." << endl;
         cout << "Enter your command (1 - 7): ";
         cin >> choice;
-        cout << endl;
-
+        cout << "--------------------------------------------------------------" << endl;
         if (choice != "8")
         {
            select(choice);
@@ -230,7 +229,7 @@ void ClassUI::search()
         cout << "Enter a name you want to search for: ";
         cin.ignore();
         std::getline(std::cin,namesearch);
-
+        cout << "--------------------------------------------------------------" << endl;
         for(int i = 0; i < list.personsSize();++i)
         {
             std::size_t found = list.getName(i).find(namesearch);
