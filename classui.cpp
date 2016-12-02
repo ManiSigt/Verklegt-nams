@@ -178,7 +178,7 @@ void ClassUI::addPerson()
        if (yearOfBirth < 0 || yearOfBirth > 2016)
        {
            cout << "not a valid year of birth" << endl;
-           return select("1");
+           return mainMenu();
        }
        cout << "Is the individual deceased? (y/n) ";
        cin >> yesOrNo;
@@ -190,7 +190,7 @@ void ClassUI::addPerson()
             if(yearOfBirth > yearOfDeath)
             {
                 cout << "Not a valid year of death" << endl;
-                return select("1");
+                return mainMenu();
             }
        }
 
@@ -201,7 +201,7 @@ void ClassUI::addPerson()
     else
     {
         cout << "Invalid gender! Try again." << endl;
-        return select("1");
+        return mainMenu();
     }
 
     cout << "Are you sure that you want to add this person? (y/n) ";
