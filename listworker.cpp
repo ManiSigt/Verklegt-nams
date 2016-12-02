@@ -27,6 +27,10 @@ void ListWorker::sortGender()
 {
     data.sortGender(persons);
 }
+void ListWorker::sortAge()
+{
+    data.sortAge(persons);
+}
 bool ListWorker::removePerson(string name)
 {
     for(size_t i = 0; i < persons.size(); ++i)

@@ -399,8 +399,9 @@ void ClassUI::sorting()
     cout << " (1) - Sort by alphabetical order." << endl;
     cout << " (2) - Sort by chronological order." << endl;
     cout << " (3) - Sort by gender." << endl;
-    cout << " (4) - Return to main menu." << endl;
-    cout << "Enter your command (1 - 4): ";
+    cout << " (4) - Sort by age." << endl;
+    cout << " (5) - Return to main menu." << endl;
+    cout << "Enter your command (1 - 5): ";
     cin >> sortcho;
     cout << endl;
 
@@ -420,6 +421,11 @@ void ClassUI::sorting()
         viewAll();
     }
     else if(sortcho == "4")
+    {
+        list.sortAge();
+        viewAll();
+    }
+    else if(sortcho == "5")
     {
         mainMenu();
     }
