@@ -443,11 +443,11 @@ void ClassUI::editPerson()
 }
 void ClassUI::clearTheScreen()
 {
-#ifdef __cplusplus__
-  #include <cstdlib>
-#else
-  #include <stdlib.h>
-#endif
+    #if defined(__linux__) || defined(__unix__) || defined(__APPLE__)
+        system("clear");
+    #endif
 
-if (system("CLS")) system("clear");
+    #if defined(_WIN32) || defined(_WIN64)
+        system("cls");
+    #endif
 }
