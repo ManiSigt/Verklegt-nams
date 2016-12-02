@@ -47,6 +47,7 @@ void ClassUI::mainMenu()
             runOn = false;
         }
     }while(runOn == true);
+    cout << endl;
 
 }
 void ClassUI::select(string ch)
