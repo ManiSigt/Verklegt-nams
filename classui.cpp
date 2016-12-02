@@ -21,12 +21,12 @@ void ClassUI::mainMenu()
         cout << "--------------------------------------------------------------" << endl;
         cout << "\t" << "   *** Quote of the day ***" << endl;
         cout << getQuotes() << endl;
-        cout << "--------------------------------------------------------------" << endl;
         firstRun = false;
     }
     string choice;
     do
     {
+        cout << "--------------------------------------------------------------" << endl;
         cout << " (1) - "  << "Add a scientist to the database." << endl;
         cout << " (2) - "  << "Remove a scientist from the database." << endl;
         cout << " (3) - "  << "View the entire database." << endl;
@@ -37,7 +37,6 @@ void ClassUI::mainMenu()
         cout << " (8) - "  << "Exit." << endl;
         cout << "Enter your command (1 - 8): ";
         cin >> choice;
-        cout << "--------------------------------------------------------------" << endl;
         if (choice != "8")
         {
            select(choice);
@@ -92,6 +91,7 @@ void ClassUI::select(string ch)
 }
 void ClassUI::view(int i)
 {
+    cout << "--------------------------------------------------------------" << endl;
     int nameSize  = list.getNameSize(i);
 
     cout << list.getName(i);
@@ -134,7 +134,6 @@ void ClassUI::view(int i)
     }
 
     cout << list.getComment(i) << endl;
-    cout << "--------------------------------------------------------------" << endl;
 }
 void ClassUI::viewAll()
 {
@@ -146,17 +145,6 @@ void ClassUI::viewAll()
         view(i);
     }
 }
-void ClassUI::searching()
-{
-    cout << "-------------Select any of the following commands-------------" << endl;
-    cout << "What do you want to search for?" << endl;
-    cout << " (1) - Search by name." << endl;
-    cout << " (2) - Search by gender." << endl;
-    cout << " (3) - Search by year of birth." << endl;
-    cout << " (4) - Return to main menu." << endl;
-
-    search();
-}
 void ClassUI::addPerson()
 {
     string name;
@@ -166,6 +154,7 @@ void ClassUI::addPerson()
     int yearOfBirth = 0;
     int yearOfDeath = 0;
 
+    cout << "--------------------------------------------------------------" << endl;
     cout << "Enter name of the scientist: ";
     std::getline(std::cin,name);
     cout << "Enter a gender (M/F): ";
@@ -227,6 +216,17 @@ void ClassUI::addPerson()
         cout << "Person not added!" << endl;
     }
 }
+void ClassUI::searching()
+{
+    cout << "-------------Select any of the following commands-------------" << endl;
+    cout << "What do you want to search for?" << endl;
+    cout << " (1) - Search by name." << endl;
+    cout << " (2) - Search by gender." << endl;
+    cout << " (3) - Search by year of birth." << endl;
+    cout << " (4) - Return to main menu." << endl;
+
+    search();
+}
 void ClassUI::search()
 {
     string searchChoice;
@@ -237,6 +237,7 @@ void ClassUI::search()
     if (searchChoice == "1")
     {
         string namesearch;
+        cout << "--------------------------------------------------------------" << endl;
         cout << "Enter a name you want to search for: ";
         cin.ignore();
         std::getline(std::cin,namesearch);
@@ -321,6 +322,7 @@ void ClassUI::search()
 void ClassUI::remove()
 {
     string name;
+    cout << "--------------------------------------------------------------" << endl;
     cout << "Enter the full name of the person that you want to remove: ";
     cin.ignore();
     std::getline(std::cin,name);
@@ -361,6 +363,7 @@ void ClassUI::save()
 }
 void ClassUI::yo()
 {
+    cout << "--------------------------------------------------------------" << endl;
     cout << endl;
     cout << "`8.`8888.      ,8'     ,o888888o.     " << endl;
     cout << " `8.`8888.    ,8'   . 8888     `88.   " << endl;
@@ -418,6 +421,11 @@ void ClassUI::sorting()
     else if(sortcho == "4")
     {
         mainMenu();
+    }
+    else
+    {
+        cout << "That is not a valid command! Try again." << endl;
+        sorting();
     }
 }
 void ClassUI::editPerson()

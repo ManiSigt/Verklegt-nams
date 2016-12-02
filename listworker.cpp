@@ -29,7 +29,6 @@ void ListWorker::sortGender()
 }
 bool ListWorker::removePerson(string name)
 {
-
     for(size_t i = 0; i < persons.size(); ++i)
     {
         if(name == persons[i]._getName())
