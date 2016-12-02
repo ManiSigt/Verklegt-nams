@@ -49,6 +49,7 @@ void ClassUI::mainMenu()
             runOn = false;
         }
     }while(runOn == true);
+
 }
 void ClassUI::select(string ch)
 {
@@ -138,6 +139,7 @@ void ClassUI::view(int i)
 }
 void ClassUI::searching()
 {
+    clearTheScreen();
 
     cout << "-------------Select any of the following commands-------------" << endl;
     cout << "What do you want to search for?" << endl;
@@ -150,7 +152,7 @@ void ClassUI::searching()
 }
 void ClassUI::addPerson()
 {
-    system("CLS");
+    clearTheScreen();
     string name;
     string comment;
     char gender;
@@ -312,6 +314,7 @@ void ClassUI::search()
 }
 void ClassUI::remove()
 {
+    clearTheScreen();
     string name;
     cout << "Enter the full name of the person that you want to remove: ";
     cin.ignore();
@@ -347,11 +350,13 @@ void ClassUI::remove()
 }
 void ClassUI::save()
 {
+    clearTheScreen();
     list.saveFile();
     cout << "Database saved." << endl;
 }
 void ClassUI::viewAll()
 {
+    clearTheScreen();
     cout << "--------------------------------------------------------------" << endl;
     cout << "Name" << "\t" << "\t" << "\t" << "\t" << "|Gender " << "|Born " << "\t" << "|Death" << endl;
     cout << "--------------------------------|-------|-------|-------------" << endl;
@@ -392,6 +397,7 @@ string ClassUI::getQuotes()
 }
 void ClassUI::sorting()
 {
+    clearTheScreen();
     string sortcho;
     cout << "Enter a sort command:" << endl;
     cout << "--------------------------------------------------------------" << endl;
@@ -438,4 +444,14 @@ void ClassUI::editPerson()
     {
         cout << "Person not found!" << endl;
     }
+}
+void ClassUI::clearTheScreen()
+{
+#ifdef __cplusplus__
+  #include <cstdlib>
+#else
+  #include <stdlib.h>
+#endif
+
+if (system("CLS")) system("clear");
 }
