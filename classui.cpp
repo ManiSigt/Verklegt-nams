@@ -19,6 +19,7 @@ void ClassUI::run()
     cout << "--------------------------------------------------------------" << endl;
     cout << "\t" << "   *** Quote of the day ***" << endl;
     cout << getQuotes() << endl;
+    cout << "--------------------------------------------------------------" << endl;
     mainMenu();
 }
 void ClassUI::mainMenu()
@@ -26,7 +27,6 @@ void ClassUI::mainMenu()
     string choice;
     do
     {
-        cout << "--------------------------------------------------------------" << endl;
         cout << " (1) - "  << "Add a scientist to the database." << endl;
         cout << " (2) - "  << "Remove a scientist from the database." << endl;
         cout << " (3) - "  << "View the entire database." << endl;
@@ -37,8 +37,7 @@ void ClassUI::mainMenu()
         cout << " (8) - "  << "Exit." << endl;
         cout << "Enter your command (1 - 7): ";
         cin >> choice;
-        cout << endl;
-
+        cout << "--------------------------------------------------------------" << endl;
         if (choice != "8")
         {
            select(choice);
@@ -49,6 +48,7 @@ void ClassUI::mainMenu()
             runOn = false;
         }
     }while(runOn == true);
+
 }
 void ClassUI::select(string ch)
 {
@@ -134,11 +134,10 @@ void ClassUI::view(int i)
     }
 
     cout << list.getComment(i) << endl;
-
 }
 void ClassUI::searching()
 {
-
+    clearTheScreen();
     cout << "-------------Select any of the following commands-------------" << endl;
     cout << "What do you want to search for?" << endl;
     cout << " (1) - Search by name." << endl;
@@ -150,7 +149,7 @@ void ClassUI::searching()
 }
 void ClassUI::addPerson()
 {
-    system("CLS");
+    clearTheScreen();
     string name;
     string comment;
     char gender;
@@ -202,7 +201,7 @@ void ClassUI::addPerson()
     else
     {
         cout << "Invalid gender! Try again." << endl;
-        addPerson();
+        return addPerson();
     }
 
     cout << "Are you sure that you want to add this person? (y/n) ";
@@ -232,7 +231,7 @@ void ClassUI::search()
         cout << "Enter a name you want to search for: ";
         cin.ignore();
         std::getline(std::cin,namesearch);
-
+        cout << "--------------------------------------------------------------" << endl;
         for(int i = 0; i < list.personsSize();++i)
         {
             std::size_t found = list.getName(i).find(namesearch);
@@ -312,6 +311,7 @@ void ClassUI::search()
 }
 void ClassUI::remove()
 {
+    clearTheScreen();
     string name;
     cout << "Enter the full name of the person that you want to remove: ";
     cin.ignore();
@@ -347,11 +347,13 @@ void ClassUI::remove()
 }
 void ClassUI::save()
 {
+    clearTheScreen();
     list.saveFile();
     cout << "Database saved." << endl;
 }
 void ClassUI::viewAll()
 {
+    clearTheScreen();
     cout << "--------------------------------------------------------------" << endl;
     cout << "Name" << "\t" << "\t" << "\t" << "\t" << "|Gender " << "|Born " << "\t" << "|Death" << endl;
     cout << "--------------------------------|-------|-------|-------------" << endl;
@@ -360,7 +362,6 @@ void ClassUI::viewAll()
         view(i);
         cout << "--------------------------------------------------------------" << endl;
     }
-
 }
 void ClassUI::yo()
 {
@@ -392,6 +393,7 @@ string ClassUI::getQuotes()
 }
 void ClassUI::sorting()
 {
+    clearTheScreen();
     string sortcho;
     cout << "Enter a sort command:" << endl;
     cout << "--------------------------------------------------------------" << endl;
@@ -438,4 +440,14 @@ void ClassUI::editPerson()
     {
         cout << "Person not found!" << endl;
     }
+}
+void ClassUI::clearTheScreen()
+{
+#ifdef __cplusplus__
+  #include <cstdlib>
+#else
+  #include <stdlib.h>
+#endif
+
+if (system("CLS")) system("clear");
 }
