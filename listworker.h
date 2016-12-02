@@ -13,7 +13,7 @@ public:
     ListWorker();
 
     void addNewPerson(string name, char gender, int yearOfBirth, int yearOFDeath, string comment); //Adds a person to the vector persons and adds them to the database.
-    bool ageSearcher(int age);              // Searches for a specific age within the vector using a for loop.
+    bool ageSearcher(int age);                  // Searches for a specific age within the vector using a for loop.
     bool genderSearcher(char gender);           // Searches for a specific gender within the vector using a for loop.
     bool nameSearcher(string name);             // Searches for a specific name within the vector using a for loop.
     bool removePerson(string name);             // Remove person from the vector.
@@ -23,7 +23,7 @@ public:
     void sortGender();                          // Calls the function sortGender from the datalayer class.
     void sortAge();                             // Calls the function sortAge from the datalayer class.
     bool yearSearcher(int year);                // Searches for a specific year within the vector using a for loop.
-    int editPersonFinder(string name);                //Comment með engu bili. Illa nett.
+    int editPersonFinder(string name);          //Comment með engu bili. Illa nett.
     string getName(int n) const                 // Make _name from persons available.
     {
         return persons[n]._getName();

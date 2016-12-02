@@ -476,7 +476,7 @@ void ClassUI::editPerson()
     }
 }
 /*
-void ClassUI::clearTheScreen() //
+void ClassUI::clearTheScreen() //A function that we wanted to use but had platform issues following it's use.
 {
     #if defined(__linux__) || defined(__unix__) || defined(__APPLE__)
         system("clear");
