@@ -18,7 +18,7 @@ public:
     void yo();                  // Secret phase
     void sorting();             // Prints out a list of things to sort and asks for a input then calls the sort functions in the listworker class.
     void editPerson();          // Edit a scientist that already exists.
-    //void clearTheScreen();      // Function to clear the screen.
+    //void clearTheScreen();    // Function to clear the screen.
 private:
     bool runOn = true;
     ListWorker list;

@@ -128,11 +128,11 @@ void ClassUI::view(int i)
 
     if(list.getDeath(i) == 0)
     {
-        cout << "\t" << "| n/a"  << endl;
+        cout << "\t" << "| n/a"  << "\t" << "|" << list.getAge(i) << endl;
     }
     else
     {
-        cout << "\t" << "|" << list.getDeath(i)  << endl;
+        cout << "\t" << "|" << list.getDeath(i) << "\t" << "|" << list.getAge(i) <<  endl;
     }
 
     cout << list.getComment(i) << endl;
@@ -140,8 +140,7 @@ void ClassUI::view(int i)
 void ClassUI::viewAll()
 {
     cout << "--------------------------------------------------------------" << endl;
-    cout << "Name" << "\t" << "\t" << "\t" << "\t" << "|Gender " << "|Born " << "\t" << "|Death" << endl;
-    cout << "--------------------------------|-------|-------|-------------" << endl;
+    cout << "Name" << "\t" << "\t" << "\t" << "\t" << "|Gender " << "|Born " << "\t" << "|Death"  << "\t" << "|Age" << endl;
     for(int i = 0; i < list.personsSize(); i++)
     {
         view(i);

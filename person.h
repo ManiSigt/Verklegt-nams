@@ -33,6 +33,10 @@ public:
     {
         return _name.size();
     }
+    int _getAge() const
+    {
+        return _age;
+    }
 
 
 private:
@@ -41,6 +45,7 @@ private:
     char _gender;
     int _yearOfBirth;
     int _yearOfDeath;
+    int _age;
 
 };
 
