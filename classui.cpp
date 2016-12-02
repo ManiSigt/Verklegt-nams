@@ -159,7 +159,7 @@ void ClassUI::addPerson()
 
     cout << "Enter name of the scientist: ";
     std::getline(std::cin,name);
-    cout << "Input gender (M/F): ";
+    cout << "Enter a gender (M/F): ";
     cin >> gender;
 
     if (gender == 'm')
@@ -173,7 +173,7 @@ void ClassUI::addPerson()
 
     if (gender == 'm' || gender == 'M' || gender == 'f' || gender == 'F')
     {
-       cout << "Input year of birth: ";
+       cout << "Enter a year of birth: ";
        cin >> yearOfBirth;
        if (yearOfBirth < 0 || yearOfBirth > 2016)
        {
@@ -185,7 +185,7 @@ void ClassUI::addPerson()
 
        if (yesOrNo == 'Y' || yesOrNo == 'y')
        {
-            cout << "Input year of death: ";
+            cout << "Enter a year of death: ";
             cin >> yearOfDeath;
             if(yearOfBirth > yearOfDeath)
             {
