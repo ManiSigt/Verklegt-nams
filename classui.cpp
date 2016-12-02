@@ -199,7 +199,7 @@ void ClassUI::addPerson()
     else
     {
         cout << "Invalid gender! Try again." << endl;
-        addPerson();
+        return addPerson();
     }
 
     cout << "Are you sure that you want to add this person? (y/n) ";
