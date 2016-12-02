@@ -5,6 +5,7 @@
 #include <algorithm>
 #include <vector>
 #include <time.h>
+#include <stdlib.h>
 
 using namespace std;
 
@@ -148,6 +149,7 @@ void ClassUI::searching()
 }
 void ClassUI::addPerson()
 {
+    system("CLS");
     string name;
     string comment;
     char gender;
@@ -155,7 +157,7 @@ void ClassUI::addPerson()
     int yearOfBirth = 0;
     int yearOfDeath = 0;
 
-    cout << "Input Name: ";
+    cout << "Enter name of the scientist: ";
     std::getline(std::cin,name);
     cout << "Input gender (M/F): ";
     cin >> gender;
@@ -192,7 +194,7 @@ void ClassUI::addPerson()
             }
        }
 
-       cout << "Input a comment about the individual: ";
+       cout << "Enter a comment about the scientist: ";
        cin.ignore();
        std::getline(std::cin,comment);
     }
