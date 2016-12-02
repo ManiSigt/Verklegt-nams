@@ -42,6 +42,10 @@ public:
     {
         return persons[n]._getComment();
     }
+    int getAge(int n) const
+    {
+        return persons[n]._getAge();
+    }
     int getNameSize(int n) const;               // Returns the size of _name from persons.
     int personsSize() const                     // Returns the size of vector persons.
     {
