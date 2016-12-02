@@ -313,20 +313,20 @@ void ClassUI::search()
     }
     else if (searchChoice == "4")
     {
-        int agesearch;
+        int ageSearch;
         cout << "Enter a age you want to search for: ";
-        cin >> agesearch;
+        cin >> ageSearch;
 
         for(int i = 0; i < list.personsSize();++i)
         {
-            if(agesearch == list.getAge(i))
+            if(ageSearch == list.getAge(i))
             {
-                agesearch = list.getAge(i);
+                ageSearch = list.getAge(i);
                 view(i);
             }
         }
 
-        if(list.ageSearcher(agesearch) == false)
+        if(list.ageSearcher(ageSearch) == false)
         {
             cout << "Sorry that age is not in our database, but you can add a new scientist in the 'Add section' in the main menu." << endl;
             searching();
@@ -471,8 +471,6 @@ void ClassUI::editPerson()
     else
     {
         cout << "Scientist not found!" << endl;
-        cout << "Press any key to continue...";
-        cin.get();
     }
 }
 /*

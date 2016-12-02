@@ -23,7 +23,7 @@ public:
     void sortGender();                          // Calls the function sortGender from the datalayer class.
     void sortAge();                             // Calls the function sortAge from the datalayer class.
     bool yearSearcher(int year);                // Searches for a specific year within the vector using a for loop.
-    int editPersonFinder(string name);          //Comment með engu bili. Illa nett.
+    int editPersonFinder(string name);          // Edit a scientist.
     string getName(int n) const                 // Make _name from persons available.
     {
         return persons[n]._getName();
