@@ -19,7 +19,7 @@ public:
     void viewAll();             // This prints out the whole list of scientists, Name, Gender, Birth year, Death year and a comment.
     void yo();                  // Secret phase
     void editPerson();          // Edit a scientist that already exists.
-    void clearTheScreen();
+    void clearTheScreen();      // Function to clear the screen.
 private:
     bool runOn = true;
     ListWorker list;

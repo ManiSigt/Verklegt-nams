@@ -24,6 +24,7 @@ void ClassUI::run()
 }
 void ClassUI::mainMenu()
 {
+    clearTheScreen();
     string choice;
     do
     {
@@ -427,6 +428,7 @@ void ClassUI::sorting()
 }
 void ClassUI::editPerson()
 {
+    clearTheScreen();
     string name;
     cout << "Enter the full name of the person that you want to edit: ";
     cin.ignore();
