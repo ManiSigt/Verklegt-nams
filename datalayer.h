@@ -2,6 +2,7 @@
 #define DATALAYER_H
 #include "person.h"
 #include <vector>
+#include <Qtsql>
 
 class DataLayer
 {
@@ -19,6 +20,9 @@ public:
     void sortAge(vector<Person>& getPersons);                                                       // Sorts the vector by age.
     void deleteFile();                                                                              // Delete the file amazingDataBase.txt.
     int stringToNumber(string st);                                                                  // Convert a string to a int.
+
+    void readScientistsFromDatabase(vector<Person>& sci);
+    QSqlDatabase db;
  };
 
 #endif // DATALAYER_H

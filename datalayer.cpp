@@ -9,7 +9,9 @@ using namespace std;
 
 DataLayer::DataLayer()
 {
-
+    db = QSqlDatabase::addDatabase("QSQLITE");
+    QString dbName = "amazingDatabase.sqlite";
+    db.setDatabaseName(dbName);
 }
 void DataLayer::writeToFile(string name, char gender, int yearOfBirth, int yearOfDeath, string comment)
 {
@@ -111,3 +113,29 @@ int DataLayer::stringToNumber(string st)
     int value = atoi(text.c_str());
     return value;
 }
+
+void DataLayer::readScientistsFromDatabase(vector<Person>& sci)
+{
+    db.open();
+
+    QSqlQuery query(db);
+    query.exec("SELECT * FROM Scientists");
+
+
+    while(query.next())
+    {
+        int id = query.value("id").toUInt();
+        string name = query.value("name").toString().toStdString();
+        string gen = query.value("gender").toString().toStdString();
+        int birth = query.value("birth").toUInt();
+        int death = query.value("death").toUInt();
+        string comment = query.value("comment").toString().toStdString();
+        if(death < 0 && death > 2016)
+        {
+            death = 0;
+        }
+        char gender = gen[0];
+        sci.push_back(Person(name, gender, birth, death, comment));
+   }
+}
+

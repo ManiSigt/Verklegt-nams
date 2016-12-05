@@ -7,7 +7,7 @@ using namespace std;
 
 ListWorker::ListWorker()
 {
-    data.readFromFile(persons);
+    data.readScientistsFromDatabase(persons);
 }
 void ListWorker::addNewPerson(string name, char gender, int yearOfBirth, int yearOfDeath, string comment)
 {
