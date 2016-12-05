@@ -8,7 +8,7 @@ class Person
 {
 public:
     Person();
-    Person(string name, char gender, int birth, int death, string comment); // Class constructor for variables.
+    Person(string name, char gender, int birth, int death, string comment, int id); // Class constructor for variables.
     string _getName() const
     {
         return _name;
@@ -37,6 +37,10 @@ public:
     {
         return _age;
     }
+    int _getID() const
+    {
+        return _id;
+    }
 
 
 private:
@@ -46,6 +50,7 @@ private:
     int _yearOfBirth;
     int _yearOfDeath;
     int _age;
+    int _id;
 
 };
 

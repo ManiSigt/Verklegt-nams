@@ -11,9 +11,9 @@ ListWorker::ListWorker()
 }
 void ListWorker::addNewPerson(string name, char gender, int yearOfBirth, int yearOfDeath, string comment)
 {
-    Person p(name, gender, yearOfBirth, yearOfDeath, comment);
+    int vsize = personsSize()+1;
+    Person p(name, gender, yearOfBirth, yearOfDeath, comment, vsize);
     persons.push_back(p);
-    int vsize = personsSize();
     data.addScientist(name, gender, yearOfBirth, yearOfDeath, comment, vsize);
 }
 void ListWorker::sortNames()
