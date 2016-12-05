@@ -415,7 +415,21 @@ string ClassUI::getQuotes()
 }
 void ClassUI::sorting()
 {
+    string sortBy;
     string sortcho;
+    cout << "Enter a sort command:" << endl;
+    cout << "--------------------------------------------------------------" << endl;
+    cout << " (1) - Sort by Scientists." << endl;
+    cout << " (2) - Sort by Computers." << endl;
+    cout << " (3) - Return to main menu" << endl;
+    cout << "Enter your command (1 - 3): ";
+    cin >> sortBy;
+    cout << endl;
+
+    if(sortBy == "3")
+    {
+        mainMenu();
+    }
     cout << "Enter a sort command:" << endl;
     cout << "--------------------------------------------------------------" << endl;
     cout << " (1) - Sort by alphabetical order." << endl;
