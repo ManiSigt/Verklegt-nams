@@ -151,11 +151,11 @@ void DataLayer::readComputersFromDatabase(vector<computer>& com)
     {
         int id = query.value("id").toUInt();
         string name = query.value("name").toString().toStdString();
-        string typeOf = query.value("type").toString().toStdString();
+        string type = query.value("type").toString().toStdString();
         int date = query.value("date").toUInt();
         string wasItBuilt = query.value("wasitbuilt").toString().toStdString();
 
-        com.push_back(computer(name, typeOf, date, wasItBuilt));
+        com.push_back(computer(name, type, date, wasItBuilt));
    }
 }
 
