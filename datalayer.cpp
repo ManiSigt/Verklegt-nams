@@ -119,7 +119,7 @@ void DataLayer::readScientistsFromDatabase(vector<Person>& sci)
     db.open();
 
     QSqlQuery query(db);
-    query.exec("SELECT * FROM Scientists");
+    query.exec("SELECT * FROM Scientist");
 
 
     while(query.next())
@@ -127,8 +127,8 @@ void DataLayer::readScientistsFromDatabase(vector<Person>& sci)
         int id = query.value("id").toUInt();
         string name = query.value("name").toString().toStdString();
         string gen = query.value("gender").toString().toStdString();
-        int birth = query.value("birth").toUInt();
-        int death = query.value("death").toUInt();
+        int birth = query.value("YearOfBirth").toUInt();
+        int death = query.value("YearOfDeath").toUInt();
         string comment = query.value("comment").toString().toStdString();
         if(death < 0 && death > 2016)
         {
