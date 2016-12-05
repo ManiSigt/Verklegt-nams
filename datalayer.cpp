@@ -164,13 +164,14 @@ bool DataLayer::addScientist(string name, char gender, int yearOfBirth, int year
 
     QString qname = QString::fromStdString(name);
     QString qcomment = QString::fromStdString(comment);
+    QString qgender = QChar(gender);
 
         QSqlQuery queryAdd;
         queryAdd.prepare("INSERT INTO Scientist (id, name, gender, yearofbirth, yearofdeath, comment) VALUES (:id, :name, :gender, :yearofbirth, :yearofdeath, :comment)");
 
         queryAdd.bindValue(":id", vsize);
         queryAdd.bindValue(":name", qname);
-        queryAdd.bindValue(":gender", gender);
+        queryAdd.bindValue(":gender", qgender);
         queryAdd.bindValue(":yearofbirth", yearOfBirth);
         if (yearOfDeath != 0)
         {
@@ -185,8 +186,6 @@ bool DataLayer::addScientist(string name, char gender, int yearOfBirth, int year
         {
             qDebug() << "add person failed: " << queryAdd.lastError();
         }
-
-
 
     return success;
 }
