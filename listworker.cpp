@@ -13,7 +13,8 @@ void ListWorker::addNewPerson(string name, char gender, int yearOfBirth, int yea
 {
     Person p(name, gender, yearOfBirth, yearOfDeath, comment);
     persons.push_back(p);
-    data.writeToFile(name, gender, yearOfBirth, yearOfDeath, comment);
+    int vsize = personsSize();
+    data.addScientist(name, gender, yearOfBirth, yearOfDeath, comment, vsize);
 }
 void ListWorker::sortNames()
 {

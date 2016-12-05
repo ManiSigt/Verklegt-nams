@@ -24,6 +24,7 @@ public:
 
     void readScientistsFromDatabase(vector<Person>& sci);
     void readComputersFromDatabase(vector<computer>& com);
+    bool addScientist(string name, char gender, int yearOfBirth, int yearOfDeath, string comment, int vsize);
     QSqlDatabase db;
  };
 
