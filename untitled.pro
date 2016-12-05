@@ -13,13 +13,15 @@ SOURCES += main.cpp \
     classui.cpp \
     listworker.cpp \
     datalayer.cpp \
-    person.cpp
+    person.cpp \
+    computer.cpp
 
 HEADERS += \
     classui.h \
     listworker.h \
     datalayer.h \
-    person.h
+    person.h \
+    computer.h
 
 DISTFILES += \
     example.txt
