@@ -58,6 +58,7 @@ public:
 private:
     DataLayer data;
     vector<Person> persons;                     // The vector containing all persons from the database.
+    vector<computer> com;
 };
 
 #endif // LISTWORKER_H

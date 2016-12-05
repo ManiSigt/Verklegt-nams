@@ -1,6 +1,7 @@
 #ifndef DATALAYER_H
 #define DATALAYER_H
 #include "person.h"
+#include "computer.h"
 #include <vector>
 #include <Qtsql>
 
@@ -22,6 +23,7 @@ public:
     int stringToNumber(string st);                                                                  // Convert a string to a int.
 
     void readScientistsFromDatabase(vector<Person>& sci);
+    void readComputersFromDatabase(vector<computer>& com);
     QSqlDatabase db;
  };
 
