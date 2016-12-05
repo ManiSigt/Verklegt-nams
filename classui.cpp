@@ -485,3 +485,21 @@ void ClassUI::clearTheScreen() //A function that we wanted to use but had platfo
     #endif
 }
 */
+/*
+void ClassUI::editComputer()
+{
+    string cmpname;
+    cout << "Enter the full name of the computer that you want to edit: ";
+    cin.ignore();
+    std::getline(std::cin,cmpname);
+    if(list.removePersonFound(cmpname))
+    {
+        list.removePerson(cmpname);
+        addPerson();
+    }
+    else
+    {
+        cout << "Computer not found!" << endl;
+    }
+}
+*/

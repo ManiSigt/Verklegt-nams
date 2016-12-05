@@ -54,7 +54,6 @@ public:
         return persons.size();
     }
     void saveFile();                            // Deletes the file and makes a new one, and reads the vector into the new file.
-
 private:
     DataLayer data;
     vector<Person> persons;                     // The vector containing all persons from the database.
