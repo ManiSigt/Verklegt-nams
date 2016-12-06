@@ -102,6 +102,19 @@ bool ListWorker::genderSearcher(char gender)
     }
     return false;
 }
+bool ListWorker::typeSearcher(string type)
+{
+    for(unsigned int i = 0; i < com.size(); i++)
+    {
+        if(type == getType(i))
+        {
+             return true;
+             break;
+        }
+    }
+    return false;
+}
+
 bool ListWorker::yearSearcher(int year)
 {
     for(unsigned int i = 0; i < persons.size(); i++)
@@ -114,6 +127,19 @@ bool ListWorker::yearSearcher(int year)
     }
     return false;
 }
+bool ListWorker::builtDateSearcher(int year)
+{
+    for(unsigned int i = 0; i < com.size(); i++)
+    {
+        if(year == getBuiltDate(i))
+        {
+             return true;
+             break;
+        }
+    }
+    return false;
+}
+
 bool ListWorker::ageSearcher(int age)
 {
     for(unsigned int i = 0; i < persons.size(); i++)

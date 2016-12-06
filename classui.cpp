@@ -27,7 +27,7 @@ void ClassUI::mainMenu()
     do
     {
         cout << "--------------------------------------------------------------" << endl;
-        cout << " (1) - "  << "Add a scientist to the database." << endl;
+        cout << " (1) - "  << "Add a scientist/computer to the database." << endl;
         cout << " (2) - "  << "Remove a scientist from the database." << endl;
         cout << " (3) - "  << "View the entire database." << endl;
         cout << " (4) - "  << "Save the database." << endl;
@@ -72,7 +72,7 @@ void ClassUI::select(string ch)
     }
     else if(ch == "5")
     {
-        searching();
+        selectSearch();
     }
     else if(ch == "6")
     {
@@ -217,7 +217,35 @@ void ClassUI::addPerson()
         cout << "scientist not added!" << endl;
     }
 }
-void ClassUI::searching()
+void ClassUI::selectSearch()
+{
+    string searchChoice;
+    cout << "-------------Select any of the following commands-------------" << endl;
+    cout << "What do you want to search for?" << endl;
+    cout << " (1) - Search by Scientist." << endl;
+    cout << " (2) - Search by Computer." << endl;
+    cout << " (3) - Return to main menu." << endl;
+    cin >> searchChoice;
+    if(searchChoice == "1")
+    {
+        searchingScientist();
+    }
+    else if(searchChoice == "2")
+    {
+        searchingComputer();
+    }
+    else if(searchChoice == "3")
+    {
+        return mainMenu();
+    }
+    else
+    {
+        cout << "Error reading input. Please enter a number between 1- 3." << endl;
+        return selectSearch();
+    }
+}
+
+void ClassUI::searchingScientist()
 {
     cout << "-------------Select any of the following commands-------------" << endl;
     cout << "What do you want to search for?" << endl;
@@ -227,9 +255,103 @@ void ClassUI::searching()
     cout << " (4) - Search by age." << endl;
     cout << " (5) - Return to main menu." << endl;
 
-    search();
+    searchScientist();
 }
-void ClassUI::search()
+void ClassUI::searchingComputer()
+{
+    cout << "-------------Select any of the following commands-------------" << endl;
+    cout << "What do you want to search for?" << endl;
+    cout << " (1) - Search by name." << endl;
+    cout << " (2) - Search by type." << endl;
+    cout << " (3) - Search by year it was built." << endl;
+    cout << " (4) - Return to main menu." << endl;
+
+    searchComputer();
+}
+void ClassUI::searchComputer()
+{
+    string searchChoice;
+    cout << "Enter your command (1 - 5): ";
+    cin >> searchChoice;
+    cout << endl;
+
+    if (searchChoice == "1")
+    {
+        string namesearch;
+        cout << "--------------------------------------------------------------" << endl;
+        cout << "Enter a name you want to search for: ";
+        cin.ignore();
+        std::getline(std::cin,namesearch);
+        cout << "--------------------------------------------------------------" << endl;
+        for(int i = 0; i < list.comSize();++i)
+        {
+            std::size_t found = list.getComputerName(i).find(namesearch);
+            if (found!=std::string::npos)
+            {
+                view(i);
+            }
+        }
+
+        if(list.nameSearcher(namesearch) == false)
+        {
+            cout << "Sorry that name is not in our database, but you can add a new computer in the 'Add section' in the main menu." << endl;
+            return searchComputer();
+        }
+    }
+    else if (searchChoice == "2")
+    {
+        string typesearch;
+
+        cout << "Enter a type you want to search for: ";
+        cin.ignore();
+        std::getline(std::cin,typesearch);
+        for(int i = 0; i < list.comSize();++i)
+        {
+            if(typesearch == list.getType(i))
+            {
+                typesearch = list.getType(i);
+                view(i);
+            }
+        }
+
+        if(list.typeSearcher(typesearch) == false)
+        {
+            cout << "Sorry that type is not in our database, but you can add a new type in the 'Add section' in the main menu." << endl;
+            return searchComputer();
+        }
+    }
+    else if (searchChoice == "3")
+    {
+            int yearsearch;
+            cout << "Enter a year you want to search for: ";
+            cin >> yearsearch;
+
+            for(int i = 0; i < list.comSize(); i++)
+            {
+                if(yearsearch == list.getBuiltDate(i))
+                {
+                    yearsearch = list.getBuiltDate(i);
+                    view(i);
+                }
+            }
+
+            if(list.builtDateSearcher(yearsearch) == false)
+            {
+                cout << "Sorry that year is not in our database, but you can add a new scientist in the 'Add section' in the main menu." << endl;
+                return searchComputer();
+            }
+    }
+    else if (searchChoice == "4")
+    {
+        mainMenu();
+    }
+    else
+    {
+        cout << "Error reading input. Please enter a number between 1- 3." << endl;
+        return searchComputer();
+    }
+}
+void ClassUI::searchScientist()
 {
     string searchChoice;
     cout << "Enter your command (1 - 5): ";
@@ -256,7 +378,7 @@ void ClassUI::search()
         if(list.nameSearcher(namesearch) == false)
         {
             cout << "Sorry that name is not in our database, but you can add a new scientist in the 'Add section' in the main menu." << endl;
-            searching();
+            return searchScientist();
         }
     }
     else if (searchChoice == "2")
@@ -287,7 +409,7 @@ void ClassUI::search()
         if(list.genderSearcher(gendersearch) == false)
         {
             cout << "Sorry that gender is not in our database, but you can add a new scientist in the 'Add section' in the main menu." << endl;
-            searching();
+            return searchScientist();
         }
     }
     else if (searchChoice == "3")
@@ -308,7 +430,7 @@ void ClassUI::search()
             if(list.yearSearcher(yearsearch) == false)
             {
                 cout << "Sorry that year is not in our database, but you can add a new scientist in the 'Add section' in the main menu." << endl;
-                searching();
+                return searchScientist();
             }
     }
     else if (searchChoice == "4")
@@ -329,7 +451,7 @@ void ClassUI::search()
         if(list.ageSearcher(ageSearch) == false)
         {
             cout << "Sorry that age is not in our database, but you can add a new scientist in the 'Add section' in the main menu." << endl;
-            searching();
+            return searchScientist();
         }
     }
     else if (searchChoice == "5")
@@ -339,7 +461,7 @@ void ClassUI::search()
     else
     {
         cout << "Error reading input. Please enter a number between 1- 3." << endl;
-        search();
+        return searchScientist();
     }
 }
 void ClassUI::remove()
