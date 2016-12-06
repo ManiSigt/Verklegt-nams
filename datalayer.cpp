@@ -23,51 +23,7 @@ void DataLayer::writeToFile(string name, char gender, int yearOfBirth, int yearO
      myfile << comment << endl;
      myfile.close();
 }
-void DataLayer::readFromFile(vector<Person>& getPersons)
-{
-    string line;
-    string name = "1";
-    string comment = "1";
-    char gender = '1';
-    int yearOfBirth = 1;
-    int yearOfDeath = 1;
-    ifstream myfile ("amazingDatabase.txt");
-    if (myfile.is_open())
-      {
-        while ( getline (myfile,line) )
-        {
-          if(name == "1" && gender == '1' && yearOfBirth == 1 && yearOfDeath == 1 && comment == "1")
-          {
-              name = line;
-          }
-          else if(name != "1" && gender == '1' && yearOfBirth == 1 && yearOfDeath == 1 && comment == "1")
-          {
-              gender = line[0];
-          }
-          else if(name != "1" && gender != '1' && yearOfBirth == 1 && yearOfDeath == 1 && comment == "1")
-          {
-              yearOfBirth = stringToNumber(line);
-          }
-          else if(name != "1" && gender != '1' && yearOfBirth != 1 && yearOfDeath == 1 && comment == "1")
-          {
-              yearOfDeath = stringToNumber(line);
-          }
-          else if(name != "1" && gender != '1' && yearOfBirth != 1 && yearOfDeath != 1 && comment == "1")
-          {
-              comment = line;
-              Person p(name, gender, yearOfBirth, yearOfDeath, comment);
-              getPersons.push_back(p);
-              name = "1";
-              gender = '1';
-              yearOfBirth = 1;
-              yearOfDeath = 1;
-              comment = "1";
-          }
-        }
-    myfile.close();
-    }
-    else cout << "Unable to open file!" << endl;
-}
+
 bool sortByName(const Person &lhs, const Person &rhs)
 {
     return lhs._getName() < rhs._getName();
@@ -135,7 +91,7 @@ void DataLayer::readScientistsFromDatabase(vector<Person>& sci)
             death = 0;
         }
         char gender = gen[0];
-        sci.push_back(Person(name, gender, birth, death, comment));
+        sci.push_back(Person(name, gender, birth, death, comment, id));
    }
 }
 
@@ -151,11 +107,43 @@ void DataLayer::readComputersFromDatabase(vector<computer>& com)
     {
         int id = query.value("id").toUInt();
         string name = query.value("name").toString().toStdString();
-        string typeOf = query.value("type").toString().toStdString();
+        string type = query.value("type").toString().toStdString();
         int date = query.value("date").toUInt();
         string wasItBuilt = query.value("wasitbuilt").toString().toStdString();
 
-        com.push_back(computer(name, typeOf, date, wasItBuilt));
+        com.push_back(computer(name, type, date, wasItBuilt));
    }
+}
+bool DataLayer::addScientist(string name, char gender, int yearOfBirth, int yearOfDeath, string comment, int vsize)
+{
+    bool success = false;
+
+    QString qname = QString::fromStdString(name);
+    QString qcomment = QString::fromStdString(comment);
+    QString qgender = QChar(gender);
+
+        QSqlQuery queryAdd;
+        queryAdd.prepare("INSERT INTO Scientist (id, name, gender, yearofbirth, yearofdeath, comment) VALUES (:id, :name, :gender, :yearofbirth, :yearofdeath, :comment)");
+
+        cout << vsize << endl;
+        queryAdd.bindValue(":id", vsize+1);
+        queryAdd.bindValue(":name", qname);
+        queryAdd.bindValue(":gender", qgender);
+        queryAdd.bindValue(":yearofbirth", yearOfBirth);
+        if (yearOfDeath != 0)
+        {
+            queryAdd.bindValue(":yearofdeath", yearOfDeath);
+        }
+        queryAdd.bindValue(":comment", qcomment);
+        if(queryAdd.exec())
+        {
+            success = true;
+        }
+        else
+        {
+            qDebug() << "add person failed: " << queryAdd.lastError();
+        }
+
+    return success;
 }
 

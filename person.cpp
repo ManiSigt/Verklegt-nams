@@ -4,13 +4,14 @@ Person::Person()
 {
 
 }
-Person::Person(string name, char gender, int birth, int death, string comment)
+Person::Person(string name, char gender, int birth, int death, string comment, int id)
 {
     _name = name;
     _gender = gender;
     _yearOfBirth = birth;
     _yearOfDeath = death;
     _comment = comment;
+    _id = id;
 
     if(_yearOfDeath > 0)
     {

@@ -537,7 +537,21 @@ string ClassUI::getQuotes()
 }
 void ClassUI::sorting()
 {
+    string sortBy;
     string sortcho;
+    cout << "Enter a sort command:" << endl;
+    cout << "--------------------------------------------------------------" << endl;
+    cout << " (1) - Sort by Scientists." << endl;
+    cout << " (2) - Sort by Computers." << endl;
+    cout << " (3) - Return to main menu" << endl;
+    cout << "Enter your command (1 - 3): ";
+    cin >> sortBy;
+    cout << endl;
+
+    if(sortBy == "3")
+    {
+        mainMenu();
+    }
     cout << "Enter a sort command:" << endl;
     cout << "--------------------------------------------------------------" << endl;
     cout << " (1) - Sort by alphabetical order." << endl;
@@ -605,5 +619,23 @@ void ClassUI::clearTheScreen() //A function that we wanted to use but had platfo
     #if defined(_WIN32) || defined(_WIN64)
         system("cls");
     #endif
+}
+*/
+/*
+void ClassUI::editComputer()
+{
+    string cmpname;
+    cout << "Enter the full name of the computer that you want to edit: ";
+    cin.ignore();
+    std::getline(std::cin,cmpname);
+    if(list.removePersonFound(cmpname))
+    {
+        list.removePerson(cmpname);
+        addPerson();
+    }
+    else
+    {
+        cout << "Computer not found!" << endl;
+    }
 }
 */
