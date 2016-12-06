@@ -56,6 +56,8 @@ void ClassUI::select(string ch)
         string choice;
         cout << " (1) - Add a scientist." << endl;
         cout << " (2) - Add a computer." << endl;
+        cout << " (3) - Return to main menu." << endl;
+        cout << "Enter your command (1 - 3): ";
         cin >> choice;
         if (choice == "1")
         {
@@ -67,6 +69,15 @@ void ClassUI::select(string ch)
         cin.ignore();
         addComputer();
         }
+        else if (choice == "3")
+        {
+            return mainMenu();
+        }
+        else
+        {
+            cout << "Invalid input. Please enter a number between 1 - 2." << endl;
+            select("1");
+        }
     }
     else if(ch == "2")
     {
@@ -77,6 +88,8 @@ void ClassUI::select(string ch)
         string choice;
         cout << " (1) - View scientists." << endl;
         cout << " (2) - View computers." << endl;
+        cout << " (3) - Return to main menu." << endl;
+        cout << "Enter your command (1 - 3): ";
         cin >> choice;
         if (choice == "1")
         {
@@ -85,6 +98,15 @@ void ClassUI::select(string ch)
         else if (choice == "2")
         {
             viewCom();
+        }
+        else if (choice == "3")
+        {
+            return mainMenu();
+        }
+        else
+        {
+            cout << "Invalid input. Please enter a number between 1 - 2." << endl;
+            select("3");
         }
     }
     else if(ch == "4")
@@ -178,7 +200,7 @@ void ClassUI::viewComputers(int i)
         cout << "\t";
     }
 
-    cout  << "|" << list.getWasItBuilt(i) << "\t|" << list.getTypeComputer(i) << "\t|" << list.getDateComputer(i) << endl;
+    cout  << "|" << list.getDateComputer(i) << "\t|" << list.getWasItBuilt(i) << "\t|" << list.getTypeComputer(i) << endl;
 
 }
 void ClassUI::viewPer()
@@ -194,7 +216,7 @@ void ClassUI::viewPer()
 void ClassUI::viewCom()
 {
     cout << "--------------------------------------------------------------" << endl;
-    cout << "Name" << "\t" << "\t" << "\t" << "\t" << "|Type " << "|Date " << "\t" << "|Was it built" << endl;
+    cout << "Name" << "\t" << "\t" << "\t" << "\t" << "|Date " << "|Built " << "\t" << "|Type" << endl;
 
     for(int i = 0; i < list.computerSize(); i++)
     {
@@ -292,7 +314,7 @@ void ClassUI::addComputer()
                cout << "not a valid building year" << endl;
                return mainMenu();
            }
-           cout << "Did they finish building the computer? (y/n)";
+           cout << "Did they finish building the computer? (y/n) ";
            cin >> isbuilt;
            if (isbuilt == "y" || isbuilt == "y")
            {
@@ -406,7 +428,6 @@ void ClassUI::searchComputer()
     else if (searchChoice == "2")
     {
         string typesearch;
-
         cout << "Enter a type you want to search for: ";
         cin.ignore();
         std::getline(std::cin,typesearch);
