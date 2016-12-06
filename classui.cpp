@@ -311,11 +311,24 @@ void ClassUI::addComputer()
            cin >> Yearbuilt;
            if (Yearbuilt < 0 || Yearbuilt > 2016)
            {
-               cout << "not a valid year of birth" << endl;
+               cout << "not a valid building year" << endl;
                return mainMenu();
            }
            cout << "Did they finish building the computer? (y/n) ";
            cin >> isbuilt;
+           if (isbuilt == "y" || isbuilt == "y")
+           {
+               isbuilt = "Yes";
+           }
+           else if (isbuilt == "n" || isbuilt == "N")
+           {
+               isbuilt = "No";
+           }
+           else
+           {
+                cout << "Not a valid input." << endl;
+                return mainMenu();
+           }
 
         cout << "Are you sure that you want to add this computer? (y/n) ";
         string validateComputer;
