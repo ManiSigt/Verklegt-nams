@@ -86,6 +86,7 @@ bool ListWorker::removeComputer(string name)
         if(name == com[i]._getNameComputer())
         {
             com.erase(com.begin() + i);
+            data.removeComputer(i);
             return true;
         }
     }

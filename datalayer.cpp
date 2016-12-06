@@ -182,3 +182,18 @@ bool DataLayer::addComputer(string name, string type, int yearbuilt, string isbu
 
     return success;
 }
+void DataLayer::removeComputer(int i)
+{
+    bool success = false;
+    QSqlQuery queryRemove;
+    queryRemove.prepare("DELETE FROM Computers Where ID=i");
+
+            if(queryRemove.exec())
+            {
+                success = true;
+            }
+            else
+            {
+                qDebug() << "add computer failed: " << queryRemove.lastError();
+            }
+}
