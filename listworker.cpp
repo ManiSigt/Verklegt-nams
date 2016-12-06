@@ -22,7 +22,7 @@ void ListWorker::addNewComputer(string name, string type, int yearbuilt, string 
 {
     int vsize = computerSize()+1;
 
-    Computer c(name, isbuilt, yearbuilt, type);
+    Computer c(name, isbuilt, yearbuilt, type, vsize);
 
 
     com.push_back(c);
