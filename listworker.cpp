@@ -89,6 +89,19 @@ bool ListWorker::nameSearcher(string name)
     }
     return false;
 }
+bool ListWorker::computerNameSearcher(string name)
+{
+    for(int i = 0; i < computerSize(); i++)
+    {
+        std::size_t found = getNameComputer(i).find(name);
+        if (found!=std::string::npos)
+        {
+            return true;
+            break;
+        }
+    }
+    return false;
+}
 bool ListWorker::genderSearcher(char gender)
 {
     for(unsigned int i = 0; i < persons.size(); i++)

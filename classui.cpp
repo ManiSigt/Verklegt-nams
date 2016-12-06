@@ -364,7 +364,7 @@ void ClassUI::searchComputer()
             }
         }
 
-        if(list.nameSearcher(namesearch) == false)
+        if(list.computerNameSearcher(namesearch) == false)
         {
             cout << "Sorry that name is not in our database, but you can add a new computer in the 'Add section' in the main menu." << endl;
             return searchComputer();
