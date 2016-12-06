@@ -651,23 +651,24 @@ void ClassUI::sorting()
 
         if(sortcho == "1")
         {
-            list.sortNames();
+            list.sortScientistNames();
             viewPer();
         }
         else if(sortcho == "2")
         {
-            list.sortBirth();
+            list.sortScientistBirth();
             viewPer();
         }
         else if(sortcho == "3")
         {
-            list.sortGender();
+            list.sortScientistGender();
             viewPer();
         }
         else if(sortcho == "4")
         {
-            list.sortAge();
+            list.sortScientistAge();
             viewPer();
+
         }
         else if(sortcho == "5")
         {
