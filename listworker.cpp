@@ -80,11 +80,11 @@ bool ListWorker::removePersonFound(string name)
     }
     return false;
 }
-bool ListWorker::removeComputer(int id)
+bool ListWorker::removeComputer(string name)
 {
     for(size_t i = 0; i < com.size(); ++i)
     {
-        if(id == com[i]._getIdComputer())
+        if(name == com[i]._getNameComputer())
         {
             com.erase(com.begin() + i);
             data.removeComputer(i);
@@ -93,11 +93,11 @@ bool ListWorker::removeComputer(int id)
     }
     return false;
 }
-bool ListWorker::removeComputerFound(int id)
+bool ListWorker::removeComputerFound(string name)
 {
     for(size_t i = 0; i < com.size(); ++i)
     {
-        if(id == com[i]._getIdComputer())
+        if(name == com[i]._getNameComputer())
         {
             return true;
         }

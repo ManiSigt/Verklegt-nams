@@ -625,15 +625,15 @@ void ClassUI::removeScientist()
 }
 void ClassUI::removeComputer()
 {
-    //string name;
-    int id;
+    string name;
+    //int id;
     cout << "--------------------------------------------------------------" << endl;
     cout << "Enter the full name of the computer that you want to remove: ";
     cin.ignore();
-    //std::getline(std::cin,id);
-    cin >> id;
+    std::getline(std::cin,name);
+    //cin >> id;
 
-    if (list.removeComputerFound(id) == true)
+    if (list.removeComputerFound(name) == true)
     {
         char validateRemove;
         cout << "Computer found!" << endl;
@@ -642,7 +642,7 @@ void ClassUI::removeComputer()
 
         if(validateRemove == 'y' || validateRemove == 'Y')
         {
-            if(list.removeComputer(id) == true)
+            if(list.removeComputer(name) == true)
             {
                 cout << "Computer removed!" << endl;
             }
