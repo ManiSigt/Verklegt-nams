@@ -129,3 +129,31 @@ bool DataLayer::addScientist(string name, char gender, int yearOfBirth, int year
     return success;
 }
 
+bool DataLayer::addComputer(string name, string type, int yearbuilt, string isbuilt, int vsize)
+{
+    bool success = false;
+
+    QString qname = QString::fromStdString(name);
+    QString qtype = QString::fromStdString(type);
+    QString qisbuilt = QString::fromStdString(isbuilt);
+
+        QSqlQuery queryAdd;
+        queryAdd.prepare("INSERT INTO Computers (ID, Name, Type, Date, WasItBuilt) VALUES (:id, :name, :type, :yearbuilt, :isbuilt)");
+
+        cout << vsize << endl;
+        queryAdd.bindValue(":id", vsize+2);
+        queryAdd.bindValue(":name", qname);
+        queryAdd.bindValue(":type", qtype);
+        queryAdd.bindValue(":yearbuilt", yearbuilt);
+        queryAdd.bindValue(":isbuilt", qisbuilt);
+        if(queryAdd.exec())
+        {
+            success = true;
+        }
+        else
+        {
+            qDebug() << "add person failed: " << queryAdd.lastError();
+        }
+
+    return success;
+}
