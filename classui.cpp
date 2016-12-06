@@ -495,11 +495,6 @@ void ClassUI::remove()
     }
 
 }
-void ClassUI::save()
-{
-    //list.saveFile();
-    cout << "Database saved." << endl;
-}
 void ClassUI::yo()
 {
     cout << "--------------------------------------------------------------" << endl;

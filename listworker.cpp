@@ -62,23 +62,6 @@ int ListWorker::getNameSize(int n) const
     int size = name.size();
     return size;
 }
-/*void ListWorker::saveFile()
-{
-    string saveName, saveComment;
-    char saveGender;
-    int saveYearOfBirth, saveYearOfDeath;
-    data.deleteFile();
-
-    for(unsigned int i = 0; i < persons.size(); i++)
-    {
-        saveName = getName(i);
-        saveGender = getGender(i);
-        saveYearOfBirth = getBirth(i);
-        saveYearOfDeath = getDeath(i);
-        saveComment = getComment(i);
-        data.writeToFile(saveName, saveGender, saveYearOfBirth, saveYearOfDeath, saveComment);
-    }
-}*/
 bool ListWorker::nameSearcher(string name)
 {
     for(unsigned int i = 0; i < persons.size(); i++)
