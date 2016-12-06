@@ -195,9 +195,28 @@ void DataLayer::removeComputer(int i)
             }
             else
             {
-                qDebug() << "add computer failed: " << queryRemove.lastError();
+                qDebug() << "Remove computer failed: " << queryRemove.lastError();
             }
 }
+void DataLayer::removeScientist(int i)
+{
+    {
+        bool success = false;
+        QSqlQuery queryRemove;
+        queryRemove.prepare("DELETE FROM Scientist Where ID=:id");
+        queryRemove.bindValue(":id", i+1);
+
+                if(queryRemove.exec())
+                {
+                    success = true;
+                }
+                else
+                {
+                    qDebug() << "Remove person failed: " << queryRemove.lastError();
+                }
+    }
+}
+
 void DataLayer::readLinksFromDatabase(vector<Linker>& link)
 {
     db.open();

@@ -64,6 +64,7 @@ bool ListWorker::removePerson(string name)
         if(name == persons[i]._getNamePerson())
         {
             persons.erase(persons.begin() + i);
+            data.removeScientist(i);
             return true;
         }
     }
