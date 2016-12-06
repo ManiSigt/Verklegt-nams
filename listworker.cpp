@@ -45,6 +45,18 @@ void ListWorker::sortScientistAge()
 {
     data.sortScientistAge(persons);
 }
+void ListWorker::sortComputerName()
+{
+    data.sortNamesComputers(com);
+}
+void ListWorker::sortComputerDate()
+{
+    data.sortDateComputers(com);
+}
+void ListWorker::sortComputerType()
+{
+    data.sortTypeComputers(com);
+}
 bool ListWorker::removePerson(string name)
 {
     for(size_t i = 0; i < persons.size(); ++i)
@@ -62,6 +74,29 @@ bool ListWorker::removePersonFound(string name)
     for(size_t i = 0; i < persons.size(); ++i)
     {
         if(name == persons[i]._getNamePerson())
+        {
+            return true;
+        }
+    }
+    return false;
+}
+bool ListWorker::removeComputer(string name)
+{
+    for(size_t i = 0; i < com.size(); ++i)
+    {
+        if(name == com[i]._getNameComputer())
+        {
+            com.erase(com.begin() + i);
+            return true;
+        }
+    }
+    return false;
+}
+bool ListWorker::removeComputerFound(string name)
+{
+    for(size_t i = 0; i < com.size(); ++i)
+    {
+        if(name == com[i]._getNameComputer())
         {
             return true;
         }

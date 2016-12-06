@@ -19,9 +19,10 @@ public:
     void searchingComputer();
     void searchScientist();     // Checks what option you took in searching and then asks for what keyword you want to search for, and looks it up in the database and prints it out
     void selectSearch();
-    void remove();              // Checks if the person you wanted to delete is found then asks if you want to delete it or not, then removes it if the input was y and aborts if input was anything alse.
+    void removeScientist();     // Checks if the person you wanted to delete is found then asks if you want to delete it or not, then removes it if the input was y and aborts if input was anything alse.
+    void removeComputer();
     void yo();                  // Secret phase
-    void sorting();             // Prints out a list of things to sort and asks for a input then calls the sort functions in the listworker class.
+    void viewMenu();
     void editPerson();          // Edit a scientist that already exists.
     //void clearTheScreen();    // Function to clear the screen.
     void findComputerConnections(int i);

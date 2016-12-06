@@ -22,10 +22,15 @@ public:
     bool nameSearcher(string name);             // Searches for a specific name within the vector using a for loop.
     bool removePerson(string name);             // Remove person from the vector.
     bool removePersonFound(string name);        // Check if person to remove is found or not.
+    bool removeComputer(string name);                    // Remove computer from the vector.
+    bool removeComputerFound(string name);               // Check if computer to remove is found or not.
     void sortScientistBirth();                           // Calls the function sortBirth from the datalayer class.
     void sortScientistNames();                           // Calls the function sortNames from the datalayer class.
     void sortScientistGender();                          // Calls the function sortGender from the datalayer class.
     void sortScientistAge();                             // Calls the function sortAge from the datalayer class.
+    void sortComputerName();
+    void sortComputerDate();
+    void sortComputerType();
     bool computerNameSearcher(string name);
     bool typeSearcher(string type);
     bool yearSearcher(int year);                // Searches for a specific year within the vector using a for loop.
