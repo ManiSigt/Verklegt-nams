@@ -1,5 +1,6 @@
 #include "datalayer.h"
 #include "person.h"
+#include "computer.h"
 #include <fstream>
 #include <iostream>
 #include <vector>
@@ -29,6 +30,18 @@ bool sortByAge(const Person &lhs, const Person &rhs)
 {
     return lhs._getAgePerson() < rhs._getAgePerson();
 }
+bool sortByNameComputers(const computer &lhs, const computer &rhs)
+{
+    return lhs._getNameComputer() < rhs._getNameComputer();
+}
+bool sortByDateComputers(const computer &lhs, const computer &rhs)
+{
+    return lhs._getDateComputer() < rhs._getDateComputer();
+}
+bool sortByTypeComputers(const computer &lhs, const computer &rhs)
+{
+    return lhs._getTypeComputer() < rhs._getTypeComputer();
+}
 void DataLayer::sortNames(vector<Person>& getPersons)
 {
     std::sort(getPersons.begin(),getPersons.end(), sortByName);
@@ -44,6 +57,18 @@ void DataLayer::sortGender(vector<Person>& getPersons)
 void DataLayer::sortAge(vector<Person>& getPersons)
 {
     std::sort(getPersons.begin(),getPersons.end(), sortByAge);
+}
+void DataLayer::sortNamesComputers(vector<computer>& com)
+{
+    std::sort(com.begin(),com.end(), sortByNameComputers);
+}
+void DataLayer::sortDateComputers(vector<computer>& com)
+{
+    std::sort(com.begin(),com.end(), sortByDateComputers);
+}
+void DataLayer::sortTypeComputers(vector<computer>& com)
+{
+    std::sort(com.begin(),com.end(), sortByTypeComputers);
 }
 int DataLayer::stringToNumber(string st)
 {
