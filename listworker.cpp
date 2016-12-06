@@ -121,10 +121,11 @@ bool ListWorker::typeSearcher(string type)
 {
     for(unsigned int i = 0; i < com.size(); i++)
     {
-        if(type == getTypeComputer(i))
+        std::size_t found = getTypeComputer(i).find(type);
+        if (found!=std::string::npos)
         {
-             return true;
-             break;
+            return true;
+            break;
         }
     }
     return false;

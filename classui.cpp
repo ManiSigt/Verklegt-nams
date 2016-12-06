@@ -399,9 +399,9 @@ void ClassUI::searchComputer()
         std::getline(std::cin,typesearch);
         for(int i = 0; i < list.computerSize();++i)
         {
-            if(typesearch == list.getTypeComputer(i))
+            std::size_t found = list.getTypeComputer(i).find(typesearch);
+            if (found!=std::string::npos)
             {
-                typesearch = list.getTypeComputer(i);
                 viewComputers(i);
             }
         }
