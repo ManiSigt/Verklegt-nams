@@ -113,7 +113,28 @@ void ClassUI::select(string ch)
     }
     else if(ch == "5")
     {
-        editPerson();
+        string choice;
+        cout << " (1) - Edit a scientist." << endl;
+        cout << " (2) - Edit a Computer." << endl;
+        cout << " (3) - Return to main menu." << endl;
+        cin >> choice;
+        if (choice == "1")
+        {
+            addPerson();
+        }
+        else if (choice == "2")
+        {
+            addComputer();
+        }
+        else if (choice == "3")
+        {
+            return mainMenu();
+        }
+        else
+        {
+            cout << "Invalid input. Please enter a number between 1 - 3" << endl;
+            select("5");
+        }
     }
     else if(ch == "yo")
     {
@@ -845,21 +866,20 @@ void ClassUI::clearTheScreen() //A function that we wanted to use but had platfo
     #endif
 }
 */
-/*
+
 void ClassUI::editComputer()
 {
     string cmpname;
     cout << "Enter the full name of the computer that you want to edit: ";
     cin.ignore();
     std::getline(std::cin,cmpname);
-    if(list.removePersonFound(cmpname))
+    if(list.removeComputerFound(cmpname))
     {
-        list.removePerson(cmpname);
-        addPerson();
+        list.removeComputer(cmpname);
+        addComputer();
     }
     else
     {
         cout << "Computer not found!" << endl;
     }
 }
-*/
