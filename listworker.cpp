@@ -18,10 +18,10 @@ void ListWorker::addNewPerson(string name, char gender, int yearOfBirth, int yea
     persons.push_back(p);
     data.addScientist(name, gender, yearOfBirth, yearOfDeath, comment, vsize);
 }
-void ListWorker::addNewComputer(string name, string isbuilt, int yearbuilt, string type)
+void ListWorker::addNewComputer(string name, string type, int yearbuilt, string isbuilt)
 {
     int vsize = computerSize()+1;
-    computer c(name, isbuilt, yearbuilt, type);
+    computer c(name, type, yearbuilt, isbuilt);
     com.push_back(c);
     data.addComputer(name, type, yearbuilt, isbuilt, vsize);
 }
