@@ -14,59 +14,59 @@ DataLayer::DataLayer()
     QString dbName = "amazingDatabase.sqlite";
     db.setDatabaseName(dbName);
 }
-bool sortByName(const Person &lhs, const Person &rhs)
+bool sortByScientistName(const Person &lhs, const Person &rhs)
 {
     return lhs._getNamePerson() < rhs._getNamePerson();
 }
-bool sortByBirth(const Person &lhs, const Person &rhs)
+bool sortByScientistBirth(const Person &lhs, const Person &rhs)
 {
     return lhs._getBirthPerson() < rhs._getBirthPerson();
 }
-bool sortByGender(const Person &lhs, const Person &rhs)
+bool sortByScientistGender(const Person &lhs, const Person &rhs)
 {
     return lhs._getGenderPerson() < rhs._getGenderPerson();
 }
-bool sortByAge(const Person &lhs, const Person &rhs)
+bool sortByScientistAge(const Person &lhs, const Person &rhs)
 {
     return lhs._getAgePerson() < rhs._getAgePerson();
 }
-bool sortByNameComputers(const computer &lhs, const computer &rhs)
+bool sortByNameComputers(const Computer &lhs, const Computer &rhs)
 {
     return lhs._getNameComputer() < rhs._getNameComputer();
 }
-bool sortByDateComputers(const computer &lhs, const computer &rhs)
+bool sortByDateComputers(const Computer &lhs, const Computer &rhs)
 {
     return lhs._getDateComputer() < rhs._getDateComputer();
 }
-bool sortByTypeComputers(const computer &lhs, const computer &rhs)
+bool sortByTypeComputers(const Computer &lhs, const Computer &rhs)
 {
     return lhs._getTypeComputer() < rhs._getTypeComputer();
 }
-void DataLayer::sortNames(vector<Person>& getPersons)
+void DataLayer::sortScientistNames(vector<Person>& getPersons)
 {
-    std::sort(getPersons.begin(),getPersons.end(), sortByName);
+    std::sort(getPersons.begin(),getPersons.end(), sortByScientistName);
 }
-void DataLayer::sortBirth(vector<Person>& getPersons)
+void DataLayer::sortScientistBirth(vector<Person>& getPersons)
 {
-    std::sort(getPersons.begin(),getPersons.end(), sortByBirth);
+    std::sort(getPersons.begin(),getPersons.end(), sortByScientistBirth);
 }
-void DataLayer::sortGender(vector<Person>& getPersons)
+void DataLayer::sortScientistGender(vector<Person>& getPersons)
 {
-    std::sort(getPersons.begin(),getPersons.end(), sortByGender);
+    std::sort(getPersons.begin(),getPersons.end(), sortByScientistGender);
 }
-void DataLayer::sortAge(vector<Person>& getPersons)
+void DataLayer::sortScientistAge(vector<Person>& getPersons)
 {
-    std::sort(getPersons.begin(),getPersons.end(), sortByAge);
+    std::sort(getPersons.begin(),getPersons.end(), sortByScientistAge);
 }
-void DataLayer::sortNamesComputers(vector<computer>& com)
+void DataLayer::sortNamesComputers(vector<Computer>& com)
 {
     std::sort(com.begin(),com.end(), sortByNameComputers);
 }
-void DataLayer::sortDateComputers(vector<computer>& com)
+void DataLayer::sortDateComputers(vector<Computer>& com)
 {
     std::sort(com.begin(),com.end(), sortByDateComputers);
 }
-void DataLayer::sortTypeComputers(vector<computer>& com)
+void DataLayer::sortTypeComputers(vector<Computer>& com)
 {
     std::sort(com.begin(),com.end(), sortByTypeComputers);
 }
@@ -102,7 +102,7 @@ void DataLayer::readScientistsFromDatabase(vector<Person>& sci)
    }
 }
 
-void DataLayer::readComputersFromDatabase(vector<computer>& com)
+void DataLayer::readComputersFromDatabase(vector<Computer>& com)
 {
     db.open();
 
@@ -118,7 +118,9 @@ void DataLayer::readComputersFromDatabase(vector<computer>& com)
         int date = query.value("date").toUInt();
         string wasItBuilt = query.value("wasitbuilt").toString().toStdString();
 
-        com.push_back(computer(name, type, date, wasItBuilt));
+        com.push_back(Computer(name, wasItBuilt, date, type));
+
+
    }
 }
 bool DataLayer::addScientist(string name, char gender, int yearOfBirth, int yearOfDeath, string comment, int vsize)

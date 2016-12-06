@@ -2,7 +2,7 @@
 #define LISTWORKER_H
 #include "datalayer.h"
 #include "person.h"
-#include "computer.h"
+#include "Computer.h"
 #include <iostream>
 #include <string>
 
@@ -21,10 +21,11 @@ public:
     bool nameSearcher(string name);             // Searches for a specific name within the vector using a for loop.
     bool removePerson(string name);             // Remove person from the vector.
     bool removePersonFound(string name);        // Check if person to remove is found or not.
-    void sortBirth();                           // Calls the function sortBirth from the datalayer class.
-    void sortNames();                           // Calls the function sortNames from the datalayer class.
-    void sortGender();                          // Calls the function sortGender from the datalayer class.
-    void sortAge();                             // Calls the function sortAge from the datalayer class.
+    void sortScientistBirth();                           // Calls the function sortBirth from the datalayer class.
+    void sortScientistNames();                           // Calls the function sortNames from the datalayer class.
+    void sortScientistGender();                          // Calls the function sortGender from the datalayer class.
+    void sortScientistAge();                             // Calls the function sortAge from the datalayer class.
+    bool computerNameSearcher(string name);
     bool typeSearcher(string type);
     bool yearSearcher(int year);                // Searches for a specific year within the vector using a for loop.
     int editPersonFinder(string name);          // Edit a scientist.
@@ -32,7 +33,7 @@ public:
     {
         return persons[n]._getNamePerson();
     }
-    string getNameComputer(int n) const                 // Make _name from computer available.
+    string getNameComputer(int n) const                 // Make _name from Computer available.
     {
         return com[n]._getNameComputer();
     }
@@ -48,7 +49,7 @@ public:
     {
         return persons[n]._getDeathPerson();
     }
-    int getDateComputer(int n) const                   //Make _getDate from computer available.
+    int getDateComputer(int n) const                   //Make _getDate from Computer available.
     {
         return com[n]._getDateComputer();
     }
@@ -56,11 +57,11 @@ public:
     {
         return persons[n]._getCommentPerson();
     }
-    string getTypeComputer(int n) const                // Make _type from computer available.
+    string getTypeComputer(int n) const                // Make _type from Computer available.
     {
         return com[n]._getTypeComputer();
     }
-    string getWasItBuilt(int n) const                   //Make _wasItBuilt from computer available
+    string getWasItBuilt(int n) const                   //Make _wasItBuilt from Computer available
     {
         return com[n]._getWasItBuiltComputer();
     }
@@ -69,13 +70,13 @@ public:
         return persons[n]._getAgePerson();
     }
     int getNameSizePerson(int n) const;               // Returns the size of _name from persons.
-    int getNameSizeComputer(int n) const;           // Returns the size of _name from computer.
+    int getNameSizeComputer(int n) const;           // Returns the size of _name from Computer.
     int personsSize() const                     // Returns the size of vector persons.
     {
         return persons.size();
     }
 
-    int computerSize() const                     // Returns the size of vector computer.
+    int computerSize() const                     // Returns the size of vector Computer.
     {
         return com.size();
     }
@@ -84,7 +85,7 @@ public:
 private:
     DataLayer data;
     vector<Person> persons;                     // The vector containing all persons from the database.
-    vector<computer> com;
+    vector<Computer> com;
 };
 
 #endif // LISTWORKER_H

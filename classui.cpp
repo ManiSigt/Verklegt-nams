@@ -27,11 +27,11 @@ void ClassUI::mainMenu()
     do
     {
         cout << "--------------------------------------------------------------" << endl;
-        cout << " (1) - "  << "Add a scientist/computer to the database." << endl;
-        cout << " (2) - "  << "Remove a scientist from the database." << endl;
-        cout << " (3) - "  << "View the entire database." << endl;
-        cout << " (4) - "  << "Search the database." << endl;
-        cout << " (5) - "  << "Sort the database." << endl;
+        cout << " (1) - "  << "Add to the database." << endl;
+        cout << " (2) - "  << "Remove a from the database." << endl;
+        cout << " (3) - "  << "View." << endl;
+        cout << " (4) - "  << "Search." << endl;
+        cout << " (5) - "  << "Sort." << endl;
         cout << " (6) - "  << "Edit a scientist." << endl;
         cout << " (7) - "  << "Exit." << endl;
         cout << "Enter your command (1 - 7): ";
@@ -74,7 +74,18 @@ void ClassUI::select(string ch)
     }
     else if(ch == "3")
     {
-        viewAll();
+        string choice;
+        cout << " (1) - View scientists." << endl;
+        cout << " (2) - View computers." << endl;
+        cin >> choice;
+        if (choice == "1")
+        {
+            viewPer();
+        }
+        else if (choice == "2")
+        {
+            viewCom();
+        }
     }
     else if(ch == "4")
     {
@@ -167,21 +178,30 @@ void ClassUI::viewComputers(int i)
         cout << "\t";
     }
 
-    cout  << "|" << list.getTypeComputer(i);
+    cout  << "|" << list.getDateComputer(i) << "\t|" << list.getWasItBuilt(i) << "\t|" << list.getTypeComputer(i) << endl;
 
-    cout << list.getDateComputer(i);
-
-    cout << list.getWasItBuilt(i) << endl;
 }
-void ClassUI::viewAll()
+void ClassUI::viewPer()
 {
     cout << "--------------------------------------------------------------" << endl;
+
     cout << "Name" << "\t" << "\t" << "\t" << "\t" << "|Gender " << "|Born " << "\t" << "|Death"  << "\t" << "|Age" << endl;
+    for(int i = 0; i < list.personsSize(); i++)
+    {
+        viewPersons(i);
+    }
+}
+void ClassUI::viewCom()
+{
+    cout << "--------------------------------------------------------------" << endl;
+    cout << "Name" << "\t" << "\t" << "\t" << "\t" << "|Date " << "|Built " << "\t" << "|Type" << endl;
+
     for(int i = 0; i < list.computerSize(); i++)
     {
         viewComputers(i);
     }
 }
+
 void ClassUI::addPerson()
 {
     string name;
@@ -364,7 +384,7 @@ void ClassUI::searchComputer()
             }
         }
 
-        if(list.nameSearcher(namesearch) == false)
+        if(list.computerNameSearcher(namesearch) == false)
         {
             cout << "Sorry that name is not in our database, but you can add a new computer in the 'Add section' in the main menu." << endl;
             return searchComputer();
@@ -379,9 +399,9 @@ void ClassUI::searchComputer()
         std::getline(std::cin,typesearch);
         for(int i = 0; i < list.computerSize();++i)
         {
-            if(typesearch == list.getTypeComputer(i))
+            std::size_t found = list.getTypeComputer(i).find(typesearch);
+            if (found!=std::string::npos)
             {
-                typesearch = list.getTypeComputer(i);
                 viewComputers(i);
             }
         }
@@ -630,23 +650,24 @@ void ClassUI::sorting()
 
         if(sortcho == "1")
         {
-            list.sortNames();
-            viewAll();
+            list.sortScientistNames();
+            viewPer();
         }
         else if(sortcho == "2")
         {
-            list.sortBirth();
-            viewAll();
+            list.sortScientistBirth();
+            viewPer();
         }
         else if(sortcho == "3")
         {
-            list.sortGender();
-            viewAll();
+            list.sortScientistGender();
+            viewPer();
         }
         else if(sortcho == "4")
         {
-            list.sortAge();
-            viewAll();
+            list.sortScientistAge();
+            viewPer();
+
         }
         else if(sortcho == "5")
         {
