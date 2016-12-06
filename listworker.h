@@ -21,6 +21,7 @@ public:
     bool nameSearcher(string name);             // Searches for a specific name within the vector using a for loop.
     bool removePerson(string name);             // Remove person from the vector.
     bool removePersonFound(string name);        // Check if person to remove is found or not.
+    bool computerNameSearcher(string name);
     void sortBirth();                           // Calls the function sortBirth from the datalayer class.
     void sortNames();                           // Calls the function sortNames from the datalayer class.
     void sortGender();                          // Calls the function sortGender from the datalayer class.
