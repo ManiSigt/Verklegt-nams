@@ -31,12 +31,11 @@ void ClassUI::mainMenu()
         cout << " (2) - "  << "Remove a from the database." << endl;
         cout << " (3) - "  << "View." << endl;
         cout << " (4) - "  << "Search." << endl;
-        cout << " (5) - "  << "Sort." << endl;
-        cout << " (6) - "  << "Edit a scientist." << endl;
-        cout << " (7) - "  << "Exit." << endl;
-        cout << "Enter your command (1 - 7): ";
+        cout << " (5) - "  << "Edit a scientist." << endl;
+        cout << " (6) - "  << "Exit." << endl;
+        cout << "Enter your command (1 - 6): ";
         cin >> choice;
-        if (choice != "7")
+        if (choice != "6")
         {
            select(choice);
         }
@@ -85,39 +84,13 @@ void ClassUI::select(string ch)
     }
     else if(ch == "3")
     {
-        string choice;
-        cout << " (1) - View scientists." << endl;
-        cout << " (2) - View computers." << endl;
-        cout << " (3) - Return to main menu." << endl;
-        cout << "Enter your command (1 - 3): ";
-        cin >> choice;
-        if (choice == "1")
-        {
-            viewPer();
-        }
-        else if (choice == "2")
-        {
-            viewCom();
-        }
-        else if (choice == "3")
-        {
-            return mainMenu();
-        }
-        else
-        {
-            cout << "Invalid input. Please enter a number between 1 - 3." << endl;
-            select("3");
-        }
+        viewMenu();
     }
     else if(ch == "4")
     {
         selectSearch();
     }
     else if(ch == "5")
-    {
-        sorting();
-    }
-    else if(ch == "6")
     {
         editPerson();
     }
@@ -657,103 +630,101 @@ string ClassUI::getQuotes()
     v1 = rand() % 5;
     return quotes[v1];
 }
-void ClassUI::sorting()
+void ClassUI::viewMenu()
 {
-    string sortBy;
-    string sortcho;
-    cout << "Enter a sort command:" << endl;
+    string viewBy;
+    string viewCho;
+    cout << "Enter a view command:" << endl;
     cout << "--------------------------------------------------------------" << endl;
-    cout << " (1) - Sort by Scientists." << endl;
-    cout << " (2) - Sort by Computers." << endl;
-    cout << " (3) - Return to main menu" << endl;
+    cout << " (1) - View scientists." << endl;
+    cout << " (2) - View computers." << endl;
+    cout << " (3) - Return to main menu." << endl;
     cout << "Enter your command (1 - 3): ";
-    cin >> sortBy;
+    cin >> viewBy;
     cout << endl;
 
-    if(sortBy == "1")
+    if(viewBy == "1")
     {
-        cout << "Enter a sort command for Scientists:" << endl;
         cout << "--------------------------------------------------------------" << endl;
-        cout << " (1) - Sort by alphabetical order." << endl;
-        cout << " (2) - Sort by chronological order." << endl;
-        cout << " (3) - Sort by gender." << endl;
-        cout << " (4) - Sort by age." << endl;
+        cout << " (1) - Sorted by alphabetical order." << endl;
+        cout << " (2) - Sorted by chronological order." << endl;
+        cout << " (3) - Sorted by gender." << endl;
+        cout << " (4) - Sorted by age." << endl;
         cout << " (5) - Return to main menu." << endl;
         cout << "Enter your command (1 - 5): ";
-        cin >> sortcho;
+        cin >> viewCho;
         //cout << endl;
 
-        if(sortcho == "1")
+        if(viewCho == "1")
         {
             list.sortScientistNames();
             viewPer();
         }
-        else if(sortcho == "2")
+        else if(viewCho == "2")
         {
             list.sortScientistBirth();
             viewPer();
         }
-        else if(sortcho == "3")
+        else if(viewCho == "3")
         {
             list.sortScientistGender();
             viewPer();
         }
-        else if(sortcho == "4")
+        else if(viewCho == "4")
         {
             list.sortScientistAge();
             viewPer();
 
         }
-        else if(sortcho == "5")
+        else if(viewCho == "5")
         {
             mainMenu();
         }
         else
         {
             cout << "That is not a valid command! Try again." << endl;
-            sorting();
+            viewMenu();
         }
     }
 
-    else if(sortBy == "2")
+    else if(viewBy == "2")
     {
-        cout << "Enter a sort command for Computers:" << endl;
         cout << "--------------------------------------------------------------" << endl;
-        cout << " (1) - Sort by alphabetical order." << endl;
-        cout << " (2) - Sort by chronological order." << endl;
-        cout << " (3) - Sort by type." << endl;
+        cout << " (1) - Sorted by alphabetical order." << endl;
+        cout << " (2) - Sorted by chronological order." << endl;
+        cout << " (3) - Sorted by type." << endl;
         cout << " (4) - Return to main menu." << endl;
         cout << "Enter your command (1 - 4): ";
-        cin >> sortcho;
+        cin >> viewCho;
         cout << endl;
 
-        if(sortcho == "1")
+        if(viewCho == "1")
         {
 
         }
-        else if(sortcho == "2")
+        else if(viewCho == "2")
         {
 
         }
-        else if(sortcho == "3")
+        else if(viewCho == "3")
         {
 
         }
-        else if(sortcho == "4")
+        else if(viewCho == "4")
         {
 
         }
     }
 
 
-    else if(sortBy == "3")
+    else if(viewBy == "3")
     {
         mainMenu();
     }
     else
     {
         cout << "That is not a valid command! Try again." << endl;
-        sorting();
+        viewMenu();
     }
 
 }
