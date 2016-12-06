@@ -36,7 +36,7 @@ bool ListWorker::removePerson(string name)
 {
     for(size_t i = 0; i < persons.size(); ++i)
     {
-        if(name == persons[i]._getName())
+        if(name == persons[i]._getNamePerson())
         {
             persons.erase(persons.begin() + i);
             return true;
@@ -48,16 +48,22 @@ bool ListWorker::removePersonFound(string name)
 {
     for(size_t i = 0; i < persons.size(); ++i)
     {
-        if(name == persons[i]._getName())
+        if(name == persons[i]._getNamePerson())
         {
             return true;
         }
     }
     return false;
 }
-int ListWorker::getNameSize(int n) const
+int ListWorker::getNameSizePerson(int n) const
 {
-    string name = persons[n]._getName();
+    string name = persons[n]._getNamePerson();
+    int size = name.size();
+    return size;
+}
+int ListWorker::getNameSizeComputer(int n) const
+{
+    string name = com[n]._getNameComputer();
     int size = name.size();
     return size;
 }
@@ -70,11 +76,11 @@ void ListWorker::saveFile()
 
     for(unsigned int i = 0; i < persons.size(); i++)
     {
-        saveName = getName(i);
-        saveGender = getGender(i);
-        saveYearOfBirth = getBirth(i);
-        saveYearOfDeath = getDeath(i);
-        saveComment = getComment(i);
+        saveName = getNamePerson(i);
+        saveGender = getGenderPerson(i);
+        saveYearOfBirth = getBirthPerson(i);
+        saveYearOfDeath = getDeathPerson(i);
+        saveComment = getCommentperson(i);
         data.writeToFile(saveName, saveGender, saveYearOfBirth, saveYearOfDeath, saveComment);
     }
 }
@@ -82,7 +88,7 @@ bool ListWorker::nameSearcher(string name)
 {
     for(unsigned int i = 0; i < persons.size(); i++)
     {
-        std::size_t found = getName(i).find(name);
+        std::size_t found = getNamePerson(i).find(name);
         if (found!=std::string::npos)
         {
             return true;
@@ -95,7 +101,7 @@ bool ListWorker::genderSearcher(char gender)
 {
     for(unsigned int i = 0; i < persons.size(); i++)
     {
-        if(gender == getGender(i))
+        if(gender == getGenderPerson(i))
         {
              return true;
              break;
@@ -107,7 +113,7 @@ bool ListWorker::yearSearcher(int year)
 {
     for(unsigned int i = 0; i < persons.size(); i++)
     {
-        if(year == getBirth(i))
+        if(year == getBirthPerson(i))
         {
              return true;
              break;
@@ -119,7 +125,7 @@ bool ListWorker::ageSearcher(int age)
 {
     for(unsigned int i = 0; i < persons.size(); i++)
     {
-        if(age == getAge(i))
+        if(age == getAgePerson(i))
         {
              return true;
              break;

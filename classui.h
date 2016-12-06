@@ -8,7 +8,8 @@ public:
     ClassUI();
     void mainMenu();            // This is the main menu for the program. It shows all commands to interact.
     void select(string ch);     // Checks the input from main menu and calls the correct function compared to the input.
-    void view(int i);           // This prints out a single  scientist from the vector.
+    void viewPersons(int i);    // This prints out a single  scientist from the vector.
+    void viewComputers(int i);
     void viewAll();             // This prints out the whole list of scientists, Name, Gender, Birth year, Death year and a comment.
     void addPerson();           // Add a person to the database
     void searching();           // Prints out the options to search for in search then calls search.

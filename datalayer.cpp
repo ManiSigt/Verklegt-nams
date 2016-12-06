@@ -26,19 +26,19 @@ void DataLayer::writeToFile(string name, char gender, int yearOfBirth, int yearO
 
 bool sortByName(const Person &lhs, const Person &rhs)
 {
-    return lhs._getName() < rhs._getName();
+    return lhs._getNamePerson() < rhs._getNamePerson();
 }
 bool sortByBirth(const Person &lhs, const Person &rhs)
 {
-    return lhs._getBirth() < rhs._getBirth();
+    return lhs._getBirthPerson() < rhs._getBirthPerson();
 }
 bool sortByGender(const Person &lhs, const Person &rhs)
 {
-    return lhs._getGender() < rhs._getGender();
+    return lhs._getGenderPerson() < rhs._getGenderPerson();
 }
 bool sortByAge(const Person &lhs, const Person &rhs)
 {
-    return lhs._getAge() < rhs._getAge();
+    return lhs._getAgePerson() < rhs._getAgePerson();
 }
 void DataLayer::sortNames(vector<Person>& getPersons)
 {

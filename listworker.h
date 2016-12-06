@@ -2,6 +2,7 @@
 #define LISTWORKER_H
 #include "datalayer.h"
 #include "person.h"
+#include "computer.h"
 #include <iostream>
 #include <string>
 
@@ -24,34 +25,55 @@ public:
     void sortAge();                             // Calls the function sortAge from the datalayer class.
     bool yearSearcher(int year);                // Searches for a specific year within the vector using a for loop.
     int editPersonFinder(string name);          // Edit a scientist.
-    string getName(int n) const                 // Make _name from persons available.
+    string getNamePerson(int n) const                 // Make _name from persons available.
     {
-        return persons[n]._getName();
+        return persons[n]._getNamePerson();
     }
-    char getGender(int n) const                 // Make _gender from persons available.
+    string getNameComputer(int n) const                 // Make _name from computer available.
     {
-        return persons[n]._getGender();
+        return com[n]._getNameComputer();
     }
-    int getBirth(int n) const                   // Make _yearOfBirth from persons available.
+    char getGenderPerson(int n) const                 // Make _gender from persons available.
     {
-        return persons[n]._getBirth();
+        return persons[n]._getGenderPerson();
     }
-    int getDeath(int n) const                   // Make _yearOfDeath from persons available.
+    int getBirthPerson(int n) const                   // Make _yearOfBirth from persons available.
     {
-        return persons[n]._getDeath();
+        return persons[n]._getBirthPerson();
     }
-    string getComment(int n) const              // Make _comment from persons available.
+    int getDeathPerson(int n) const                   // Make _yearOfDeath from persons available.
     {
-        return persons[n]._getComment();
+        return persons[n]._getDeathPerson();
     }
-    int getAge(int n) const
+    int getDateComputer(int n) const                   //Make _getDate from computer available.
     {
-        return persons[n]._getAge();
+        return com[n]._getDateComputer();
     }
-    int getNameSize(int n) const;               // Returns the size of _name from persons.
+    string getCommentperson(int n) const              // Make _comment from persons available.
+    {
+        return persons[n]._getCommentPerson();
+    }
+    string getTypeComputer(int n) const                // Make _type from computer available.
+    {
+        return com[n]._getTypeComputer();
+    }
+    string getWasItBuilt(int n) const                   //Make _wasItBuilt from computer available
+    {
+        return com[n]._getWasItBuiltComputer();
+    }
+    int getAgePerson(int n) const
+    {
+        return persons[n]._getAgePerson();
+    }
+    int getNameSizePerson(int n) const;               // Returns the size of _name from persons.
+    int getNameSizeComputer(int n) const;           // Returns the size of _name from computer.
     int personsSize() const                     // Returns the size of vector persons.
     {
         return persons.size();
+    }
+    int computerSize() const                     // Returns the size of vector computer.
+    {
+        return com.size();
     }
     void saveFile();                            // Deletes the file and makes a new one, and reads the vector into the new file.
 private:

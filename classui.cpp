@@ -91,12 +91,12 @@ void ClassUI::select(string ch)
         cout << "Invalid input. Please enter a number between 1 - 7." << endl;
     }
 }
-void ClassUI::view(int i)
+void ClassUI::viewPersons(int i)
 {
     cout << "--------------------------------------------------------------" << endl;
-    int nameSize  = list.getNameSize(i);
+    int nameSize  = list.getNameSizePerson(i);
 
-    cout << list.getName(i);
+    cout << list.getNamePerson(i);
 
     if(nameSize > 0 && nameSize <= 7)
     {
@@ -115,7 +115,7 @@ void ClassUI::view(int i)
         cout << "\t";
     }
 
-    if(list.getGender(i) == 'M' || list.getGender(i) == 'm')
+    if(list.getGenderPerson(i) == 'M' || list.getGenderPerson(i) == 'm')
     {
         cout << "|Male" << "\t";
     }
@@ -124,26 +124,56 @@ void ClassUI::view(int i)
         cout << "|Female" << "\t";
     }
 
-    cout  << "|" << list.getBirth(i);
+    cout  << "|" << list.getBirthPerson(i);
 
-    if(list.getDeath(i) == 0)
+    if(list.getDeathPerson(i) == 0)
     {
-        cout << "\t" << "| n/a"  << "\t" << "|" << list.getAge(i) << endl;
+        cout << "\t" << "| n/a"  << "\t" << "|" << list.getAgePerson(i) << endl;
     }
     else
     {
-        cout << "\t" << "|" << list.getDeath(i) << "\t" << "|" << list.getAge(i) <<  endl;
+        cout << "\t" << "|" << list.getDeathPerson(i) << "\t" << "|" << list.getAgePerson(i) <<  endl;
     }
 
-    cout << list.getComment(i) << endl;
+    cout << list.getCommentperson(i) << endl;
+}
+void ClassUI::viewComputers(int i)
+{
+    cout << "--------------------------------------------------------------" << endl;
+    int nameSize  = list.getNameSizeComputer(i);
+
+    cout << list.getNameComputer(i);
+
+    if(nameSize > 0 && nameSize <= 7)
+    {
+        cout << "\t" << "\t" << "\t" << "\t";
+    }
+    else if(nameSize > 7 && nameSize <= 15)
+    {
+        cout << "\t" << "\t" << "\t";
+    }
+    else if(nameSize > 15 && nameSize <= 23)
+    {
+        cout << "\t" << "\t";
+    }
+    else if(nameSize > 23 && nameSize <= 31)
+    {
+        cout << "\t";
+    }
+
+    cout  << "|" << list.getTypeComputer(i);
+
+    cout << list.getDateComputer(i);
+
+    cout << list.getWasItBuilt(i) << endl;
 }
 void ClassUI::viewAll()
 {
     cout << "--------------------------------------------------------------" << endl;
     cout << "Name" << "\t" << "\t" << "\t" << "\t" << "|Gender " << "|Born " << "\t" << "|Death"  << "\t" << "|Age" << endl;
-    for(int i = 0; i < list.personsSize(); i++)
+    for(int i = 0; i < list.computerSize(); i++)
     {
-        view(i);
+        viewComputers(i);
     }
 }
 void ClassUI::addPerson()
@@ -246,10 +276,10 @@ void ClassUI::search()
         cout << "--------------------------------------------------------------" << endl;
         for(int i = 0; i < list.personsSize();++i)
         {
-            std::size_t found = list.getName(i).find(namesearch);
+            std::size_t found = list.getNamePerson(i).find(namesearch);
             if (found!=std::string::npos)
             {
-                view(i);
+                viewPersons(i);
             }
         }
 
@@ -277,10 +307,10 @@ void ClassUI::search()
 
         for(int i = 0; i < list.personsSize();++i)
         {
-            if(gendersearch == list.getGender(i))
+            if(gendersearch == list.getGenderPerson(i))
             {
-                gendersearch = list.getGender(i);
-                view(i);
+                gendersearch = list.getGenderPerson(i);
+                viewPersons(i);
             }
         }
 
@@ -298,10 +328,10 @@ void ClassUI::search()
 
             for(int i = 0; i < list.personsSize();++i)
             {
-                if(yearsearch == list.getBirth(i))
+                if(yearsearch == list.getBirthPerson(i))
                 {
-                    yearsearch = list.getBirth(i);
-                    view(i);
+                    yearsearch = list.getBirthPerson(i);
+                    viewPersons(i);
                 }
             }
 
@@ -319,10 +349,10 @@ void ClassUI::search()
 
         for(int i = 0; i < list.personsSize();++i)
         {
-            if(ageSearch == list.getAge(i))
+            if(ageSearch == list.getAgePerson(i))
             {
-                ageSearch = list.getAge(i);
-                view(i);
+                ageSearch = list.getAgePerson(i);
+                viewPersons(i);
             }
         }
 
