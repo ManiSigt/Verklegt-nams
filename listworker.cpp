@@ -25,21 +25,21 @@ void ListWorker::addNewComputer(string name, string type, int yearbuilt, string 
     com.push_back(c);
     data.addComputer(name, type, yearbuilt, isbuilt, vsize);
 }
-void ListWorker::sortNames()
+void ListWorker::sortScientistNames()
 {
-    data.sortNames(persons);
+    data.sortScientistNames(persons);
 }
-void ListWorker::sortBirth()
+void ListWorker::sortScientistBirth()
 {
-    data.sortBirth(persons);
+    data.sortScientistBirth(persons);
 }
-void ListWorker::sortGender()
+void ListWorker::sortScientistGender()
 {
-    data.sortGender(persons);
+    data.sortScientistGender(persons);
 }
-void ListWorker::sortAge()
+void ListWorker::sortScientistAge()
 {
-    data.sortAge(persons);
+    data.sortScientistAge(persons);
 }
 bool ListWorker::removePerson(string name)
 {
