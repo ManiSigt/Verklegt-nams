@@ -75,7 +75,7 @@ void ClassUI::select(string ch)
         }
         else
         {
-            cout << "Invalid input. Please enter a number between 1 - 2." << endl;
+            cout << "Invalid input. Please enter a number between 1 - 3." << endl;
             select("1");
         }
     }
@@ -105,7 +105,7 @@ void ClassUI::select(string ch)
         }
         else
         {
-            cout << "Invalid input. Please enter a number between 1 - 2." << endl;
+            cout << "Invalid input. Please enter a number between 1 - 3." << endl;
             select("3");
         }
     }
@@ -339,6 +339,7 @@ void ClassUI::selectSearch()
     cout << " (1) - Search for a Scientist." << endl;
     cout << " (2) - Search for a Computer." << endl;
     cout << " (3) - Return to main menu." << endl;
+    cout << "Enter your command (1 - 3): ";
     cin >> searchChoice;
     if(searchChoice == "1")
     {
@@ -368,6 +369,7 @@ void ClassUI::searchingScientist()
     cout << " (3) - Search by year of birth." << endl;
     cout << " (4) - Search by age." << endl;
     cout << " (5) - Return to main menu." << endl;
+    cout << "Enter your command (1 - 5): ";
 
     searchScientist();
 }
@@ -379,13 +381,13 @@ void ClassUI::searchingComputer()
     cout << " (2) - Search by type." << endl;
     cout << " (3) - Search by year it was built." << endl;
     cout << " (4) - Return to main menu." << endl;
+    cout << "Enter your command (1 - 4): ";
 
     searchComputer();
 }
 void ClassUI::searchComputer()
 {
     string searchChoice;
-    cout << "Enter your command (1 - 4): ";
     cin >> searchChoice;
     cout << endl;
 
@@ -467,7 +469,6 @@ void ClassUI::searchComputer()
 void ClassUI::searchScientist()
 {
     string searchChoice;
-    cout << "Enter your command (1 - 5): ";
     cin >> searchChoice;
     cout << endl;
 
