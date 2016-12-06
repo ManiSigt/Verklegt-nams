@@ -43,7 +43,7 @@ void ClassUI::mainMenu()
         }
         else
         {
-            list.saveFile();
+            //list.saveFile();
             runOn = false;
         }
     }while(runOn == true);
@@ -271,7 +271,7 @@ void ClassUI::searchingComputer()
 void ClassUI::searchComputer()
 {
     string searchChoice;
-    cout << "Enter your command (1 - 5): ";
+    cout << "Enter your command (1 - 4): ";
     cin >> searchChoice;
     cout << endl;
 
@@ -503,7 +503,7 @@ void ClassUI::remove()
 }
 void ClassUI::save()
 {
-    list.saveFile();
+    //list.saveFile();
     cout << "Database saved." << endl;
 }
 void ClassUI::yo()

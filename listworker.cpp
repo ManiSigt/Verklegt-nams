@@ -8,6 +8,7 @@ using namespace std;
 ListWorker::ListWorker()
 {
     data.readScientistsFromDatabase(persons);
+    data.readComputersFromDatabase(com);
 }
 void ListWorker::addNewPerson(string name, char gender, int yearOfBirth, int yearOfDeath, string comment)
 {
@@ -61,7 +62,7 @@ int ListWorker::getNameSize(int n) const
     int size = name.size();
     return size;
 }
-void ListWorker::saveFile()
+/*void ListWorker::saveFile()
 {
     string saveName, saveComment;
     char saveGender;
@@ -77,7 +78,7 @@ void ListWorker::saveFile()
         saveComment = getComment(i);
         data.writeToFile(saveName, saveGender, saveYearOfBirth, saveYearOfDeath, saveComment);
     }
-}
+}*/
 bool ListWorker::nameSearcher(string name)
 {
     for(unsigned int i = 0; i < persons.size(); i++)
