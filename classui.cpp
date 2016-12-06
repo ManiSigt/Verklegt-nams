@@ -56,7 +56,8 @@ void ClassUI::select(string ch)
         string choice;
         cout << " (1) - Add a scientist." << endl;
         cout << " (2) - Add a computer." << endl;
-        cout << "Enter your command (1 - 2): ";
+        cout << " (3) - Return to main menu." << endl;
+        cout << "Enter your command (1 - 3): ";
         cin >> choice;
         if (choice == "1")
         {
@@ -68,8 +69,13 @@ void ClassUI::select(string ch)
         cin.ignore();
         addComputer();
         }
+        else if (choice == "3")
+        {
+            return mainMenu();
+        }
         else
         {
+            cout << "Invalid input. Please enter a number between 1 - 2." << endl;
             select("1");
         }
     }
@@ -297,7 +303,7 @@ void ClassUI::addComputer()
                cout << "not a valid year of birth" << endl;
                return mainMenu();
            }
-           cout << "Did they finish building the computer? (y/n)";
+           cout << "Did they finish building the computer? (y/n) ";
            cin >> isbuilt;
 
         cout << "Are you sure that you want to add this computer? (y/n) ";
