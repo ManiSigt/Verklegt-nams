@@ -20,7 +20,7 @@ void ListWorker::addNewPerson(string name, char gender, int yearOfBirth, int yea
 }
 void ListWorker::addNewComputer(string name, string isbuilt, int yearbuilt, string type)
 {
-    int vsize = comSize()+1;
+    int vsize = computerSize()+1;
     computer c(name, isbuilt, yearbuilt, type);
     com.push_back(c);
     data.addComputer(name, type, yearbuilt, isbuilt, vsize);
