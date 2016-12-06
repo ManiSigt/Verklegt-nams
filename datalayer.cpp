@@ -77,7 +77,7 @@ void DataLayer::readScientistsFromDatabase(vector<Person>& sci)
    }
 }
 
-void DataLayer::readComputersFromDatabase(vector<computer>& com)
+void DataLayer::readComputersFromDatabase(vector<Computer>& com)
 {
     db.open();
 
@@ -93,7 +93,9 @@ void DataLayer::readComputersFromDatabase(vector<computer>& com)
         int date = query.value("date").toUInt();
         string wasItBuilt = query.value("wasitbuilt").toString().toStdString();
 
-        com.push_back(computer(name, type, date, wasItBuilt));
+        com.push_back(Computer(name, wasItBuilt, date, type));
+
+
    }
 }
 bool DataLayer::addScientist(string name, char gender, int yearOfBirth, int yearOfDeath, string comment, int vsize)

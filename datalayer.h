@@ -20,7 +20,7 @@ public:
     int stringToNumber(string st);                                                                  // Convert a string to a int.
 
     void readScientistsFromDatabase(vector<Person>& sci);
-    void readComputersFromDatabase(vector<computer>& com);
+    void readComputersFromDatabase(vector<Computer>& com);
     bool addScientist(string name, char gender, int yearOfBirth, int yearOfDeath, string comment, int vsize);
     bool addComputer(string name, string type, int yearbuilt, string isbuilt, int vsize);
     QSqlDatabase db;

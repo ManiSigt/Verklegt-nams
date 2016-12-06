@@ -167,16 +167,13 @@ void ClassUI::viewComputers(int i)
         cout << "\t";
     }
 
-    cout  << "|" << list.getTypeComputer(i);
+    cout  << "|" << list.getWasItBuilt(i) << "\t|" << list.getTypeComputer(i) << "\t|" << list.getDateComputer(i) << endl;
 
-    cout << list.getDateComputer(i);
-
-    cout << list.getWasItBuilt(i) << endl;
 }
 void ClassUI::viewAll()
 {
     cout << "--------------------------------------------------------------" << endl;
-    cout << "Name" << "\t" << "\t" << "\t" << "\t" << "|Gender " << "|Born " << "\t" << "|Death"  << "\t" << "|Age" << endl;
+    cout << "Name" << "\t" << "\t" << "\t" << "\t" << "|Date " << "|Built " << "\t" << "|Type" << endl;
     for(int i = 0; i < list.computerSize(); i++)
     {
         viewComputers(i);

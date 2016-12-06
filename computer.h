@@ -5,11 +5,11 @@
 
 using namespace std;
 
-class computer
+class Computer
 {
 public:
-    computer();
-    computer(string name, string wasItBuilt, int date, string type); // Class constructor for variables.
+    Computer();
+    Computer(string name, string wasItBuilt, int date, string type); // Class constructor for variables.
 
     string _getNameComputer() const
 
