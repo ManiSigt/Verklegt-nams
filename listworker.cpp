@@ -9,6 +9,7 @@ ListWorker::ListWorker()
 {
     data.readScientistsFromDatabase(persons);
     data.readComputersFromDatabase(com);
+    data.readLinksFromDatabase(link);
 }
 
 void ListWorker::addNewPerson(string name, char gender, int yearOfBirth, int yearOfDeath, string comment)
@@ -79,11 +80,11 @@ bool ListWorker::removePersonFound(string name)
     }
     return false;
 }
-bool ListWorker::removeComputer(string name)
+bool ListWorker::removeComputer(int id)
 {
     for(size_t i = 0; i < com.size(); ++i)
     {
-        if(name == com[i]._getNameComputer())
+        if(id == com[i]._getIdComputer())
         {
             com.erase(com.begin() + i);
             data.removeComputer(i);
@@ -92,11 +93,11 @@ bool ListWorker::removeComputer(string name)
     }
     return false;
 }
-bool ListWorker::removeComputerFound(string name)
+bool ListWorker::removeComputerFound(int id)
 {
     for(size_t i = 0; i < com.size(); ++i)
     {
-        if(name == com[i]._getNameComputer())
+        if(id == com[i]._getIdComputer())
         {
             return true;
         }

@@ -2,6 +2,7 @@
 #define LISTWORKER_H
 #include "datalayer.h"
 #include "person.h"
+#include "linker.h"
 #include "Computer.h"
 #include <iostream>
 #include <string>
@@ -21,8 +22,8 @@ public:
     bool nameSearcher(string name);             // Searches for a specific name within the vector using a for loop.
     bool removePerson(string name);             // Remove person from the vector.
     bool removePersonFound(string name);        // Check if person to remove is found or not.
-    bool removeComputer(string name);                    // Remove computer from the vector.
-    bool removeComputerFound(string name);               // Check if computer to remove is found or not.
+    bool removeComputer(int id);                    // Remove computer from the vector.
+    bool removeComputerFound(int id);               // Check if computer to remove is found or not.
     void sortScientistBirth();                           // Calls the function sortBirth from the datalayer class.
     void sortScientistNames();                           // Calls the function sortNames from the datalayer class.
     void sortScientistGender();                          // Calls the function sortGender from the datalayer class.
@@ -58,6 +59,10 @@ public:
     {
         return com[n]._getDateComputer();
     }
+    int getIdComputer(int n) const                   //Make _getDate from Computer available.
+    {
+        return com[n]._getIdComputer();
+    }
     string getCommentperson(int n) const              // Make _comment from persons available.
     {
         return persons[n]._getCommentPerson();
@@ -73,6 +78,23 @@ public:
     int getAgePerson(int n) const
     {
         return persons[n]._getAgePerson();
+    }
+    int getPersonId(int n) const
+    {
+        return persons[n]._getIDPerson();
+    }
+    int getLinkCompId(int n) const
+    {
+        return link[n]._getId();
+    }
+    int getLinkSciId(int n) const
+    {
+        return link[n]._getSciId();
+    }
+
+    int getLinkSize() const
+    {
+        return link.size();
     }
     int getNameSizePerson(int n) const;               // Returns the size of _name from persons.
     int getNameSizeComputer(int n) const;           // Returns the size of _name from Computer.
@@ -91,6 +113,7 @@ private:
     DataLayer data;
     vector<Person> persons;                     // The vector containing all persons from the database.
     vector<Computer> com;
+    vector<Linker> link;
 };
 
 #endif // LISTWORKER_H

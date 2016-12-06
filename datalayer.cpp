@@ -186,7 +186,8 @@ void DataLayer::removeComputer(int i)
 {
     bool success = false;
     QSqlQuery queryRemove;
-    queryRemove.prepare("DELETE FROM Computers Where ID=i");
+    queryRemove.prepare("DELETE FROM Computers Where ID=:id");
+    queryRemove.bindValue(":id", i+1);
 
             if(queryRemove.exec())
             {
@@ -196,4 +197,23 @@ void DataLayer::removeComputer(int i)
             {
                 qDebug() << "add computer failed: " << queryRemove.lastError();
             }
+}
+void DataLayer::readLinksFromDatabase(vector<Linker>& link)
+{
+    db.open();
+
+    QSqlQuery query(db);
+    query.exec("SELECT * FROM CompAndSci");
+
+
+    while(query.next())
+    {
+        int id = query.value("id").toUInt();
+        int sciId = query.value("ScientistID").toUInt();
+
+        int comId = query.value("ComputerID").toUInt();
+
+        link.push_back(Linker(id, sciId, comId));
+
+    }
 }

@@ -195,6 +195,7 @@ void ClassUI::viewComputers(int i)
     }
 
     cout  << "|" << list.getDateComputer(i) << "\t|" << list.getWasItBuilt(i) << "\t|" << list.getTypeComputer(i) << endl;
+    findComputerConnections(i);
 
 }
 void ClassUI::viewPer()
@@ -624,13 +625,15 @@ void ClassUI::removeScientist()
 }
 void ClassUI::removeComputer()
 {
-    string name;
+    //string name;
+    int id;
     cout << "--------------------------------------------------------------" << endl;
     cout << "Enter the full name of the computer that you want to remove: ";
     cin.ignore();
-    std::getline(std::cin,name);
+    //std::getline(std::cin,id);
+    cin >> id;
 
-    if (list.removeComputerFound(name) == true)
+    if (list.removeComputerFound(id) == true)
     {
         char validateRemove;
         cout << "Computer found!" << endl;
@@ -639,7 +642,7 @@ void ClassUI::removeComputer()
 
         if(validateRemove == 'y' || validateRemove == 'Y')
         {
-            if(list.removeComputer(name) == true)
+            if(list.removeComputer(id) == true)
             {
                 cout << "Computer removed!" << endl;
             }
@@ -805,6 +808,31 @@ void ClassUI::editPerson()
         cout << "Scientist not found!" << endl;
     }
 }
+void ClassUI::findComputerConnections(int i)
+{
+    int found = 0;
+    int comId = list.getLinkCompId(i);
+
+    for(int j = 0; j < list.getLinkSize(); j++)
+    {
+
+        if (comId == list.getLinkCompId(j))
+        {
+            found++;
+            int sciId = list.getLinkSciId(j);
+
+            cout << list.getNamePerson(sciId) << "\t";
+        }
+
+
+    }
+    if (found > 0)
+    {
+        cout << endl;
+    }
+
+}
+
 /*
 void ClassUI::clearTheScreen() //A function that we wanted to use but had platform issues following it's use.
 {

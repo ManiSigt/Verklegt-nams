@@ -14,14 +14,16 @@ SOURCES += main.cpp \
     listworker.cpp \
     datalayer.cpp \
     person.cpp \
-    computer.cpp
+    computer.cpp \
+    linker.cpp
 
 HEADERS += \
     classui.h \
     listworker.h \
     datalayer.h \
     person.h \
-    computer.h
+    computer.h \
+    linker.h
 
 DISTFILES += \
     example.txt
