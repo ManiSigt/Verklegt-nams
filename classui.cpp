@@ -54,9 +54,21 @@ void ClassUI::mainMenu()
 void ClassUI::select(string ch)
 {
     if(ch == "1")
-    {
+    {  
+        string choice;
+        cout << " (1) - Add a scientist." << endl;
+        cout << " (2) - Add a computer." << endl;
+        cin >> choice;
+        if (choice == "1")
+        {
         cin.ignore();           // When using editPerson it will ignore the first letter unless this ignore is here rather then in addPerson
         addPerson();
+        }
+        else if (choice == "2")
+        {
+        cin.ignore();
+        addComputer();
+        }
     }
     else if(ch == "2")
     {
@@ -216,6 +228,42 @@ void ClassUI::addPerson()
     {
         cout << "scientist not added!" << endl;
     }
+}
+void ClassUI::addComputer()
+    {
+        string name;
+        string Type;
+        string isbuilt;
+        int Yearbuilt = 0;
+
+        cout << "--------------------------------------------------------------" << endl;
+        cout << "Enter name of the Computer: ";
+        std::getline(std::cin,name);
+        cout << "Enter the type of the computer: ";
+        cin >> Type;
+           cout << "Enter the year the computer was built: ";
+           cin >> Yearbuilt;
+           if (Yearbuilt < 0 || Yearbuilt > 2016)
+           {
+               cout << "not a valid year of birth" << endl;
+               return mainMenu();
+           }
+           cout << "Did they finish building the computer? (y/n)";
+           cin >> isbuilt;
+
+        cout << "Are you sure that you want to add this computer? (y/n) ";
+        string validateComputer;
+        cin >> validateComputer;
+
+        if(validateComputer == "y")
+        {
+            cout << "New computer added!" << endl;
+            list.addNewComputer(name, Type ,Yearbuilt, isbuilt);
+        }
+        else
+        {
+            cout << "scientist not added!" << endl;
+        }
 }
 void ClassUI::selectSearch()
 {

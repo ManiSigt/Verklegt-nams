@@ -11,6 +11,7 @@ public:
     void view(int i);           // This prints out a single  scientist from the vector.
     void viewAll();             // This prints out the whole list of scientists, Name, Gender, Birth year, Death year and a comment.
     void addPerson();           // Add a person to the database
+    void addComputer();
     void searchingScientist();  //
     void searchComputer();
     void searchingComputer();
