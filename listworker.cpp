@@ -8,13 +8,22 @@ using namespace std;
 ListWorker::ListWorker()
 {
     data.readScientistsFromDatabase(persons);
+    data.readComputersFromDatabase(com);
 }
+
 void ListWorker::addNewPerson(string name, char gender, int yearOfBirth, int yearOfDeath, string comment)
 {
     int vsize = personsSize()+1;
     Person p(name, gender, yearOfBirth, yearOfDeath, comment, vsize);
     persons.push_back(p);
     data.addScientist(name, gender, yearOfBirth, yearOfDeath, comment, vsize);
+}
+void ListWorker::addNewComputer(string name, string isbuilt, int yearbuilt, string type)
+{
+    int vsize = comSize()+1;
+    computer c(name, isbuilt, yearbuilt, type);
+    com.push_back(c);
+    data.addComputer(name, type, yearbuilt, isbuilt, vsize);
 }
 void ListWorker::sortNames()
 {
@@ -60,23 +69,6 @@ int ListWorker::getNameSize(int n) const
     string name = persons[n]._getName();
     int size = name.size();
     return size;
-}
-void ListWorker::saveFile()
-{
-    string saveName, saveComment;
-    char saveGender;
-    int saveYearOfBirth, saveYearOfDeath;
-    data.deleteFile();
-
-    for(unsigned int i = 0; i < persons.size(); i++)
-    {
-        saveName = getName(i);
-        saveGender = getGender(i);
-        saveYearOfBirth = getBirth(i);
-        saveYearOfDeath = getDeath(i);
-        saveComment = getComment(i);
-        data.writeToFile(saveName, saveGender, saveYearOfBirth, saveYearOfDeath, saveComment);
-    }
 }
 bool ListWorker::nameSearcher(string name)
 {

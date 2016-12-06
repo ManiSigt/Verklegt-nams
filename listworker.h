@@ -14,6 +14,7 @@ public:
     ListWorker();
 
     void addNewPerson(string name, char gender, int yearOfBirth, int yearOFDeath, string comment); //Adds a person to the vector persons and adds them to the database.
+    void addNewComputer(string name, string type, int yearbuilt, string isbuilt);
     bool ageSearcher(int age);                  // Searches for a specific age within the vector using a for loop.
     bool builtDateSearcher(int year);           //
     bool genderSearcher(char gender);           // Searches for a specific gender within the vector using a for loop.
@@ -72,7 +73,6 @@ public:
     {
         return com.size();
     }
-    void saveFile();                            // Deletes the file and makes a new one, and reads the vector into the new file.
 private:
     DataLayer data;
     vector<Person> persons;                     // The vector containing all persons from the database.

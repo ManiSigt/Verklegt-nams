@@ -13,17 +13,6 @@ DataLayer::DataLayer()
     QString dbName = "amazingDatabase.sqlite";
     db.setDatabaseName(dbName);
 }
-void DataLayer::writeToFile(string name, char gender, int yearOfBirth, int yearOfDeath, string comment)
-{
-     ofstream myfile("amazingDatabase.txt", ios::app);
-     myfile << name << endl;
-     myfile << gender << endl;
-     myfile << yearOfBirth << endl;
-     myfile << yearOfDeath << endl;
-     myfile << comment << endl;
-     myfile.close();
-}
-
 bool sortByName(const Person &lhs, const Person &rhs)
 {
     return lhs._getName() < rhs._getName();
@@ -55,13 +44,6 @@ void DataLayer::sortGender(vector<Person>& getPersons)
 void DataLayer::sortAge(vector<Person>& getPersons)
 {
     std::sort(getPersons.begin(),getPersons.end(), sortByAge);
-}
-void DataLayer::deleteFile()
-{
-    remove("amazingDatabase.txt");
-    ofstream myfile;
-    myfile.open("amazingDatabase.txt");
-    myfile.close();
 }
 int DataLayer::stringToNumber(string st)
 {
@@ -147,3 +129,31 @@ bool DataLayer::addScientist(string name, char gender, int yearOfBirth, int year
     return success;
 }
 
+bool DataLayer::addComputer(string name, string type, int yearbuilt, string isbuilt, int vsize)
+{
+    bool success = false;
+
+    QString qname = QString::fromStdString(name);
+    QString qtype = QString::fromStdString(type);
+    QString qisbuilt = QString::fromStdString(isbuilt);
+
+        QSqlQuery queryAdd;
+        queryAdd.prepare("INSERT INTO Computers (ID, Name, Type, Date, WasItBuilt) VALUES (:id, :name, :type, :yearbuilt, :isbuilt)");
+
+        cout << vsize << endl;
+        queryAdd.bindValue(":id", vsize+2);
+        queryAdd.bindValue(":name", qname);
+        queryAdd.bindValue(":type", qtype);
+        queryAdd.bindValue(":yearbuilt", yearbuilt);
+        queryAdd.bindValue(":isbuilt", qisbuilt);
+        if(queryAdd.exec())
+        {
+            success = true;
+        }
+        else
+        {
+            qDebug() << "add person failed: " << queryAdd.lastError();
+        }
+
+    return success;
+}
