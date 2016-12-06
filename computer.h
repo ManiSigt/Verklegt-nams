@@ -32,7 +32,10 @@ public:
     {
         return _name.size();
     }
-
+    int _getIdComputer() const
+    {
+        return _id;
+    }
 
 private:
     string _name;

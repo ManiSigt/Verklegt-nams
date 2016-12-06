@@ -201,6 +201,7 @@ void ClassUI::viewComputers(int i)
     }
 
     cout  << "|" << list.getDateComputer(i) << "\t|" << list.getWasItBuilt(i) << "\t|" << list.getTypeComputer(i) << endl;
+    findComputerConnections(i);
 
 }
 void ClassUI::viewPer()
@@ -772,6 +773,31 @@ void ClassUI::editPerson()
         cout << "Scientist not found!" << endl;
     }
 }
+void ClassUI::findComputerConnections(int i)
+{
+    int found = 0;
+    int comId = list.getLinkCompId(i);
+
+    for(int j = 0; j < list.getLinkSize(); j++)
+    {
+
+        if (comId == list.getLinkCompId(j))
+        {
+            found++;
+            int sciId = list.getLinkSciId(j);
+
+            cout << list.getNamePerson(sciId) << "\t";
+        }
+
+
+    }
+    if (found > 0)
+    {
+        cout << endl;
+    }
+
+}
+
 /*
 void ClassUI::clearTheScreen() //A function that we wanted to use but had platform issues following it's use.
 {

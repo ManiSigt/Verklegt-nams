@@ -2,6 +2,7 @@
 #define DATALAYER_H
 #include "person.h"
 #include "computer.h"
+#include "linker.h"
 #include <vector>
 #include <Qtsql>
 
@@ -26,6 +27,7 @@ public:
     void deleteFile();                                                                              // Delete the file amazingDataBase.txt.
     int stringToNumber(string st);                                                                  // Convert a string to a int.
 
+    void readLinksFromDatabase(vector<Linker>& link);
     void readScientistsFromDatabase(vector<Person>& sci);
     void readComputersFromDatabase(vector<Computer>& com);
     bool addScientist(string name, char gender, int yearOfBirth, int yearOfDeath, string comment, int vsize);

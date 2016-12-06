@@ -9,6 +9,7 @@ ListWorker::ListWorker()
 {
     data.readScientistsFromDatabase(persons);
     data.readComputersFromDatabase(com);
+    data.readLinksFromDatabase(link);
 }
 
 void ListWorker::addNewPerson(string name, char gender, int yearOfBirth, int yearOfDeath, string comment)

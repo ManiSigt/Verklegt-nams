@@ -182,3 +182,22 @@ bool DataLayer::addComputer(string name, string type, int yearbuilt, string isbu
 
     return success;
 }
+void DataLayer::readLinksFromDatabase(vector<Linker>& link)
+{
+    db.open();
+
+    QSqlQuery query(db);
+    query.exec("SELECT * FROM CompAndSci");
+
+
+    while(query.next())
+    {
+        int id = query.value("id").toUInt();
+        int sciId = query.value("ScientistID").toUInt();
+
+        int comId = query.value("ComputerID").toUInt();
+
+        link.push_back(Linker(id, sciId, comId));
+
+    }
+}

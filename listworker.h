@@ -2,6 +2,7 @@
 #define LISTWORKER_H
 #include "datalayer.h"
 #include "person.h"
+#include "linker.h"
 #include "Computer.h"
 #include <iostream>
 #include <string>
@@ -53,6 +54,10 @@ public:
     {
         return com[n]._getDateComputer();
     }
+    int getIdComputer(int n) const                   //Make _getDate from Computer available.
+    {
+        return com[n]._getIdComputer();
+    }
     string getCommentperson(int n) const              // Make _comment from persons available.
     {
         return persons[n]._getCommentPerson();
@@ -68,6 +73,23 @@ public:
     int getAgePerson(int n) const
     {
         return persons[n]._getAgePerson();
+    }
+    int getPersonId(int n) const
+    {
+        return persons[n]._getIDPerson();
+    }
+    int getLinkCompId(int n) const
+    {
+        return link[n]._getId();
+    }
+    int getLinkSciId(int n) const
+    {
+        return link[n]._getSciId();
+    }
+
+    int getLinkSize() const
+    {
+        return link.size();
     }
     int getNameSizePerson(int n) const;               // Returns the size of _name from persons.
     int getNameSizeComputer(int n) const;           // Returns the size of _name from Computer.
@@ -86,6 +108,7 @@ private:
     DataLayer data;
     vector<Person> persons;                     // The vector containing all persons from the database.
     vector<Computer> com;
+    vector<Linker> link;
 };
 
 #endif // LISTWORKER_H
