@@ -30,20 +30,18 @@ void ClassUI::mainMenu()
         cout << " (1) - "  << "Add a scientist/computer to the database." << endl;
         cout << " (2) - "  << "Remove a scientist from the database." << endl;
         cout << " (3) - "  << "View the entire database." << endl;
-        cout << " (4) - "  << "Save the database." << endl;
-        cout << " (5) - "  << "Search the database." << endl;
-        cout << " (6) - "  << "Sort the database." << endl;
-        cout << " (7) - "  << "Edit a scientist." << endl;
-        cout << " (8) - "  << "Exit." << endl;
-        cout << "Enter your command (1 - 8): ";
+        cout << " (4) - "  << "Search the database." << endl;
+        cout << " (5) - "  << "Sort the database." << endl;
+        cout << " (6) - "  << "Edit a scientist." << endl;
+        cout << " (7) - "  << "Exit." << endl;
+        cout << "Enter your command (1 - 7): ";
         cin >> choice;
-        if (choice != "8")
+        if (choice != "7")
         {
            select(choice);
         }
         else
         {
-            list.saveFile();
             runOn = false;
         }
     }while(runOn == true);
@@ -80,17 +78,13 @@ void ClassUI::select(string ch)
     }
     else if(ch == "4")
     {
-        save();
+        selectSearch();
     }
     else if(ch == "5")
     {
-        selectSearch();
-    }
-    else if(ch == "6")
-    {
         sorting();
     }
-    else if(ch == "7")
+    else if(ch == "6")
     {
         editPerson();
     }
@@ -270,8 +264,8 @@ void ClassUI::selectSearch()
     string searchChoice;
     cout << "-------------Select any of the following commands-------------" << endl;
     cout << "What do you want to search for?" << endl;
-    cout << " (1) - Search by Scientist." << endl;
-    cout << " (2) - Search by Computer." << endl;
+    cout << " (1) - Search for a Scientist." << endl;
+    cout << " (2) - Search for a Computer." << endl;
     cout << " (3) - Return to main menu." << endl;
     cin >> searchChoice;
     if(searchChoice == "1")
@@ -319,7 +313,7 @@ void ClassUI::searchingComputer()
 void ClassUI::searchComputer()
 {
     string searchChoice;
-    cout << "Enter your command (1 - 5): ";
+    cout << "Enter your command (1 - 4): ";
     cin >> searchChoice;
     cout << endl;
 
@@ -548,11 +542,6 @@ void ClassUI::remove()
         cout << "Serson not found!" << endl;
     }
 
-}
-void ClassUI::save()
-{
-    list.saveFile();
-    cout << "Database saved." << endl;
 }
 void ClassUI::yo()
 {
