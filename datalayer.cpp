@@ -134,7 +134,6 @@ bool DataLayer::addScientist(string name, char gender, int yearOfBirth, int year
         QSqlQuery queryAdd;
         queryAdd.prepare("INSERT INTO Scientist (id, name, gender, yearofbirth, yearofdeath, comment) VALUES (:id, :name, :gender, :yearofbirth, :yearofdeath, :comment)");
 
-        cout << vsize << endl;
         queryAdd.bindValue(":id", vsize+1);
         queryAdd.bindValue(":name", qname);
         queryAdd.bindValue(":gender", qgender);

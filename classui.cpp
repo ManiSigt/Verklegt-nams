@@ -56,6 +56,7 @@ void ClassUI::select(string ch)
         string choice;
         cout << " (1) - Add a scientist." << endl;
         cout << " (2) - Add a computer." << endl;
+        cout << "Enter your command (1 - 2): ";
         cin >> choice;
         if (choice == "1")
         {
@@ -66,6 +67,10 @@ void ClassUI::select(string ch)
         {
         cin.ignore();
         addComputer();
+        }
+        else
+        {
+            select("1");
         }
     }
     else if(ch == "2")
