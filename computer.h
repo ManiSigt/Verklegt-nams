@@ -9,7 +9,7 @@ class Computer
 {
 public:
     Computer();
-    Computer(string name, string wasItBuilt, int date, string type); // Class constructor for variables.
+    Computer(string name, string wasItBuilt, int date, string type, int id); // Class constructor for variables.
 
     string _getNameComputer() const
 
@@ -39,6 +39,7 @@ private:
     string _type;
     string _wasItBuilt;
     int _date;
+    int _id;
 
 };
 

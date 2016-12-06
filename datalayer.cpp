@@ -93,8 +93,7 @@ void DataLayer::readComputersFromDatabase(vector<Computer>& com)
         int date = query.value("date").toUInt();
         string wasItBuilt = query.value("wasitbuilt").toString().toStdString();
 
-        com.push_back(Computer(name, wasItBuilt, date, type));
-
+        com.push_back(Computer(name, wasItBuilt, date, type, id));
 
    }
 }
