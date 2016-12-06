@@ -1,5 +1,6 @@
 #include "datalayer.h"
 #include "person.h"
+#include "computer.h"
 #include <fstream>
 #include <iostream>
 #include <vector>
@@ -29,6 +30,18 @@ bool sortByScientistAge(const Person &lhs, const Person &rhs)
 {
     return lhs._getAgePerson() < rhs._getAgePerson();
 }
+bool sortByNameComputers(const Computer &lhs, const Computer &rhs)
+{
+    return lhs._getNameComputer() < rhs._getNameComputer();
+}
+bool sortByDateComputers(const Computer &lhs, const Computer &rhs)
+{
+    return lhs._getDateComputer() < rhs._getDateComputer();
+}
+bool sortByTypeComputers(const Computer &lhs, const Computer &rhs)
+{
+    return lhs._getTypeComputer() < rhs._getTypeComputer();
+}
 void DataLayer::sortScientistNames(vector<Person>& getPersons)
 {
     std::sort(getPersons.begin(),getPersons.end(), sortByScientistName);
@@ -44,6 +57,18 @@ void DataLayer::sortScientistGender(vector<Person>& getPersons)
 void DataLayer::sortScientistAge(vector<Person>& getPersons)
 {
     std::sort(getPersons.begin(),getPersons.end(), sortByScientistAge);
+}
+void DataLayer::sortNamesComputers(vector<Computer>& com)
+{
+    std::sort(com.begin(),com.end(), sortByNameComputers);
+}
+void DataLayer::sortDateComputers(vector<Computer>& com)
+{
+    std::sort(com.begin(),com.end(), sortByDateComputers);
+}
+void DataLayer::sortTypeComputers(vector<Computer>& com)
+{
+    std::sort(com.begin(),com.end(), sortByTypeComputers);
 }
 int DataLayer::stringToNumber(string st)
 {
@@ -108,7 +133,6 @@ bool DataLayer::addScientist(string name, char gender, int yearOfBirth, int year
         QSqlQuery queryAdd;
         queryAdd.prepare("INSERT INTO Scientist (id, name, gender, yearofbirth, yearofdeath, comment) VALUES (:id, :name, :gender, :yearofbirth, :yearofdeath, :comment)");
 
-        cout << vsize << endl;
         queryAdd.bindValue(":id", vsize+1);
         queryAdd.bindValue(":name", qname);
         queryAdd.bindValue(":gender", qgender);

@@ -56,6 +56,8 @@ void ClassUI::select(string ch)
         string choice;
         cout << " (1) - Add a scientist." << endl;
         cout << " (2) - Add a computer." << endl;
+        cout << " (3) - Return to main menu." << endl;
+        cout << "Enter your command (1 - 3): ";
         cin >> choice;
         if (choice == "1")
         {
@@ -67,6 +69,15 @@ void ClassUI::select(string ch)
         cin.ignore();
         addComputer();
         }
+        else if (choice == "3")
+        {
+            return mainMenu();
+        }
+        else
+        {
+            cout << "Invalid input. Please enter a number between 1 - 2." << endl;
+            select("1");
+        }
     }
     else if(ch == "2")
     {
@@ -77,6 +88,8 @@ void ClassUI::select(string ch)
         string choice;
         cout << " (1) - View scientists." << endl;
         cout << " (2) - View computers." << endl;
+        cout << " (3) - Return to main menu." << endl;
+        cout << "Enter your command (1 - 3): ";
         cin >> choice;
         if (choice == "1")
         {
@@ -85,6 +98,15 @@ void ClassUI::select(string ch)
         else if (choice == "2")
         {
             viewCom();
+        }
+        else if (choice == "3")
+        {
+            return mainMenu();
+        }
+        else
+        {
+            cout << "Invalid input. Please enter a number between 1 - 2." << endl;
+            select("3");
         }
     }
     else if(ch == "4")
@@ -289,11 +311,24 @@ void ClassUI::addComputer()
            cin >> Yearbuilt;
            if (Yearbuilt < 0 || Yearbuilt > 2016)
            {
-               cout << "not a valid year of birth" << endl;
+               cout << "not a valid building year" << endl;
                return mainMenu();
            }
-           cout << "Did they finish building the computer? (y/n)";
+           cout << "Did they finish building the computer? (y/n) ";
            cin >> isbuilt;
+           if (isbuilt == "y" || isbuilt == "y")
+           {
+               isbuilt = "Yes";
+           }
+           else if (isbuilt == "n" || isbuilt == "N")
+           {
+               isbuilt = "No";
+           }
+           else
+           {
+                cout << "Not a valid input." << endl;
+                return mainMenu();
+           }
 
         cout << "Are you sure that you want to add this computer? (y/n) ";
         string validateComputer;
@@ -393,7 +428,6 @@ void ClassUI::searchComputer()
     else if (searchChoice == "2")
     {
         string typesearch;
-
         cout << "Enter a type you want to search for: ";
         cin.ignore();
         std::getline(std::cin,typesearch);
