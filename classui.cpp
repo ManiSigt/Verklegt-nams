@@ -700,19 +700,22 @@ void ClassUI::viewMenu()
 
         if(viewCho == "1")
         {
-
+            list.sortComputerName();
+            viewCom();
         }
         else if(viewCho == "2")
         {
-
+            list.sortComputerDate();
+            viewCom();
         }
         else if(viewCho == "3")
         {
-
+            list.sortComputerType();
+            viewCom();
         }
         else if(viewCho == "4")
         {
-
+            mainMenu();
         }
     }
 

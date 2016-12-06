@@ -44,6 +44,18 @@ void ListWorker::sortScientistAge()
 {
     data.sortScientistAge(persons);
 }
+void ListWorker::sortComputerName()
+{
+    data.sortNamesComputers(com);
+}
+void ListWorker::sortComputerDate()
+{
+    data.sortDateComputers(com);
+}
+void ListWorker::sortComputerType()
+{
+    data.sortTypeComputers(com);
+}
 bool ListWorker::removePerson(string name)
 {
     for(size_t i = 0; i < persons.size(); ++i)
