@@ -140,19 +140,19 @@ bool DataLayer::addComputer(string name, string type, int yearbuilt, string isbu
         QSqlQuery queryAdd;
         queryAdd.prepare("INSERT INTO Computers (ID, Name, Type, Date, WasItBuilt) VALUES (:id, :name, :type, :yearbuilt, :isbuilt)");
 
-        cout << vsize << endl;
-        queryAdd.bindValue(":id", vsize+2);
+        queryAdd.bindValue(":id", vsize);
         queryAdd.bindValue(":name", qname);
-        queryAdd.bindValue(":type", qtype);
-        queryAdd.bindValue(":yearbuilt", yearbuilt);
         queryAdd.bindValue(":isbuilt", qisbuilt);
+        queryAdd.bindValue(":yearbuilt", yearbuilt);
+        queryAdd.bindValue(":type", qtype);
+
         if(queryAdd.exec())
         {
             success = true;
         }
         else
         {
-            qDebug() << "add person failed: " << queryAdd.lastError();
+            qDebug() << "add computer failed: " << queryAdd.lastError();
         }
 
     return success;
