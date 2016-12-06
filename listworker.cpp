@@ -8,6 +8,7 @@ using namespace std;
 ListWorker::ListWorker()
 {
     data.readScientistsFromDatabase(persons);
+    data.readComputersFromDatabase(com);
 }
 void ListWorker::addNewPerson(string name, char gender, int yearOfBirth, int yearOfDeath, string comment)
 {
@@ -67,23 +68,6 @@ int ListWorker::getNameSizeComputer(int n) const
     int size = name.size();
     return size;
 }
-void ListWorker::saveFile()
-{
-    string saveName, saveComment;
-    char saveGender;
-    int saveYearOfBirth, saveYearOfDeath;
-    data.deleteFile();
-
-    for(unsigned int i = 0; i < persons.size(); i++)
-    {
-        saveName = getNamePerson(i);
-        saveGender = getGenderPerson(i);
-        saveYearOfBirth = getBirthPerson(i);
-        saveYearOfDeath = getDeathPerson(i);
-        saveComment = getCommentperson(i);
-        data.writeToFile(saveName, saveGender, saveYearOfBirth, saveYearOfDeath, saveComment);
-    }
-}
 bool ListWorker::nameSearcher(string name)
 {
     for(unsigned int i = 0; i < persons.size(); i++)
@@ -109,6 +93,19 @@ bool ListWorker::genderSearcher(char gender)
     }
     return false;
 }
+bool ListWorker::typeSearcher(string type)
+{
+    for(unsigned int i = 0; i < com.size(); i++)
+    {
+        if(type == getTypeComputer(i))
+        {
+             return true;
+             break;
+        }
+    }
+    return false;
+}
+
 bool ListWorker::yearSearcher(int year)
 {
     for(unsigned int i = 0; i < persons.size(); i++)
@@ -121,6 +118,19 @@ bool ListWorker::yearSearcher(int year)
     }
     return false;
 }
+bool ListWorker::builtDateSearcher(int year)
+{
+    for(unsigned int i = 0; i < com.size(); i++)
+    {
+        if(year == getDateComputer(i))
+        {
+             return true;
+             break;
+        }
+    }
+    return false;
+}
+
 bool ListWorker::ageSearcher(int age)
 {
     for(unsigned int i = 0; i < persons.size(); i++)

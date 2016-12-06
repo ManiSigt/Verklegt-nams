@@ -13,17 +13,6 @@ DataLayer::DataLayer()
     QString dbName = "amazingDatabase.sqlite";
     db.setDatabaseName(dbName);
 }
-void DataLayer::writeToFile(string name, char gender, int yearOfBirth, int yearOfDeath, string comment)
-{
-     ofstream myfile("amazingDatabase.txt", ios::app);
-     myfile << name << endl;
-     myfile << gender << endl;
-     myfile << yearOfBirth << endl;
-     myfile << yearOfDeath << endl;
-     myfile << comment << endl;
-     myfile.close();
-}
-
 bool sortByName(const Person &lhs, const Person &rhs)
 {
     return lhs._getNamePerson() < rhs._getNamePerson();
@@ -55,13 +44,6 @@ void DataLayer::sortGender(vector<Person>& getPersons)
 void DataLayer::sortAge(vector<Person>& getPersons)
 {
     std::sort(getPersons.begin(),getPersons.end(), sortByAge);
-}
-void DataLayer::deleteFile()
-{
-    remove("amazingDatabase.txt");
-    ofstream myfile;
-    myfile.open("amazingDatabase.txt");
-    myfile.close();
 }
 int DataLayer::stringToNumber(string st)
 {
