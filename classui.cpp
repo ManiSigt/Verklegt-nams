@@ -88,6 +88,8 @@ void ClassUI::select(string ch)
         string choice;
         cout << " (1) - View scientists." << endl;
         cout << " (2) - View computers." << endl;
+        cout << " (3) - Return to main menu." << endl;
+        cout << "Enter your command (1 - 3): ";
         cin >> choice;
         if (choice == "1")
         {
@@ -96,6 +98,15 @@ void ClassUI::select(string ch)
         else if (choice == "2")
         {
             viewCom();
+        }
+        else if (choice == "3")
+        {
+            return mainMenu();
+        }
+        else
+        {
+            cout << "Invalid input. Please enter a number between 1 - 2." << endl;
+            select("3");
         }
     }
     else if(ch == "4")
