@@ -80,7 +80,28 @@ void ClassUI::select(string ch)
     }
     else if(ch == "2")
     {
-        remove();
+        string choice;
+        cout << " (1) - Remove scientist." << endl;
+        cout << " (2) - Remove Computer." << endl;
+        cout << " (3) - Return to main menu." << endl;
+        cin >> choice;
+        if (choice == "1")
+        {
+            removeScientist();
+        }
+        else if (choice == "2")
+        {
+            removeComputer();
+        }
+        else if (choice == "3")
+        {
+            return mainMenu();
+        }
+        else
+        {
+            cout << "Invalid input. Please enter a number between 1 - 3" << endl;
+            select("2");
+        }
     }
     else if(ch == "3")
     {
@@ -564,7 +585,7 @@ void ClassUI::searchScientist()
         return searchScientist();
     }
 }
-void ClassUI::remove()
+void ClassUI::removeScientist()
 {
     string name;
     cout << "--------------------------------------------------------------" << endl;
@@ -597,7 +618,44 @@ void ClassUI::remove()
     }
     else
     {
-        cout << "Serson not found!" << endl;
+        cout << "Scientist not found!" << endl;
+    }
+
+}
+void ClassUI::removeComputer()
+{
+    string name;
+    cout << "--------------------------------------------------------------" << endl;
+    cout << "Enter the full name of the computer that you want to remove: ";
+    cin.ignore();
+    std::getline(std::cin,name);
+
+    if (list.removeComputerFound(name) == true)
+    {
+        char validateRemove;
+        cout << "Computer found!" << endl;
+        cout << "Are you sure you want to remove this computer? (y/n): ";
+        cin >> validateRemove;
+
+        if(validateRemove == 'y' || validateRemove == 'Y')
+        {
+            if(list.removeComputer(name) == true)
+            {
+                cout << "Computer removed!" << endl;
+            }
+            else
+            {
+                cout << "Computer not removed!" << endl;
+            }
+        }
+        else
+        {
+            cout << "Computer not removed!" << endl;
+        }
+    }
+    else
+    {
+        cout << "Computer not found!" << endl;
     }
 
 }

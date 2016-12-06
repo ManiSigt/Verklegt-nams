@@ -79,6 +79,29 @@ bool ListWorker::removePersonFound(string name)
     }
     return false;
 }
+bool ListWorker::removeComputer(string name)
+{
+    for(size_t i = 0; i < com.size(); ++i)
+    {
+        if(name == com[i]._getNameComputer())
+        {
+            com.erase(com.begin() + i);
+            return true;
+        }
+    }
+    return false;
+}
+bool ListWorker::removeComputerFound(string name)
+{
+    for(size_t i = 0; i < com.size(); ++i)
+    {
+        if(name == com[i]._getNameComputer())
+        {
+            return true;
+        }
+    }
+    return false;
+}
 int ListWorker::getNameSizePerson(int n) const
 {
     string name = persons[n]._getNamePerson();
