@@ -393,7 +393,6 @@ void ClassUI::searchComputer()
     else if (searchChoice == "2")
     {
         string typesearch;
-
         cout << "Enter a type you want to search for: ";
         cin.ignore();
         std::getline(std::cin,typesearch);
