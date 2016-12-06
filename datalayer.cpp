@@ -13,37 +13,37 @@ DataLayer::DataLayer()
     QString dbName = "amazingDatabase.sqlite";
     db.setDatabaseName(dbName);
 }
-bool sortByName(const Person &lhs, const Person &rhs)
+bool sortByScientistName(const Person &lhs, const Person &rhs)
 {
     return lhs._getNamePerson() < rhs._getNamePerson();
 }
-bool sortByBirth(const Person &lhs, const Person &rhs)
+bool sortByScientistBirth(const Person &lhs, const Person &rhs)
 {
     return lhs._getBirthPerson() < rhs._getBirthPerson();
 }
-bool sortByGender(const Person &lhs, const Person &rhs)
+bool sortByScientistGender(const Person &lhs, const Person &rhs)
 {
     return lhs._getGenderPerson() < rhs._getGenderPerson();
 }
-bool sortByAge(const Person &lhs, const Person &rhs)
+bool sortByScientistAge(const Person &lhs, const Person &rhs)
 {
     return lhs._getAgePerson() < rhs._getAgePerson();
 }
-void DataLayer::sortNames(vector<Person>& getPersons)
+void DataLayer::sortScientistNames(vector<Person>& getPersons)
 {
-    std::sort(getPersons.begin(),getPersons.end(), sortByName);
+    std::sort(getPersons.begin(),getPersons.end(), sortByScientistName);
 }
-void DataLayer::sortBirth(vector<Person>& getPersons)
+void DataLayer::sortScientistBirth(vector<Person>& getPersons)
 {
-    std::sort(getPersons.begin(),getPersons.end(), sortByBirth);
+    std::sort(getPersons.begin(),getPersons.end(), sortByScientistBirth);
 }
-void DataLayer::sortGender(vector<Person>& getPersons)
+void DataLayer::sortScientistGender(vector<Person>& getPersons)
 {
-    std::sort(getPersons.begin(),getPersons.end(), sortByGender);
+    std::sort(getPersons.begin(),getPersons.end(), sortByScientistGender);
 }
-void DataLayer::sortAge(vector<Person>& getPersons)
+void DataLayer::sortScientistAge(vector<Person>& getPersons)
 {
-    std::sort(getPersons.begin(),getPersons.end(), sortByAge);
+    std::sort(getPersons.begin(),getPersons.end(), sortByScientistAge);
 }
 int DataLayer::stringToNumber(string st)
 {
@@ -142,19 +142,19 @@ bool DataLayer::addComputer(string name, string type, int yearbuilt, string isbu
         QSqlQuery queryAdd;
         queryAdd.prepare("INSERT INTO Computers (ID, Name, Type, Date, WasItBuilt) VALUES (:id, :name, :type, :yearbuilt, :isbuilt)");
 
-        cout << vsize << endl;
-        queryAdd.bindValue(":id", vsize+2);
+        queryAdd.bindValue(":id", vsize);
         queryAdd.bindValue(":name", qname);
-        queryAdd.bindValue(":type", qtype);
-        queryAdd.bindValue(":yearbuilt", yearbuilt);
         queryAdd.bindValue(":isbuilt", qisbuilt);
+        queryAdd.bindValue(":yearbuilt", yearbuilt);
+        queryAdd.bindValue(":type", qtype);
+
         if(queryAdd.exec())
         {
             success = true;
         }
         else
         {
-            qDebug() << "add person failed: " << queryAdd.lastError();
+            qDebug() << "add computer failed: " << queryAdd.lastError();
         }
 
     return success;

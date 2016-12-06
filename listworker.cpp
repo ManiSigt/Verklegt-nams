@@ -18,28 +18,31 @@ void ListWorker::addNewPerson(string name, char gender, int yearOfBirth, int yea
     persons.push_back(p);
     data.addScientist(name, gender, yearOfBirth, yearOfDeath, comment, vsize);
 }
-void ListWorker::addNewComputer(string name, string isbuilt, int yearbuilt, string type)
+void ListWorker::addNewComputer(string name, string type, int yearbuilt, string isbuilt)
 {
     int vsize = computerSize()+1;
+
     Computer c(name, isbuilt, yearbuilt, type);
+
+
     com.push_back(c);
     data.addComputer(name, type, yearbuilt, isbuilt, vsize);
 }
-void ListWorker::sortNames()
+void ListWorker::sortScientistNames()
 {
-    data.sortNames(persons);
+    data.sortScientistNames(persons);
 }
-void ListWorker::sortBirth()
+void ListWorker::sortScientistBirth()
 {
-    data.sortBirth(persons);
+    data.sortScientistBirth(persons);
 }
-void ListWorker::sortGender()
+void ListWorker::sortScientistGender()
 {
-    data.sortGender(persons);
+    data.sortScientistGender(persons);
 }
-void ListWorker::sortAge()
+void ListWorker::sortScientistAge()
 {
-    data.sortAge(persons);
+    data.sortScientistAge(persons);
 }
 bool ListWorker::removePerson(string name)
 {
@@ -81,6 +84,19 @@ bool ListWorker::nameSearcher(string name)
     for(unsigned int i = 0; i < persons.size(); i++)
     {
         std::size_t found = getNamePerson(i).find(name);
+        if (found!=std::string::npos)
+        {
+            return true;
+            break;
+        }
+    }
+    return false;
+}
+bool ListWorker::computerNameSearcher(string name)
+{
+    for(int i = 0; i < computerSize(); i++)
+    {
+        std::size_t found = getNameComputer(i).find(name);
         if (found!=std::string::npos)
         {
             return true;

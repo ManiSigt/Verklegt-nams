@@ -10,7 +10,8 @@ public:
     void select(string ch);     // Checks the input from main menu and calls the correct function compared to the input.
     void viewPersons(int i);    // This prints out a single  scientist from the vector.
     void viewComputers(int i);
-    void viewAll();             // This prints out the whole list of scientists, Name, Gender, Birth year, Death year and a comment.
+    void viewPer();             // This prints out the whole list of scientists, Name, Gender, Birth year, Death year and a comment.
+    void viewCom();
     void addPerson();           // Add a person to the database
     void addComputer();
     void searchingScientist();  //
