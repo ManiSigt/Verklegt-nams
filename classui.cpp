@@ -388,7 +388,7 @@ void ClassUI::addConnection()
     int validateComputer = 0;
     int validateScientist = 0;
     cout << "--------------------------------------------------------------" << endl;
-    cout << "ID - Scientist name" << endl;
+    cout << "Number - Scientist name" << endl;
     for(int i = 0; i < list.personsSize(); i++)
     {
      cout << list.getPersonId(i) << " - " << list.getNamePerson(i) << endl;
@@ -411,7 +411,7 @@ void ClassUI::addConnection()
         addConnection();
     }
     cout << "--------------------------------------------------------------" << endl;
-    cout << "ID - Computer name" << endl;
+    cout << "Number - Computer name" << endl;
 
     for(int i = 0; i < list.computerSize(); i++)
     {
