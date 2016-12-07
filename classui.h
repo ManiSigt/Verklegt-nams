@@ -29,6 +29,8 @@ public:
     void findScientistConnections();
     void addConnection();
     void editComputer();
+    void hangman();
+    int letterFill(char guess, string secretword, string &guessword);
 
 private:
     bool runOn = true;
