@@ -16,6 +16,7 @@ public:
 
     void addNewPerson(string name, char gender, int yearOfBirth, int yearOFDeath, string comment); //Adds a person to the vector persons and adds them to the database.
     void addNewComputer(string name, string type, int yearbuilt, string isbuilt);
+    void addNewConnection(int linkId, int compId, int sciId);
     bool ageSearcher(int age);                  // Searches for a specific age within the vector using a for loop.
     bool builtDateSearcher(int year);           //
     bool genderSearcher(char gender);           // Searches for a specific gender within the vector using a for loop.
@@ -82,6 +83,10 @@ public:
     int getPersonId(int n) const
     {
         return persons[n]._getIDPerson();
+    }
+    int getLinkId(int n) const
+    {
+        return link[n]._getId();
     }
     int getLinkCompId(int n) const
     {

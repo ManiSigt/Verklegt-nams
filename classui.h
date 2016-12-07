@@ -28,7 +28,7 @@ public:
 
 
     void findScientistConnections();
-
+    void addConnection();
     void editComputer();
 
 private:

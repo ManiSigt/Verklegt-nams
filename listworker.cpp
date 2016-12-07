@@ -29,6 +29,16 @@ void ListWorker::addNewComputer(string name, string type, int yearbuilt, string 
     com.push_back(c);
     data.addComputer(name, type, yearbuilt, isbuilt, vsize);
 }
+void ListWorker::addNewConnection(int linkId, int compId, int sciId)
+{
+
+    Linker l(linkId, sciId, compId);
+    link.push_back(l);
+
+    data.addConnection(linkId, sciId, compId);
+}
+
+
 void ListWorker::sortScientistNames()
 {
     data.sortScientistNames(persons);

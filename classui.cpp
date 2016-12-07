@@ -55,7 +55,8 @@ void ClassUI::select(string ch)
         string choice;
         cout << " (1) - Add a scientist." << endl;
         cout << " (2) - Add a computer." << endl;
-        cout << " (3) - Return to main menu." << endl;
+        cout << " (3) - Add a connection between computer and scientist" << endl;
+        cout << " (4) - Return to main menu." << endl;
         cout << "Enter your command (1 - 3): ";
         cin >> choice;
         if (choice == "1")
@@ -69,6 +70,11 @@ void ClassUI::select(string ch)
         addComputer();
         }
         else if (choice == "3")
+        {
+        cin.ignore();
+        addConnection();
+        }
+        else if (choice == "4")
         {
             return mainMenu();
         }
@@ -145,6 +151,8 @@ void ClassUI::select(string ch)
         cout << "Invalid input. Please enter a number between 1 - 7." << endl;
     }
 }
+
+
 void ClassUI::viewPersons(int i)
 {
     cout << "--------------------------------------------------------------" << endl;
@@ -361,6 +369,93 @@ void ClassUI::addComputer()
         {
             cout << "scientist not added!" << endl;
         }
+}
+
+void ClassUI::addConnection()
+{
+    int linkId = 0;
+    int compId = 0;
+    int sciId = 0;
+    int validateComputer = 0;
+    int validateScientist = 0;
+    cout << "--------------------------------------------------------------" << endl;
+    cout << "ID - Scientist name" << endl;
+    for(int i = 0; i < list.personsSize(); i++)
+    {
+     cout << list.getPersonId(i) << " - " << list.getNamePerson(i) << endl;
+    }
+
+    cout << "Enter id of the Scientist to connect: ";
+    cin >> sciId;
+
+    //checking for valid input
+    for(int i = 0; i < list.personsSize(); i++)
+    {
+        if(sciId == list.getPersonId(i))
+        {
+            validateScientist = 1;
+        }
+    }
+
+    if(validateScientist == 0)
+    {
+        cout << "Wrong input! Try again." << endl;
+        cin.ignore();
+        addConnection();
+    }
+
+    cout << "--------------------------------------------------------------" << endl;
+    cout << "ID - Computer name" << endl;
+
+    for(int i = 0; i < list.computerSize(); i++)
+    {
+     cout << list.getIdComputer(i) << " - " << list.getNameComputer(i) << endl;
+    }
+
+    cout << "Enter id of the Computer: ";
+    cin.ignore();
+    cin >> compId;
+
+    //checking for valid input
+    for(int i = 0; i < list.computerSize(); i++)
+    {
+        if(compId == list.getIdComputer(i))
+        {
+            validateComputer = 1;
+        }
+    }
+
+    if(validateComputer == 0)
+    {
+        cout << "Wrong input! Try again." << endl;
+        cin.ignore();
+        addConnection();
+    }
+    //get free ID in database
+
+    for(int i = 1; i < list.getLinkSize()+2; i++)
+    {
+        if(i != list.getLinkId(i))
+        {
+            linkId = i;
+        }
+    }
+    cout << linkId << endl;
+
+    cout << "Are you sure that you want to add this connection? (y/n) ";
+            string validate;
+            cin >> validate;
+
+            if(validate == "y")
+            {
+                cout << "New connection added!" << endl;
+                list.addNewConnection(linkId, compId , sciId);
+            }
+            else
+            {
+                cout << "connection not added!" << endl;
+            }
+
 }
 void ClassUI::selectSearch()
 {
@@ -722,8 +817,9 @@ void ClassUI::viewMenu()
     cout << "--------------------------------------------------------------" << endl;
     cout << " (1) - View scientists." << endl;
     cout << " (2) - View computers." << endl;
-    cout << " (3) - Return to main menu." << endl;
-    cout << "Enter your command (1 - 3): ";
+    cout << " (3) - View connections."
+    cout << " (4) - Return to main menu." << endl;
+    cout << "Enter your command (1 - 4): ";
     cin >> viewBy;
     cout << endl;
 
@@ -835,15 +931,10 @@ void ClassUI::editPerson()
 
 void ClassUI::findScientistConnections()
 {
-
     int found = 0;
-
-
 
     for(int i = 0; i < list.getLinkSize(); i++)
     {
-
-
             int compId = list.getLinkCompId(i);
             int sciId = list.getLinkSciId(i);
 
@@ -852,7 +943,6 @@ void ClassUI::findScientistConnections()
             found++;
             cout << compId << " " << compName << "\t" << sciId << " " << sciName << endl;
     }
-
 
     if (found > 0)
     {
