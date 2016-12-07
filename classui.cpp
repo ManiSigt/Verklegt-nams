@@ -796,6 +796,7 @@ void ClassUI::removeComputer()
 }
 void ClassUI::yo()
 {
+    clearTheScreen();
     cout << "--------------------------------------------------------------" << endl;
     cout << endl;
     cout << "`8.`8888.      ,8'     ,o888888o.     " << endl;
@@ -987,7 +988,7 @@ void ClassUI::findScientistConnections()
     }
 }
 
-void ClassUI::clearTheScreen() //A function that we wanted to use but had platform issues following it's use.
+void ClassUI::clearTheScreen()
 {
     system("cls||clear");
     return;
@@ -1013,7 +1014,7 @@ void ClassUI::editComputer()
 
 void ClassUI::hangman()
 {
-
+    clearTheScreen();
     string name;
     char letter;
     int num_of_wrong_guesses = 0;
@@ -1021,7 +1022,8 @@ void ClassUI::hangman()
 
     srand(time(NULL));
 
-    cout << endl <<"Welcome to hangman!!" << endl;
+    cout <<"     Welcome to hangman!!" << endl;
+    cout << "***~~~~~~~~~~~~~~~~~~~~~~***" << endl;
     string level;
     cout << "Choose a LEVEL" << endl;
     cout << " (1) - Easy" << endl;
