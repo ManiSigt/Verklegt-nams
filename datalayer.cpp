@@ -182,6 +182,43 @@ bool DataLayer::addComputer(string name, string type, int yearbuilt, string isbu
 
     return success;
 }
+void DataLayer::removeComputer(string name)
+{
+    bool success = false;
+    QString qname = QString::fromStdString(name);
+    QSqlQuery queryRemove;
+    queryRemove.prepare("DELETE FROM Computers Where Name=:name");
+    queryRemove.bindValue(":name", qname);
+
+            if(queryRemove.exec())
+            {
+                success = true;
+            }
+            else
+            {
+                qDebug() << "Remove computer failed: " << queryRemove.lastError();
+            }
+}
+void DataLayer::removeScientist(string name)
+{
+    {
+        bool success = false;
+        QString qname = QString::fromStdString(name);
+        QSqlQuery queryRemove;
+        queryRemove.prepare("DELETE FROM Scientist Where Name=:name");
+        queryRemove.bindValue(":name", qname);
+
+                if(queryRemove.exec())
+                {
+                    success = true;
+                }
+                else
+                {
+                    qDebug() << "Remove person failed: " << queryRemove.lastError();
+                }
+    }
+}
+
 void DataLayer::readLinksFromDatabase(vector<Linker>& link)
 {
     db.open();

@@ -23,7 +23,6 @@ void ClassUI::mainMenu()
         cout << getQuotes() << endl;
         firstRun = false;
     }
-    findScientistConnections();
     string choice;
     do
     {
@@ -114,7 +113,28 @@ void ClassUI::select(string ch)
     }
     else if(ch == "5")
     {
-        editPerson();
+        string choice;
+        cout << " (1) - Edit a scientist." << endl;
+        cout << " (2) - Edit a Computer." << endl;
+        cout << " (3) - Return to main menu." << endl;
+        cin >> choice;
+        if (choice == "1")
+        {
+            editPerson();
+        }
+        else if (choice == "2")
+        {
+            editComputer();
+        }
+        else if (choice == "3")
+        {
+            return mainMenu();
+        }
+        else
+        {
+            cout << "Invalid input. Please enter a number between 1 - 3" << endl;
+            select("5");
+        }
     }
     else if(ch == "yo")
     {
@@ -130,7 +150,6 @@ void ClassUI::viewPersons(int i)
     cout << "--------------------------------------------------------------" << endl;
     int nameSize  = list.getNameSizePerson(i);
 
-    cout << list.getPersonId(i) << " id " << endl;
 
     cout << list.getNamePerson(i);
 
@@ -178,7 +197,6 @@ void ClassUI::viewPersons(int i)
 void ClassUI::viewComputers(int i)
 {
     cout << "--------------------------------------------------------------" << endl;
-    cout << list.getIdComputer(i) << " id " << endl;
     int nameSize  = list.getNameSizeComputer(i);
 
     cout << list.getNameComputer(i);
@@ -631,10 +649,12 @@ void ClassUI::removeScientist()
 void ClassUI::removeComputer()
 {
     string name;
+    //int id;
     cout << "--------------------------------------------------------------" << endl;
     cout << "Enter the full name of the computer that you want to remove: ";
     cin.ignore();
     std::getline(std::cin,name);
+    //cin >> id;
 
     if (list.removeComputerFound(name) == true)
     {
@@ -851,21 +871,20 @@ void ClassUI::clearTheScreen() //A function that we wanted to use but had platfo
     #endif
 }
 */
-/*
+
 void ClassUI::editComputer()
 {
     string cmpname;
     cout << "Enter the full name of the computer that you want to edit: ";
     cin.ignore();
     std::getline(std::cin,cmpname);
-    if(list.removePersonFound(cmpname))
+    if(list.removeComputerFound(cmpname))
     {
-        list.removePerson(cmpname);
-        addPerson();
+        list.removeComputer(cmpname);
+        addComputer();
     }
     else
     {
         cout << "Computer not found!" << endl;
     }
 }
-*/

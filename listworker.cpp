@@ -64,6 +64,7 @@ bool ListWorker::removePerson(string name)
         if(name == persons[i]._getNamePerson())
         {
             persons.erase(persons.begin() + i);
+            data.removeScientist(name);
             return true;
         }
     }
@@ -86,7 +87,9 @@ bool ListWorker::removeComputer(string name)
     {
         if(name == com[i]._getNameComputer())
         {
+
             com.erase(com.begin() + i);
+            data.removeComputer(name);
             return true;
         }
     }
