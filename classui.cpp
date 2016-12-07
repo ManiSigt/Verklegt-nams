@@ -1030,6 +1030,53 @@ void ClassUI::hangman()
             {
                 cout << endl << "Whoops! That letter isn't in there!" << endl;
                 num_of_wrong_guesses++;
+                if (num_of_wrong_guesses == 1)
+                {
+                  cout << "_ ___" << endl;
+                }
+                else if (num_of_wrong_guesses == 2)
+                {
+                    cout << " |" << endl;
+                    cout << " |" << endl;
+                    cout << " |" << endl;
+                    cout << " |" << endl;
+                    cout << " |" << endl;
+                    cout << " |" << endl;
+                    cout << "_|___" << endl;
+                }
+                else if (num_of_wrong_guesses == 3)
+                {
+                    cout << " ________" << endl;
+                    cout << " |" << endl;
+                    cout << " |" << endl;
+                    cout << " |" << endl;
+                    cout << " |" << endl;
+                    cout << " |" << endl;
+                    cout << " |" << endl;
+                    cout << "_|___" << endl;
+                }
+                else if (num_of_wrong_guesses == 4)
+                {
+                    cout << " ________" << endl;
+                    cout << " |/" << endl;
+                    cout << " |" << endl;
+                    cout << " |" << endl;
+                    cout << " |" << endl;
+                    cout << " |" << endl;
+                    cout << " |" << endl;
+                    cout << "_|___" << endl;
+                }
+                else if (num_of_wrong_guesses == 5)
+                {
+                    cout << "  _______" << endl;
+                   cout << " |/      |" << endl;
+                   cout << " |      (_)" << endl;
+                   cout << " |      \\|/" << endl;
+                   cout << " |       |" << endl;
+                   cout << " |      / \\ " << endl;
+                   cout << " |" << endl;
+                  cout << "_|___" << endl;
+                }
             }
             else
             {
@@ -1077,6 +1124,53 @@ void ClassUI::hangman()
             {
                 cout << endl << "Whoops! That letter isn't in there!" << endl;
                 num_of_wrong_guesses++;
+                if (num_of_wrong_guesses == 1)
+                {
+                  cout << "_ ___" << endl;
+                }
+                else if (num_of_wrong_guesses == 2)
+                {
+                    cout << " |" << endl;
+                    cout << " |" << endl;
+                    cout << " |" << endl;
+                    cout << " |" << endl;
+                    cout << " |" << endl;
+                    cout << " |" << endl;
+                    cout << "_|___" << endl;
+                }
+                else if (num_of_wrong_guesses == 3)
+                {
+                    cout << " ________" << endl;
+                    cout << " |" << endl;
+                    cout << " |" << endl;
+                    cout << " |" << endl;
+                    cout << " |" << endl;
+                    cout << " |" << endl;
+                    cout << " |" << endl;
+                    cout << "_|___" << endl;
+                }
+                else if (num_of_wrong_guesses == 4)
+                {
+                    cout << " ________" << endl;
+                    cout << " |/" << endl;
+                    cout << " |" << endl;
+                    cout << " |" << endl;
+                    cout << " |" << endl;
+                    cout << " |" << endl;
+                    cout << " |" << endl;
+                    cout << "_|___" << endl;
+                }
+                else if (num_of_wrong_guesses == 5)
+                {
+                    cout << "  _______" << endl;
+                   cout << " |/      |" << endl;
+                   cout << " |      (_)" << endl;
+                   cout << " |      \\|/" << endl;
+                   cout << " |       |" << endl;
+                   cout << " |      / \\ " << endl;
+                   cout << " |" << endl;
+                  cout << "_|___" << endl;
+                }
             }
             else
             {
@@ -1124,6 +1218,53 @@ void ClassUI::hangman()
             {
                 cout << endl << "Whoops! That letter isn't in there!" << endl;
                 num_of_wrong_guesses++;
+                if (num_of_wrong_guesses == 1)
+                {
+                  cout << "_ ___" << endl;
+                }
+                else if (num_of_wrong_guesses == 2)
+                {
+                    cout << " |" << endl;
+                    cout << " |" << endl;
+                    cout << " |" << endl;
+                    cout << " |" << endl;
+                    cout << " |" << endl;
+                    cout << " |" << endl;
+                    cout << "_|___" << endl;
+                }
+                else if (num_of_wrong_guesses == 3)
+                {
+                    cout << " ________" << endl;
+                    cout << " |" << endl;
+                    cout << " |" << endl;
+                    cout << " |" << endl;
+                    cout << " |" << endl;
+                    cout << " |" << endl;
+                    cout << " |" << endl;
+                    cout << "_|___" << endl;
+                }
+                else if (num_of_wrong_guesses == 4)
+                {
+                    cout << " ________" << endl;
+                    cout << " |/" << endl;
+                    cout << " |" << endl;
+                    cout << " |" << endl;
+                    cout << " |" << endl;
+                    cout << " |" << endl;
+                    cout << " |" << endl;
+                    cout << "_|___" << endl;
+                }
+                else if (num_of_wrong_guesses == 5)
+                {
+                    cout << "  _______" << endl;
+                   cout << " |/      |" << endl;
+                   cout << " |      (_)" << endl;
+                   cout << " |      \\|/" << endl;
+                   cout << " |       |" << endl;
+                   cout << " |      / \\ " << endl;
+                   cout << " |" << endl;
+                  cout << "_|___" << endl;
+                }
             }
             else
             {
@@ -1169,4 +1310,3 @@ int ClassUI::letterFill(char guess, string secretword, string &guessword)
     }
     return matches;
 }
-
