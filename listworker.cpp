@@ -285,7 +285,7 @@ int ListWorker::scientistIdFinder()
         }
         else
         {
-            idValue = i;
+            idValue = i+1;
         }
     }
     return idValue;

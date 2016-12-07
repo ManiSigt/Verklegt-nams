@@ -25,6 +25,7 @@ void ClassUI::mainMenu()
     string choice;
     do
     {
+        list.refreshVector();
         cout << "--------------------------------------------------------------" << endl;
         cout << " (1) - "  << "Add to the database." << endl;
         cout << " (2) - "  << "Remove a from the database." << endl;
@@ -43,7 +44,7 @@ void ClassUI::mainMenu()
         {
             runOn = false;
         }
-        list.refreshVector();
+
     }while(runOn == true);
 
     cout << endl;
@@ -1276,7 +1277,7 @@ void ClassUI::removeConnection()
     cout << "Enter the name of the Computer: ";
     std::getline(std::cin,removeComputerConnection);
 
-    if(list.removePersonFound(removeScientistConnection) == true && list.removeComputerFound(removeComputerConnection))
+    if(list.removePersonFound(removeScientistConnection) == true && list.removeComputerFound(removeComputerConnection) == true)
     {
         char validateRemove;
 

@@ -131,7 +131,7 @@ void DataLayer::addScientist(string name, char gender, int yearOfBirth, int year
         QSqlQuery queryAdd;
         queryAdd.prepare("INSERT INTO Scientist (id, name, gender, yearofbirth, yearofdeath, comment) VALUES (:id, :name, :gender, :yearofbirth, :yearofdeath, :comment)");
 
-        queryAdd.bindValue(":id", vsize+1);
+        queryAdd.bindValue(":id", vsize);
         queryAdd.bindValue(":name", qname);
         queryAdd.bindValue(":gender", qgender);
         queryAdd.bindValue(":yearofbirth", yearOfBirth);
@@ -225,19 +225,11 @@ void DataLayer::readLinksFromDatabase(vector<Linker>& link)
 }
 void DataLayer::removeConnection(int sciId, int compId)
 {
-    bool success = false;
-
     QSqlQuery queryRemove;
     queryRemove.prepare("DELETE FROM CompAndSci Where ComputerID=:compId AND ScientistID=:sciId");
     queryRemove.bindValue(":sciId", sciId);
     queryRemove.bindValue(":compId", compId);
 
-            if(queryRemove.exec())
-            {
-                success = true;
-            }
-            else
-            {
-                qDebug() << "Remove computer failed: " << queryRemove.lastError();
-            }
+    queryRemove.exec();
+
 }
