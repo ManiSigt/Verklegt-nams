@@ -1032,10 +1032,10 @@ void ClassUI::hangman()
 
     srand(time(NULL));
 
-    cout <<"     Welcome to hangman!!" << endl;
+    cout <<"  ***Welcome to hangman***" << endl;
     cout << "***~~~~~~~~~~~~~~~~~~~~~~***" << endl;
     string level;
-    cout << "Choose a LEVEL" << endl;
+    cout << "Choose a level of difficulty" << endl;
     cout << " (1) - Easy" << endl;
     cout << " (2) - Avarage" << endl;
     cout << " (3) - Hard" << endl;
@@ -1052,7 +1052,7 @@ void ClassUI::hangman()
         string unknown(word.length(), '*');
 
         cout << "Each letter is represented by an asterisk." << endl;
-        cout << "You have to type only one letter in one try." << endl;
+        cout << "You may type only one letter in one try." << endl;
         cout << "You have " << maxTries << " tries to try and guess the word." << endl;
         cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
         while (numOfWrongGuesses < maxTries)
@@ -1062,7 +1062,7 @@ void ClassUI::hangman()
             cin >> letter;
             if (fillIn(letter, word, unknown) == 0)
             {
-                cout << endl << "That letter isn't in there!" << endl;
+                cout << endl << "That letter is not in there!" << endl;
                 numOfWrongGuesses++;
                 hangmanPicture(numOfWrongGuesses);
             }
@@ -1075,7 +1075,7 @@ void ClassUI::hangman()
             if (word == unknown)
             {
                 cout << word << endl;
-                cout << "Well done! you got it right!" << endl;
+                cout << "Well done, you WIN!" << endl;
                 cout << "Press Enter to continue" << endl;
                 break;
             }
@@ -1100,7 +1100,7 @@ void ClassUI::hangman()
 
         string unknown(word.length(), '*');
         cout << "Each letter is represented by an asterisk." << endl;
-        cout << "You have to type only one letter in one try." << endl;
+        cout << "You may type only one letter in one try." << endl;
         cout << "You have " << maxTries << " tries to try and guess the word." << endl;
         cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
         while (numOfWrongGuesses < maxTries)
@@ -1123,7 +1123,7 @@ void ClassUI::hangman()
             if (word == unknown)
             {
                 cout << word << endl;
-                cout << "Well done! you got it right!";
+                cout << "Well done, you WIN!";
                 cout << "Press Enter to continue" << endl;
                 break;
             }
@@ -1148,7 +1148,7 @@ void ClassUI::hangman()
 
         string unknown(word.length(), '*');
         cout << "Each letter is represented by an asterisk." << endl;
-        cout << "You have to type only one letter in one try." << endl;
+        cout << "You may type only one letter in one try." << endl;
         cout << "You have " << maxTries << " tries to try and guess the word." << endl;
         cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
         while (numOfWrongGuesses < maxTries)
@@ -1171,7 +1171,7 @@ void ClassUI::hangman()
             if (word == unknown)
             {
                 cout << word << endl;
-                cout << "Well done! you got it right!" << endl;
+                cout << "Well done, you WIN!" << endl;
                 cout << "Press Enter to continue" << endl;
                 break;
             }
