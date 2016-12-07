@@ -7,7 +7,7 @@
 #include <time.h>
 
 using namespace std;
-const int MAX_TRIES = 5;
+const int maxTries = 5;
 ClassUI::ClassUI()
 {
 
@@ -97,6 +97,7 @@ void ClassUI::select(string ch)
         cout << " (1) - Remove scientist." << endl;
         cout << " (2) - Remove Computer." << endl;
         cout << " (3) - Return to main menu." << endl;
+        cout << "Enter your command (1 - 3): ";
         cin >> choice;
         if (choice == "1")
         {
@@ -169,10 +170,10 @@ void ClassUI::select(string ch)
 void ClassUI::viewPersons(int i)
 {
     cout << "--------------------------------------------------------------" << endl;
-    int nameSize  = list.getNameSizePerson(i);
+    int nameSize  = list.getScientistNameSize(i);
 
 
-    cout << list.getNamePerson(i);
+    cout << list.getScientistName(i);
 
 
 
@@ -193,7 +194,7 @@ void ClassUI::viewPersons(int i)
         cout << "\t";
     }
 
-    if(list.getGenderPerson(i) == 'M' || list.getGenderPerson(i) == 'm')
+    if(list.getScientistGender(i) == 'M' || list.getScientistGender(i) == 'm')
     {
         cout << "|Male" << "\t";
     }
@@ -202,25 +203,25 @@ void ClassUI::viewPersons(int i)
         cout << "|Female" << "\t";
     }
 
-    cout  << "|" << list.getBirthPerson(i);
+    cout  << "|" << list.getScientistBirth(i);
 
-    if(list.getDeathPerson(i) == 0)
+    if(list.getScientistDeath(i) == 0)
     {
-        cout << "\t" << "| n/a"  << "\t" << "|" << list.getAgePerson(i) << endl;
+        cout << "\t" << "| n/a"  << "\t" << "|" << list.getScientistAge(i) << endl;
     }
     else
     {
-        cout << "\t" << "|" << list.getDeathPerson(i) << "\t" << "|" << list.getAgePerson(i) <<  endl;
+        cout << "\t" << "|" << list.getScientistDeath(i) << "\t" << "|" << list.getScientistAge(i) <<  endl;
     }
 
-    cout << list.getCommentperson(i) << "\t" << endl;
+    cout << list.getScientistComment(i) << "\t" << endl;
 }
 void ClassUI::viewComputers(int i)
 {
     cout << "--------------------------------------------------------------" << endl;
-    int nameSize  = list.getNameSizeComputer(i);
+    int nameSize  = list.getComputerNameSize(i);
 
-    cout << list.getNameComputer(i);
+    cout << list.getComputerName(i);
 
     if(nameSize > 0 && nameSize <= 7)
     {
@@ -239,7 +240,7 @@ void ClassUI::viewComputers(int i)
         cout << "\t";
     }
 
-    cout  << "|" << list.getDateComputer(i) << "\t|" << list.getWasItBuilt(i) << "\t|" << list.getTypeComputer(i) << endl;
+    cout  << "|" << list.getComputerDate(i) << "\t|" << list.getComputerWasItBuilt(i) << "\t|" << list.getComputerType(i) << endl;
 
 }
 void ClassUI::viewPer()
@@ -262,7 +263,6 @@ void ClassUI::viewCom()
         viewComputers(i);
     }
 }
-
 void ClassUI::addPerson()
 {
     string name;
@@ -275,6 +275,11 @@ void ClassUI::addPerson()
     cout << "--------------------------------------------------------------" << endl;
     cout << "Enter name of the scientist: ";
     std::getline(std::cin,name);
+    if(name == "")
+    {
+        cout << "Invalid name! Try again." << endl;
+        return mainMenu();
+    }
     cout << "Enter a gender (M/F): ";
     cin >> gender;
 
@@ -310,7 +315,7 @@ void ClassUI::addPerson()
             }
        }
 
-       cout << "Enter a comment about the scientist: ";
+       cout << "Enter a comment about the scientist(optional): ";
        cin.ignore();
        std::getline(std::cin,comment);
     }
@@ -383,7 +388,6 @@ void ClassUI::addComputer()
             cout << "scientist not added!" << endl;
         }
 }
-
 void ClassUI::addConnection()
 {
     int linkId = 0;
@@ -392,52 +396,47 @@ void ClassUI::addConnection()
     int validateComputer = 0;
     int validateScientist = 0;
     cout << "--------------------------------------------------------------" << endl;
-    cout << "ID - Scientist name" << endl;
+    cout << "Number - Scientist name" << endl;
     for(int i = 0; i < list.personsSize(); i++)
     {
-     cout << list.getPersonId(i) << " - " << list.getNamePerson(i) << endl;
+     cout << list.getScientistId(i) << " - " << list.getScientistName(i) << endl;
     }
-
-    cout << "Enter id of the Scientist to connect: ";
+    cout << "Enter the number in front of the scientist you wish to connect: ";
     cin >> sciId;
 
     //checking for valid input
     for(int i = 0; i < list.personsSize(); i++)
     {
-        if(sciId == list.getPersonId(i))
+        if(sciId == list.getScientistId(i))
         {
             validateScientist = 1;
         }
     }
-
     if(validateScientist == 0)
     {
         cout << "Wrong input! Try again." << endl;
         cin.ignore();
         addConnection();
     }
-
     cout << "--------------------------------------------------------------" << endl;
-    cout << "ID - Computer name" << endl;
+    cout << "Number - Computer name" << endl;
 
     for(int i = 0; i < list.computerSize(); i++)
     {
-     cout << list.getIdComputer(i) << " - " << list.getNameComputer(i) << endl;
+     cout << list.getComputerId(i) << " - " << list.getComputerName(i) << endl;
     }
-
-    cout << "Enter id of the Computer: ";
+    cout << "Enter the number in front of the computer you wish to connect: ";
     cin.ignore();
     cin >> compId;
 
     //checking for valid input
     for(int i = 0; i < list.computerSize(); i++)
     {
-        if(compId == list.getIdComputer(i))
+        if(compId == list.getComputerId(i))
         {
             validateComputer = 1;
         }
     }
-
     if(validateComputer == 0)
     {
         cout << "Wrong input! Try again." << endl;
@@ -474,8 +473,8 @@ void ClassUI::selectSearch()
     string searchChoice;
     cout << "-------------Select any of the following commands-------------" << endl;
     cout << "What do you want to search for?" << endl;
-    cout << " (1) - Search for a Scientist." << endl;
-    cout << " (2) - Search for a Computer." << endl;
+    cout << " (1) - Search for a scientist." << endl;
+    cout << " (2) - Search for a computer." << endl;
     cout << " (3) - Return to main menu." << endl;
     cout << "Enter your command (1 - 3): ";
     cin >> searchChoice;
@@ -540,7 +539,7 @@ void ClassUI::searchComputer()
         cout << "--------------------------------------------------------------" << endl;
         for(int i = 0; i < list.computerSize();++i)
         {
-            std::size_t found = list.getNameComputer(i).find(namesearch);
+            std::size_t found = list.getComputerName(i).find(namesearch);
             if (found!=std::string::npos)
             {
                 viewComputers(i);
@@ -550,7 +549,8 @@ void ClassUI::searchComputer()
         if(list.computerNameSearcher(namesearch) == false)
         {
             cout << "Sorry that name is not in our database, but you can add a new computer in the 'Add section' in the main menu." << endl;
-            return searchComputer();
+            cout << endl;
+            return mainMenu();
         }
     }
     else if (searchChoice == "2")
@@ -561,7 +561,7 @@ void ClassUI::searchComputer()
         std::getline(std::cin,typesearch);
         for(int i = 0; i < list.computerSize();++i)
         {
-            std::size_t found = list.getTypeComputer(i).find(typesearch);
+            std::size_t found = list.getComputerType(i).find(typesearch);
             if (found!=std::string::npos)
             {
                 viewComputers(i);
@@ -571,7 +571,8 @@ void ClassUI::searchComputer()
         if(list.typeSearcher(typesearch) == false)
         {
             cout << "Sorry that type is not in our database, but you can add a new type in the 'Add section' in the main menu." << endl;
-            return searchComputer();
+            cout << endl;
+            return mainMenu();
         }
     }
     else if (searchChoice == "3")
@@ -582,9 +583,9 @@ void ClassUI::searchComputer()
 
             for(int i = 0; i < list.computerSize(); i++)
             {
-                if(yearsearch == list.getDateComputer(i))
+                if(yearsearch == list.getComputerDate(i))
                 {
-                    yearsearch = list.getDateComputer(i);
+                    yearsearch = list.getComputerDate(i);
                     viewComputers(i);
                 }
             }
@@ -592,7 +593,8 @@ void ClassUI::searchComputer()
             if(list.builtDateSearcher(yearsearch) == false)
             {
                 cout << "Sorry that year is not in our database, but you can add a new scientist in the 'Add section' in the main menu." << endl;
-                return searchComputer();
+                cout << endl;
+                return mainMenu();
             }
     }
     else if (searchChoice == "4")
@@ -602,7 +604,7 @@ void ClassUI::searchComputer()
     }
     else
     {
-        cout << "Error reading input. Please enter a number between 1- 3." << endl;
+        cout << "Error reading input. Please enter a number between 1- 4." << endl;
         return searchComputer();
     }
 }
@@ -622,7 +624,7 @@ void ClassUI::searchScientist()
         cout << "--------------------------------------------------------------" << endl;
         for(int i = 0; i < list.personsSize();++i)
         {
-            std::size_t found = list.getNamePerson(i).find(namesearch);
+            std::size_t found = list.getScientistName(i).find(namesearch);
             if (found!=std::string::npos)
             {
                 viewPersons(i);
@@ -632,38 +634,40 @@ void ClassUI::searchScientist()
         if(list.nameSearcher(namesearch) == false)
         {
             cout << "Sorry that name is not in our database, but you can add a new scientist in the 'Add section' in the main menu." << endl;
-            return searchScientist();
+            cout << endl;
+            return mainMenu();
         }
     }
     else if (searchChoice == "2")
     {
-        char gendersearch;
+        char genderSearch;
 
         cout << "Enter a gender you want to search for: (M/F)";
-        cin >> gendersearch;
+        cin >> genderSearch;
 
-        if(gendersearch == 'm')
+        if(genderSearch == 'm')
             {
-                 gendersearch = 'M';
+                 genderSearch = 'M';
             }
-        else if (gendersearch == 'f')
+        else if (genderSearch == 'f')
             {
-                 gendersearch = 'F';
+                 genderSearch = 'F';
             }
 
         for(int i = 0; i < list.personsSize();++i)
         {
-            if(gendersearch == list.getGenderPerson(i))
+            if(genderSearch == list.getScientistGender(i))
             {
-                gendersearch = list.getGenderPerson(i);
+                genderSearch = list.getScientistGender(i);
                 viewPersons(i);
             }
         }
 
-        if(list.genderSearcher(gendersearch) == false)
+        if(list.genderSearcher(genderSearch) == false)
         {
             cout << "Sorry that gender is not in our database, but you can add a new scientist in the 'Add section' in the main menu." << endl;
-            return searchScientist();
+            cout << endl;
+            return mainMenu();
         }
     }
     else if (searchChoice == "3")
@@ -674,9 +678,9 @@ void ClassUI::searchScientist()
 
             for(int i = 0; i < list.personsSize();++i)
             {
-                if(yearsearch == list.getBirthPerson(i))
+                if(yearsearch == list.getScientistBirth(i))
                 {
-                    yearsearch = list.getBirthPerson(i);
+                    yearsearch = list.getScientistBirth(i);
                     viewPersons(i);
                 }
             }
@@ -684,7 +688,8 @@ void ClassUI::searchScientist()
             if(list.yearSearcher(yearsearch) == false)
             {
                 cout << "Sorry that year is not in our database, but you can add a new scientist in the 'Add section' in the main menu." << endl;
-                return searchScientist();
+                cout << endl;
+                return mainMenu();
             }
     }
     else if (searchChoice == "4")
@@ -695,9 +700,9 @@ void ClassUI::searchScientist()
 
         for(int i = 0; i < list.personsSize();++i)
         {
-            if(ageSearch == list.getAgePerson(i))
+            if(ageSearch == list.getScientistAge(i))
             {
-                ageSearch = list.getAgePerson(i);
+                ageSearch = list.getScientistAge(i);
                 viewPersons(i);
             }
         }
@@ -705,7 +710,8 @@ void ClassUI::searchScientist()
         if(list.ageSearcher(ageSearch) == false)
         {
             cout << "Sorry that age is not in our database, but you can add a new scientist in the 'Add section' in the main menu." << endl;
-            searchScientist();
+            cout << endl;
+            return mainMenu();
         }
     }
     else if (searchChoice == "5")
@@ -715,7 +721,7 @@ void ClassUI::searchScientist()
     }
     else
     {
-        cout << "Error reading input. Please enter a number between 1- 3." << endl;
+        cout << "Error reading input. Please enter a number between 1- 5." << endl;
         return searchScientist();
     }
 }
@@ -797,6 +803,7 @@ void ClassUI::removeComputer()
 }
 void ClassUI::yo()
 {
+    clearTheScreen();
     cout << "--------------------------------------------------------------" << endl;
     cout << endl;
     cout << "`8.`8888.      ,8'     ,o888888o.     " << endl;
@@ -922,6 +929,12 @@ void ClassUI::viewMenu()
         findScientistConnections();
         mainMenu();
     }
+    else if(viewBy == "4")
+    {
+        clearTheScreen();
+        mainMenu();
+
+    }
     else
     {
         cout << "That is not a valid command! Try again." << endl;
@@ -988,7 +1001,7 @@ void ClassUI::findScientistConnections()
     }
 }
 
-void ClassUI::clearTheScreen() //A function that we wanted to use but had platform issues following it's use.
+void ClassUI::clearTheScreen()
 {
     system("cls||clear");
     return;
@@ -1014,20 +1027,22 @@ void ClassUI::editComputer()
 
 void ClassUI::hangman()
 {
-
+    clearTheScreen();
     string name;
     char letter;
-    int num_of_wrong_guesses = 0;
+    int numOfWrongGuesses = 0;
     string word;
 
     srand(time(NULL));
 
-    cout << "Welcome to hangman!!" << endl;
+    cout <<"     Welcome to hangman!!" << endl;
+    cout << "***~~~~~~~~~~~~~~~~~~~~~~***" << endl;
     string level;
     cout << "Choose a LEVEL" << endl;
     cout << " (1) - Easy" << endl;
     cout << " (2) - Avarage" << endl;
     cout << " (3) - Hard" << endl;
+    cout << " (4) - Return to main menu." << endl;
     cin >> level;
 
     if (level == "1")
@@ -1041,34 +1056,34 @@ void ClassUI::hangman()
 
         cout << "Each letter is represented by an asterisk." << endl;
         cout << "You have to type only one letter in one try." << endl;
-        cout << "You have " << MAX_TRIES << " tries to try and guess the word." << endl;
+        cout << "You have " << maxTries << " tries to try and guess the word." << endl;
         cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
-        while (num_of_wrong_guesses < MAX_TRIES)
+        while (numOfWrongGuesses < maxTries)
         {
             cout << unknown << endl;
             cout << "Guess a letter: ";
             cin >> letter;
-            if (letterFill(letter, word, unknown) == 0)
+            if (fillIn(letter, word, unknown) == 0)
             {
-                cout << endl << "Whoops! That letter isn't in there!" << endl;
-                num_of_wrong_guesses++;
-                hangmanPicture(num_of_wrong_guesses);
+                cout << endl << "That letter isn't in there!" << endl;
+                numOfWrongGuesses++;
+                hangmanPicture(numOfWrongGuesses);
             }
             else
             {
-                cout << endl << "You found a letter! Isn't that exciting?" << endl;
+                cout << endl << "You found a letter!" << endl;
             }
-            cout << "You have " << MAX_TRIES - num_of_wrong_guesses;
+            cout << "You have " << maxTries - numOfWrongGuesses;
             cout << " guesses left." << endl;
             if (word == unknown)
             {
                 cout << word << endl;
-                cout << "Yeah! You got it!" << endl;
+                cout << "Well done! you got it right!" << endl;
                 cout << "Press Enter to continue" << endl;
                 break;
             }
         }
-        if (num_of_wrong_guesses == MAX_TRIES)
+        if (numOfWrongGuesses == maxTries)
         {
             cout << "Sorry, you lose...you've been hanged." << endl;
             cout << "The word was : " << word << endl;
@@ -1089,34 +1104,34 @@ void ClassUI::hangman()
         string unknown(word.length(), '*');
         cout << "Each letter is represented by an asterisk." << endl;
         cout << "You have to type only one letter in one try." << endl;
-        cout << "You have " << MAX_TRIES << " tries to try and guess the word." << endl;
+        cout << "You have " << maxTries << " tries to try and guess the word." << endl;
         cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
-        while (num_of_wrong_guesses < MAX_TRIES)
+        while (numOfWrongGuesses < maxTries)
         {
             cout << unknown << endl;
             cout << "Guess a letter: " << endl;
             cin >> letter;
-            if (letterFill(letter, word, unknown) == 0)
+            if (fillIn(letter, word, unknown) == 0)
             {
-                cout << endl << "Whoops! That letter isn't in there!" << endl;
-                num_of_wrong_guesses++;
-                hangmanPicture(num_of_wrong_guesses);
+                cout << endl << "That letter isn't in there!" << endl;
+                numOfWrongGuesses++;
+                hangmanPicture(numOfWrongGuesses);
             }
             else
             {
-                cout << endl << "You found a letter! Isn't that exciting?" << endl;
+                cout << endl << "You found a letter!" << endl;
             }
-            cout << "You have " << MAX_TRIES - num_of_wrong_guesses;
+            cout << "You have " << maxTries - numOfWrongGuesses;
             cout << " guesses left." << endl;
             if (word == unknown)
             {
                 cout << word << endl;
-                cout << "Yeah! You got it!";
+                cout << "Well done! you got it right!";
                 cout << "Press Enter to continue" << endl;
                 break;
             }
         }
-        if (num_of_wrong_guesses == MAX_TRIES)
+        if (numOfWrongGuesses == maxTries)
         {
             cout << "Sorry, you lose...you've been hanged." << endl;
             cout << "The word was : " << word << endl;
@@ -1137,34 +1152,34 @@ void ClassUI::hangman()
         string unknown(word.length(), '*');
         cout << "Each letter is represented by an asterisk." << endl;
         cout << "You have to type only one letter in one try." << endl;
-        cout << "You have " << MAX_TRIES << " tries to try and guess the word." << endl;
+        cout << "You have " << maxTries << " tries to try and guess the word." << endl;
         cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
-        while (num_of_wrong_guesses < MAX_TRIES)
+        while (numOfWrongGuesses < maxTries)
         {
             cout  << unknown << endl;
             cout << "Guess a letter: " << endl;
             cin >> letter;
-            if (letterFill(letter, word, unknown) == 0)
+            if (fillIn(letter, word, unknown) == 0)
             {
-                cout << endl << "Whoops! That letter isn't in there!" << endl;
-                num_of_wrong_guesses++;
-                hangmanPicture(num_of_wrong_guesses);
+                cout << endl << "That letter isn't in there!" << endl;
+                numOfWrongGuesses++;
+                hangmanPicture(numOfWrongGuesses);
             }
             else
             {
-                cout << endl << "You found a letter! Isn't that exciting?" << endl;
+                cout << endl << "You found a letter!" << endl;
             }
-            cout << "You have " << MAX_TRIES - num_of_wrong_guesses;
+            cout << "You have " << maxTries - numOfWrongGuesses;
             cout << " guesses left." << endl;
             if (word == unknown)
             {
                 cout << word << endl;
-                cout << "Yeah! You got it!" << endl;
+                cout << "Well done! you got it right!" << endl;
                 cout << "Press Enter to continue" << endl;
                 break;
             }
         }
-        if (num_of_wrong_guesses == MAX_TRIES)
+        if (numOfWrongGuesses == maxTries)
         {
             cout << "Sorry, you lose...you've been hanged." << endl;
             cout << "The word was : " << word << endl;
@@ -1174,8 +1189,13 @@ void ClassUI::hangman()
         cin.get();
         mainMenu();
     }
+    else if (level == "4")
+    {
+        clearTheScreen();
+        mainMenu();
+    }
 }
-int ClassUI::letterFill(char guess, string secretword, string &guessword)
+int ClassUI::fillIn(char guess, string secretword, string &guessword)
 {
     int i;
     int matches = 0;
@@ -1194,13 +1214,13 @@ int ClassUI::letterFill(char guess, string secretword, string &guessword)
     }
     return matches;
 }
-void ClassUI::hangmanPicture(int wrong_guess)
+void ClassUI::hangmanPicture(int wrongGuess)
 {
-    if (wrong_guess == 1)
+    if (wrongGuess == 1)
     {
       cout << "_ ___" << endl;
     }
-    else if (wrong_guess == 2)
+    else if (wrongGuess == 2)
     {
         cout << " |" << endl;
         cout << " |" << endl;
@@ -1210,7 +1230,7 @@ void ClassUI::hangmanPicture(int wrong_guess)
         cout << " |" << endl;
         cout << "_|___" << endl;
     }
-    else if (wrong_guess == 3)
+    else if (wrongGuess == 3)
     {
         cout << " ________" << endl;
         cout << " |" << endl;
@@ -1221,7 +1241,7 @@ void ClassUI::hangmanPicture(int wrong_guess)
         cout << " |" << endl;
         cout << "_|___" << endl;
     }
-    else if (wrong_guess == 4)
+    else if (wrongGuess == 4)
     {
         cout << " ________" << endl;
         cout << " |/" << endl;
@@ -1232,7 +1252,7 @@ void ClassUI::hangmanPicture(int wrong_guess)
         cout << " |" << endl;
         cout << "_|___" << endl;
     }
-    else if (wrong_guess == 5)
+    else if (wrongGuess == 5)
     {
         cout << "  _______" << endl;
        cout << " |/      |" << endl;

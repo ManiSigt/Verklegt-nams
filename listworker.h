@@ -40,65 +40,65 @@ public:
     bool typeSearcher(string type);
     bool yearSearcher(int year);                // Searches for a specific year within the vector using a for loop.
     int editPersonFinder(string name);          // Edit a scientist.
-    string getNamePerson(int n) const                 // Make _name from persons available.
+    string getScientistName(int n) const                 // Make _name from persons available.
     {
-        return persons[n]._getNamePerson();
+        return persons[n].getScientistName();
     }
-    string getNameComputer(int n) const                 // Make _name from the vector com available.
+    string getComputerName(int n) const                 // Make _name from the vector com available.
     {
-        return com[n]._getNameComputer();
+        return com[n].getComputerName();
     }
-    char getGenderPerson(int n) const                 // Make _gender from the vector persons available.
+    char getScientistGender(int n) const                 // Make _gender from the vector persons available.
     {
-        return persons[n]._getGenderPerson();
+        return persons[n].getScientistGender();
     }
-    int getBirthPerson(int n) const                   // Make _yearOfBirth from the vector persons available.
+    int getScientistBirth(int n) const                   // Make _yearOfBirth from the vector persons available.
     {
-        return persons[n]._getBirthPerson();
+        return persons[n].getScientistBirth();
     }
-    int getDeathPerson(int n) const                   // Make _yearOfDeath from the vector persons available.
+    int getScientistDeath(int n) const                   // Make _yearOfDeath from the vector persons available.
     {
-        return persons[n]._getDeathPerson();
+        return persons[n].getScientistDeath();
     }
-    int getDateComputer(int n) const                   //Make _getDate from the vector com available.
+    int getComputerDate(int n) const                   //Make _getDate from the vector com available.
     {
-        return com[n]._getDateComputer();
+        return com[n].getComputerDate();
     }
-    int getIdComputer(int n) const                   //Make _getDate from the vector com available.
+    int getComputerId(int n) const                   //Make _getDate from the vector com available.
     {
-        return com[n]._getIdComputer();
+        return com[n].getComputerId();
     }
-    string getCommentperson(int n) const              // Make _comment from the vector persons available.
+    string getScientistComment(int n) const              // Make _comment from the vector persons available.
     {
-        return persons[n]._getCommentPerson();
+        return persons[n].getScientistComment();
     }
-    string getTypeComputer(int n) const                // Make _type from the vector com available.
+    string getComputerType(int n) const                // Make _type from the vector com available.
     {
-        return com[n]._getTypeComputer();
+        return com[n].getComputerType();
     }
-    string getWasItBuilt(int n) const                   //Make _wasItBuilt from the vector com available
+    string getComputerWasItBuilt(int n) const                   //Make _wasItBuilt from the vector com available
     {
-        return com[n]._getWasItBuiltComputer();
+        return com[n].getComputerWasItBuilt();
     }
-    int getAgePerson(int n) const                       // Make _getAgePerson from the vector persons available
+    int getScientistAge(int n) const                       // Make _getScientistAge from the vector persons available
     {
-        return persons[n]._getAgePerson();
+        return persons[n].getScientistAge();
     }
-    int getPersonId(int n) const                         // Make _getPersonId from the vector persons available
+    int getScientistId(int n) const                         // Make _getScientistId from the vector persons available
     {
-        return persons[n]._getIDPerson();
+        return persons[n].getScientistId();
     }
     int getLinkId(int n) const
     {
-        return link[n]._getId();
+        return link[n].getId();
     }
     int getLinkCompId(int n) const
     {
-        return link[n]._getComId();
+        return link[n].getComId();
     }
     int getLinkSciId(int n) const
     {
-        return link[n]._getSciId();
+        return link[n].getSciId();
     }
     string getComputerNameFromId(int n) const;
     string getScientistNameFromId(int n) const;
@@ -106,8 +106,8 @@ public:
     {
         return link.size();
     }
-    int getNameSizePerson(int n) const;                 // Returns the size of _name from persons.
-    int getNameSizeComputer(int n) const;               // Returns the size of _name from Computer.
+    int getScientistNameSize(int n) const;                 // Returns the size of _name from persons.
+    int getComputerNameSize(int n) const;               // Returns the size of _name from Computer.
     int personsSize() const                             // Returns the size of vector persons.
     {
         return persons.size();
@@ -117,6 +117,7 @@ public:
     {
         return com.size();
     }
+    void removeConnection(int s, int c);
     void saveFile();                                    // Deletes the file and makes a new one, and reads the vector into the new file.
 
 private:

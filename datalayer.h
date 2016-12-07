@@ -28,6 +28,8 @@ public:
     int stringToNumber(string st);                                                                  // Convert a string to a int.
     void removeComputer(string name);
     void removeScientist(string name);
+    void removeConnection(int id);
+    void removeConnection(int sciId, int compId);
     void readLinksFromDatabase(vector<Linker>& link);
     void readScientistsFromDatabase(vector<Person>& sci);
     void readComputersFromDatabase(vector<Computer>& com);
