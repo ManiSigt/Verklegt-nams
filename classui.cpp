@@ -449,7 +449,7 @@ void ClassUI::addConnection()
             linkId = i;
         }
     }
-    cout << linkId << endl;
+   // cout << linkId << endl;
 
     cout << "Are you sure that you want to add this connection? (y/n) ";
             string validate;
