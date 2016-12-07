@@ -5,10 +5,9 @@
 #include <algorithm>
 #include <vector>
 #include <time.h>
-#include <stdlib.h>
 
 using namespace std;
-
+const int MAX_TRIES = 5;
 ClassUI::ClassUI()
 {
 
@@ -32,10 +31,11 @@ void ClassUI::mainMenu()
         cout << " (3) - "  << "View." << endl;
         cout << " (4) - "  << "Search." << endl;
         cout << " (5) - "  << "Edit a scientist." << endl;
-        cout << " (6) - "  << "Exit." << endl;
-        cout << "Enter your command (1 - 6): ";
+        cout << " (6) - "  << "Play hangman." << endl;
+        cout << " (7) - "  << "Exit." << endl;
+        cout << "Enter your command (1 - 7): ";
         cin >> choice;
-        if (choice != "6")
+        if (choice != "7")
         {
            select(choice);
         }
@@ -56,8 +56,9 @@ void ClassUI::select(string ch)
         string choice;
         cout << " (1) - Add a scientist." << endl;
         cout << " (2) - Add a computer." << endl;
-        cout << " (3) - Return to main menu." << endl;
-        cout << "Enter your command (1 - 3): ";
+        cout << " (3) - Add a connection between computer and scientist" << endl;
+        cout << " (4) - Return to main menu." << endl;
+        cout << "Enter your command (1 - 4): ";
         cin >> choice;
         if (choice == "1")
         {
@@ -71,6 +72,13 @@ void ClassUI::select(string ch)
         }
         else if (choice == "3")
         {
+        cin.ignore();
+        addConnection();
+        }
+        else if (choice == "4")
+        {
+            clearTheScreen();
+
             return mainMenu();
         }
         else
@@ -96,6 +104,7 @@ void ClassUI::select(string ch)
         }
         else if (choice == "3")
         {
+            clearTheScreen();
             return mainMenu();
         }
         else
@@ -121,14 +130,15 @@ void ClassUI::select(string ch)
         cin >> choice;
         if (choice == "1")
         {
-            addPerson();
+            editPerson();
         }
         else if (choice == "2")
         {
-            addComputer();
+            editComputer();
         }
         else if (choice == "3")
         {
+            clearTheScreen();
             return mainMenu();
         }
         else
@@ -136,6 +146,10 @@ void ClassUI::select(string ch)
             cout << "Invalid input. Please enter a number between 1 - 3" << endl;
             select("5");
         }
+    }
+    else if (ch == "6")
+    {
+        hangman();
     }
     else if(ch == "yo")
     {
@@ -146,12 +160,17 @@ void ClassUI::select(string ch)
         cout << "Invalid input. Please enter a number between 1 - 7." << endl;
     }
 }
+
+
 void ClassUI::viewPersons(int i)
 {
     cout << "--------------------------------------------------------------" << endl;
     int nameSize  = list.getNameSizePerson(i);
 
+
     cout << list.getNamePerson(i);
+
+
 
     if(nameSize > 0 && nameSize <= 7)
     {
@@ -190,7 +209,7 @@ void ClassUI::viewPersons(int i)
         cout << "\t" << "|" << list.getDeathPerson(i) << "\t" << "|" << list.getAgePerson(i) <<  endl;
     }
 
-    cout << list.getCommentperson(i) << endl;
+    cout << list.getCommentperson(i) << "\t" << endl;
 }
 void ClassUI::viewComputers(int i)
 {
@@ -217,7 +236,6 @@ void ClassUI::viewComputers(int i)
     }
 
     cout  << "|" << list.getDateComputer(i) << "\t|" << list.getWasItBuilt(i) << "\t|" << list.getTypeComputer(i) << endl;
-    findComputerConnections(i);
 
 }
 void ClassUI::viewPer()
@@ -361,6 +379,93 @@ void ClassUI::addComputer()
             cout << "scientist not added!" << endl;
         }
 }
+
+void ClassUI::addConnection()
+{
+    int linkId = 0;
+    int compId = 0;
+    int sciId = 0;
+    int validateComputer = 0;
+    int validateScientist = 0;
+    cout << "--------------------------------------------------------------" << endl;
+    cout << "ID - Scientist name" << endl;
+    for(int i = 0; i < list.personsSize(); i++)
+    {
+     cout << list.getPersonId(i) << " - " << list.getNamePerson(i) << endl;
+    }
+
+    cout << "Enter id of the Scientist to connect: ";
+    cin >> sciId;
+
+    //checking for valid input
+    for(int i = 0; i < list.personsSize(); i++)
+    {
+        if(sciId == list.getPersonId(i))
+        {
+            validateScientist = 1;
+        }
+    }
+
+    if(validateScientist == 0)
+    {
+        cout << "Wrong input! Try again." << endl;
+        cin.ignore();
+        addConnection();
+    }
+
+    cout << "--------------------------------------------------------------" << endl;
+    cout << "ID - Computer name" << endl;
+
+    for(int i = 0; i < list.computerSize(); i++)
+    {
+     cout << list.getIdComputer(i) << " - " << list.getNameComputer(i) << endl;
+    }
+
+    cout << "Enter id of the Computer: ";
+    cin.ignore();
+    cin >> compId;
+
+    //checking for valid input
+    for(int i = 0; i < list.computerSize(); i++)
+    {
+        if(compId == list.getIdComputer(i))
+        {
+            validateComputer = 1;
+        }
+    }
+
+    if(validateComputer == 0)
+    {
+        cout << "Wrong input! Try again." << endl;
+        cin.ignore();
+        addConnection();
+    }
+    //get free ID in database
+
+    for(int i = 1; i < list.getLinkSize()+2; i++)
+    {
+        if(i != list.getLinkId(i))
+        {
+            linkId = i;
+        }
+    }
+    cout << linkId << endl;
+
+    cout << "Are you sure that you want to add this connection? (y/n) ";
+            string validate;
+            cin >> validate;
+
+            if(validate == "y")
+            {
+                cout << "New connection added!" << endl;
+                list.addNewConnection(linkId, compId , sciId);
+            }
+            else
+            {
+                cout << "connection not added!" << endl;
+            }
+
+}
 void ClassUI::selectSearch()
 {
     string searchChoice;
@@ -381,6 +486,7 @@ void ClassUI::selectSearch()
     }
     else if(searchChoice == "3")
     {
+        clearTheScreen();
         return mainMenu();
     }
     else
@@ -488,6 +594,7 @@ void ClassUI::searchComputer()
     }
     else if (searchChoice == "4")
     {
+        clearTheScreen();
         mainMenu();
     }
     else
@@ -600,6 +707,7 @@ void ClassUI::searchScientist()
     }
     else if (searchChoice == "5")
     {
+        clearTheScreen();
         mainMenu();
     }
     else
@@ -721,8 +829,9 @@ void ClassUI::viewMenu()
     cout << "--------------------------------------------------------------" << endl;
     cout << " (1) - View scientists." << endl;
     cout << " (2) - View computers." << endl;
-    cout << " (3) - Return to main menu." << endl;
-    cout << "Enter your command (1 - 3): ";
+    cout << " (3) - View connections." << endl;
+    cout << " (4) - Return to main menu." << endl;
+    cout << "Enter your command (1 - 4): ";
     cin >> viewBy;
     cout << endl;
 
@@ -761,6 +870,7 @@ void ClassUI::viewMenu()
         }
         else if(viewCho == "5")
         {
+            clearTheScreen();
             mainMenu();
         }
         else
@@ -798,6 +908,7 @@ void ClassUI::viewMenu()
         }
         else if(viewCho == "4")
         {
+            clearTheScreen();
             mainMenu();
         }
     }
@@ -805,6 +916,7 @@ void ClassUI::viewMenu()
 
     else if(viewBy == "3")
     {
+        clearTheScreen();
         mainMenu();
     }
     else
@@ -831,43 +943,35 @@ void ClassUI::editPerson()
         cout << "Scientist not found!" << endl;
     }
 }
-void ClassUI::findComputerConnections(int i)
+
+
+void ClassUI::findScientistConnections()
 {
     int found = 0;
-    int comId = list.getLinkCompId(i);
 
-    for(int j = 0; j < list.getLinkSize(); j++)
+    for(int i = 0; i < list.getLinkSize(); i++)
     {
+            int compId = list.getLinkCompId(i);
+            int sciId = list.getLinkSciId(i);
 
-        if (comId == list.getLinkCompId(j))
-        {
+            string compName = list.getComputerNameFromId(compId);
+            string sciName = list.getScientistNameFromId(sciId);
             found++;
-            int sciId = list.getLinkSciId(j);
-
-            cout << list.getNamePerson(sciId) << "\t";
-        }
-
-
+            cout << compId << " " << compName << "\t" << sciId << " " << sciName << endl;
     }
+
     if (found > 0)
     {
         cout << endl;
     }
-
 }
 
-/*
 void ClassUI::clearTheScreen() //A function that we wanted to use but had platform issues following it's use.
 {
-    #if defined(__linux__) || defined(__unix__) || defined(__APPLE__)
-        system("clear");
-    #endif
-
-    #if defined(_WIN32) || defined(_WIN64)
-        system("cls");
-    #endif
+    system("cls||clear");
+    return;
 }
-*/
+
 
 void ClassUI::editComputer()
 {
@@ -878,12 +982,191 @@ void ClassUI::editComputer()
     if(list.removeComputerFound(cmpname))
     {
         list.removeComputer(cmpname);
-        addPerson();
         addComputer();
     }
     else
     {
         cout << "Computer not found!" << endl;
     }
+}
+
+void ClassUI::hangman()
+{
+
+    string name;
+    char letter;
+    int num_of_wrong_guesses = 0;
+    string word;
+
+    srand(time(NULL));
+
+    cout << "Welcome to hangman!!" << endl;
+    string level;
+    cout << "Choose a LEVEL" << endl;
+    cout << " (1) - Easy" << endl;
+    cout << " (2) - Avarage" << endl;
+    cout << " (3) - Hard" << endl;
+    cin >> level;
+
+    if (level == "1")
+    {
+        string easy[] = { "array", "matrix", "binary", "virus" };
+        string word;
+
+        int n = rand() % 4;
+        word = easy[n];
+        string unknown(word.length(), '*');
+
+        cout << "Each letter is represented by an asterisk." << endl;
+        cout << "You have to type only one letter in one try." << endl;
+        cout << "You have " << MAX_TRIES << " tries to try and guess the word." << endl;
+        cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
+        while (num_of_wrong_guesses < MAX_TRIES)
+        {
+            cout << unknown << endl;
+            cout << "Guess a letter: ";
+            cin >> letter;
+            if (letterFill(letter, word, unknown) == 0)
+            {
+                cout << endl << "Whoops! That letter isn't in there!" << endl;
+                num_of_wrong_guesses++;
+            }
+            else
+            {
+                cout << endl << "You found a letter! Isn't that exciting?" << endl;
+            }
+            cout << "You have " << MAX_TRIES - num_of_wrong_guesses;
+            cout << " guesses left." << endl;
+            if (word == unknown)
+            {
+                cout << word << endl;
+                cout << "Yeah! You got it!" << endl;
+                cout << "Press Enter to continue" << endl;
+                break;
+            }
+        }
+        if (num_of_wrong_guesses == MAX_TRIES)
+        {
+            cout << "Sorry, you lose...you've been hanged." << endl;
+            cout << "The word was : " << word << endl;
+            cout << "Press Enter to continue" << endl;
+        }
+        cin.ignore();
+        cin.get();
+        mainMenu();
+    }
+
+    else if (level == "2")
+    {
+        string average[] = { "bit", "runtime", "supercomputer" };
+
+        int n = rand() % 3;
+        word = average[n];
+
+        string unknown(word.length(), '*');
+        cout << "Each letter is represented by an asterisk." << endl;
+        cout << "You have to type only one letter in one try." << endl;
+        cout << "You have " << MAX_TRIES << " tries to try and guess the word." << endl;
+        cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
+        while (num_of_wrong_guesses < MAX_TRIES)
+        {
+            cout << unknown << endl;
+            cout << "Guess a letter: " << endl;
+            cin >> letter;
+            if (letterFill(letter, word, unknown) == 0)
+            {
+                cout << endl << "Whoops! That letter isn't in there!" << endl;
+                num_of_wrong_guesses++;
+            }
+            else
+            {
+                cout << endl << "You found a letter! Isn't that exciting?" << endl;
+            }
+            cout << "You have " << MAX_TRIES - num_of_wrong_guesses;
+            cout << " guesses left." << endl;
+            if (word == unknown)
+            {
+                cout << word << endl;
+                cout << "Yeah! You got it!";
+                cout << "Press Enter to continue" << endl;
+                break;
+            }
+        }
+        if (num_of_wrong_guesses == MAX_TRIES)
+        {
+            cout << "Sorry, you lose...you've been hanged." << endl;
+            cout << "The word was : " << word << endl;
+            cout << "Press Enter to continue" << endl;
+        }
+        cin.ignore();
+        cin.get();
+        mainMenu();
+    }
+
+    else if (level == "3")
+    {
+        string hard[] = { "microprocessor", "nanotechnology", "telecommunication" };
+
+        int n = rand() % 3;
+        word = hard[n];
+
+        string unknown(word.length(), '*');
+        cout << "Each letter is represented by an asterisk." << endl;
+        cout << "You have to type only one letter in one try." << endl;
+        cout << "You have " << MAX_TRIES << " tries to try and guess the word." << endl;
+        cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
+        while (num_of_wrong_guesses < MAX_TRIES)
+        {
+            cout  << unknown << endl;
+            cout << "Guess a letter: " << endl;
+            cin >> letter;
+            if (letterFill(letter, word, unknown) == 0)
+            {
+                cout << endl << "Whoops! That letter isn't in there!" << endl;
+                num_of_wrong_guesses++;
+            }
+            else
+            {
+                cout << endl << "You found a letter! Isn't that exciting?" << endl;
+            }
+            cout << "You have " << MAX_TRIES - num_of_wrong_guesses;
+            cout << " guesses left." << endl;
+            if (word == unknown)
+            {
+                cout << word << endl;
+                cout << "Yeah! You got it!" << endl;
+                cout << "Press Enter to continue" << endl;
+                break;
+            }
+        }
+        if (num_of_wrong_guesses == MAX_TRIES)
+        {
+            cout << "Sorry, you lose...you've been hanged." << endl;
+            cout << "The word was : " << word << endl;
+            cout << "Press Enter to continue" << endl;
+        }
+        cin.ignore();
+        cin.get();
+        mainMenu();
+    }
+}
+int ClassUI::letterFill(char guess, string secretword, string &guessword)
+{
+    int i;
+    int matches = 0;
+    int len = secretword.length();
+    for (i = 0; i< len; i++)
+    {
+        if (guess == guessword[i])
+        {
+            return 0;
+        }
+        if (guess == secretword[i])
+        {
+            guessword[i] = guess;
+            matches++;
+        }
+    }
+    return matches;
 }
 

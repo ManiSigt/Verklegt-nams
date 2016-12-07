@@ -182,10 +182,33 @@ bool DataLayer::addComputer(string name, string type, int yearbuilt, string isbu
 
     return success;
 }
+
+bool DataLayer::addConnection(int linkId, int sciId, int compId)
+{
+    bool success = false;
+
+        QSqlQuery queryAdd;
+        queryAdd.prepare("INSERT INTO CompAndSci (ID, ComputerID, ScientistID) VALUES (:id, :compId, :sciId)");
+
+        queryAdd.bindValue(":id", linkId);
+        queryAdd.bindValue(":compId", compId);
+        queryAdd.bindValue(":sciId", sciId);
+
+        if(queryAdd.exec())
+        {
+            success = true;
+        }
+        else
+        {
+            qDebug() << "add computer failed: " << queryAdd.lastError();
+        }
+
+    return success;
+}
 void DataLayer::removeComputer(string name)
 {
     bool success = false;
-     QString qname = QString::fromStdString(name);
+    QString qname = QString::fromStdString(name);
     QSqlQuery queryRemove;
     queryRemove.prepare("DELETE FROM Computers Where Name=:name");
     queryRemove.bindValue(":name", qname);

@@ -26,6 +26,16 @@ void ListWorker::addNewComputer(string name, string type, int yearbuilt, string 
     com.erase (com.begin(),com.end());
     data.addComputer(name, type, yearbuilt, isbuilt, vsize);
 }
+void ListWorker::addNewConnection(int linkId, int compId, int sciId)
+{
+
+    Linker l(linkId, sciId, compId);
+    link.push_back(l);
+
+    data.addConnection(linkId, sciId, compId);
+}
+
+
 void ListWorker::sortScientistNames()
 {
     data.sortScientistNames(persons);
@@ -84,7 +94,6 @@ bool ListWorker::removeComputer(string name)
     {
         if(name == com[i]._getNameComputer())
         {
-            cout << i << endl;
 
             com.erase(com.begin() + i);
             data.removeComputer(name);
@@ -245,4 +254,28 @@ void ListWorker::refreshVector()
     data.readComputersFromDatabase(com);
     persons.erase (persons.begin(),persons.end());
     data.readScientistsFromDatabase(persons);
+}
+string ListWorker::getComputerNameFromId(int n) const
+{
+    string name;
+    for(unsigned int i = 0; i < com.size(); i++)
+    {
+        if(n == getIdComputer(i))
+        {
+            name = com[i]._getNameComputer();
+        }
+    }
+    return name;
+}
+string ListWorker::getScientistNameFromId(int n) const
+{
+    string name;
+    for(unsigned int i = 0; i < persons.size(); i++)
+    {
+        if(n == persons[i]._getIDPerson())
+        {
+            name = persons[i]._getNamePerson();
+        }
+    }
+    return name;
 }
