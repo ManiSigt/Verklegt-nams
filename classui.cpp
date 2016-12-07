@@ -916,7 +916,7 @@ void ClassUI::viewMenu()
 
     else if(viewBy == "3")
     {
-        clearTheScreen();
+        findScientistConnections();
         mainMenu();
     }
     else
@@ -949,15 +949,34 @@ void ClassUI::findScientistConnections()
 {
     int found = 0;
 
+    cout << "--------------------------------------------------------------" << endl;
     for(int i = 0; i < list.getLinkSize(); i++)
     {
-            int compId = list.getLinkCompId(i);
-            int sciId = list.getLinkSciId(i);
+        int compId = list.getLinkCompId(i);
+        int sciId = list.getLinkSciId(i);
 
-            string compName = list.getComputerNameFromId(compId);
-            string sciName = list.getScientistNameFromId(sciId);
-            found++;
-            cout << compId << " " << compName << "\t" << sciId << " " << sciName << endl;
+        string compName = list.getComputerNameFromId(compId);
+        string sciName = list.getScientistNameFromId(sciId);
+
+        int nameSize = compName.size();
+        found++;
+
+        cout << compName;
+
+        if(nameSize > 0 && nameSize <= 7)
+        {
+            cout << "\t" << "\t" << "\t";
+        }
+        else if(nameSize > 7 && nameSize <= 15)
+        {
+            cout << "\t" << "\t";
+        }
+        else if(nameSize > 15 && nameSize <= 23)
+        {
+            cout << "\t";
+        }
+
+        cout << "|" << sciName << endl;
     }
 
     if (found > 0)
