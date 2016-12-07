@@ -30,7 +30,7 @@ public:
     void addConnection();
     void editComputer();
     void hangman();
-    int letterFill(char guess, string secretword, string &guessword);
+    int fillIn(char guess, string secretword, string &guessword);
     void hangmanPicture(int wrong_guess);
 
 private:
