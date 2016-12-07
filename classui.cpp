@@ -43,6 +43,7 @@ void ClassUI::mainMenu()
         {
             runOn = false;
         }
+        list.refreshVector();
     }while(runOn == true);
 
     cout << endl;
@@ -314,7 +315,7 @@ void ClassUI::addPerson()
 void ClassUI::addComputer()
     {
         string name;
-        string Type;
+        string type;
         string isbuilt;
         int Yearbuilt = 0;
 
@@ -322,8 +323,8 @@ void ClassUI::addComputer()
         cout << "Enter name of the Computer: ";
         std::getline(std::cin,name);
         cout << "Enter the type of the computer: ";
-        cin >> Type;
-           cout << "Enter the year the computer was built: ";
+        std::getline(std::cin,type);
+        cout << "Enter the year the computer was built: ";
            cin >> Yearbuilt;
            if (Yearbuilt < 0 || Yearbuilt > 2016)
            {
@@ -353,7 +354,7 @@ void ClassUI::addComputer()
         if(validateComputer == "y")
         {
             cout << "New computer added!" << endl;
-            list.addNewComputer(name, Type ,Yearbuilt, isbuilt);
+            list.addNewComputer(name, type ,Yearbuilt, isbuilt);
         }
         else
         {
@@ -817,6 +818,7 @@ void ClassUI::editPerson()
 {
     string name;
     cout << "Enter the full name of the Scientist that you want to edit: ";
+
     cin.ignore();
     std::getline(std::cin,name);
     if(list.removePersonFound(name))

@@ -14,19 +14,16 @@ ListWorker::ListWorker()
 
 void ListWorker::addNewPerson(string name, char gender, int yearOfBirth, int yearOfDeath, string comment)
 {
-    int vsize = personsSize()+1;
+    int vsize = scientistIdFinder();
     Person p(name, gender, yearOfBirth, yearOfDeath, comment, vsize);
     persons.push_back(p);
     data.addScientist(name, gender, yearOfBirth, yearOfDeath, comment, vsize);
 }
 void ListWorker::addNewComputer(string name, string type, int yearbuilt, string isbuilt)
 {
-    int vsize = computerSize()+1;
-
+    int vsize = computerIdFinder();
     Computer c(name, isbuilt, yearbuilt, type, vsize);
-
-
-    com.push_back(c);
+    com.erase (com.begin(),com.end());
     data.addComputer(name, type, yearbuilt, isbuilt, vsize);
 }
 void ListWorker::sortScientistNames()
@@ -207,4 +204,45 @@ bool ListWorker::ageSearcher(int age)
         }
     }
     return false;
+}
+int ListWorker::computerIdFinder()
+{
+    int idValue;
+
+    for (int i = 1; i <= computerSize(); i++)
+    {
+        if(i != getIdComputer(i-1))
+        {
+            return i;
+        }
+        else
+        {
+            idValue = i + 1;
+        }
+    }
+    return idValue;
+}
+int ListWorker::scientistIdFinder()
+{
+    int idValue;
+
+    for (int i = 1; i <= personsSize(); i++)
+    {
+        if(i != getPersonId(i-1))
+        {
+            return i;
+        }
+        else
+        {
+            idValue = i + 1;
+        }
+    }
+    return idValue;
+}
+void ListWorker::refreshVector()
+{
+    com.erase (com.begin(),com.end());
+    data.readComputersFromDatabase(com);
+    persons.erase (persons.begin(),persons.end());
+    data.readScientistsFromDatabase(persons);
 }

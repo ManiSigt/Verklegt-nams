@@ -31,7 +31,10 @@ public:
     void sortComputerName();
     void sortComputerDate();
     void sortComputerType();
+    void refreshVector();
+    int computerIdFinder();
     bool computerNameSearcher(string name);
+    int scientistIdFinder();
     bool typeSearcher(string type);
     bool yearSearcher(int year);                // Searches for a specific year within the vector using a for loop.
     int editPersonFinder(string name);          // Edit a scientist.
