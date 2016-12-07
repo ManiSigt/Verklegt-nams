@@ -5,7 +5,6 @@
 #include <algorithm>
 #include <vector>
 #include <time.h>
-#include <stdlib.h>
 
 using namespace std;
 
@@ -57,7 +56,7 @@ void ClassUI::select(string ch)
         cout << " (2) - Add a computer." << endl;
         cout << " (3) - Add a connection between computer and scientist" << endl;
         cout << " (4) - Return to main menu." << endl;
-        cout << "Enter your command (1 - 3): ";
+        cout << "Enter your command (1 - 4): ";
         cin >> choice;
         if (choice == "1")
         {
@@ -76,6 +75,8 @@ void ClassUI::select(string ch)
         }
         else if (choice == "4")
         {
+            clearTheScreen();
+
             return mainMenu();
         }
         else
@@ -101,6 +102,7 @@ void ClassUI::select(string ch)
         }
         else if (choice == "3")
         {
+            clearTheScreen();
             return mainMenu();
         }
         else
@@ -134,6 +136,7 @@ void ClassUI::select(string ch)
         }
         else if (choice == "3")
         {
+            clearTheScreen();
             return mainMenu();
         }
         else
@@ -477,6 +480,7 @@ void ClassUI::selectSearch()
     }
     else if(searchChoice == "3")
     {
+        clearTheScreen();
         return mainMenu();
     }
     else
@@ -584,6 +588,7 @@ void ClassUI::searchComputer()
     }
     else if (searchChoice == "4")
     {
+        clearTheScreen();
         mainMenu();
     }
     else
@@ -696,6 +701,7 @@ void ClassUI::searchScientist()
     }
     else if (searchChoice == "5")
     {
+        clearTheScreen();
         mainMenu();
     }
     else
@@ -817,7 +823,7 @@ void ClassUI::viewMenu()
     cout << "--------------------------------------------------------------" << endl;
     cout << " (1) - View scientists." << endl;
     cout << " (2) - View computers." << endl;
-    cout << " (3) - View connections."
+    cout << " (3) - View connections." << endl;
     cout << " (4) - Return to main menu." << endl;
     cout << "Enter your command (1 - 4): ";
     cin >> viewBy;
@@ -858,6 +864,7 @@ void ClassUI::viewMenu()
         }
         else if(viewCho == "5")
         {
+            clearTheScreen();
             mainMenu();
         }
         else
@@ -895,6 +902,7 @@ void ClassUI::viewMenu()
         }
         else if(viewCho == "4")
         {
+            clearTheScreen();
             mainMenu();
         }
     }
@@ -902,6 +910,7 @@ void ClassUI::viewMenu()
 
     else if(viewBy == "3")
     {
+        clearTheScreen();
         mainMenu();
     }
     else
@@ -949,18 +958,13 @@ void ClassUI::findScientistConnections()
         cout << endl;
     }
 }
-/*
+
 void ClassUI::clearTheScreen() //A function that we wanted to use but had platform issues following it's use.
 {
-    #if defined(__linux__) || defined(__unix__) || defined(__APPLE__)
-        system("clear");
-    #endif
-
-    #if defined(_WIN32) || defined(_WIN64)
-        system("cls");
-    #endif
+    system("cls||clear");
+    return;
 }
-*/
+
 
 void ClassUI::editComputer()
 {
