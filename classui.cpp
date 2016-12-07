@@ -152,7 +152,10 @@ void ClassUI::viewPersons(int i)
     cout << "--------------------------------------------------------------" << endl;
     int nameSize  = list.getNameSizePerson(i);
 
+
     cout << list.getNamePerson(i);
+
+
 
     if(nameSize > 0 && nameSize <= 7)
     {
@@ -191,7 +194,7 @@ void ClassUI::viewPersons(int i)
         cout << "\t" << "|" << list.getDeathPerson(i) << "\t" << "|" << list.getAgePerson(i) <<  endl;
     }
 
-    cout << list.getCommentperson(i) << endl;
+    cout << list.getCommentperson(i) << "\t" << endl;
 }
 void ClassUI::viewComputers(int i)
 {
@@ -218,7 +221,6 @@ void ClassUI::viewComputers(int i)
     }
 
     cout  << "|" << list.getDateComputer(i) << "\t|" << list.getWasItBuilt(i) << "\t|" << list.getTypeComputer(i) << endl;
-    findComputerConnections(i);
 
 }
 void ClassUI::viewPer()
@@ -837,31 +839,34 @@ void ClassUI::editPerson()
         cout << "Scientist not found!" << endl;
     }
 }
-void ClassUI::findComputerConnections(int i)
-{
-    int found = 0;
-    int comId = list.getLinkCompId(i);
 
-    for(int j = 0; j < list.getLinkSize(); j++)
+
+void ClassUI::findScientistConnections()
+{
+
+    int found = 0;
+
+
+
+    for(int i = 0; i < list.getLinkSize(); i++)
     {
 
-        if (comId == list.getLinkCompId(j))
-        {
+
+            int compId = list.getLinkCompId(i);
+            int sciId = list.getLinkSciId(i);
+
+            string compName = list.getComputerNameFromId(compId);
+            string sciName = list.getScientistNameFromId(sciId);
             found++;
-            int sciId = list.getLinkSciId(j);
-
-            cout << list.getNamePerson(sciId) << "\t";
-        }
-
-
+            cout << compId << " " << compName << "\t" << sciId << " " << sciName << endl;
     }
+
+
     if (found > 0)
     {
         cout << endl;
     }
-
 }
-
 
 void ClassUI::clearTheScreen() //A function that we wanted to use but had platform issues following it's use.
 {

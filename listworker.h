@@ -85,13 +85,36 @@ public:
     }
     int getLinkCompId(int n) const
     {
-        return link[n]._getId();
+        return link[n]._getComId();
     }
     int getLinkSciId(int n) const
     {
         return link[n]._getSciId();
     }
-
+    string getComputerNameFromId(int n) const
+    {
+        string name;
+        for(unsigned int i = 0; i < com.size(); i++)
+        {
+            if(n == getIdComputer(i))
+            {
+                name = com[i]._getNameComputer();
+            }
+        }
+        return name;
+    }
+    string getScientistNameFromId(int n) const
+    {
+        string name;
+        for(unsigned int i = 0; i < persons.size(); i++)
+        {
+            if(n == persons[i]._getIDPerson())
+            {
+                name = persons[i]._getNamePerson();
+            }
+        }
+        return name;
+    }
     int getLinkSize() const
     {
         return link.size();

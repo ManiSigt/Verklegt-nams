@@ -185,7 +185,7 @@ bool DataLayer::addComputer(string name, string type, int yearbuilt, string isbu
 void DataLayer::removeComputer(string name)
 {
     bool success = false;
-     QString qname = QString::fromStdString(name);
+    QString qname = QString::fromStdString(name);
     QSqlQuery queryRemove;
     queryRemove.prepare("DELETE FROM Computers Where Name=:name");
     queryRemove.bindValue(":name", qname);

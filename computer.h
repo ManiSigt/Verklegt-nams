@@ -12,7 +12,6 @@ public:
     Computer(string name, string wasItBuilt, int date, string type, int id); // Class constructor for variables.
 
     string _getNameComputer() const
-
     {
         return _name;
     }
