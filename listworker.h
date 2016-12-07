@@ -39,47 +39,47 @@ public:
     {
         return persons[n]._getNamePerson();
     }
-    string getNameComputer(int n) const                 // Make _name from Computer available.
+    string getNameComputer(int n) const                 // Make _name from the vector com available.
     {
         return com[n]._getNameComputer();
     }
-    char getGenderPerson(int n) const                 // Make _gender from persons available.
+    char getGenderPerson(int n) const                 // Make _gender from the vector persons available.
     {
         return persons[n]._getGenderPerson();
     }
-    int getBirthPerson(int n) const                   // Make _yearOfBirth from persons available.
+    int getBirthPerson(int n) const                   // Make _yearOfBirth from the vector persons available.
     {
         return persons[n]._getBirthPerson();
     }
-    int getDeathPerson(int n) const                   // Make _yearOfDeath from persons available.
+    int getDeathPerson(int n) const                   // Make _yearOfDeath from the vector persons available.
     {
         return persons[n]._getDeathPerson();
     }
-    int getDateComputer(int n) const                   //Make _getDate from Computer available.
+    int getDateComputer(int n) const                   //Make _getDate from the vector com available.
     {
         return com[n]._getDateComputer();
     }
-    int getIdComputer(int n) const                   //Make _getDate from Computer available.
+    int getIdComputer(int n) const                   //Make _getDate from the vector com available.
     {
         return com[n]._getIdComputer();
     }
-    string getCommentperson(int n) const              // Make _comment from persons available.
+    string getCommentperson(int n) const              // Make _comment from the vector persons available.
     {
         return persons[n]._getCommentPerson();
     }
-    string getTypeComputer(int n) const                // Make _type from Computer available.
+    string getTypeComputer(int n) const                // Make _type from the vector com available.
     {
         return com[n]._getTypeComputer();
     }
-    string getWasItBuilt(int n) const                   //Make _wasItBuilt from Computer available
+    string getWasItBuilt(int n) const                   //Make _wasItBuilt from the vector com available
     {
         return com[n]._getWasItBuiltComputer();
     }
-    int getAgePerson(int n) const
+    int getAgePerson(int n) const                       // Make _getAgePerson from the vector persons available
     {
         return persons[n]._getAgePerson();
     }
-    int getPersonId(int n) const
+    int getPersonId(int n) const                         // Make _getPersonId from the vector persons available
     {
         return persons[n]._getIDPerson();
     }
@@ -97,22 +97,22 @@ public:
     {
         return link.size();
     }
-    int getNameSizePerson(int n) const;               // Returns the size of _name from persons.
-    int getNameSizeComputer(int n) const;           // Returns the size of _name from Computer.
-    int personsSize() const                     // Returns the size of vector persons.
+    int getNameSizePerson(int n) const;                 // Returns the size of _name from persons.
+    int getNameSizeComputer(int n) const;               // Returns the size of _name from Computer.
+    int personsSize() const                             // Returns the size of vector persons.
     {
         return persons.size();
     }
 
-    int computerSize() const                     // Returns the size of vector Computer.
+    int computerSize() const                             // Returns the size of vector Computer.
     {
         return com.size();
     }
-    void saveFile();                            // Deletes the file and makes a new one, and reads the vector into the new file.
+    void saveFile();                                    // Deletes the file and makes a new one, and reads the vector into the new file.
 
 private:
     DataLayer data;
-    vector<Person> persons;                     // The vector containing all persons from the database.
+    vector<Person> persons;                              // The vector containing all persons from the database.
     vector<Computer> com;
     vector<Linker> link;
 };
