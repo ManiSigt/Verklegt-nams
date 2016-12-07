@@ -7,7 +7,7 @@
 #include <time.h>
 
 using namespace std;
-const int maxTries = 5;
+const int maxTries = 5; // A number for hangman, used for how many tries you got left.
 ClassUI::ClassUI()
 {
 
