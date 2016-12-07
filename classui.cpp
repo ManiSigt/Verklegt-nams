@@ -1008,7 +1008,7 @@ void ClassUI::hangman()
 
     if (level == "1")
     {
-        string easy[] = { "steve jobs", "alan turing", "ada lovelave", "linus torvalds" };
+        string easy[] = { "steve_jobs", "alan_turing", "ada_lovelave", "linus_torvalds" };
         string word;
 
         int n = rand() % 4;
@@ -1017,6 +1017,7 @@ void ClassUI::hangman()
         cout << "Each letter is represented by an asterisk." << endl;
         cout << "You have to type only one letter in one try." << endl;
         cout << "You have " << MAX_TRIES << " tries to try and guess the scientist." << endl;
+        cout << "note: Spaces in names are marked as underscores. (example : mani_sigurdsson)" << endl;
         cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
         while (num_of_wrong_guesses < MAX_TRIES)
         {
@@ -1038,6 +1039,7 @@ void ClassUI::hangman()
             {
                 cout << word << endl;
                 cout << "Yeah! You got it!" << endl;
+                cout << "Press Enter to continue" << endl;
                 break;
             }
         }
@@ -1045,6 +1047,7 @@ void ClassUI::hangman()
         {
             cout << "Sorry, you lose...you've been hanged." << endl;
             cout << "The word was : " << word << endl;
+            cout << "Press Enter to continue" << endl;
         }
         cin.ignore();
         cin.get();
@@ -1053,7 +1056,7 @@ void ClassUI::hangman()
 
     else if (level == "2")
     {
-        string average[] = { "don estridge", "sheila greibach", "daphne koller" };
+        string average[] = { "don_estridge", "sheila_greibach", "daphne_koller" };
 
         int n = rand() % 3;
         word = average[n];
@@ -1062,6 +1065,7 @@ void ClassUI::hangman()
         cout << "Each letter is represented by an asterisk." << endl;
         cout << "You have to type only one letter in one try." << endl;
         cout << "You have " << MAX_TRIES << " tries to try and guess the scientist." << endl;
+        cout << "note: Spaces in names are marked as underscores. (example : mani_sigurdsson)" << endl;
         cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
         while (num_of_wrong_guesses < MAX_TRIES)
         {
@@ -1083,6 +1087,7 @@ void ClassUI::hangman()
             {
                 cout << word << endl;
                 cout << "Yeah! You got it!";
+                cout << "Press Enter to continue" << endl;
                 break;
             }
         }
@@ -1090,6 +1095,7 @@ void ClassUI::hangman()
         {
             cout << "Sorry, you lose...you've been hanged." << endl;
             cout << "The word was : " << word << endl;
+            cout << "Press Enter to continue" << endl;
         }
         cin.ignore();
         cin.get();
@@ -1098,7 +1104,7 @@ void ClassUI::hangman()
 
     else if (level == "3")
     {
-        string hard[] = { "john vincent atanasoff", "edsger w djikstra", "philip matthaus hahn" };
+        string hard[] = { "john_vincent_atanasoff", "edsger_w_djikstra", "philip_matthaus_hahn" };
 
         int n = rand() % 3;
         word = hard[n];
@@ -1107,6 +1113,7 @@ void ClassUI::hangman()
         cout << "Each letter is represented by an asterisk." << endl;
         cout << "You have to type only one letter in one try." << endl;
         cout << "You have " << MAX_TRIES << " tries to try and guess the scientist." << endl;
+        cout << "note: Spaces in names are marked as underscores. (example : mani_sigurdsson)" << endl;
         cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
         while (num_of_wrong_guesses < MAX_TRIES)
         {
@@ -1128,6 +1135,7 @@ void ClassUI::hangman()
             {
                 cout << word << endl;
                 cout << "Yeah! You got it!" << endl;
+                cout << "Press Enter to continue" << endl;
                 break;
             }
         }
@@ -1135,6 +1143,7 @@ void ClassUI::hangman()
         {
             cout << "Sorry, you lose...you've been hanged." << endl;
             cout << "The word was : " << word << endl;
+            cout << "Press Enter to continue" << endl;
         }
         cin.ignore();
         cin.get();
