@@ -14,7 +14,7 @@ class ListWorker
 public:
     ListWorker();
 
-    void addNewPerson(string name, char gender, int yearOfBirth, int yearOFDeath, string comment); //Adds a person to the vector persons and adds them to the database.
+    void addNewScientist(string name, char gender, int yearOfBirth, int yearOFDeath, string comment); //Adds a person to the vector persons and adds them to the database.
     void addNewComputer(string name, string type, int yearbuilt, string isbuilt); //Adds a computer to the vector that holds the list of computers and then adds it to the database.
     void addNewConnection(int linkId, int compId, int sciId);
     bool ageSearcher(int age);                  // Searches for a specific age within the vector using a for-loop.

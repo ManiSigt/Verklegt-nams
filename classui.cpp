@@ -62,26 +62,26 @@ void ClassUI::select(string ch)
         cin >> choice;
         if (choice == "1")
         {
-        cin.ignore();           // When using editPerson it will ignore the first letter unless this ignore is here rather then in addPerson
-        addPerson();
+            cin.ignore();           // When using editPerson it will ignore the first letter unless this ignore is here rather then in addPerson
+            addPerson();
         }
-        else if (choice == "2")
+            else if (choice == "2")
         {
-        cin.ignore();
-        addComputer();
+            cin.ignore();
+            addComputer();
         }
-        else if (choice == "3")
+            else if (choice == "3")
         {
-        cin.ignore();
-        addConnection();
+            cin.ignore();
+            addConnection();
         }
-        else if (choice == "4")
+            else if (choice == "4")
         {
             clearTheScreen();
 
             return mainMenu();
         }
-        else
+            else
         {
             cout << "Invalid input. Please enter a number between 1 - 3." << endl;
             select("1");
@@ -328,7 +328,7 @@ void ClassUI::addPerson()
     if(validatePerson == "y")
     {
         cout << "New scientist added!" << endl;
-        list.addNewPerson(name, gender, yearOfBirth, yearOfDeath, comment);
+        list.addNewScientist(name, gender, yearOfBirth, yearOfDeath, comment);
     }
     else
     {

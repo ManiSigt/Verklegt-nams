@@ -32,9 +32,9 @@ public:
     void readLinksFromDatabase(vector<Linker>& link);
     void readScientistsFromDatabase(vector<Person>& sci);
     void readComputersFromDatabase(vector<Computer>& com);
-    bool addScientist(string name, char gender, int yearOfBirth, int yearOfDeath, string comment, int vsize);
-    bool addComputer(string name, string type, int yearbuilt, string isbuilt, int vsize);
-    bool addConnection(int linkId, int sciId, int compId);
+    void addScientist(string name, char gender, int yearOfBirth, int yearOfDeath, string comment, int vsize);
+    void addComputer(string name, string type, int yearbuilt, string isbuilt, int vsize);
+    void addConnection(int linkId, int sciId, int compId);
     QSqlDatabase db;
  };
 
