@@ -87,6 +87,8 @@ bool ListWorker::removeComputer(string name)
     {
         if(name == com[i]._getNameComputer())
         {
+            cout << i << endl;
+
             com.erase(com.begin() + i);
             data.removeComputer(name);
             return true;

@@ -113,7 +113,28 @@ void ClassUI::select(string ch)
     }
     else if(ch == "5")
     {
-        editPerson();
+        string choice;
+        cout << " (1) - Edit a scientist." << endl;
+        cout << " (2) - Edit a Computer." << endl;
+        cout << " (3) - Return to main menu." << endl;
+        cin >> choice;
+        if (choice == "1")
+        {
+            addPerson();
+        }
+        else if (choice == "2")
+        {
+            addComputer();
+        }
+        else if (choice == "3")
+        {
+            return mainMenu();
+        }
+        else
+        {
+            cout << "Invalid input. Please enter a number between 1 - 3" << endl;
+            select("5");
+        }
     }
     else if(ch == "yo")
     {
@@ -856,6 +877,7 @@ void ClassUI::editComputer()
     {
         list.removeComputer(cmpname);
         addPerson();
+        addComputer();
     }
     else
     {
