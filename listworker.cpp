@@ -179,7 +179,7 @@ bool ListWorker::computerNameSearcher(string name)
 {
     for(int i = 0; i < computerSize(); i++)
     {
-        std::size_t found = getComputerName(i).find(name);
+        std::size_t found = getComputerLowerCaseName(i).find(name);
         if (found!=std::string::npos)
         {
             return true;

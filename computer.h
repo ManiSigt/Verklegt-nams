@@ -35,9 +35,14 @@ public:
     {
         return _id;
     }
+    string getComputerLowerCaseName() const
+    {
+        return _lowerCaseName;
+    }
 
 private:
     string _name;
+    string _lowerCaseName;
     string _type;
     string _wasItBuilt;
     int _date;

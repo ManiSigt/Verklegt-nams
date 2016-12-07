@@ -29,7 +29,7 @@ public:
     {
         return _yearOfDeath;
     }
-    int getNameSizePerson()
+    int getScientistNameSize()
     {
         return _name.size();
     }
@@ -41,10 +41,14 @@ public:
     {
         return _id;
     }
-
+    string getScientistLowerCaseName() const
+    {
+        return _lowerCaseName;
+    }
 
 private:
     string _name;
+    string _lowerCaseName;
     string _comment;
     char _gender;
     int _yearOfBirth;

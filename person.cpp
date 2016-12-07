@@ -1,4 +1,8 @@
 #include "person.h"
+#include <algorithm>
+#include <string>
+
+using namespace std;
 
 Person::Person()
 {
@@ -21,4 +25,7 @@ Person::Person(string name, char gender, int birth, int death, string comment, i
     {
         _age = 2016 - _yearOfBirth;
     }
+
+    _lowerCaseName = name;
+    transform(_lowerCaseName.begin(), _lowerCaseName.end(), _lowerCaseName.begin(), ::tolower);
 }

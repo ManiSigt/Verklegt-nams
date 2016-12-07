@@ -532,22 +532,25 @@ void ClassUI::searchComputer()
 
     if (searchChoice == "1")
     {
-        string namesearch;
+        string nameSearch;
         cout << "--------------------------------------------------------------" << endl;
         cout << "Enter a name you want to search for: ";
         cin.ignore();
-        std::getline(std::cin,namesearch);
+        std::getline(std::cin,nameSearch);
+
+        transform(nameSearch.begin(), nameSearch.end(), nameSearch.begin(), ::tolower);
+
         cout << "--------------------------------------------------------------" << endl;
         for(int i = 0; i < list.computerSize();++i)
         {
-            std::size_t found = list.getComputerName(i).find(namesearch);
+            std::size_t found = list.getComputerLowerCaseName(i).find(nameSearch);
             if (found!=std::string::npos)
             {
                 viewComputer(i);
             }
         }
 
-        if(list.computerNameSearcher(namesearch) == false)
+        if(list.computerNameSearcher(nameSearch) == false)
         {
             cout << "Sorry that name is not in our database, but you can add a new computer in the 'Add section' in the main menu." << endl;
             cout << endl;
@@ -617,22 +620,25 @@ void ClassUI::searchScientist()
 
     if (searchChoice == "1")
     {
-        string namesearch;
+        string nameSearch;
         cout << "--------------------------------------------------------------" << endl;
         cout << "Enter a name you want to search for: ";
         cin.ignore();
-        std::getline(std::cin,namesearch);
+        getline(cin,nameSearch);
+
+        transform(nameSearch.begin(), nameSearch.end(), nameSearch.begin(), ::tolower);
+
         cout << "--------------------------------------------------------------" << endl;
         for(int i = 0; i < list.personsSize();++i)
         {
-            std::size_t found = list.getScientistName(i).find(namesearch);
+            std::size_t found = list.getScientistLowerCaseName(i).find(nameSearch);
             if (found!=std::string::npos)
             {
                 viewScientist(i);
             }
         }
 
-        if(list.nameSearcher(namesearch) == false)
+        if(list.nameSearcher(nameSearch) == false)
         {
             cout << "Sorry that name is not in our database, but you can add a new scientist in the 'Add section' in the main menu." << endl;
             cout << endl;

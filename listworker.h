@@ -44,9 +44,17 @@ public:
     {
         return persons[n].getScientistName();
     }
+    string getScientistLowerCaseName(int n)
+    {
+        return persons[n].getScientistLowerCaseName();
+    }
     string getComputerName(int n) const                // Make name from the vector com available.
     {
         return com[n].getComputerName();
+    }
+    string getComputerLowerCaseName(int n)
+    {
+        return com[n].getComputerLowerCaseName();
     }
     char getScientistGender(int n) const               // Make gender from the vector persons available.
     {
