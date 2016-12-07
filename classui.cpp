@@ -7,7 +7,7 @@
 #include <time.h>
 
 using namespace std;
-const int maxTries = 5;
+const int maxTries = 5; // A number for hangman, used for how many tries you got left.
 ClassUI::ClassUI()
 {
 
@@ -62,26 +62,26 @@ void ClassUI::select(string ch)
         cin >> choice;
         if (choice == "1")
         {
-        cin.ignore();           // When using editPerson it will ignore the first letter unless this ignore is here rather then in addPerson
-        addPerson();
+            cin.ignore();           // When using editScientist it will ignore the first letter unless this ignore is here rather then in addScientist
+            addScientist();
         }
-        else if (choice == "2")
+            else if (choice == "2")
         {
-        cin.ignore();
-        addComputer();
+            cin.ignore();
+            addComputer();
         }
-        else if (choice == "3")
+            else if (choice == "3")
         {
-        cin.ignore();
-        addConnection();
+            cin.ignore();
+            addConnection();
         }
-        else if (choice == "4")
+            else if (choice == "4")
         {
             clearTheScreen();
 
             return mainMenu();
         }
-        else
+            else
         {
             cout << "Invalid input. Please enter a number between 1 - 3." << endl;
             select("1");
@@ -135,7 +135,7 @@ void ClassUI::select(string ch)
         cin >> choice;
         if (choice == "1")
         {
-            editPerson();
+            editScientist();
         }
         else if (choice == "2")
         {
@@ -167,7 +167,7 @@ void ClassUI::select(string ch)
 }
 
 
-void ClassUI::viewPersons(int i)
+void ClassUI::viewScientist(int i)
 {
     cout << "--------------------------------------------------------------" << endl;
     int nameSize  = list.getScientistNameSize(i);
@@ -216,7 +216,7 @@ void ClassUI::viewPersons(int i)
 
     cout << list.getScientistComment(i) << "\t" << endl;
 }
-void ClassUI::viewComputers(int i)
+void ClassUI::viewComputer(int i)
 {
     cout << "--------------------------------------------------------------" << endl;
     int nameSize  = list.getComputerNameSize(i);
@@ -243,27 +243,27 @@ void ClassUI::viewComputers(int i)
     cout  << "|" << list.getComputerDate(i) << "\t|" << list.getComputerWasItBuilt(i) << "\t|" << list.getComputerType(i) << endl;
 
 }
-void ClassUI::viewPer()
+void ClassUI::viewAllScientist()
 {
     cout << "--------------------------------------------------------------" << endl;
 
     cout << "Name" << "\t" << "\t" << "\t" << "\t" << "|Gender " << "|Born " << "\t" << "|Death"  << "\t" << "|Age" << endl;
     for(int i = 0; i < list.personsSize(); i++)
     {
-        viewPersons(i);
+        viewScientist(i);
     }
 }
-void ClassUI::viewCom()
+void ClassUI::viewAllComputers()
 {
     cout << "--------------------------------------------------------------" << endl;
-    cout << "Name" << "\t" << "\t" << "\t" << "\t" << "|Date " << "|Built " << "\t" << "|Type" << endl;
+    cout << "Name" << "\t" << "\t" << "\t" << "\t" << "|Date " << "\t" << "|Built " << "\t" << "|Type" << endl;
 
     for(int i = 0; i < list.computerSize(); i++)
     {
-        viewComputers(i);
+        viewComputer(i);
     }
 }
-void ClassUI::addPerson()
+void ClassUI::addScientist()
 {
     string name;
     string comment;
@@ -332,7 +332,7 @@ void ClassUI::addPerson()
     if(validatePerson == "y")
     {
         cout << "New scientist added!" << endl;
-        list.addNewPerson(name, gender, yearOfBirth, yearOfDeath, comment);
+        list.addNewScientist(name, gender, yearOfBirth, yearOfDeath, comment);
     }
     else
     {
@@ -347,7 +347,7 @@ void ClassUI::addComputer()
         int Yearbuilt = 0;
 
         cout << "--------------------------------------------------------------" << endl;
-        cout << "Enter name of the Computer: ";
+        cout << "Enter name of the computer: ";
         std::getline(std::cin,name);
         cout << "Enter the type of the computer: ";
         std::getline(std::cin,type);
@@ -542,7 +542,7 @@ void ClassUI::searchComputer()
             std::size_t found = list.getComputerName(i).find(namesearch);
             if (found!=std::string::npos)
             {
-                viewComputers(i);
+                viewComputer(i);
             }
         }
 
@@ -564,7 +564,7 @@ void ClassUI::searchComputer()
             std::size_t found = list.getComputerType(i).find(typesearch);
             if (found!=std::string::npos)
             {
-                viewComputers(i);
+                viewComputer(i);
             }
         }
 
@@ -577,20 +577,20 @@ void ClassUI::searchComputer()
     }
     else if (searchChoice == "3")
     {
-            int yearsearch;
+            int yearSearch;
             cout << "Enter a year you want to search for: ";
-            cin >> yearsearch;
+            cin >> yearSearch;
 
             for(int i = 0; i < list.computerSize(); i++)
             {
-                if(yearsearch == list.getComputerDate(i))
+                if(yearSearch == list.getComputerDate(i))
                 {
-                    yearsearch = list.getComputerDate(i);
-                    viewComputers(i);
+                    yearSearch = list.getComputerDate(i);
+                    viewComputer(i);
                 }
             }
 
-            if(list.builtDateSearcher(yearsearch) == false)
+            if(list.builtDateSearcher(yearSearch) == false)
             {
                 cout << "Sorry that year is not in our database, but you can add a new scientist in the 'Add section' in the main menu." << endl;
                 cout << endl;
@@ -627,7 +627,7 @@ void ClassUI::searchScientist()
             std::size_t found = list.getScientistName(i).find(namesearch);
             if (found!=std::string::npos)
             {
-                viewPersons(i);
+                viewScientist(i);
             }
         }
 
@@ -659,7 +659,7 @@ void ClassUI::searchScientist()
             if(genderSearch == list.getScientistGender(i))
             {
                 genderSearch = list.getScientistGender(i);
-                viewPersons(i);
+                viewScientist(i);
             }
         }
 
@@ -672,20 +672,20 @@ void ClassUI::searchScientist()
     }
     else if (searchChoice == "3")
     {
-            int yearsearch;
+            int yearSearch;
             cout << "Enter a year you want to search for: ";
-            cin >> yearsearch;
+            cin >> yearSearch;
 
             for(int i = 0; i < list.personsSize();++i)
             {
-                if(yearsearch == list.getScientistBirth(i))
+                if(yearSearch == list.getScientistBirth(i))
                 {
-                    yearsearch = list.getScientistBirth(i);
-                    viewPersons(i);
+                    yearSearch = list.getScientistBirth(i);
+                    viewScientist(i);
                 }
             }
 
-            if(list.yearSearcher(yearsearch) == false)
+            if(list.yearSearcher(yearSearch) == false)
             {
                 cout << "Sorry that year is not in our database, but you can add a new scientist in the 'Add section' in the main menu." << endl;
                 cout << endl;
@@ -703,7 +703,7 @@ void ClassUI::searchScientist()
             if(ageSearch == list.getScientistAge(i))
             {
                 ageSearch = list.getScientistAge(i);
-                viewPersons(i);
+                viewScientist(i);
             }
         }
 
@@ -860,22 +860,22 @@ void ClassUI::viewMenu()
         if(viewCho == "1")
         {
             list.sortScientistNames();
-            viewPer();
+            viewAllScientist();
         }
         else if(viewCho == "2")
         {
             list.sortScientistBirth();
-            viewPer();
+            viewAllScientist();
         }
         else if(viewCho == "3")
         {
             list.sortScientistGender();
-            viewPer();
+            viewAllScientist();
         }
         else if(viewCho == "4")
         {
             list.sortScientistAge();
-            viewPer();
+            viewAllScientist();
 
         }
         else if(viewCho == "5")
@@ -904,17 +904,17 @@ void ClassUI::viewMenu()
         if(viewCho == "1")
         {
             list.sortComputerName();
-            viewCom();
+            viewAllComputers();
         }
         else if(viewCho == "2")
         {
             list.sortComputerDate();
-            viewCom();
+            viewAllComputers();
         }
         else if(viewCho == "3")
         {
             list.sortComputerType();
-            viewCom();
+            viewAllComputers();
         }
         else if(viewCho == "4")
         {
@@ -942,7 +942,7 @@ void ClassUI::viewMenu()
     }
 
 }
-void ClassUI::editPerson()
+void ClassUI::editScientist()
 {
     string name;
     cout << "Enter the full name of the Scientist that you want to edit: ";
@@ -952,7 +952,7 @@ void ClassUI::editPerson()
     if(list.removePersonFound(name))
     {
         list.removePerson(name);
-        addPerson();
+        addScientist();
     }
     else
     {
@@ -1035,10 +1035,10 @@ void ClassUI::hangman()
 
     srand(time(NULL));
 
-    cout <<"     Welcome to hangman!!" << endl;
+    cout <<"  ***Welcome to hangman***" << endl;
     cout << "***~~~~~~~~~~~~~~~~~~~~~~***" << endl;
     string level;
-    cout << "Choose a LEVEL" << endl;
+    cout << "Choose a level of difficulty" << endl;
     cout << " (1) - Easy" << endl;
     cout << " (2) - Avarage" << endl;
     cout << " (3) - Hard" << endl;
@@ -1055,7 +1055,7 @@ void ClassUI::hangman()
         string unknown(word.length(), '*');
 
         cout << "Each letter is represented by an asterisk." << endl;
-        cout << "You have to type only one letter in one try." << endl;
+        cout << "You may type only one letter in one try." << endl;
         cout << "You have " << maxTries << " tries to try and guess the word." << endl;
         cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
         while (numOfWrongGuesses < maxTries)
@@ -1065,7 +1065,7 @@ void ClassUI::hangman()
             cin >> letter;
             if (fillIn(letter, word, unknown) == 0)
             {
-                cout << endl << "That letter isn't in there!" << endl;
+                cout << endl << "That letter is not in there!" << endl;
                 numOfWrongGuesses++;
                 hangmanPicture(numOfWrongGuesses);
             }
@@ -1078,7 +1078,7 @@ void ClassUI::hangman()
             if (word == unknown)
             {
                 cout << word << endl;
-                cout << "Well done! you got it right!" << endl;
+                cout << "Well done, you WIN!" << endl;
                 cout << "Press Enter to continue" << endl;
                 break;
             }
@@ -1103,7 +1103,7 @@ void ClassUI::hangman()
 
         string unknown(word.length(), '*');
         cout << "Each letter is represented by an asterisk." << endl;
-        cout << "You have to type only one letter in one try." << endl;
+        cout << "You may type only one letter in one try." << endl;
         cout << "You have " << maxTries << " tries to try and guess the word." << endl;
         cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
         while (numOfWrongGuesses < maxTries)
@@ -1126,7 +1126,7 @@ void ClassUI::hangman()
             if (word == unknown)
             {
                 cout << word << endl;
-                cout << "Well done! you got it right!";
+                cout << "Well done, you WIN!";
                 cout << "Press Enter to continue" << endl;
                 break;
             }
@@ -1151,7 +1151,7 @@ void ClassUI::hangman()
 
         string unknown(word.length(), '*');
         cout << "Each letter is represented by an asterisk." << endl;
-        cout << "You have to type only one letter in one try." << endl;
+        cout << "You may type only one letter in one try." << endl;
         cout << "You have " << maxTries << " tries to try and guess the word." << endl;
         cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
         while (numOfWrongGuesses < maxTries)
@@ -1174,7 +1174,7 @@ void ClassUI::hangman()
             if (word == unknown)
             {
                 cout << word << endl;
-                cout << "Well done! you got it right!" << endl;
+                cout << "Well done, you WIN!" << endl;
                 cout << "Press Enter to continue" << endl;
                 break;
             }

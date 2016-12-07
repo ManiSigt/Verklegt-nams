@@ -14,21 +14,21 @@ class ListWorker
 public:
     ListWorker();
 
-    void addNewPerson(string name, char gender, int yearOfBirth, int yearOFDeath, string comment); //Adds a person to the vector persons and adds them to the database.
+    void addNewScientist(string name, char gender, int yearOfBirth, int yearOFDeath, string comment); //Adds a person to the vector persons and adds them to the database.
     void addNewComputer(string name, string type, int yearbuilt, string isbuilt); //Adds a computer to the vector that holds the list of computers and then adds it to the database.
     void addNewConnection(int linkId, int compId, int sciId);
-    bool ageSearcher(int age);                  // Searches for a specific age within the vector using a for-loop.
-    bool builtDateSearcher(int year);           // Searches for a specific date within the vector using a for-loop
-    bool genderSearcher(char gender);           // Searches for a specific gender within the vector using a for-loop.
-    bool nameSearcher(string name);             // Searches for a specific name within the vector using a for-loop.
-    bool removePerson(string name);             // Remove person from the vector.
-    bool removePersonFound(string name);        // Check if person to remove is found or not.
-    bool removeComputer(string name);                    // Remove computer from the vector.
-    bool removeComputerFound(string name);               // Check if computer to remove is found or not.
-    void sortScientistBirth();                           // Calls the function sortBirth from the datalayer class.
-    void sortScientistNames();                           // Calls the function sortNames from the datalayer class.
-    void sortScientistGender();                          // Calls the function sortGender from the datalayer class.
-    void sortScientistAge();                             // Calls the function sortAge from the datalayer class.
+    bool ageSearcher(int age);                          // Searches for a specific age within the vector using a for-loop.
+    bool builtDateSearcher(int year);                   // Searches for a specific date within the vector using a for-loop
+    bool genderSearcher(char gender);                   // Searches for a specific gender within the vector using a for-loop.
+    bool nameSearcher(string name);                     // Searches for a specific name within the vector using a for-loop.
+    bool removePerson(string name);                     // Remove person from the vector.
+    bool removePersonFound(string name);                // Check if person to remove is found or not.
+    bool removeComputer(string name);                   // Remove computer from the vector.
+    bool removeComputerFound(string name);              // Check if computer to remove is found or not.
+    void sortScientistBirth();                          // Calls the function sortBirth from the datalayer class.
+    void sortScientistNames();                          // Calls the function sortNames from the datalayer class.
+    void sortScientistGender();                         // Calls the function sortGender from the datalayer class.
+    void sortScientistAge();                            // Calls the function sortAge from the datalayer class.
     void sortComputerName();
     void sortComputerDate();
     void sortComputerType();
@@ -38,82 +38,82 @@ public:
     bool computerNameSearcher(string name);
     int scientistIdFinder();
     bool typeSearcher(string type);
-    bool yearSearcher(int year);                // Searches for a specific year within the vector using a for loop.
-    int editPersonFinder(string name);          // Edit a scientist.
-    string getScientistName(int n) const                 // Make _name from persons available.
+    bool yearSearcher(int year);                       // Searches for a specific year within the vector using a for loop.
+    int editPersonFinder(string name);                 // Edit a scientist.
+    string getScientistName(int n) const               // Make _name from persons available.
     {
         return persons[n].getScientistName();
     }
-    string getComputerName(int n) const                 // Make _name from the vector com available.
+    string getComputerName(int n) const                // Make name from the vector com available.
     {
         return com[n].getComputerName();
     }
-    char getScientistGender(int n) const                 // Make _gender from the vector persons available.
+    char getScientistGender(int n) const               // Make gender from the vector persons available.
     {
         return persons[n].getScientistGender();
     }
-    int getScientistBirth(int n) const                   // Make _yearOfBirth from the vector persons available.
+    int getScientistBirth(int n) const                 // Make yearOfBirth from the vector persons available.
     {
         return persons[n].getScientistBirth();
     }
-    int getScientistDeath(int n) const                   // Make _yearOfDeath from the vector persons available.
+    int getScientistDeath(int n) const                 // Make yearOfDeath from the vector persons available.
     {
         return persons[n].getScientistDeath();
     }
-    int getComputerDate(int n) const                   //Make _getDate from the vector com available.
+    int getComputerDate(int n) const                   // Make getDate from the vector com available.
     {
         return com[n].getComputerDate();
     }
-    int getComputerId(int n) const                   //Make _getDate from the vector com available.
+    int getComputerId(int n) const                      // Make getDate from the vector com available.
     {
         return com[n].getComputerId();
     }
-    string getScientistComment(int n) const              // Make _comment from the vector persons available.
+    string getScientistComment(int n) const             // Make comment from the vector persons available.
     {
         return persons[n].getScientistComment();
     }
-    string getComputerType(int n) const                // Make _type from the vector com available.
+    string getComputerType(int n) const                 // Make type from the vector com available.
     {
         return com[n].getComputerType();
     }
-    string getComputerWasItBuilt(int n) const                   //Make _wasItBuilt from the vector com available
+    string getComputerWasItBuilt(int n) const           // Make wasItBuilt from the vector com available.
     {
         return com[n].getComputerWasItBuilt();
     }
-    int getScientistAge(int n) const                       // Make _getScientistAge from the vector persons available
+    int getScientistAge(int n) const                    // Make getScientistAge from the vector persons available.
     {
         return persons[n].getScientistAge();
     }
-    int getScientistId(int n) const                         // Make _getScientistId from the vector persons available
+    int getScientistId(int n) const                     // Make getScientistId from the vector persons available.
     {
         return persons[n].getScientistId();
     }
-    int getLinkId(int n) const
+    int getLinkId(int n) const                          // Make _id from vector link available.
     {
         return link[n].getId();
     }
-    int getLinkCompId(int n) const
+    int getLinkCompId(int n) const                      // Make _compId from vector link available.
     {
         return link[n].getComId();
     }
-    int getLinkSciId(int n) const
+    int getLinkSciId(int n) const                       // Make _sciId from vector link available.
     {
         return link[n].getSciId();
     }
-    string getComputerNameFromId(int n) const;
-    string getScientistNameFromId(int n) const;
-    int getLinkSize() const
+    string getComputerNameFromId(int n) const;          // Get computer name from compId
+    string getScientistNameFromId(int n) const;         // Get scientist name from sciId
+    int getLinkSize() const                             // Returns size of vector link
     {
         return link.size();
     }
-    int getScientistNameSize(int n) const;                 // Returns the size of _name from persons.
+    int getScientistNameSize(int n) const;              // Returns the size of _name from persons.
     int getComputerNameSize(int n) const;               // Returns the size of _name from Computer.
     int personsSize() const                             // Returns the size of vector persons.
     {
         return persons.size();
     }
 
-    int computerSize() const                             // Returns the size of vector Computer.
+    int computerSize() const                            // Returns the size of vector Computer.
     {
         return com.size();
     }
@@ -122,9 +122,9 @@ public:
 
 private:
     DataLayer data;
-    vector<Person> persons;                              // The vector containing all persons from the database.
-    vector<Computer> com;
-    vector<Linker> link;
+    vector<Person> persons;                             // The vector containing all persons from the database.
+    vector<Computer> com;                               // The vector containing all computers from the database.
+    vector<Linker> link;                                // The vector containing all connections from the database.
 };
 
 #endif // LISTWORKER_H

@@ -122,10 +122,8 @@ void DataLayer::readComputersFromDatabase(vector<Computer>& com)
 
    }
 }
-bool DataLayer::addScientist(string name, char gender, int yearOfBirth, int yearOfDeath, string comment, int vsize)
+void DataLayer::addScientist(string name, char gender, int yearOfBirth, int yearOfDeath, string comment, int vsize)
 {
-    bool success = false;
-
     QString qname = QString::fromStdString(name);
     QString qcomment = QString::fromStdString(comment);
     QString qgender = QChar(gender);
@@ -142,22 +140,11 @@ bool DataLayer::addScientist(string name, char gender, int yearOfBirth, int year
             queryAdd.bindValue(":yearofdeath", yearOfDeath);
         }
         queryAdd.bindValue(":comment", qcomment);
-        if(queryAdd.exec())
-        {
-            success = true;
-        }
-        else
-        {
-            qDebug() << "add person failed: " << queryAdd.lastError();
-        }
-
-    return success;
+        queryAdd.exec();
 }
 
-bool DataLayer::addComputer(string name, string type, int yearbuilt, string isbuilt, int vsize)
+void DataLayer::addComputer(string name, string type, int yearbuilt, string isbuilt, int vsize)
 {
-    bool success = false;
-
     QString qname = QString::fromStdString(name);
     QString qtype = QString::fromStdString(type);
     QString qisbuilt = QString::fromStdString(isbuilt);
@@ -171,22 +158,12 @@ bool DataLayer::addComputer(string name, string type, int yearbuilt, string isbu
         queryAdd.bindValue(":yearbuilt", yearbuilt);
         queryAdd.bindValue(":type", qtype);
 
-        if(queryAdd.exec())
-        {
-            success = true;
-        }
-        else
-        {
-            qDebug() << "add computer failed: " << queryAdd.lastError();
-        }
+        queryAdd.exec();
 
-    return success;
 }
 
-bool DataLayer::addConnection(int linkId, int sciId, int compId)
+void DataLayer::addConnection(int linkId, int sciId, int compId)
 {
-    bool success = false;
-
         QSqlQuery queryAdd;
         queryAdd.prepare("INSERT INTO CompAndSci (ID, ComputerID, ScientistID) VALUES (:id, :compId, :sciId)");
 
@@ -194,69 +171,38 @@ bool DataLayer::addConnection(int linkId, int sciId, int compId)
         queryAdd.bindValue(":compId", compId);
         queryAdd.bindValue(":sciId", sciId);
 
-        if(queryAdd.exec())
-        {
-            success = true;
-        }
-        else
-        {
-            qDebug() << "add computer failed: " << queryAdd.lastError();
-        }
+        queryAdd.exec();
 
-    return success;
 }
 void DataLayer::removeComputer(string name)
 {
-    bool success = false;
+
     QString qname = QString::fromStdString(name);
     QSqlQuery queryRemove;
     queryRemove.prepare("DELETE FROM Computers Where Name=:name");
     queryRemove.bindValue(":name", qname);
 
-            if(queryRemove.exec())
-            {
-                success = true;
-            }
-            else
-            {
-                qDebug() << "Remove computer failed: " << queryRemove.lastError();
-            }
+    queryRemove.exec();
+
 }
 void DataLayer::removeConnection(int id)
 {
-    bool success = false;
-
     QSqlQuery queryRemove;
     queryRemove.prepare("DELETE FROM CompAndSci Where ID=:id");
     queryRemove.bindValue(":id", id);
 
-            if(queryRemove.exec())
-            {
-                success = true;
-            }
-            else
-            {
-                qDebug() << "Remove computer failed: " << queryRemove.lastError();
-            }
+    queryRemove.exec();
+
 }
 void DataLayer::removeScientist(string name)
 {
-    {
-        bool success = false;
-        QString qname = QString::fromStdString(name);
-        QSqlQuery queryRemove;
-        queryRemove.prepare("DELETE FROM Scientist Where Name=:name");
-        queryRemove.bindValue(":name", qname);
+    QString qname = QString::fromStdString(name);
+    QSqlQuery queryRemove;
+    queryRemove.prepare("DELETE FROM Scientist Where Name=:name");
+    queryRemove.bindValue(":name", qname);
 
-                if(queryRemove.exec())
-                {
-                    success = true;
-                }
-                else
-                {
-                    qDebug() << "Remove person failed: " << queryRemove.lastError();
-                }
-    }
+    queryRemove.exec();
+
 }
 
 void DataLayer::readLinksFromDatabase(vector<Linker>& link)
@@ -265,7 +211,6 @@ void DataLayer::readLinksFromDatabase(vector<Linker>& link)
 
     QSqlQuery query(db);
     query.exec("SELECT * FROM CompAndSci");
-
 
     while(query.next())
     {
