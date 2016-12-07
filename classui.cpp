@@ -1087,14 +1087,14 @@ void ClassUI::hangman()
                 }
                 else if (num_of_wrong_guesses == 5)
                 {
-                    cout << "  _______" << endl;
+                   cout << "  _______" << endl;
                    cout << " |/      |" << endl;
                    cout << " |      (_)" << endl;
                    cout << " |      \\|/" << endl;
                    cout << " |       |" << endl;
                    cout << " |      / \\ " << endl;
                    cout << " |" << endl;
-                  cout << "_|___" << endl;
+                   cout << "_|___" << endl;
                 }
             }
             else

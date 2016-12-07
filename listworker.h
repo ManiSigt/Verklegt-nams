@@ -116,6 +116,7 @@ public:
     {
         return com.size();
     }
+    void removeConnection(int s, int c);
     void saveFile();                                    // Deletes the file and makes a new one, and reads the vector into the new file.
 
 private:

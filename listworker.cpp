@@ -71,12 +71,43 @@ bool ListWorker::removePerson(string name)
         if(name == persons[i]._getNamePerson())
         {
             persons.erase(persons.begin() + i);
+            removeConnection(i,0);
             data.removeScientist(name);
             return true;
         }
     }
     return false;
 }
+void ListWorker::removeConnection(int s, int c)
+{
+    if(c == 0)
+    {
+        int removeId = getPersonId(s);
+        for(int i = 0; i < getLinkSize()+2; i++)
+        {
+            if(removeId == getLinkSciId(i))
+            {
+                int linkId = getLinkId(i);
+                link.erase(link.begin() + i);
+                data.removeConnection(linkId);
+            }
+        }
+    }
+    else
+    {
+        int removeId = getIdComputer(c);
+        for(int i = 0; i < getLinkSize()+2; i++)
+        {
+            if(removeId == getLinkCompId(i))
+            {
+                int linkId = getLinkId(i);
+                link.erase(link.begin() + i);
+                data.removeConnection(linkId);
+            }
+        }
+    }
+}
+
 bool ListWorker::removePersonFound(string name)
 {
     for(size_t i = 0; i < persons.size(); ++i)
@@ -96,6 +127,7 @@ bool ListWorker::removeComputer(string name)
         {
 
             com.erase(com.begin() + i);
+            removeConnection(0,i);
             data.removeComputer(name);
             return true;
         }
@@ -243,7 +275,7 @@ int ListWorker::scientistIdFinder()
         }
         else
         {
-            idValue = i + 1;
+            idValue = i;
         }
     }
     return idValue;
