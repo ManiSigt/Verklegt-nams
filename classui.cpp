@@ -7,7 +7,7 @@
 #include <time.h>
 
 using namespace std;
-const int MAX_TRIES = 5;
+const int maxTries = 5;
 ClassUI::ClassUI()
 {
 
@@ -259,7 +259,6 @@ void ClassUI::viewCom()
         viewComputers(i);
     }
 }
-
 void ClassUI::addPerson()
 {
     string name;
@@ -272,6 +271,11 @@ void ClassUI::addPerson()
     cout << "--------------------------------------------------------------" << endl;
     cout << "Enter name of the scientist: ";
     std::getline(std::cin,name);
+    if(name == "")
+    {
+        cout << "Invalid name! Try again." << endl;
+        return mainMenu();
+    }
     cout << "Enter a gender (M/F): ";
     cin >> gender;
 
@@ -307,7 +311,7 @@ void ClassUI::addPerson()
             }
        }
 
-       cout << "Enter a comment about the scientist: ";
+       cout << "Enter a comment about the scientist(optional): ";
        cin.ignore();
        std::getline(std::cin,comment);
     }
@@ -393,7 +397,7 @@ void ClassUI::addConnection()
     {
      cout << list.getScientistId(i) << " - " << list.getScientistName(i) << endl;
     }
-    cout << "Enter id of the Scientist to connect: ";
+    cout << "Enter the number in front of the scientist you wish to connect: ";
     cin >> sciId;
 
     //checking for valid input
@@ -417,7 +421,7 @@ void ClassUI::addConnection()
     {
      cout << list.getComputerId(i) << " - " << list.getComputerName(i) << endl;
     }
-    cout << "Enter id of the Computer: ";
+    cout << "Enter the number in front of the computer you wish to connect: ";
     cin.ignore();
     cin >> compId;
 
@@ -466,8 +470,8 @@ void ClassUI::selectSearch()
     string searchChoice;
     cout << "-------------Select any of the following commands-------------" << endl;
     cout << "What do you want to search for?" << endl;
-    cout << " (1) - Search for a Scientist." << endl;
-    cout << " (2) - Search for a Computer." << endl;
+    cout << " (1) - Search for a scientist." << endl;
+    cout << " (2) - Search for a computer." << endl;
     cout << " (3) - Return to main menu." << endl;
     cout << "Enter your command (1 - 3): ";
     cin >> searchChoice;
@@ -796,6 +800,7 @@ void ClassUI::removeComputer()
 }
 void ClassUI::yo()
 {
+    clearTheScreen();
     cout << "--------------------------------------------------------------" << endl;
     cout << endl;
     cout << "`8.`8888.      ,8'     ,o888888o.     " << endl;
@@ -921,6 +926,12 @@ void ClassUI::viewMenu()
         findScientistConnections();
         mainMenu();
     }
+    else if(viewBy == "4")
+    {
+        clearTheScreen();
+        mainMenu();
+
+    }
     else
     {
         cout << "That is not a valid command! Try again." << endl;
@@ -987,7 +998,7 @@ void ClassUI::findScientistConnections()
     }
 }
 
-void ClassUI::clearTheScreen() //A function that we wanted to use but had platform issues following it's use.
+void ClassUI::clearTheScreen()
 {
     system("cls||clear");
     return;
@@ -1013,15 +1024,16 @@ void ClassUI::editComputer()
 
 void ClassUI::hangman()
 {
-
+    clearTheScreen();
     string name;
     char letter;
-    int num_of_wrong_guesses = 0;
+    int numOfWrongGuesses = 0;
     string word;
 
     srand(time(NULL));
 
-    cout << endl <<"Welcome to hangman!!" << endl;
+    cout <<"     Welcome to hangman!!" << endl;
+    cout << "***~~~~~~~~~~~~~~~~~~~~~~***" << endl;
     string level;
     cout << "Choose a LEVEL" << endl;
     cout << " (1) - Easy" << endl;
@@ -1041,34 +1053,34 @@ void ClassUI::hangman()
 
         cout << "Each letter is represented by an asterisk." << endl;
         cout << "You have to type only one letter in one try." << endl;
-        cout << "You have " << MAX_TRIES << " tries to try and guess the word." << endl;
+        cout << "You have " << maxTries << " tries to try and guess the word." << endl;
         cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
-        while (num_of_wrong_guesses < MAX_TRIES)
+        while (numOfWrongGuesses < maxTries)
         {
             cout << unknown << endl;
             cout << "Guess a letter: ";
             cin >> letter;
-            if (letterFill(letter, word, unknown) == 0)
+            if (fillIn(letter, word, unknown) == 0)
             {
-                cout << endl << "Whoops! That letter isn't in there!" << endl;
-                num_of_wrong_guesses++;
-                hangmanPicture(num_of_wrong_guesses);
+                cout << endl << "That letter isn't in there!" << endl;
+                numOfWrongGuesses++;
+                hangmanPicture(numOfWrongGuesses);
             }
             else
             {
-                cout << endl << "You found a letter! Isn't that exciting?" << endl;
+                cout << endl << "You found a letter!" << endl;
             }
-            cout << "You have " << MAX_TRIES - num_of_wrong_guesses;
+            cout << "You have " << maxTries - numOfWrongGuesses;
             cout << " guesses left." << endl;
             if (word == unknown)
             {
                 cout << word << endl;
-                cout << "Yeah! You got it!" << endl;
+                cout << "Well done! you got it right!" << endl;
                 cout << "Press Enter to continue" << endl;
                 break;
             }
         }
-        if (num_of_wrong_guesses == MAX_TRIES)
+        if (numOfWrongGuesses == maxTries)
         {
             cout << "Sorry, you lose...you've been hanged." << endl;
             cout << "The word was : " << word << endl;
@@ -1089,34 +1101,34 @@ void ClassUI::hangman()
         string unknown(word.length(), '*');
         cout << "Each letter is represented by an asterisk." << endl;
         cout << "You have to type only one letter in one try." << endl;
-        cout << "You have " << MAX_TRIES << " tries to try and guess the word." << endl;
+        cout << "You have " << maxTries << " tries to try and guess the word." << endl;
         cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
-        while (num_of_wrong_guesses < MAX_TRIES)
+        while (numOfWrongGuesses < maxTries)
         {
             cout << unknown << endl;
             cout << "Guess a letter: " << endl;
             cin >> letter;
-            if (letterFill(letter, word, unknown) == 0)
+            if (fillIn(letter, word, unknown) == 0)
             {
-                cout << endl << "Whoops! That letter isn't in there!" << endl;
-                num_of_wrong_guesses++;
-                hangmanPicture(num_of_wrong_guesses);
+                cout << endl << "That letter isn't in there!" << endl;
+                numOfWrongGuesses++;
+                hangmanPicture(numOfWrongGuesses);
             }
             else
             {
-                cout << endl << "You found a letter! Isn't that exciting?" << endl;
+                cout << endl << "You found a letter!" << endl;
             }
-            cout << "You have " << MAX_TRIES - num_of_wrong_guesses;
+            cout << "You have " << maxTries - numOfWrongGuesses;
             cout << " guesses left." << endl;
             if (word == unknown)
             {
                 cout << word << endl;
-                cout << "Yeah! You got it!";
+                cout << "Well done! you got it right!";
                 cout << "Press Enter to continue" << endl;
                 break;
             }
         }
-        if (num_of_wrong_guesses == MAX_TRIES)
+        if (numOfWrongGuesses == maxTries)
         {
             cout << "Sorry, you lose...you've been hanged." << endl;
             cout << "The word was : " << word << endl;
@@ -1137,34 +1149,34 @@ void ClassUI::hangman()
         string unknown(word.length(), '*');
         cout << "Each letter is represented by an asterisk." << endl;
         cout << "You have to type only one letter in one try." << endl;
-        cout << "You have " << MAX_TRIES << " tries to try and guess the word." << endl;
+        cout << "You have " << maxTries << " tries to try and guess the word." << endl;
         cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
-        while (num_of_wrong_guesses < MAX_TRIES)
+        while (numOfWrongGuesses < maxTries)
         {
             cout  << unknown << endl;
             cout << "Guess a letter: " << endl;
             cin >> letter;
-            if (letterFill(letter, word, unknown) == 0)
+            if (fillIn(letter, word, unknown) == 0)
             {
-                cout << endl << "Whoops! That letter isn't in there!" << endl;
-                num_of_wrong_guesses++;
-                hangmanPicture(num_of_wrong_guesses);
+                cout << endl << "That letter isn't in there!" << endl;
+                numOfWrongGuesses++;
+                hangmanPicture(numOfWrongGuesses);
             }
             else
             {
-                cout << endl << "You found a letter! Isn't that exciting?" << endl;
+                cout << endl << "You found a letter!" << endl;
             }
-            cout << "You have " << MAX_TRIES - num_of_wrong_guesses;
+            cout << "You have " << maxTries - numOfWrongGuesses;
             cout << " guesses left." << endl;
             if (word == unknown)
             {
                 cout << word << endl;
-                cout << "Yeah! You got it!" << endl;
+                cout << "Well done! you got it right!" << endl;
                 cout << "Press Enter to continue" << endl;
                 break;
             }
         }
-        if (num_of_wrong_guesses == MAX_TRIES)
+        if (numOfWrongGuesses == maxTries)
         {
             cout << "Sorry, you lose...you've been hanged." << endl;
             cout << "The word was : " << word << endl;
@@ -1180,7 +1192,7 @@ void ClassUI::hangman()
         mainMenu();
     }
 }
-int ClassUI::letterFill(char guess, string secretword, string &guessword)
+int ClassUI::fillIn(char guess, string secretword, string &guessword)
 {
     int i;
     int matches = 0;
@@ -1199,13 +1211,13 @@ int ClassUI::letterFill(char guess, string secretword, string &guessword)
     }
     return matches;
 }
-void ClassUI::hangmanPicture(int wrong_guess)
+void ClassUI::hangmanPicture(int wrongGuess)
 {
-    if (wrong_guess == 1)
+    if (wrongGuess == 1)
     {
       cout << "_ ___" << endl;
     }
-    else if (wrong_guess == 2)
+    else if (wrongGuess == 2)
     {
         cout << " |" << endl;
         cout << " |" << endl;
@@ -1215,7 +1227,7 @@ void ClassUI::hangmanPicture(int wrong_guess)
         cout << " |" << endl;
         cout << "_|___" << endl;
     }
-    else if (wrong_guess == 3)
+    else if (wrongGuess == 3)
     {
         cout << " ________" << endl;
         cout << " |" << endl;
@@ -1226,7 +1238,7 @@ void ClassUI::hangmanPicture(int wrong_guess)
         cout << " |" << endl;
         cout << "_|___" << endl;
     }
-    else if (wrong_guess == 4)
+    else if (wrongGuess == 4)
     {
         cout << " ________" << endl;
         cout << " |/" << endl;
@@ -1237,7 +1249,7 @@ void ClassUI::hangmanPicture(int wrong_guess)
         cout << " |" << endl;
         cout << "_|___" << endl;
     }
-    else if (wrong_guess == 5)
+    else if (wrongGuess == 5)
     {
         cout << "  _______" << endl;
        cout << " |/      |" << endl;
