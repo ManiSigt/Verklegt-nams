@@ -24,7 +24,7 @@ public:
     void yo();                  // Secret phase
     void viewMenu();
     void editPerson();          // Edit a scientist that already exists.
-    //void clearTheScreen();    // Function to clear the screen.
+    void clearTheScreen();    // Function to clear the screen.
     void findComputerConnections(int i);
     void editComputer();
 private:
