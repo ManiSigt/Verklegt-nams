@@ -30,7 +30,7 @@ void ClassUI::mainMenu()
         cout << " (2) - "  << "Remove a from the database." << endl;
         cout << " (3) - "  << "View." << endl;
         cout << " (4) - "  << "Search." << endl;
-        cout << " (5) - "  << "Edit a scientist." << endl;
+        cout << " (5) - "  << "Edit database." << endl;
         cout << " (6) - "  << "Play hangman." << endl;
         cout << " (7) - "  << "Exit." << endl;
         cout << "Enter your command (1 - 7): ";
