@@ -26,8 +26,8 @@ public:
     void sortScientistAge(vector<Person>& getPersons);                                              // Sorts the vector by age.
     void deleteFile();                                                                              // Delete the file amazingDataBase.txt.
     int stringToNumber(string st);                                                                  // Convert a string to a int.
-    void removeComputer(int i);
-    void removeScientist(int i);
+    void removeComputer(string name);
+    void removeScientist(string name);
     void readLinksFromDatabase(vector<Linker>& link);
     void readScientistsFromDatabase(vector<Person>& sci);
     void readComputersFromDatabase(vector<Computer>& com);

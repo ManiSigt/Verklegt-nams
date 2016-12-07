@@ -182,12 +182,13 @@ bool DataLayer::addComputer(string name, string type, int yearbuilt, string isbu
 
     return success;
 }
-void DataLayer::removeComputer(int i)
+void DataLayer::removeComputer(string name)
 {
     bool success = false;
+     QString qname = QString::fromStdString(name);
     QSqlQuery queryRemove;
-    queryRemove.prepare("DELETE FROM Computers Where ID=:id");
-    queryRemove.bindValue(":id", i+1);
+    queryRemove.prepare("DELETE FROM Computers Where Name=:name");
+    queryRemove.bindValue(":name", qname);
 
             if(queryRemove.exec())
             {
@@ -198,13 +199,14 @@ void DataLayer::removeComputer(int i)
                 qDebug() << "Remove computer failed: " << queryRemove.lastError();
             }
 }
-void DataLayer::removeScientist(int i)
+void DataLayer::removeScientist(string name)
 {
     {
         bool success = false;
+        QString qname = QString::fromStdString(name);
         QSqlQuery queryRemove;
-        queryRemove.prepare("DELETE FROM Scientist Where ID=:id");
-        queryRemove.bindValue(":id", i+1);
+        queryRemove.prepare("DELETE FROM Scientist Where Name=:name");
+        queryRemove.bindValue(":name", qname);
 
                 if(queryRemove.exec())
                 {

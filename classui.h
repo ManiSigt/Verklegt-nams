@@ -26,6 +26,7 @@ public:
     void editPerson();          // Edit a scientist that already exists.
     //void clearTheScreen();    // Function to clear the screen.
     void findComputerConnections(int i);
+    void editComputer();
 private:
     bool runOn = true;
     ListWorker list;
