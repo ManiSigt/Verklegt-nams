@@ -7,7 +7,7 @@
 #include <time.h>
 
 using namespace std;
-const int maxTries = 5;
+const int maxTries = 5; // A number for hangman, used for how many tries you got left.
 ClassUI::ClassUI()
 {
 
@@ -574,20 +574,20 @@ void ClassUI::searchComputer()
     }
     else if (searchChoice == "3")
     {
-            int yearsearch;
+            int yearSearch;
             cout << "Enter a year you want to search for: ";
-            cin >> yearsearch;
+            cin >> yearSearch;
 
             for(int i = 0; i < list.computerSize(); i++)
             {
-                if(yearsearch == list.getComputerDate(i))
+                if(yearSearch == list.getComputerDate(i))
                 {
-                    yearsearch = list.getComputerDate(i);
+                    yearSearch = list.getComputerDate(i);
                     viewComputer(i);
                 }
             }
 
-            if(list.builtDateSearcher(yearsearch) == false)
+            if(list.builtDateSearcher(yearSearch) == false)
             {
                 cout << "Sorry that year is not in our database, but you can add a new scientist in the 'Add section' in the main menu." << endl;
                 cout << endl;
@@ -669,20 +669,20 @@ void ClassUI::searchScientist()
     }
     else if (searchChoice == "3")
     {
-            int yearsearch;
+            int yearSearch;
             cout << "Enter a year you want to search for: ";
-            cin >> yearsearch;
+            cin >> yearSearch;
 
             for(int i = 0; i < list.personsSize();++i)
             {
-                if(yearsearch == list.getScientistBirth(i))
+                if(yearSearch == list.getScientistBirth(i))
                 {
-                    yearsearch = list.getScientistBirth(i);
+                    yearSearch = list.getScientistBirth(i);
                     viewScientist(i);
                 }
             }
 
-            if(list.yearSearcher(yearsearch) == false)
+            if(list.yearSearcher(yearSearch) == false)
             {
                 cout << "Sorry that year is not in our database, but you can add a new scientist in the 'Add section' in the main menu." << endl;
                 cout << endl;
