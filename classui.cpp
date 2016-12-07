@@ -259,7 +259,6 @@ void ClassUI::viewCom()
         viewComputers(i);
     }
 }
-
 void ClassUI::addPerson()
 {
     string name;
@@ -272,6 +271,11 @@ void ClassUI::addPerson()
     cout << "--------------------------------------------------------------" << endl;
     cout << "Enter name of the scientist: ";
     std::getline(std::cin,name);
+    if(name == "")
+    {
+        cout << "Invalid name! Try again." << endl;
+        return mainMenu();
+    }
     cout << "Enter a gender (M/F): ";
     cin >> gender;
 
@@ -307,7 +311,7 @@ void ClassUI::addPerson()
             }
        }
 
-       cout << "Enter a comment about the scientist: ";
+       cout << "Enter a comment about the scientist(optional): ";
        cin.ignore();
        std::getline(std::cin,comment);
     }
@@ -393,7 +397,7 @@ void ClassUI::addConnection()
     {
      cout << list.getPersonId(i) << " - " << list.getNamePerson(i) << endl;
     }
-    cout << "Enter id of the Scientist to connect: ";
+    cout << "Enter the number in front of the scientist you wish to connect: ";
     cin >> sciId;
 
     //checking for valid input
@@ -417,7 +421,7 @@ void ClassUI::addConnection()
     {
      cout << list.getIdComputer(i) << " - " << list.getNameComputer(i) << endl;
     }
-    cout << "Enter id of the Computer: ";
+    cout << "Enter the number in front of the computer you wish to connect: ";
     cin.ignore();
     cin >> compId;
 
@@ -466,8 +470,8 @@ void ClassUI::selectSearch()
     string searchChoice;
     cout << "-------------Select any of the following commands-------------" << endl;
     cout << "What do you want to search for?" << endl;
-    cout << " (1) - Search for a Scientist." << endl;
-    cout << " (2) - Search for a Computer." << endl;
+    cout << " (1) - Search for a scientist." << endl;
+    cout << " (2) - Search for a computer." << endl;
     cout << " (3) - Return to main menu." << endl;
     cout << "Enter your command (1 - 3): ";
     cin >> searchChoice;
@@ -921,6 +925,12 @@ void ClassUI::viewMenu()
     {
         findScientistConnections();
         mainMenu();
+    }
+    else if(viewBy == "4")
+    {
+        clearTheScreen();
+        mainMenu();
+
     }
     else
     {
