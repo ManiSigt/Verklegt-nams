@@ -87,6 +87,10 @@ void ClassUI::select(string ch)
             select("1");
         }
     }
+    else if(ch == "arnar")
+    {
+        removeConnection();
+    }
     else if(ch == "2")
     {
         string choice;
@@ -449,7 +453,6 @@ void ClassUI::addConnection()
             linkId = i;
         }
     }
-   // cout << linkId << endl;
 
     cout << "Are you sure that you want to add this connection? (y/n) ";
             string validate;
@@ -702,7 +705,7 @@ void ClassUI::searchScientist()
         if(list.ageSearcher(ageSearch) == false)
         {
             cout << "Sorry that age is not in our database, but you can add a new scientist in the 'Add section' in the main menu." << endl;
-            return searchScientist();
+            searchScientist();
         }
     }
     else if (searchChoice == "5")
@@ -1240,4 +1243,37 @@ void ClassUI::hangmanPicture(int wrong_guess)
        cout << " |" << endl;
       cout << "_|___" << endl;
     }
+}
+void ClassUI::removeConnection()
+{
+    string removeScientistConnection;
+    string removeComputerConnection;
+    findScientistConnections();
+    cout << "Here you can remove a connection between a Scientist and a Computer" << endl;
+    cout << "Enter the name of the Scientist: ";
+    cin.ignore();
+    std::getline(std::cin,removeScientistConnection);
+    cout << "Enter the name of the Computer: ";
+    std::getline(std::cin,removeComputerConnection);
+
+    if(list.removePersonFound(removeScientistConnection) == true && list.removeComputerFound(removeComputerConnection))
+    {
+        char validateRemove;
+
+        cout << "Are you sure you want to remove this connection? (y/n): ";
+        cin >> validateRemove;
+        if(validateRemove == 'y' || validateRemove == 'Y')
+        {
+              list.removeConnection(removeScientistConnection, removeComputerConnection);
+              cout << "Connection removed!" << endl;
+              return mainMenu();
+        }
+        else
+        {
+            cout << "Connection not removed!" << endl;
+            return mainMenu();
+        }
+
+    }
+    cout << "Connection not found!" << endl;
 }

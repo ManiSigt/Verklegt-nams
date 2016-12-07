@@ -27,6 +27,7 @@ public:
     void clearTheScreen();       // Function to clear the screen.
     void findComputerConnections(int i);
     void findScientistConnections();
+    void removeConnection();
     void addConnection();
     void editComputer();
     void hangman();

@@ -279,3 +279,7 @@ string ListWorker::getScientistNameFromId(int n) const
     }
     return name;
 }
+void ListWorker::removeConnection(string scientist, string computer)
+{
+
+}

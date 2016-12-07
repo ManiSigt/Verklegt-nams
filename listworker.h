@@ -33,6 +33,7 @@ public:
     void sortComputerDate();
     void sortComputerType();
     void refreshVector();
+    void removeConnection(string scientist, string computer);
     int computerIdFinder();
     bool computerNameSearcher(string name);
     int scientistIdFinder();
