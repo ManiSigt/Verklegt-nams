@@ -30,7 +30,7 @@ void ClassUI::mainMenu()
         cout << " (2) - "  << "Remove a from the database." << endl;
         cout << " (3) - "  << "View." << endl;
         cout << " (4) - "  << "Search." << endl;
-        cout << " (5) - "  << "Edit a scientist." << endl;
+        cout << " (5) - "  << "Edit database." << endl;
         cout << " (6) - "  << "Play hangman." << endl;
         cout << " (7) - "  << "Exit." << endl;
         cout << "Enter your command (1 - 7): ";
@@ -450,7 +450,7 @@ void ClassUI::addConnection()
             linkId = i;
         }
     }
-    cout << linkId << endl;
+   // cout << linkId << endl;
 
     cout << "Are you sure that you want to add this connection? (y/n) ";
             string validate;
@@ -1050,7 +1050,9 @@ void ClassUI::hangman()
             {
                 cout << endl << "Whoops! That letter isn't in there!" << endl;
                 num_of_wrong_guesses++;
+
                 hangmanPicture(num_of_wrong_guesses);
+
             }
             else
             {

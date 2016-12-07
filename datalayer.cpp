@@ -222,6 +222,23 @@ void DataLayer::removeComputer(string name)
                 qDebug() << "Remove computer failed: " << queryRemove.lastError();
             }
 }
+void DataLayer::removeConnection(int id)
+{
+    bool success = false;
+
+    QSqlQuery queryRemove;
+    queryRemove.prepare("DELETE FROM CompAndSci Where ID=:id");
+    queryRemove.bindValue(":id", id);
+
+            if(queryRemove.exec())
+            {
+                success = true;
+            }
+            else
+            {
+                qDebug() << "Remove computer failed: " << queryRemove.lastError();
+            }
+}
 void DataLayer::removeScientist(string name)
 {
     {
