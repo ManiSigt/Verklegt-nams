@@ -1020,12 +1020,13 @@ void ClassUI::hangman()
 
     srand(time(NULL));
 
-    cout << "Welcome to hangman!!" << endl;
+    cout << endl <<"Welcome to hangman!!" << endl;
     string level;
     cout << "Choose a LEVEL" << endl;
     cout << " (1) - Easy" << endl;
     cout << " (2) - Avarage" << endl;
     cout << " (3) - Hard" << endl;
+    cout << " (4) - Return to main menu." << endl;
     cin >> level;
 
     if (level == "1")
@@ -1050,9 +1051,7 @@ void ClassUI::hangman()
             {
                 cout << endl << "Whoops! That letter isn't in there!" << endl;
                 num_of_wrong_guesses++;
-
                 hangmanPicture(num_of_wrong_guesses);
-
             }
             else
             {
@@ -1172,6 +1171,11 @@ void ClassUI::hangman()
         }
         cin.ignore();
         cin.get();
+        mainMenu();
+    }
+    else if (level == "4")
+    {
+        clearTheScreen();
         mainMenu();
     }
 }
