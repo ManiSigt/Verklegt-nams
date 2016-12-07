@@ -998,14 +998,17 @@ void ClassUI::hangman()
 
     srand(time(NULL));
 
-    cout << "Welcome to hangman!! Guess a country that comes into your mind." << endl;
+    cout << "Welcome to hangman!! Guess a scientist that comes into your mind." << endl;
     string level;
-    cout << "Choose a LEVEL(E - Easy, A - Average, H - Hard):" << endl;
+    cout << "Choose a LEVEL" << endl;
+    cout << " (1) - Easy" << endl;
+    cout << " (2) - Avarage" << endl;
+    cout << " (3) - Hard" << endl;
     cin >> level;
 
-    if (level == "Easy")
+    if (level == "1")
     {
-        string easy[] = { "india", "japan", "nepal", "china" };
+        string easy[] = { "steve jobs", "alan turing", "ada lovelave", "linus torvalds" };
         string word;
 
         int n = rand() % 4;
@@ -1013,7 +1016,7 @@ void ClassUI::hangman()
         string unknown(word.length(), '*');
         cout << "Each letter is represented by an asterisk." << endl;
         cout << "You have to type only one letter in one try." << endl;
-        cout << "You have " << MAX_TRIES << " tries to try and guess the country." << endl;
+        cout << "You have " << MAX_TRIES << " tries to try and guess the scientist." << endl;
         cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
         while (num_of_wrong_guesses < MAX_TRIES)
         {
@@ -1048,9 +1051,9 @@ void ClassUI::hangman()
         mainMenu();
     }
 
-    else if (level == "Average")
+    else if (level == "2")
     {
-        string average[] = { "madagascar", "azerbaijan", "kyrgyzstan" };
+        string average[] = { "don estridge", "sheila greibach", "daphne koller" };
 
         int n = rand() % 3;
         word = average[n];
@@ -1058,7 +1061,7 @@ void ClassUI::hangman()
         string unknown(word.length(), '*');
         cout << "Each letter is represented by an asterisk." << endl;
         cout << "You have to type only one letter in one try." << endl;
-        cout << "You have " << MAX_TRIES << " tries to try and guess the country." << endl;
+        cout << "You have " << MAX_TRIES << " tries to try and guess the scientist." << endl;
         cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
         while (num_of_wrong_guesses < MAX_TRIES)
         {
@@ -1093,9 +1096,9 @@ void ClassUI::hangman()
         mainMenu();
     }
 
-    else if (level == "Hard")
+    else if (level == "3")
     {
-        string hard[] = { "turkmenistan", "french guiana", "new caledonia" };
+        string hard[] = { "john vincent atanasoff", "edsger w djikstra", "philip matthaus hahn" };
 
         int n = rand() % 3;
         word = hard[n];
@@ -1103,7 +1106,7 @@ void ClassUI::hangman()
         string unknown(word.length(), '*');
         cout << "Each letter is represented by an asterisk." << endl;
         cout << "You have to type only one letter in one try." << endl;
-        cout << "You have " << MAX_TRIES << " tries to try and guess the country." << endl;
+        cout << "You have " << MAX_TRIES << " tries to try and guess the scientist." << endl;
         cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
         while (num_of_wrong_guesses < MAX_TRIES)
         {
@@ -1157,3 +1160,4 @@ int ClassUI::letterFill(char guess, string secretword, string &guessword)
     }
     return matches;
 }
+
