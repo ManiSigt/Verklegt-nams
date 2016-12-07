@@ -212,7 +212,6 @@ void DataLayer::readLinksFromDatabase(vector<Linker>& link)
     QSqlQuery query(db);
     query.exec("SELECT * FROM CompAndSci");
 
-
     while(query.next())
     {
         int id = query.value("id").toUInt();

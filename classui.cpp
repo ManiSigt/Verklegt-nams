@@ -62,8 +62,8 @@ void ClassUI::select(string ch)
         cin >> choice;
         if (choice == "1")
         {
-            cin.ignore();           // When using editPerson it will ignore the first letter unless this ignore is here rather then in addPerson
-            addPerson();
+            cin.ignore();           // When using editScientist it will ignore the first letter unless this ignore is here rather then in addScientist
+            addScientist();
         }
             else if (choice == "2")
         {
@@ -131,7 +131,7 @@ void ClassUI::select(string ch)
         cin >> choice;
         if (choice == "1")
         {
-            editPerson();
+            editScientist();
         }
         else if (choice == "2")
         {
@@ -163,7 +163,7 @@ void ClassUI::select(string ch)
 }
 
 
-void ClassUI::viewPersons(int i)
+void ClassUI::viewScientist(int i)
 {
     cout << "--------------------------------------------------------------" << endl;
     int nameSize  = list.getScientistNameSize(i);
@@ -212,7 +212,7 @@ void ClassUI::viewPersons(int i)
 
     cout << list.getScientistComment(i) << "\t" << endl;
 }
-void ClassUI::viewComputers(int i)
+void ClassUI::viewComputer(int i)
 {
     cout << "--------------------------------------------------------------" << endl;
     int nameSize  = list.getComputerNameSize(i);
@@ -239,27 +239,27 @@ void ClassUI::viewComputers(int i)
     cout  << "|" << list.getComputerDate(i) << "\t|" << list.getComputerWasItBuilt(i) << "\t|" << list.getComputerType(i) << endl;
 
 }
-void ClassUI::viewPer()
+void ClassUI::viewAllScientist()
 {
     cout << "--------------------------------------------------------------" << endl;
 
     cout << "Name" << "\t" << "\t" << "\t" << "\t" << "|Gender " << "|Born " << "\t" << "|Death"  << "\t" << "|Age" << endl;
     for(int i = 0; i < list.personsSize(); i++)
     {
-        viewPersons(i);
+        viewScientist(i);
     }
 }
-void ClassUI::viewCom()
+void ClassUI::viewAllComputers()
 {
     cout << "--------------------------------------------------------------" << endl;
-    cout << "Name" << "\t" << "\t" << "\t" << "\t" << "|Date " << "|Built " << "\t" << "|Type" << endl;
+    cout << "Name" << "\t" << "\t" << "\t" << "\t" << "|Date " << "\t" << "|Built " << "\t" << "|Type" << endl;
 
     for(int i = 0; i < list.computerSize(); i++)
     {
-        viewComputers(i);
+        viewComputer(i);
     }
 }
-void ClassUI::addPerson()
+void ClassUI::addScientist()
 {
     string name;
     string comment;
@@ -539,7 +539,7 @@ void ClassUI::searchComputer()
             std::size_t found = list.getComputerName(i).find(namesearch);
             if (found!=std::string::npos)
             {
-                viewComputers(i);
+                viewComputer(i);
             }
         }
 
@@ -561,7 +561,7 @@ void ClassUI::searchComputer()
             std::size_t found = list.getComputerType(i).find(typesearch);
             if (found!=std::string::npos)
             {
-                viewComputers(i);
+                viewComputer(i);
             }
         }
 
@@ -583,7 +583,7 @@ void ClassUI::searchComputer()
                 if(yearsearch == list.getComputerDate(i))
                 {
                     yearsearch = list.getComputerDate(i);
-                    viewComputers(i);
+                    viewComputer(i);
                 }
             }
 
@@ -624,7 +624,7 @@ void ClassUI::searchScientist()
             std::size_t found = list.getScientistName(i).find(namesearch);
             if (found!=std::string::npos)
             {
-                viewPersons(i);
+                viewScientist(i);
             }
         }
 
@@ -656,7 +656,7 @@ void ClassUI::searchScientist()
             if(genderSearch == list.getScientistGender(i))
             {
                 genderSearch = list.getScientistGender(i);
-                viewPersons(i);
+                viewScientist(i);
             }
         }
 
@@ -678,7 +678,7 @@ void ClassUI::searchScientist()
                 if(yearsearch == list.getScientistBirth(i))
                 {
                     yearsearch = list.getScientistBirth(i);
-                    viewPersons(i);
+                    viewScientist(i);
                 }
             }
 
@@ -700,7 +700,7 @@ void ClassUI::searchScientist()
             if(ageSearch == list.getScientistAge(i))
             {
                 ageSearch = list.getScientistAge(i);
-                viewPersons(i);
+                viewScientist(i);
             }
         }
 
@@ -857,22 +857,22 @@ void ClassUI::viewMenu()
         if(viewCho == "1")
         {
             list.sortScientistNames();
-            viewPer();
+            viewAllScientist();
         }
         else if(viewCho == "2")
         {
             list.sortScientistBirth();
-            viewPer();
+            viewAllScientist();
         }
         else if(viewCho == "3")
         {
             list.sortScientistGender();
-            viewPer();
+            viewAllScientist();
         }
         else if(viewCho == "4")
         {
             list.sortScientistAge();
-            viewPer();
+            viewAllScientist();
 
         }
         else if(viewCho == "5")
@@ -901,17 +901,17 @@ void ClassUI::viewMenu()
         if(viewCho == "1")
         {
             list.sortComputerName();
-            viewCom();
+            viewAllComputers();
         }
         else if(viewCho == "2")
         {
             list.sortComputerDate();
-            viewCom();
+            viewAllComputers();
         }
         else if(viewCho == "3")
         {
             list.sortComputerType();
-            viewCom();
+            viewAllComputers();
         }
         else if(viewCho == "4")
         {
@@ -939,7 +939,7 @@ void ClassUI::viewMenu()
     }
 
 }
-void ClassUI::editPerson()
+void ClassUI::editScientist()
 {
     string name;
     cout << "Enter the full name of the Scientist that you want to edit: ";
@@ -949,7 +949,7 @@ void ClassUI::editPerson()
     if(list.removePersonFound(name))
     {
         list.removePerson(name);
-        addPerson();
+        addScientist();
     }
     else
     {

@@ -26,15 +26,15 @@ public:
     void sortScientistAge(vector<Person>& getPersons);                                              // Sorts the vector by age.
     void deleteFile();                                                                              // Delete the file amazingDataBase.txt.
     int stringToNumber(string st);                                                                  // Convert a string to a int.
-    void removeComputer(string name);
-    void removeScientist(string name);
-    void removeConnection(int id);
+    void removeComputer(string name);                                                               // Removes computer from SQL database.
+    void removeScientist(string name);                                                              // Removes scientist from SQL database.
+    void removeConnection(int id);                                                                  // Removes connection from SQL database
     void readLinksFromDatabase(vector<Linker>& link);
     void readScientistsFromDatabase(vector<Person>& sci);
     void readComputersFromDatabase(vector<Computer>& com);
-    void addScientist(string name, char gender, int yearOfBirth, int yearOfDeath, string comment, int vsize);
-    void addComputer(string name, string type, int yearbuilt, string isbuilt, int vsize);
-    void addConnection(int linkId, int sciId, int compId);
+    void addScientist(string name, char gender, int yearOfBirth, int yearOfDeath, string comment, int vsize);   // Adds a scientist to the SQL database.
+    void addComputer(string name, string type, int yearbuilt, string isbuilt, int vsize);           // Adds a computer to the SQL databse.
+    void addConnection(int linkId, int sciId, int compId);                                          // Adds a connection from to the SQL databse.
     QSqlDatabase db;
  };
 
