@@ -68,7 +68,7 @@ bool ListWorker::removePerson(string name)
 {
     for(size_t i = 0; i < persons.size(); ++i)
     {
-        if(name == persons[i]._getNamePerson())
+        if(name == persons[i].getScientistName())
         {
             persons.erase(persons.begin() + i);
             removeConnection(i,0);
@@ -82,7 +82,7 @@ void ListWorker::removeConnection(int s, int c)
 {
     if(c == 0)
     {
-        int removeId = getPersonId(s);
+        int removeId = getScientistId(s);
         for(int i = 0; i < getLinkSize()+2; i++)
         {
             if(removeId == getLinkSciId(i))
@@ -95,7 +95,7 @@ void ListWorker::removeConnection(int s, int c)
     }
     else
     {
-        int removeId = getIdComputer(c);
+        int removeId = getComputerId(c);
         for(int i = 0; i < getLinkSize()+2; i++)
         {
             if(removeId == getLinkCompId(i))
@@ -112,7 +112,7 @@ bool ListWorker::removePersonFound(string name)
 {
     for(size_t i = 0; i < persons.size(); ++i)
     {
-        if(name == persons[i]._getNamePerson())
+        if(name == persons[i].getScientistName())
         {
             return true;
         }
@@ -123,7 +123,7 @@ bool ListWorker::removeComputer(string name)
 {
     for(size_t i = 0; i < com.size(); ++i)
     {
-        if(name == com[i]._getNameComputer())
+        if(name == com[i].getComputerName())
         {
 
             com.erase(com.begin() + i);
@@ -138,22 +138,22 @@ bool ListWorker::removeComputerFound(string name)
 {
     for(size_t i = 0; i < com.size(); ++i)
     {
-        if(name == com[i]._getNameComputer())
+        if(name == com[i].getComputerName())
         {
             return true;
         }
     }
     return false;
 }
-int ListWorker::getNameSizePerson(int n) const
+int ListWorker::getScientistNameSize(int n) const
 {
-    string name = persons[n]._getNamePerson();
+    string name = persons[n].getScientistName();
     int size = name.size();
     return size;
 }
-int ListWorker::getNameSizeComputer(int n) const
+int ListWorker::getComputerNameSize(int n) const
 {
-    string name = com[n]._getNameComputer();
+    string name = com[n].getComputerName();
     int size = name.size();
     return size;
 }
@@ -161,7 +161,7 @@ bool ListWorker::nameSearcher(string name)
 {
     for(unsigned int i = 0; i < persons.size(); i++)
     {
-        std::size_t found = getNamePerson(i).find(name);
+        std::size_t found = getScientistName(i).find(name);
         if (found!=std::string::npos)
         {
             return true;
@@ -174,7 +174,7 @@ bool ListWorker::computerNameSearcher(string name)
 {
     for(int i = 0; i < computerSize(); i++)
     {
-        std::size_t found = getNameComputer(i).find(name);
+        std::size_t found = getComputerName(i).find(name);
         if (found!=std::string::npos)
         {
             return true;
@@ -187,7 +187,7 @@ bool ListWorker::genderSearcher(char gender)
 {
     for(unsigned int i = 0; i < persons.size(); i++)
     {
-        if(gender == getGenderPerson(i))
+        if(gender == getScientistGender(i))
         {
              return true;
              break;
@@ -199,7 +199,7 @@ bool ListWorker::typeSearcher(string type)
 {
     for(unsigned int i = 0; i < com.size(); i++)
     {
-        std::size_t found = getTypeComputer(i).find(type);
+        std::size_t found = getComputerType(i).find(type);
         if (found!=std::string::npos)
         {
             return true;
@@ -213,7 +213,7 @@ bool ListWorker::yearSearcher(int year)
 {
     for(unsigned int i = 0; i < persons.size(); i++)
     {
-        if(year == getBirthPerson(i))
+        if(year == getScientistBirth(i))
         {
              return true;
              break;
@@ -225,7 +225,7 @@ bool ListWorker::builtDateSearcher(int year)
 {
     for(unsigned int i = 0; i < com.size(); i++)
     {
-        if(year == getDateComputer(i))
+        if(year == getComputerDate(i))
         {
              return true;
              break;
@@ -238,7 +238,7 @@ bool ListWorker::ageSearcher(int age)
 {
     for(unsigned int i = 0; i < persons.size(); i++)
     {
-        if(age == getAgePerson(i))
+        if(age == getScientistAge(i))
         {
              return true;
              break;
@@ -252,7 +252,7 @@ int ListWorker::computerIdFinder()
 
     for (int i = 1; i <= computerSize(); i++)
     {
-        if(i != getIdComputer(i-1))
+        if(i != getComputerId(i-1))
         {
             return i;
         }
@@ -269,7 +269,7 @@ int ListWorker::scientistIdFinder()
 
     for (int i = 1; i <= personsSize(); i++)
     {
-        if(i != getPersonId(i-1))
+        if(i != getScientistId(i-1))
         {
             return i;
         }
@@ -292,9 +292,9 @@ string ListWorker::getComputerNameFromId(int n) const
     string name;
     for(unsigned int i = 0; i < com.size(); i++)
     {
-        if(n == getIdComputer(i))
+        if(n == getComputerId(i))
         {
-            name = com[i]._getNameComputer();
+            name = com[i].getComputerName();
         }
     }
     return name;
@@ -304,9 +304,9 @@ string ListWorker::getScientistNameFromId(int n) const
     string name;
     for(unsigned int i = 0; i < persons.size(); i++)
     {
-        if(n == persons[i]._getIDPerson())
+        if(n == persons[i].getScientistId())
         {
-            name = persons[i]._getNamePerson();
+            name = persons[i].getScientistName();
         }
     }
     return name;

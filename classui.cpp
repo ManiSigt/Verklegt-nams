@@ -166,10 +166,10 @@ void ClassUI::select(string ch)
 void ClassUI::viewPersons(int i)
 {
     cout << "--------------------------------------------------------------" << endl;
-    int nameSize  = list.getNameSizePerson(i);
+    int nameSize  = list.getScientistNameSize(i);
 
 
-    cout << list.getNamePerson(i);
+    cout << list.getScientistName(i);
 
 
 
@@ -190,7 +190,7 @@ void ClassUI::viewPersons(int i)
         cout << "\t";
     }
 
-    if(list.getGenderPerson(i) == 'M' || list.getGenderPerson(i) == 'm')
+    if(list.getScientistGender(i) == 'M' || list.getScientistGender(i) == 'm')
     {
         cout << "|Male" << "\t";
     }
@@ -199,25 +199,25 @@ void ClassUI::viewPersons(int i)
         cout << "|Female" << "\t";
     }
 
-    cout  << "|" << list.getBirthPerson(i);
+    cout  << "|" << list.getScientistBirth(i);
 
-    if(list.getDeathPerson(i) == 0)
+    if(list.getScientistDeath(i) == 0)
     {
-        cout << "\t" << "| n/a"  << "\t" << "|" << list.getAgePerson(i) << endl;
+        cout << "\t" << "| n/a"  << "\t" << "|" << list.getScientistAge(i) << endl;
     }
     else
     {
-        cout << "\t" << "|" << list.getDeathPerson(i) << "\t" << "|" << list.getAgePerson(i) <<  endl;
+        cout << "\t" << "|" << list.getScientistDeath(i) << "\t" << "|" << list.getScientistAge(i) <<  endl;
     }
 
-    cout << list.getCommentperson(i) << "\t" << endl;
+    cout << list.getScientistComment(i) << "\t" << endl;
 }
 void ClassUI::viewComputers(int i)
 {
     cout << "--------------------------------------------------------------" << endl;
-    int nameSize  = list.getNameSizeComputer(i);
+    int nameSize  = list.getComputerNameSize(i);
 
-    cout << list.getNameComputer(i);
+    cout << list.getComputerName(i);
 
     if(nameSize > 0 && nameSize <= 7)
     {
@@ -236,7 +236,7 @@ void ClassUI::viewComputers(int i)
         cout << "\t";
     }
 
-    cout  << "|" << list.getDateComputer(i) << "\t|" << list.getWasItBuilt(i) << "\t|" << list.getTypeComputer(i) << endl;
+    cout  << "|" << list.getComputerDate(i) << "\t|" << list.getComputerWasItBuilt(i) << "\t|" << list.getComputerType(i) << endl;
 
 }
 void ClassUI::viewPer()
@@ -391,7 +391,7 @@ void ClassUI::addConnection()
     cout << "Number - Scientist name" << endl;
     for(int i = 0; i < list.personsSize(); i++)
     {
-     cout << list.getPersonId(i) << " - " << list.getNamePerson(i) << endl;
+     cout << list.getScientistId(i) << " - " << list.getScientistName(i) << endl;
     }
     cout << "Enter id of the Scientist to connect: ";
     cin >> sciId;
@@ -399,7 +399,7 @@ void ClassUI::addConnection()
     //checking for valid input
     for(int i = 0; i < list.personsSize(); i++)
     {
-        if(sciId == list.getPersonId(i))
+        if(sciId == list.getScientistId(i))
         {
             validateScientist = 1;
         }
@@ -415,7 +415,7 @@ void ClassUI::addConnection()
 
     for(int i = 0; i < list.computerSize(); i++)
     {
-     cout << list.getIdComputer(i) << " - " << list.getNameComputer(i) << endl;
+     cout << list.getComputerId(i) << " - " << list.getComputerName(i) << endl;
     }
     cout << "Enter id of the Computer: ";
     cin.ignore();
@@ -424,7 +424,7 @@ void ClassUI::addConnection()
     //checking for valid input
     for(int i = 0; i < list.computerSize(); i++)
     {
-        if(compId == list.getIdComputer(i))
+        if(compId == list.getComputerId(i))
         {
             validateComputer = 1;
         }
@@ -532,7 +532,7 @@ void ClassUI::searchComputer()
         cout << "--------------------------------------------------------------" << endl;
         for(int i = 0; i < list.computerSize();++i)
         {
-            std::size_t found = list.getNameComputer(i).find(namesearch);
+            std::size_t found = list.getComputerName(i).find(namesearch);
             if (found!=std::string::npos)
             {
                 viewComputers(i);
@@ -554,7 +554,7 @@ void ClassUI::searchComputer()
         std::getline(std::cin,typesearch);
         for(int i = 0; i < list.computerSize();++i)
         {
-            std::size_t found = list.getTypeComputer(i).find(typesearch);
+            std::size_t found = list.getComputerType(i).find(typesearch);
             if (found!=std::string::npos)
             {
                 viewComputers(i);
@@ -576,9 +576,9 @@ void ClassUI::searchComputer()
 
             for(int i = 0; i < list.computerSize(); i++)
             {
-                if(yearsearch == list.getDateComputer(i))
+                if(yearsearch == list.getComputerDate(i))
                 {
-                    yearsearch = list.getDateComputer(i);
+                    yearsearch = list.getComputerDate(i);
                     viewComputers(i);
                 }
             }
@@ -617,7 +617,7 @@ void ClassUI::searchScientist()
         cout << "--------------------------------------------------------------" << endl;
         for(int i = 0; i < list.personsSize();++i)
         {
-            std::size_t found = list.getNamePerson(i).find(namesearch);
+            std::size_t found = list.getScientistName(i).find(namesearch);
             if (found!=std::string::npos)
             {
                 viewPersons(i);
@@ -633,30 +633,30 @@ void ClassUI::searchScientist()
     }
     else if (searchChoice == "2")
     {
-        char gendersearch;
+        char genderSearch;
 
         cout << "Enter a gender you want to search for: (M/F)";
-        cin >> gendersearch;
+        cin >> genderSearch;
 
-        if(gendersearch == 'm')
+        if(genderSearch == 'm')
             {
-                 gendersearch = 'M';
+                 genderSearch = 'M';
             }
-        else if (gendersearch == 'f')
+        else if (genderSearch == 'f')
             {
-                 gendersearch = 'F';
+                 genderSearch = 'F';
             }
 
         for(int i = 0; i < list.personsSize();++i)
         {
-            if(gendersearch == list.getGenderPerson(i))
+            if(genderSearch == list.getScientistGender(i))
             {
-                gendersearch = list.getGenderPerson(i);
+                genderSearch = list.getScientistGender(i);
                 viewPersons(i);
             }
         }
 
-        if(list.genderSearcher(gendersearch) == false)
+        if(list.genderSearcher(genderSearch) == false)
         {
             cout << "Sorry that gender is not in our database, but you can add a new scientist in the 'Add section' in the main menu." << endl;
             cout << endl;
@@ -671,9 +671,9 @@ void ClassUI::searchScientist()
 
             for(int i = 0; i < list.personsSize();++i)
             {
-                if(yearsearch == list.getBirthPerson(i))
+                if(yearsearch == list.getScientistBirth(i))
                 {
-                    yearsearch = list.getBirthPerson(i);
+                    yearsearch = list.getScientistBirth(i);
                     viewPersons(i);
                 }
             }
@@ -693,9 +693,9 @@ void ClassUI::searchScientist()
 
         for(int i = 0; i < list.personsSize();++i)
         {
-            if(ageSearch == list.getAgePerson(i))
+            if(ageSearch == list.getScientistAge(i))
             {
-                ageSearch = list.getAgePerson(i);
+                ageSearch = list.getScientistAge(i);
                 viewPersons(i);
             }
         }

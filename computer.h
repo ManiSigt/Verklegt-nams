@@ -11,27 +11,27 @@ public:
     Computer();
     Computer(string name, string wasItBuilt, int date, string type, int id); // Class constructor for variables.
 
-    string _getNameComputer() const
+    string getComputerName() const
     {
         return _name;
     }
-    string _getTypeComputer() const
+    string getComputerType() const
     {
         return _type;
     }
-    string _getWasItBuiltComputer() const
+    string getComputerWasItBuilt() const
     {
         return _wasItBuilt;
     }
-    int _getDateComputer() const
+    int getComputerDate() const
     {
         return _date;
     }
-    int _getNameSizeComputer()
+    int getComputerNameSize()
     {
         return _name.size();
     }
-    int _getIdComputer() const
+    int getComputerId() const
     {
         return _id;
     }

@@ -16,31 +16,31 @@ DataLayer::DataLayer()
 }
 bool sortByScientistName(const Person &lhs, const Person &rhs)
 {
-    return lhs._getNamePerson() < rhs._getNamePerson();
+    return lhs.getScientistName() < rhs.getScientistName();
 }
 bool sortByScientistBirth(const Person &lhs, const Person &rhs)
 {
-    return lhs._getBirthPerson() < rhs._getBirthPerson();
+    return lhs.getScientistBirth() < rhs.getScientistBirth();
 }
 bool sortByScientistGender(const Person &lhs, const Person &rhs)
 {
-    return lhs._getGenderPerson() < rhs._getGenderPerson();
+    return lhs.getScientistGender() < rhs.getScientistGender();
 }
 bool sortByScientistAge(const Person &lhs, const Person &rhs)
 {
-    return lhs._getAgePerson() < rhs._getAgePerson();
+    return lhs.getScientistAge() < rhs.getScientistAge();
 }
 bool sortByNameComputers(const Computer &lhs, const Computer &rhs)
 {
-    return lhs._getNameComputer() < rhs._getNameComputer();
+    return lhs.getComputerName() < rhs.getComputerName();
 }
 bool sortByDateComputers(const Computer &lhs, const Computer &rhs)
 {
-    return lhs._getDateComputer() < rhs._getDateComputer();
+    return lhs.getComputerDate() < rhs.getComputerDate();
 }
 bool sortByTypeComputers(const Computer &lhs, const Computer &rhs)
 {
-    return lhs._getTypeComputer() < rhs._getTypeComputer();
+    return lhs.getComputerType() < rhs.getComputerType();
 }
 void DataLayer::sortScientistNames(vector<Person>& getPersons)
 {

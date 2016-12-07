@@ -9,35 +9,35 @@ class Person
 public:
     Person();
     Person(string name, char gender, int birth, int death, string comment, int id); // Class constructor for variables.
-    string _getNamePerson() const
+    string getScientistName() const
     {
         return _name;
     }
-    string _getCommentPerson() const
+    string getScientistComment() const
     {
         return _comment;
     }
-    char _getGenderPerson() const
+    char getScientistGender() const
     {
         return _gender;
     }
-    int _getBirthPerson() const
+    int getScientistBirth() const
     {
         return _yearOfBirth;
     }
-    int _getDeathPerson() const
+    int getScientistDeath() const
     {
         return _yearOfDeath;
     }
-    int _getNameSizePerson()
+    int getNameSizePerson()
     {
         return _name.size();
     }
-    int _getAgePerson() const
+    int getScientistAge() const
     {
         return _age;
     }
-    int _getIDPerson() const
+    int getScientistId() const
     {
         return _id;
     }

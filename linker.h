@@ -6,15 +6,15 @@ class Linker
 {
 public:
     Linker(int id, int sciId, int comId);
-    int _getId() const
+    int getId() const
     {
         return _id;
     }
-    int _getSciId() const
+    int getSciId() const
     {
         return _sciId;
     }
-    int _getComId() const
+    int getComId() const
     {
         return _comId;
     }
