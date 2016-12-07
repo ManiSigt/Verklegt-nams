@@ -998,7 +998,7 @@ void ClassUI::hangman()
 
     srand(time(NULL));
 
-    cout << "Welcome to hangman!! Guess a scientist that comes into your mind." << endl;
+    cout << "Welcome to hangman!!" << endl;
     string level;
     cout << "Choose a LEVEL" << endl;
     cout << " (1) - Easy" << endl;
@@ -1008,16 +1008,16 @@ void ClassUI::hangman()
 
     if (level == "1")
     {
-        string easy[] = { "steve_jobs", "alan_turing", "ada_lovelave", "linus_torvalds" };
+        string easy[] = { "array", "matrix", "binary", "virus" };
         string word;
 
         int n = rand() % 4;
         word = easy[n];
         string unknown(word.length(), '*');
+
         cout << "Each letter is represented by an asterisk." << endl;
         cout << "You have to type only one letter in one try." << endl;
-        cout << "You have " << MAX_TRIES << " tries to try and guess the scientist." << endl;
-        cout << "note: Spaces in names are marked as underscores. (example : mani_sigurdsson)" << endl;
+        cout << "You have " << MAX_TRIES << " tries to try and guess the word." << endl;
         cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
         while (num_of_wrong_guesses < MAX_TRIES)
         {
@@ -1056,7 +1056,7 @@ void ClassUI::hangman()
 
     else if (level == "2")
     {
-        string average[] = { "don_estridge", "sheila_greibach", "daphne_koller" };
+        string average[] = { "bit", "runtime", "supercomputer" };
 
         int n = rand() % 3;
         word = average[n];
@@ -1064,8 +1064,7 @@ void ClassUI::hangman()
         string unknown(word.length(), '*');
         cout << "Each letter is represented by an asterisk." << endl;
         cout << "You have to type only one letter in one try." << endl;
-        cout << "You have " << MAX_TRIES << " tries to try and guess the scientist." << endl;
-        cout << "note: Spaces in names are marked as underscores. (example : mani_sigurdsson)" << endl;
+        cout << "You have " << MAX_TRIES << " tries to try and guess the word." << endl;
         cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
         while (num_of_wrong_guesses < MAX_TRIES)
         {
@@ -1104,7 +1103,7 @@ void ClassUI::hangman()
 
     else if (level == "3")
     {
-        string hard[] = { "john_vincent_atanasoff", "edsger_w_djikstra", "philip_matthaus_hahn" };
+        string hard[] = { "microprocessor", "nanotechnology", "telecommunication" };
 
         int n = rand() % 3;
         word = hard[n];
@@ -1112,8 +1111,7 @@ void ClassUI::hangman()
         string unknown(word.length(), '*');
         cout << "Each letter is represented by an asterisk." << endl;
         cout << "You have to type only one letter in one try." << endl;
-        cout << "You have " << MAX_TRIES << " tries to try and guess the scientist." << endl;
-        cout << "note: Spaces in names are marked as underscores. (example : mani_sigurdsson)" << endl;
+        cout << "You have " << MAX_TRIES << " tries to try and guess the word." << endl;
         cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
         while (num_of_wrong_guesses < MAX_TRIES)
         {
