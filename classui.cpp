@@ -343,7 +343,7 @@ void ClassUI::addComputer()
         int Yearbuilt = 0;
 
         cout << "--------------------------------------------------------------" << endl;
-        cout << "Enter name of the Computer: ";
+        cout << "Enter name of the computer: ";
         std::getline(std::cin,name);
         cout << "Enter the type of the computer: ";
         std::getline(std::cin,type);
