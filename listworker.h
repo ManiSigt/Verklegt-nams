@@ -15,22 +15,22 @@ public:
     ListWorker();
 
     void addNewPerson(string name, char gender, int yearOfBirth, int yearOFDeath, string comment); //Adds a person to the vector persons and adds them to the database.
-    void addNewComputer(string name, string type, int yearbuilt, string isbuilt);
-    bool ageSearcher(int age);                  // Searches for a specific age within the vector using a for loop.
-    bool builtDateSearcher(int year);           //
-    bool genderSearcher(char gender);           // Searches for a specific gender within the vector using a for loop.
-    bool nameSearcher(string name);             // Searches for a specific name within the vector using a for loop.
+    void addNewComputer(string name, string type, int yearbuilt, string isbuilt); //Adds a computer to the vector that holds the list of computers and then adds it to the database.
+    bool ageSearcher(int age);                  // Searches for a specific age within the vector using a for-loop.
+    bool builtDateSearcher(int year);           // Searches for a specific date within the vector using a for-loop
+    bool genderSearcher(char gender);           // Searches for a specific gender within the vector using a for-loop.
+    bool nameSearcher(string name);             // Searches for a specific name within the vector using a for-loop.
     bool removePerson(string name);             // Remove person from the vector.
     bool removePersonFound(string name);        // Check if person to remove is found or not.
-    bool removeComputer(string name);                    // Remove computer from the vector.
-    bool removeComputerFound(string name);               // Check if computer to remove is found or not.
-    void sortScientistBirth();                           // Calls the function sortBirth from the datalayer class.
-    void sortScientistNames();                           // Calls the function sortNames from the datalayer class.
-    void sortScientistGender();                          // Calls the function sortGender from the datalayer class.
-    void sortScientistAge();                             // Calls the function sortAge from the datalayer class.
-    void sortComputerName();
-    void sortComputerDate();
-    void sortComputerType();
+    bool removeComputer(string name);           // Remove computer from the vector.
+    bool removeComputerFound(string name);      // Check if computer to remove is found or not.
+    void sortScientistBirth();                  // Calls the function sortBirth from the datalayer class.
+    void sortScientistNames();                  // Calls the function sortNames from the datalayer class.
+    void sortScientistGender();                 // Calls the function sortGender from the datalayer class.
+    void sortScientistAge();                    // Calls the function sortAge from the datalayer class.
+    void sortComputerName();                    //nenni ekki að commenta ef við breytum
+    void sortComputerDate();                    //nenni ekki að commenta ef við breytum
+    void sortComputerType();                    //nenni ekki að commenta ef við breytum
     bool computerNameSearcher(string name);
     bool typeSearcher(string type);
     bool yearSearcher(int year);                // Searches for a specific year within the vector using a for loop.
@@ -91,30 +91,8 @@ public:
     {
         return link[n]._getSciId();
     }
-    string getComputerNameFromId(int n) const
-    {
-        string name;
-        for(unsigned int i = 0; i < com.size(); i++)
-        {
-            if(n == getIdComputer(i))
-            {
-                name = com[i]._getNameComputer();
-            }
-        }
-        return name;
-    }
-    string getScientistNameFromId(int n) const
-    {
-        string name;
-        for(unsigned int i = 0; i < persons.size(); i++)
-        {
-            if(n == persons[i]._getIDPerson())
-            {
-                name = persons[i]._getNamePerson();
-            }
-        }
-        return name;
-    }
+    string getComputerNameFromId(int n) const;
+    string getScientistNameFromId(int n) const;
     int getLinkSize() const
     {
         return link.size();

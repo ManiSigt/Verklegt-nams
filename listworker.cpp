@@ -207,3 +207,27 @@ bool ListWorker::ageSearcher(int age)
     }
     return false;
 }
+string ListWorker::getComputerNameFromId(int n) const
+{
+    string name;
+    for(unsigned int i = 0; i < com.size(); i++)
+    {
+        if(n == getIdComputer(i))
+        {
+            name = com[i]._getNameComputer();
+        }
+    }
+    return name;
+}
+string ListWorker::getScientistNameFromId(int n) const
+{
+    string name;
+    for(unsigned int i = 0; i < persons.size(); i++)
+    {
+        if(n == persons[i]._getIDPerson())
+        {
+            name = persons[i]._getNamePerson();
+        }
+    }
+    return name;
+}
