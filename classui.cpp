@@ -120,11 +120,11 @@ void ClassUI::select(string ch)
         cin >> choice;
         if (choice == "1")
         {
-            addPerson();
+            editPerson();
         }
         else if (choice == "2")
         {
-            addComputer();
+            editComputer();
         }
         else if (choice == "3")
         {
@@ -876,7 +876,6 @@ void ClassUI::editComputer()
     if(list.removeComputerFound(cmpname))
     {
         list.removeComputer(cmpname);
-        addPerson();
         addComputer();
     }
     else
@@ -884,4 +883,3 @@ void ClassUI::editComputer()
         cout << "Computer not found!" << endl;
     }
 }
-
