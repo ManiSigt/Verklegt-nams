@@ -7,7 +7,7 @@
 #include <time.h>
 
 using namespace std;
-
+const int MAX_TRIES = 5;
 ClassUI::ClassUI()
 {
 
@@ -31,10 +31,11 @@ void ClassUI::mainMenu()
         cout << " (3) - "  << "View." << endl;
         cout << " (4) - "  << "Search." << endl;
         cout << " (5) - "  << "Edit a scientist." << endl;
-        cout << " (6) - "  << "Exit." << endl;
-        cout << "Enter your command (1 - 6): ";
+        cout << " (6) - "  << "Play hangman." << endl;
+        cout << " (7) - "  << "Exit." << endl;
+        cout << "Enter your command (1 - 7): ";
         cin >> choice;
-        if (choice != "6")
+        if (choice != "7")
         {
            select(choice);
         }
@@ -137,6 +138,10 @@ void ClassUI::select(string ch)
             cout << "Invalid input. Please enter a number between 1 - 3" << endl;
             select("5");
         }
+    }
+    else if (ch == "6")
+    {
+        hangman();
     }
     else if(ch == "yo")
     {
@@ -890,4 +895,174 @@ void ClassUI::editComputer()
     {
         cout << "Computer not found!" << endl;
     }
+}
+
+void ClassUI::hangman()
+{
+
+    string name;
+    char letter;
+    int num_of_wrong_guesses = 0;
+    string word;
+
+    srand(time(NULL));
+
+    cout << "Welcome to hangman!! Guess a country that comes into your mind." << endl;
+    string level;
+    cout << "Choose a LEVEL(E - Easy, A - Average, H - Hard):" << endl;
+    cin >> level;
+
+    if (level == "Easy")
+    {
+        string easy[] = { "india", "japan", "nepal", "china" };
+        string word;
+
+        int n = rand() % 4;
+        word = easy[n];
+        string unknown(word.length(), '*');
+        cout << "Each letter is represented by an asterisk." << endl;
+        cout << "You have to type only one letter in one try." << endl;
+        cout << "You have " << MAX_TRIES << " tries to try and guess the country." << endl;
+        cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
+        while (num_of_wrong_guesses < MAX_TRIES)
+        {
+            cout << unknown << endl;
+            cout << "Guess a letter: ";
+            cin >> letter;
+            if (letterFill(letter, word, unknown) == 0)
+            {
+                cout << endl << "Whoops! That letter isn't in there!" << endl;
+                num_of_wrong_guesses++;
+            }
+            else
+            {
+                cout << endl << "You found a letter! Isn't that exciting?" << endl;
+            }
+            cout << "You have " << MAX_TRIES - num_of_wrong_guesses;
+            cout << " guesses left." << endl;
+            if (word == unknown)
+            {
+                cout << word << endl;
+                cout << "Yeah! You got it!" << endl;
+                break;
+            }
+        }
+        if (num_of_wrong_guesses == MAX_TRIES)
+        {
+            cout << "Sorry, you lose...you've been hanged." << endl;
+            cout << "The word was : " << word << endl;
+        }
+        cin.ignore();
+        cin.get();
+        mainMenu();
+    }
+
+    else if (level == "Average")
+    {
+        string average[] = { "madagascar", "azerbaijan", "kyrgyzstan" };
+
+        int n = rand() % 3;
+        word = average[n];
+
+        string unknown(word.length(), '*');
+        cout << "Each letter is represented by an asterisk." << endl;
+        cout << "You have to type only one letter in one try." << endl;
+        cout << "You have " << MAX_TRIES << " tries to try and guess the country." << endl;
+        cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
+        while (num_of_wrong_guesses < MAX_TRIES)
+        {
+            cout << unknown << endl;
+            cout << "Guess a letter: " << endl;
+            cin >> letter;
+            if (letterFill(letter, word, unknown) == 0)
+            {
+                cout << endl << "Whoops! That letter isn't in there!" << endl;
+                num_of_wrong_guesses++;
+            }
+            else
+            {
+                cout << endl << "You found a letter! Isn't that exciting?" << endl;
+            }
+            cout << "You have " << MAX_TRIES - num_of_wrong_guesses;
+            cout << " guesses left." << endl;
+            if (word == unknown)
+            {
+                cout << word << endl;
+                cout << "Yeah! You got it!";
+                break;
+            }
+        }
+        if (num_of_wrong_guesses == MAX_TRIES)
+        {
+            cout << "Sorry, you lose...you've been hanged." << endl;
+            cout << "The word was : " << word << endl;
+        }
+        cin.ignore();
+        cin.get();
+        mainMenu();
+    }
+
+    else if (level == "Hard")
+    {
+        string hard[] = { "turkmenistan", "french guiana", "new caledonia" };
+
+        int n = rand() % 3;
+        word = hard[n];
+
+        string unknown(word.length(), '*');
+        cout << "Each letter is represented by an asterisk." << endl;
+        cout << "You have to type only one letter in one try." << endl;
+        cout << "You have " << MAX_TRIES << " tries to try and guess the country." << endl;
+        cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
+        while (num_of_wrong_guesses < MAX_TRIES)
+        {
+            cout  << unknown << endl;
+            cout << "Guess a letter: " << endl;
+            cin >> letter;
+            if (letterFill(letter, word, unknown) == 0)
+            {
+                cout << endl << "Whoops! That letter isn't in there!" << endl;
+                num_of_wrong_guesses++;
+            }
+            else
+            {
+                cout << endl << "You found a letter! Isn't that exciting?" << endl;
+            }
+            cout << "You have " << MAX_TRIES - num_of_wrong_guesses;
+            cout << " guesses left." << endl;
+            if (word == unknown)
+            {
+                cout << word << endl;
+                cout << "Yeah! You got it!" << endl;
+                break;
+            }
+        }
+        if (num_of_wrong_guesses == MAX_TRIES)
+        {
+            cout << "Sorry, you lose...you've been hanged." << endl;
+            cout << "The word was : " << word << endl;
+        }
+        cin.ignore();
+        cin.get();
+        mainMenu();
+    }
+}
+int ClassUI::letterFill(char guess, string secretword, string &guessword)
+{
+    int i;
+    int matches = 0;
+    int len = secretword.length();
+    for (i = 0; i< len; i++)
+    {
+        if (guess == guessword[i])
+        {
+            return 0;
+        }
+        if (guess == secretword[i])
+        {
+            guessword[i] = guess;
+            matches++;
+        }
+    }
+    return matches;
 }

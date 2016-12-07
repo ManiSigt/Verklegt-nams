@@ -28,6 +28,8 @@ public:
     void findComputerConnections(int i);
     void findScientistConnections();
     void editComputer();
+    void hangman();
+    int letterFill(char guess, string secretword, string &guessword);
 
 private:
     bool runOn = true;
