@@ -93,6 +93,7 @@ void ClassUI::select(string ch)
         cout << " (1) - Remove scientist." << endl;
         cout << " (2) - Remove Computer." << endl;
         cout << " (3) - Return to main menu." << endl;
+        cout << "Enter your command (1 - 3): ";
         cin >> choice;
         if (choice == "1")
         {
