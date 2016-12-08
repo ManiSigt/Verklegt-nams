@@ -19,7 +19,7 @@ Person::Person(string name, char gender, int birth, int death, string comment, i
 
     if(_yearOfDeath > 0)
     {
-    _age = _yearOfDeath - _yearOfBirth;
+        _age = _yearOfDeath - _yearOfBirth;
     }
     else
     {
