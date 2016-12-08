@@ -343,7 +343,7 @@ void ListWorker::sortConnections(string selection)
 {
     if (selection == "1")
     {
-        data.SortConnectionsBySciName(linkout);
+        data.sortConnectionsBySciName(linkout);
     }
 }
 int ListWorker::getLinkoutputCompNameSize(int n)
