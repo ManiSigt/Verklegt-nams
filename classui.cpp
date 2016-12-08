@@ -1093,6 +1093,7 @@ void ClassUI::hangman()
         }
         cin.ignore();
         cin.get();
+        clearTheScreen();
         mainMenu();
     }
 
@@ -1117,6 +1118,7 @@ void ClassUI::hangman()
         }
         cin.ignore();
         cin.get();
+        clearTheScreen();
         mainMenu();
     }
 
@@ -1141,6 +1143,7 @@ void ClassUI::hangman()
         }
         cin.ignore();
         cin.get();
+        clearTheScreen();
         mainMenu();
     }
     else if (level == "4")
