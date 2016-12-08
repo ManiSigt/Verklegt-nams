@@ -849,7 +849,6 @@ void ClassUI::viewMenu()
 {
     string viewBy;
     string viewCho;
-    cout << "Enter a view command:" << endl;
     cout << "--------------------------------------------------------------" << endl;
     cout << " (1) - View scientists." << endl;
     cout << " (2) - View computers." << endl;
@@ -857,8 +856,6 @@ void ClassUI::viewMenu()
     cout << " (4) - Return to main menu." << endl;
     cout << "Enter your command (1 - 4): ";
     cin >> viewBy;
-    cout << endl;
-
     if(viewBy == "1")
     {
         cout << "--------------------------------------------------------------" << endl;
