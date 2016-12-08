@@ -852,13 +852,13 @@ void ClassUI::viewMenu()
     {
         cout << "--------------------------------------------------------------" << endl;
         cout << " (1) - Sorted by alphabetical order." << endl;
-        cout << " (2) - Sorted by chronological order." << endl;
-        cout << " (3) - Sorted by gender." << endl;
-        cout << " (4) - Sorted by age." << endl;
-        cout << " (5) - Return to main menu." << endl;
-        cout << "Enter your command (1 - 5): ";
+        cout << " (2) - Sorted by reverse alphabetical order." << endl;
+        cout << " (3) - Sorted by chronological order." << endl;
+        cout << " (4) - Sorted by gender." << endl;
+        cout << " (5) - Sorted by age." << endl;
+        cout << " (6) - Return to main menu." << endl;
+        cout << "Enter your command (1 - 6): ";
         cin >> viewCho;
-        //cout << endl;
 
         if(viewCho == "1")
         {
@@ -867,21 +867,26 @@ void ClassUI::viewMenu()
         }
         else if(viewCho == "2")
         {
-            list.sortScientistBirth();
+            list.sortScientistNamesReverse();
             viewAllScientist();
         }
         else if(viewCho == "3")
         {
-            list.sortScientistGender();
+            list.sortScientistBirth();
             viewAllScientist();
         }
         else if(viewCho == "4")
+        {
+            list.sortScientistGender();
+            viewAllScientist();
+        }
+        else if(viewCho == "5")
         {
             list.sortScientistAge();
             viewAllScientist();
 
         }
-        else if(viewCho == "5")
+        else if(viewCho == "6")
         {
             clearTheScreen();
             mainMenu();
@@ -897,10 +902,11 @@ void ClassUI::viewMenu()
     {
         cout << "--------------------------------------------------------------" << endl;
         cout << " (1) - Sorted by alphabetical order." << endl;
-        cout << " (2) - Sorted by chronological order." << endl;
-        cout << " (3) - Sorted by type." << endl;
-        cout << " (4) - Return to main menu." << endl;
-        cout << "Enter your command (1 - 4): ";
+        cout << " (2) - Sorted by reverse alpabetical order." << endl;
+        cout << " (3) - Sorted by chronological order." << endl;
+        cout << " (4) - Sorted by type." << endl;
+        cout << " (5) - Return to main menu." << endl;
+        cout << "Enter your command (1 - 5): ";
         cin >> viewCho;
         cout << endl;
 
@@ -911,18 +917,28 @@ void ClassUI::viewMenu()
         }
         else if(viewCho == "2")
         {
-            list.sortComputerDate();
+            list.sortComputerNameReverse();
             viewAllComputers();
         }
         else if(viewCho == "3")
         {
-            list.sortComputerType();
+            list.sortComputerDate();
             viewAllComputers();
         }
         else if(viewCho == "4")
         {
+            list.sortComputerType();
+            viewAllComputers();
+        }
+        else if(viewCho == "5")
+        {
             clearTheScreen();
             mainMenu();
+        }
+        else
+        {
+            cout << "That is not a valid command! Try again." << endl;
+            viewMenu();
         }
     }
 

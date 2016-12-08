@@ -11,16 +11,20 @@ class DataLayer
 public:
     DataLayer();
     friend bool sortByNameComputers(const Computer &lhs, const Computer &rhs);
+    friend bool sortByNameComputersReverse(const Computer &lhs, const Computer &rhs);
     friend bool sortByDateComputers(const Computer &lhs, const Computer &rhs);
     friend bool sortByTypeComputers(const Computer &lhs, const Computer &rhs);
     void sortNamesComputers(vector<Computer>& com);
+    void sortNamesComputersReverse(vector<Computer>& com);
     void sortDateComputers(vector<Computer>& com);
     void sortTypeComputers(vector<Computer>& com);
     friend bool sortByScientistName(const Person &lhs, const Person &rhs);                          // Compares two names and returns the one that is lower in alphabetical order.
+    friend bool sortByScientistNameReverse(const Person &lhs, const Person &rhs);
     friend bool sortByScientistBirth(const Person &lhs, const Person &rhs);                         // Compares two years of birth and returns the one that is lower in chronological order.
     friend bool sortByScientistGender(const Person &lhs, const Person &rhs);                        // Compares the two genders and just returns the one that the user wants to find.
     friend bool sortByScientistAge(const Person &lhs, const Person &rhs);                           // Compares two ages of scientists and return from lowest to highest.
     void sortScientistNames(vector<Person>& getPersons);                                            // Sorts the vector by names of people.
+    void sortScientistNamesReverse(vector<Person>& getPersons);
     void sortScientistBirth(vector<Person>& getPersons);                                            // Sorts the vector by year of birth.
     void sortScientistGender(vector<Person>& getPersons);                                           // Sorts the vector by gender.
     void sortScientistAge(vector<Person>& getPersons);                                              // Sorts the vector by age.

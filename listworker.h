@@ -27,9 +27,11 @@ public:
     bool removeComputerFound(string name);              // Check if computer to remove is found or not.
     void sortScientistBirth();                          // Calls the function sortBirth from the datalayer class.
     void sortScientistNames();                          // Calls the function sortNames from the datalayer class.
+    void sortScientistNamesReverse();
     void sortScientistGender();                         // Calls the function sortGender from the datalayer class.
     void sortScientistAge();                            // Calls the function sortAge from the datalayer class.
     void sortComputerName();
+    void sortComputerNameReverse();
     void sortComputerDate();
     void sortComputerType();
     void refreshVector();

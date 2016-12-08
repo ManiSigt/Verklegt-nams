@@ -18,6 +18,10 @@ bool sortByScientistName(const Person &lhs, const Person &rhs)
 {
     return lhs.getScientistLowerCaseName() < rhs.getScientistLowerCaseName();
 }
+bool sortByScientistNameReverse(const Person &lhs, const Person &rhs)
+{
+    return lhs.getScientistLowerCaseName() > rhs.getScientistLowerCaseName();
+}
 bool sortByScientistBirth(const Person &lhs, const Person &rhs)
 {
     return lhs.getScientistBirth() < rhs.getScientistBirth();
@@ -34,6 +38,10 @@ bool sortByNameComputers(const Computer &lhs, const Computer &rhs)
 {
     return lhs.getComputerLowerCaseName() < rhs.getComputerLowerCaseName();
 }
+bool sortByNameComputersReverse(const Computer &lhs, const Computer &rhs)
+{
+    return lhs.getComputerLowerCaseName() > rhs.getComputerLowerCaseName();
+}
 bool sortByDateComputers(const Computer &lhs, const Computer &rhs)
 {
     return lhs.getComputerDate() < rhs.getComputerDate();
@@ -45,6 +53,10 @@ bool sortByTypeComputers(const Computer &lhs, const Computer &rhs)
 void DataLayer::sortScientistNames(vector<Person>& getPersons)
 {
     std::sort(getPersons.begin(),getPersons.end(), sortByScientistName);
+}
+void DataLayer::sortScientistNamesReverse(vector<Person>& getPersons)
+{
+    std::sort(getPersons.begin(),getPersons.end(), sortByScientistNameReverse);
 }
 void DataLayer::sortScientistBirth(vector<Person>& getPersons)
 {
@@ -61,6 +73,10 @@ void DataLayer::sortScientistAge(vector<Person>& getPersons)
 void DataLayer::sortNamesComputers(vector<Computer>& com)
 {
     std::sort(com.begin(),com.end(), sortByNameComputers);
+}
+void DataLayer::sortNamesComputersReverse(vector<Computer>& com)
+{
+    std::sort(com.begin(),com.end(), sortByNameComputersReverse);
 }
 void DataLayer::sortDateComputers(vector<Computer>& com)
 {

@@ -39,6 +39,10 @@ void ListWorker::sortScientistNames()
 {
     data.sortScientistNames(persons);
 }
+void ListWorker::sortScientistNamesReverse()
+{
+    data.sortScientistNamesReverse(persons);
+}
 void ListWorker::sortScientistBirth()
 {
     data.sortScientistBirth(persons);
@@ -54,6 +58,10 @@ void ListWorker::sortScientistAge()
 void ListWorker::sortComputerName()
 {
     data.sortNamesComputers(com);
+}
+void ListWorker::sortComputerNameReverse()
+{
+    data.sortNamesComputersReverse(com);
 }
 void ListWorker::sortComputerDate()
 {
