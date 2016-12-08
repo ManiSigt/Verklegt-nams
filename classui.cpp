@@ -84,7 +84,7 @@ void ClassUI::select(string ch)
         }
             else
         {
-            cout << "Invalid input. Please enter a number between 1 - 3." << endl;
+            cout << "Invalid input. Please enter a number between 1 - 4." << endl;
             select("1");
         }
     }
