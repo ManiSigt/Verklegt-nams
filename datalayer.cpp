@@ -119,7 +119,7 @@ void DataLayer::readScientistsFromDatabase(vector<Person>& sci)
     while(query.next())
     {
         int id = query.value("id").toUInt();
-        string name = query.value("name").toString().toStdString();
+        string name = query.value("SciName").toString().toStdString();
         string gen = query.value("gender").toString().toStdString();
         int birth = query.value("YearOfBirth").toUInt();
         int death = query.value("YearOfDeath").toUInt();
@@ -143,7 +143,7 @@ void DataLayer::readComputersFromDatabase(vector<Computer>& com)
     while(query.next())
     {
         int id = query.value("id").toUInt();
-        string name = query.value("name").toString().toStdString();
+        string name = query.value("CompName").toString().toStdString();
         string type = query.value("type").toString().toStdString();
         int date = query.value("date").toUInt();
         string wasItBuilt = query.value("wasitbuilt").toString().toStdString();
@@ -158,7 +158,7 @@ void DataLayer::addScientist(string name, char gender, int yearOfBirth, int year
     QString qgender = QChar(gender);
 
     QSqlQuery queryAdd;
-    queryAdd.prepare("INSERT INTO Scientist (id, name, gender, yearofbirth, yearofdeath, comment) VALUES (:id, :name, :gender, :yearofbirth, :yearofdeath, :comment)");
+    queryAdd.prepare("INSERT INTO Scientist (id, SciName, gender, yearofbirth, yearofdeath, comment) VALUES (:id, :name, :gender, :yearofbirth, :yearofdeath, :comment)");
 
     queryAdd.bindValue(":id", vsize);
     queryAdd.bindValue(":name", qname);
@@ -179,7 +179,7 @@ void DataLayer::addComputer(string name, string type, int yearbuilt, string isbu
     QString qisbuilt = QString::fromStdString(isbuilt);
 
     QSqlQuery queryAdd;
-    queryAdd.prepare("INSERT INTO Computers (ID, Name, Type, Date, WasItBuilt) VALUES (:id, :name, :type, :yearbuilt, :isbuilt)");
+    queryAdd.prepare("INSERT INTO Computers (ID, CompName, Type, Date, WasItBuilt) VALUES (:id, :name, :type, :yearbuilt, :isbuilt)");
 
     queryAdd.bindValue(":id", vsize);
     queryAdd.bindValue(":name", qname);
@@ -205,7 +205,7 @@ void DataLayer::removeComputer(string name)
 
     QString qname = QString::fromStdString(name);
     QSqlQuery queryRemove;
-    queryRemove.prepare("DELETE FROM Computers Where Name=:name");
+    queryRemove.prepare("DELETE FROM Computers Where CompName=:name");
     queryRemove.bindValue(":name", qname);
 
     queryRemove.exec();
@@ -222,7 +222,7 @@ void DataLayer::removeScientist(string name)
 {
     QString qname = QString::fromStdString(name);
     QSqlQuery queryRemove;
-    queryRemove.prepare("DELETE FROM Scientist Where Name=:name");
+    queryRemove.prepare("DELETE FROM Scientist Where SciName=:name");
     queryRemove.bindValue(":name", qname);
 
     queryRemove.exec();
