@@ -1,11 +1,12 @@
 #include "datalayer.h"
 #include "person.h"
 #include "computer.h"
+#include "linkeroutput.h"
+#include <string>
 #include <fstream>
 #include <iostream>
 #include <vector>
 #include <algorithm>
-
 using namespace std;
 
 DataLayer::DataLayer()
@@ -252,4 +253,17 @@ void DataLayer::removeConnection(int sciId, int compId)
 
     queryRemove.exec();
 
+}
+void DataLayer::SortConnectionsBySciName(vector<LinkerOutput>& linkout)
+{
+    db.open();
+    QSqlQuery query(db);
+    query.exec("SELECT Scientist.Name, Computers.Name FROM Scientist, Computers INNER JOIN CompAndSci ON Scientist.ID=CompAndSci.ScientistID AND Computers.ID = CompAndSci.ComputerID ORDER BY Scientist.Name ASC");
+
+    while(query.next())
+    {
+        string sciName = query.value("Scientist.Name").toString().toStdString();
+        string compName = query.value("Computers.Name").toString().toStdString();
+        linkout.push_back(LinkerOutput(sciName, compName));
+    }
 }

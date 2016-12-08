@@ -339,3 +339,16 @@ void ListWorker::removeConnection(string scientist, string computer)
     }
     data.removeConnection(scientId, compId);
 }
+void ListWorker::sortConnections(string selection)
+{
+    if (selection == "1")
+    {
+        data.SortConnectionsBySciName(linkout);
+    }
+}
+int ListWorker::getLinkoutputCompNameSize(int n)
+{
+    string name = linkout[n].getCompName();
+    int size = name.size();
+    return size;
+}

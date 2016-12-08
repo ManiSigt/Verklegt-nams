@@ -5,11 +5,13 @@
 #include "linker.h"
 #include <vector>
 #include <Qtsql>
+#include "linkeroutput.h"
 
 class DataLayer
 {
 public:
     DataLayer();
+    void SortConnectionsBySciName(vector<LinkerOutput>& linkout);
     friend bool sortByNameComputers(const Computer &lhs, const Computer &rhs);                                  // Compares two instances of name in the vector com and returns the one that is lower in alphabetical order.
     friend bool sortByNameComputersReverse(const Computer &lhs, const Computer &rhs);                           // Compares two instances of name in the vector com and returns the one that is higher in alphabetical order.
     friend bool sortByDateComputers(const Computer &lhs, const Computer &rhs);                                  // Compares two instances of date in the vector com and returns the one that is lower in chronological order.

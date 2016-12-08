@@ -955,8 +955,18 @@ void ClassUI::viewMenu()
     }
     else if(viewBy == "3")
     {
-        findScientistConnections();
-        mainMenu();
+        cout << "--------------------------------------------------------------" << endl;
+        cout << " (1) - Sort Scientists by ascending alphabetical order." << endl;
+        cout << " (2) - Return to main menu." << endl;
+        cout << "Enter your command (1 - 2): ";
+        cin >> viewCho;
+        cout << endl;
+
+        if(viewCho == "1")
+        {
+            list.sortConnections(viewCho);
+            findScientistConnections();
+        }
     }
     else if(viewBy == "4")
     {
@@ -993,18 +1003,12 @@ void ClassUI::findScientistConnections()
     cout << "Computer name" << "\t" << "\t" << "Scientist name" << endl;
     cout << "--------------------------------------------------------------" << endl;
 
-    for(int i = 0; i < list.getLinkSize(); i++)
+    for(int i = 0; i < list.getLinkOutputSize(); i++)
     {
-        int compId = list.getLinkCompId(i);
-        int sciId = list.getLinkSciId(i);
+        int nameSize  = list.getLinkoutputCompNameSize(i);
 
-        string compName = list.getComputerNameFromId(compId);
-        string sciName = list.getScientistNameFromId(sciId);
-
-        int nameSize = compName.size();
         found++;
-
-        cout << compName;
+        cout << list.getLinkOutputCompName(i);
 
         if(nameSize > 0 && nameSize <= 7)
         {
@@ -1019,7 +1023,7 @@ void ClassUI::findScientistConnections()
             cout << "\t";
         }
 
-        cout << "|" << sciName << endl;
+        cout << "|" << list.getLinkOutputSciName(i) << endl;
     }
 
     if (found > 0)

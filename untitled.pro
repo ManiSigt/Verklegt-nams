@@ -15,7 +15,8 @@ SOURCES += main.cpp \
     datalayer.cpp \
     person.cpp \
     computer.cpp \
-    linker.cpp
+    linker.cpp \
+    linkeroutput.cpp
 
 HEADERS += \
     classui.h \
@@ -23,7 +24,8 @@ HEADERS += \
     datalayer.h \
     person.h \
     computer.h \
-    linker.h
+    linker.h \
+    linkeroutput.h
 
 DISTFILES += \
     example.txt
