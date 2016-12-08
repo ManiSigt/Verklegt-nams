@@ -26,6 +26,7 @@ public:
     bool removeComputer(string name);                   // Remove computer from the vector.
     bool removeComputerFound(string name);              // Check if computer to remove is found or not.
     void sortScientistBirth();                          // Calls the function sortBirth from the datalayer class.
+    void sortScientistBirthReverse();
     void sortScientistNames();                          // Calls the function sortNames from the datalayer class.
     void sortScientistNamesReverse();
     void sortScientistGender();                         // Calls the function sortGender from the datalayer class.
@@ -33,6 +34,7 @@ public:
     void sortComputerName();
     void sortComputerNameReverse();
     void sortComputerDate();
+    void sortComputerDateReverse();
     void sortComputerType();
     void refreshVector();
     void removeConnection(string scientist, string computer);

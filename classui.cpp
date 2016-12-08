@@ -128,7 +128,7 @@ void ClassUI::select(string ch)
     {
         string choice;
         cout << " (1) - Edit a scientist." << endl;
-        cout << " (2) - Edit a Computer." << endl;
+        cout << " (2) - Edit a computer." << endl;
         cout << " (3) - Return to main menu." << endl;
         cin >> choice;
         if (choice == "1")
@@ -852,12 +852,13 @@ void ClassUI::viewMenu()
     if(viewBy == "1")
     {
         cout << "--------------------------------------------------------------" << endl;
-        cout << " (1) - Sorted by alphabetical order." << endl;
-        cout << " (2) - Sorted by reverse alphabetical order." << endl;
-        cout << " (3) - Sorted by chronological order." << endl;
-        cout << " (4) - Sorted by gender." << endl;
-        cout << " (5) - Sorted by age." << endl;
-        cout << " (6) - Return to main menu." << endl;
+        cout << " (1) - Sorted by ascending alphabetical order." << endl;
+        cout << " (2) - Sorted by descending alphabetical order." << endl;
+        cout << " (3) - Sorted by ascending chronological order." << endl;
+        cout << " (4) - Sorted by descending chronological order." << endl;
+        cout << " (5) - Sorted by gender." << endl;
+        cout << " (6) - Sorted by age." << endl;
+        cout << " (7) - Return to main menu." << endl;
         cout << "Enter your command (1 - 6): ";
         cin >> viewCho;
 
@@ -878,16 +879,21 @@ void ClassUI::viewMenu()
         }
         else if(viewCho == "4")
         {
-            list.sortScientistGender();
+            list.sortScientistBirthReverse();
             viewAllScientist();
         }
         else if(viewCho == "5")
+        {
+            list.sortScientistGender();
+            viewAllScientist();
+        }
+        else if(viewCho == "6")
         {
             list.sortScientistAge();
             viewAllScientist();
 
         }
-        else if(viewCho == "6")
+        else if(viewCho == "7")
         {
             clearTheScreen();
             mainMenu();
@@ -901,11 +907,12 @@ void ClassUI::viewMenu()
     else if(viewBy == "2")
     {
         cout << "--------------------------------------------------------------" << endl;
-        cout << " (1) - Sorted by alphabetical order." << endl;
-        cout << " (2) - Sorted by reverse alpabetical order." << endl;
-        cout << " (3) - Sorted by chronological order." << endl;
-        cout << " (4) - Sorted by type." << endl;
-        cout << " (5) - Return to main menu." << endl;
+        cout << " (1) - Sorted by ascending alphabetical order." << endl;
+        cout << " (2) - Sorted by descending alpabetical order." << endl;
+        cout << " (3) - Sorted by ascending chronological order." << endl;
+        cout << " (4) - Sorted by descending chronological order." << endl;
+        cout << " (5) - Sorted by type." << endl;
+        cout << " (6) - Return to main menu." << endl;
         cout << "Enter your command (1 - 5): ";
         cin >> viewCho;
         cout << endl;
@@ -927,10 +934,15 @@ void ClassUI::viewMenu()
         }
         else if(viewCho == "4")
         {
-            list.sortComputerType();
+            list.sortComputerDateReverse();
             viewAllComputers();
         }
         else if(viewCho == "5")
+        {
+            list.sortComputerType();
+            viewAllComputers();
+        }
+        else if(viewCho == "")
         {
             clearTheScreen();
             mainMenu();
@@ -960,7 +972,7 @@ void ClassUI::viewMenu()
 void ClassUI::editScientist()
 {
     string name;
-    cout << "Enter the full name of the Scientist that you want to edit: ";
+    cout << "Enter the full name of the scientist that you want to edit: ";
     cin.ignore();
     std::getline(std::cin,name);
 
@@ -1052,7 +1064,7 @@ void ClassUI::hangman()
     cout <<"  ***Welcome to hangman***" << endl;
     cout << "***~~~~~~~~~~~~~~~~~~~~~~***" << endl;
     string level;
-    cout << "Choose a level of difficulty" << endl;
+    cout << "Choose a level of difficulty (note; all words are related to computer science)" << endl;
     cout << " (1) - Easy" << endl;
     cout << " (2) - Avarage" << endl;
     cout << " (3) - Hard" << endl;
@@ -1244,8 +1256,6 @@ void ClassUI::hangmanRun(int &numWrongGuess, string secretWord, char input, stri
 
     }
 }
-
-
 void ClassUI::removeConnection()
 {
     string removeScientistConnection;
