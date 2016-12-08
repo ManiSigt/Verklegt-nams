@@ -1069,6 +1069,7 @@ void ClassUI::hangman()
     cout << " (2) - Avarage" << endl;
     cout << " (3) - Hard" << endl;
     cout << " (4) - Return to main menu." << endl;
+    cout << "Enter your command (1 - 4): ";
     cin >> level;
 
     if (level == "1")
@@ -1139,7 +1140,7 @@ void ClassUI::hangman()
         {
             cout << "Sorry, you lose...you've been hanged." << endl;
             cout << "The word was : " << word << endl;
-            cout << "Press Enter to continue" << endl;
+            cout << "Press Enter to continue to main menu." << endl;
         }
         cin.ignore();
         cin.get();
