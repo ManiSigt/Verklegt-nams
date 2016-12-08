@@ -5,7 +5,7 @@
 class Linker
 {
 public:
-    Linker(int id, int sciId, int comId);
+    Linker(int id, int sciId, int comId); // Class constructor for variables.
     int getId() const
     {
         return _id;
