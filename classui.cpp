@@ -942,7 +942,7 @@ void ClassUI::viewMenu()
             list.sortComputerType();
             viewAllComputers();
         }
-        else if(viewCho == "")
+        else if(viewCho == "6")
         {
             clearTheScreen();
             mainMenu();
