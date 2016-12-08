@@ -88,10 +88,6 @@ void ClassUI::select(string ch)
             select("1");
         }
     }
-    else if(ch == "arnar")
-    {
-        removeConnection();
-    }
     else if(ch == "2")
     {
         string choice;

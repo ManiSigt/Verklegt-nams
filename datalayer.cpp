@@ -16,7 +16,7 @@ DataLayer::DataLayer()
 }
 bool sortByScientistName(const Person &lhs, const Person &rhs)
 {
-    return lhs.getScientistName() < rhs.getScientistName();
+    return lhs.getScientistLowerCaseName() < rhs.getScientistLowerCaseName();
 }
 bool sortByScientistBirth(const Person &lhs, const Person &rhs)
 {
@@ -32,7 +32,7 @@ bool sortByScientistAge(const Person &lhs, const Person &rhs)
 }
 bool sortByNameComputers(const Computer &lhs, const Computer &rhs)
 {
-    return lhs.getComputerName() < rhs.getComputerName();
+    return lhs.getComputerLowerCaseName() < rhs.getComputerLowerCaseName();
 }
 bool sortByDateComputers(const Computer &lhs, const Computer &rhs)
 {
