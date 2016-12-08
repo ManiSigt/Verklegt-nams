@@ -562,7 +562,6 @@ void ClassUI::searchComputer()
         if(list.computerNameSearcher(nameSearch) == false)
         {
             cout << "Sorry that name is not in our database, but you can add a new computer in the 'Add section' in the main menu." << endl;
-            cout << endl;
             return mainMenu();
         }
     }
@@ -584,7 +583,6 @@ void ClassUI::searchComputer()
         if(list.typeSearcher(typesearch) == false)
         {
             cout << "Sorry that type is not in our database, but you can add a new type in the 'Add section' in the main menu." << endl;
-            cout << endl;
             return mainMenu();
         }
     }
@@ -606,7 +604,6 @@ void ClassUI::searchComputer()
             if(list.builtDateSearcher(yearSearch) == false)
             {
                 cout << "Sorry that year is not in our database, but you can add a new scientist in the 'Add section' in the main menu." << endl;
-                cout << endl;
                 return mainMenu();
             }
     }
@@ -625,7 +622,6 @@ void ClassUI::searchScientist()
 {
     string searchChoice;
     cin >> searchChoice;
-    cout << endl;
 
     if (searchChoice == "1")
     {
@@ -650,7 +646,6 @@ void ClassUI::searchScientist()
         if(list.nameSearcher(nameSearch) == false)
         {
             cout << "Sorry that name is not in our database, but you can add a new scientist in the 'Add section' in the main menu." << endl;
-            cout << endl;
             return mainMenu();
         }
     }
@@ -682,7 +677,6 @@ void ClassUI::searchScientist()
         if(list.genderSearcher(genderSearch) == false)
         {
             cout << "Sorry that gender is not in our database, but you can add a new scientist in the 'Add section' in the main menu." << endl;
-            cout << endl;
             return mainMenu();
         }
     }
@@ -704,7 +698,6 @@ void ClassUI::searchScientist()
             if(list.yearSearcher(yearSearch) == false)
             {
                 cout << "Sorry that year is not in our database, but you can add a new scientist in the 'Add section' in the main menu." << endl;
-                cout << endl;
                 return mainMenu();
             }
     }
@@ -726,7 +719,6 @@ void ClassUI::searchScientist()
         if(list.ageSearcher(ageSearch) == false)
         {
             cout << "Sorry that age is not in our database, but you can add a new scientist in the 'Add section' in the main menu." << endl;
-            cout << endl;
             return mainMenu();
         }
     }
