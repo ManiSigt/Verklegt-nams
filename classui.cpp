@@ -977,6 +977,8 @@ void ClassUI::findScientistConnections()
 {
     int found = 0;
     cout << "--------------------------------------------------------------" << endl;
+    cout << "Computer name" << "\t" << "\t" << "Scientist name" << endl;
+    cout << "--------------------------------------------------------------" << endl;
 
     for(int i = 0; i < list.getLinkSize(); i++)
     {
