@@ -258,12 +258,12 @@ void DataLayer::SortConnectionsBySciName(vector<LinkerOutput>& linkout)
 {
     db.open();
     QSqlQuery query(db);
-    query.exec("SELECT Scientist.Name, Computers.Name FROM Scientist, Computers INNER JOIN CompAndSci ON Scientist.ID=CompAndSci.ScientistID AND Computers.ID = CompAndSci.ComputerID ORDER BY Scientist.Name ASC");
+    query.exec("SELECT Scientist.SciName, Computers.CompName FROM Scientist, Computers INNER JOIN CompAndSci ON Scientist.ID=CompAndSci.ScientistID AND Computers.ID = CompAndSci.ComputerID ORDER BY Scientist.SciName ASC");
 
     while(query.next())
     {
-        string sciName = query.value("Scientist.Name").toString().toStdString();
-        string compName = query.value("Computers.Name").toString().toStdString();
+        string sciName = query.value("SciName").toString().toStdString();
+        string compName = query.value("CompName").toString().toStdString();
         linkout.push_back(LinkerOutput(sciName, compName));
     }
 }
