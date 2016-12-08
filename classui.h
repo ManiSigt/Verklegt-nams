@@ -25,15 +25,15 @@ public:
     void viewMenu();
     void editScientist();        // Edit a scientist that already exists.
     void clearTheScreen();       // Function to clear the screen.
-    void findComputerConnections(int i);
-    void findScientistConnections();
-    void removeConnection();
+    void findComputerConnections(int i); // Finds connections between computer and scientist.
+    void findScientistConnections();    // Finds connections between scientist and computer.
+    void removeConnection();        // Remove a connection from the database.
     void addConnection();         // Function that is adding a connection between a scientist and a computer.
     void editComputer();          // Edit a computer that already exists.
     void hangman();               // Function to play a game of hangman, with a few random words.
-    int fillIn(char guess, string secretword, string &guessword);  // Checks if you got a right letter in hangman.
     void hangmanPicture(int wrong_guess);   // Prints out a picture of the hangman.
     void hangmanRun(int &numWrongGuess, string secretWord, char input, string theword, char theArray[]);
+    int fillIn(char guess, string secretword, string &guessword);  // Checks if you got a right letter in hangman.
 
 private:
     bool runOn = true;

@@ -10,7 +10,6 @@ class Computer
 public:
     Computer();
     Computer(string name, string wasItBuilt, int date, string type, int id); // Class constructor for variables.
-
     string getComputerName() const
     {
         return _name;
