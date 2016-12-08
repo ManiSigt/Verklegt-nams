@@ -11,7 +11,6 @@ ListWorker::ListWorker()
     data.readComputersFromDatabase(com);
     data.readLinksFromDatabase(link);
 }
-
 void ListWorker::addNewScientist(string name, char gender, int yearOfBirth, int yearOfDeath, string comment)
 {
     int vsize = scientistIdFinder();
@@ -28,13 +27,11 @@ void ListWorker::addNewComputer(string name, string type, int yearbuilt, string 
 }
 void ListWorker::addNewConnection(int linkId, int compId, int sciId)
 {
-
     Linker l(linkId, sciId, compId);
     link.push_back(l);
 
     data.addConnection(linkId, sciId, compId);
 }
-
 void ListWorker::sortScientistNames()
 {
     data.sortScientistNames(persons);
@@ -114,7 +111,6 @@ void ListWorker::removeConnection(int s, int c)
         }
     }
 }
-
 bool ListWorker::removePersonFound(string name)
 {
     for(size_t i = 0; i < persons.size(); ++i)
@@ -126,14 +122,12 @@ bool ListWorker::removePersonFound(string name)
     }
     return false;
 }
-
 bool ListWorker::removeComputer(string name)
 {
     for(size_t i = 0; i < com.size(); ++i)
     {
         if(name == com[i].getComputerName())
         {
-
             com.erase(com.begin() + i);
             removeConnection(0,i);
             data.removeComputer(name);
@@ -142,7 +136,6 @@ bool ListWorker::removeComputer(string name)
     }
     return false;
 }
-
 bool ListWorker::removeComputerFound(string name)
 {
     for(size_t i = 0; i < com.size(); ++i)
@@ -154,21 +147,18 @@ bool ListWorker::removeComputerFound(string name)
     }
     return false;
 }
-
 int ListWorker::getScientistNameSize(int n) const
 {
     string name = persons[n].getScientistName();
     int size = name.size();
     return size;
 }
-
 int ListWorker::getComputerNameSize(int n) const
 {
     string name = com[n].getComputerName();
     int size = name.size();
     return size;
 }
-
 bool ListWorker::nameSearcher(string name)
 {
     for(unsigned int i = 0; i < persons.size(); i++)
@@ -182,7 +172,6 @@ bool ListWorker::nameSearcher(string name)
     }
     return false;
 }
-
 bool ListWorker::computerNameSearcher(string name)
 {
     for(int i = 0; i < computerSize(); i++)
@@ -196,7 +185,6 @@ bool ListWorker::computerNameSearcher(string name)
     }
     return false;
 }
-
 bool ListWorker::genderSearcher(char gender)
 {
     for(unsigned int i = 0; i < persons.size(); i++)
@@ -209,7 +197,6 @@ bool ListWorker::genderSearcher(char gender)
     }
     return false;
 }
-
 bool ListWorker::typeSearcher(string type)
 {
     for(unsigned int i = 0; i < com.size(); i++)
@@ -223,7 +210,6 @@ bool ListWorker::typeSearcher(string type)
     }
     return false;
 }
-
 bool ListWorker::yearSearcher(int year)
 {
     for(unsigned int i = 0; i < persons.size(); i++)
@@ -236,7 +222,6 @@ bool ListWorker::yearSearcher(int year)
     }
     return false;
 }
-
 bool ListWorker::builtDateSearcher(int year)
 {
     for(unsigned int i = 0; i < com.size(); i++)
@@ -249,7 +234,6 @@ bool ListWorker::builtDateSearcher(int year)
     }
     return false;
 }
-
 bool ListWorker::ageSearcher(int age)
 {
     for(unsigned int i = 0; i < persons.size(); i++)
@@ -262,11 +246,9 @@ bool ListWorker::ageSearcher(int age)
     }
     return false;
 }
-
 int ListWorker::computerIdFinder()
 {
     int idValue;
-
     for (int i = 1; i <= computerSize(); i++)
     {
         if(i != getComputerId(i-1))
@@ -280,11 +262,9 @@ int ListWorker::computerIdFinder()
     }
     return idValue;
 }
-
 int ListWorker::scientistIdFinder()
 {
     int idValue;
-
     for (int i = 1; i <= personsSize(); i++)
     {
         if(i != getScientistId(i-1))
@@ -298,7 +278,6 @@ int ListWorker::scientistIdFinder()
     }
     return idValue;
 }
-
 void ListWorker::refreshVector()
 {
     com.erase (com.begin(),com.end());
@@ -308,7 +287,6 @@ void ListWorker::refreshVector()
     link.erase(link.begin(),link.end());
     data.readLinksFromDatabase(link);
 }
-
 string ListWorker::getComputerNameFromId(int n) const
 {
     string name;
@@ -321,7 +299,6 @@ string ListWorker::getComputerNameFromId(int n) const
     }
     return name;
 }
-
 string ListWorker::getScientistNameFromId(int n) const
 {
     string name;
