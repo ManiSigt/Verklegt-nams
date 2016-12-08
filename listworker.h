@@ -41,15 +41,15 @@ public:
     bool removeComputer(string name);                   // Remove computer from the vector.
     bool removeComputerFound(string name);              // Check if computer to remove is found or not.
     bool typeSearcher(string type);
-    bool yearSearcher(int year);                       // Searches for a specific year within the vector using a for loop.
+    bool yearSearcher(int year);                        // Searches for a specific year within the vector using a for loop.
     int computerIdFinder();
     int scientistIdFinder();
-    int editPersonFinder(string name);                 // Edit a scientist.
+    int editPersonFinder(string name);                  // Edit a scientist.
     int getScientistNameSize(int n) const;              // Returns the size of _name from persons.
     int getComputerNameSize(int n) const;               // Returns the size of _name from Computer.
     string getComputerNameFromId(int n) const;          // Get computer name from compId
     string getScientistNameFromId(int n) const;         // Get scientist name from sciId
-    string getScientistName(int n) const               // Make _name from persons available.
+    string getScientistName(int n) const                // Make _name from persons available.
     {
         return persons[n].getScientistName();
     }
