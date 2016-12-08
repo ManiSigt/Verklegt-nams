@@ -5,6 +5,7 @@
 #include "linker.h"
 #include <vector>
 #include <Qtsql>
+#include "linkeroutput.h"
 
 class DataLayer
 {
@@ -18,6 +19,7 @@ public:
     void sortNamesComputersReverse(vector<Computer>& com);
     void sortDateComputers(vector<Computer>& com);
     void sortTypeComputers(vector<Computer>& com);
+    void SortConnectionsBySciName(vector<LinkerOutput>& linkout);
     friend bool sortByScientistName(const Person &lhs, const Person &rhs);                          // Compares two names and returns the one that is lower in alphabetical order.
     friend bool sortByScientistNameReverse(const Person &lhs, const Person &rhs);
     friend bool sortByScientistBirth(const Person &lhs, const Person &rhs);                         // Compares two years of birth and returns the one that is lower in chronological order.

@@ -6,6 +6,7 @@
 #include "Computer.h"
 #include <iostream>
 #include <string>
+#include "linkeroutput.h"
 
 using namespace std;
 
@@ -116,6 +117,19 @@ public:
     {
         return link.size();
     }
+    int getLinkOutputSize() const                             // Returns size of vector linkout
+    {
+        return linkout.size();
+    }
+    string getLinkOutputCompName(int n) const
+    {
+        return linkout[n].getCompName();
+    }
+    string getLinkOutputSciName(int n) const
+    {
+        return linkout[n].getSciName();
+    }
+    int getLinkoutputCompNameSize(int n);
     int getScientistNameSize(int n) const;              // Returns the size of _name from persons.
     int getComputerNameSize(int n) const;               // Returns the size of _name from Computer.
     int personsSize() const                             // Returns the size of vector persons.
@@ -129,12 +143,14 @@ public:
     }
     void removeConnection(int s, int c);
     void saveFile();                                    // Deletes the file and makes a new one, and reads the vector into the new file.
+    void sortConnections(string selection);
 
 private:
     DataLayer data;
     vector<Person> persons;                             // The vector containing all persons from the database.
     vector<Computer> com;                               // The vector containing all computers from the database.
     vector<Linker> link;                                // The vector containing all connections from the database.
+    vector<LinkerOutput> linkout;
 };
 
 #endif // LISTWORKER_H
