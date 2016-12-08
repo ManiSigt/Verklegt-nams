@@ -1212,24 +1212,14 @@ void ClassUI::hangmanRun(int &numWrongGuess, string secretWord, char input, stri
     while (numWrongGuess < maxTries)
     {
         cout  << secretWord << endl;
-        cout << "Guess a letter: " << endl;
         cout << " You have entered the following letters: ";
         for (int k = 0; k < i; k++ )
         {
             cout << myarray[k] << " ";
         }
         cout << endl;
+        cout << "Guess a letter: ";
         cin >> input;
-        for (int k = 0; k < i; k++)
-        {
-            if (input == myarray[k])
-            {
-                cout << "you have already entered this letter" << endl;
-                return hangmanRun(numWrongGuess, secretWord, input, theword, myarray);
-            }
-        }
-        myarray[i] = input;
-
         if (fillIn(input, theword, secretWord) == 0)
         {
             cout << endl << "That letter isn't in there!" << endl;
@@ -1240,6 +1230,7 @@ void ClassUI::hangmanRun(int &numWrongGuess, string secretWord, char input, stri
         {
             cout << endl << "You found a letter!" << endl;
         }
+        myarray[i] = input;
         cout << "You have " << maxTries - numWrongGuess;
         cout << " guesses left." << endl;
         if (theword == secretWord)
@@ -1250,6 +1241,7 @@ void ClassUI::hangmanRun(int &numWrongGuess, string secretWord, char input, stri
             break;
         }
         i++;
+
     }
 }
 
