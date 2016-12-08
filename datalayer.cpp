@@ -189,6 +189,23 @@ void DataLayer::addComputer(string name, string type, int yearbuilt, string isbu
 
     queryAdd.exec();
 }
+void DataLayer::updateScientist(string name, char gender, int yearOfBirth, int yearOfDeath, string comment, int sciId)
+{
+    QString qname = QString::fromStdString(name);
+    QString qcomment = QString::fromStdString(comment);
+    QString qgender = QChar(gender);
+
+    QSqlQuery queryAdd;
+    queryAdd.prepare("UPDATE Scientist SET SciName=:name, Gender=:gender, YearOfbirth=:yearofbirth, YearOfDeath=:yearofdeath, Comment=:comment WHERE ID=:id");
+
+    queryAdd.bindValue(":id", sciId);
+    queryAdd.bindValue(":name", qname);
+    queryAdd.bindValue(":gender", qgender);
+    queryAdd.bindValue(":yearofbirth", yearOfBirth);
+    queryAdd.bindValue(":yearofdeath", yearOfDeath);
+    queryAdd.bindValue(":comment", qcomment);
+    queryAdd.exec();
+}
 void DataLayer::addConnection(int linkId, int sciId, int compId)
 {
         QSqlQuery queryAdd;

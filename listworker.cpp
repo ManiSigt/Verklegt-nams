@@ -172,7 +172,7 @@ bool ListWorker::nameSearcher(string name)
 {
     for(unsigned int i = 0; i < persons.size(); i++)
     {
-        std::size_t found = getScientistName(i).find(name);
+        std::size_t found = getScientistLowerCaseName(i).find(name);
         if (found!=std::string::npos)
         {
             return true;
@@ -365,4 +365,8 @@ int ListWorker::getLinkoutputCompNameSize(int n)
     string name = linkout[n].getCompName();
     int size = name.size();
     return size;
+}
+void ListWorker::updateScientist(string name,char gender, int birth, int death, string comment, int sciId)
+{
+    data.updateScientist(name,gender,birth,death,comment,sciId);
 }

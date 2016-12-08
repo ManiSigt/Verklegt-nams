@@ -48,6 +48,7 @@ public:
     void addScientist(string name, char gender, int yearOfBirth, int yearOfDeath, string comment, int vsize);   // Adds a scientist to the SQL database.
     void addComputer(string name, string type, int yearbuilt, string isbuilt, int vsize);                       // Adds a computer to the SQL databse.
     void addConnection(int linkId, int sciId, int compId);                                                      // Adds a connection from to the SQL databse.
+    void updateScientist(string name, char gender, int yearOfBirth, int yearOfDeath, string comment, int sciId);
     int stringToNumber(string st);                                                                              // Convert a string to a int.
     QSqlDatabase db;
  };

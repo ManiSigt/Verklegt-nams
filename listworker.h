@@ -32,6 +32,7 @@ public:
     void removeConnection(string scientist, string computer);                                         // Removes a computer or a scientist from the database.
     void removeConnection(int s, int c);
     void saveFile();                                                                                  // Deletes the file and makes a new one, and reads the vector into the new file.
+    void updateScientist(string name,char gender, int birth, int death, string comment, int sciId);
     bool computerNameSearcher(string name);                                                           // Searches for a specific name within the vector com.
     bool ageSearcher(int age);                                                                        // Searches for a specific age within the vector using a for-loop.
     bool builtDateSearcher(int year);                                                                 // Searches for a specific date within the vector using a for-loop
@@ -48,6 +49,7 @@ public:
     int editPersonFinder(string name);                                                                // Edit a scientist.
     int getScientistNameSize(int n) const;                                                            // Returns the size of _name from persons.
     int getComputerNameSize(int n) const;                                                             // Returns the size of _name from Computer.
+
     string getComputerNameFromId(int n) const;                                                        // Get computer name from compId
     string getScientistNameFromId(int n) const;                                                       // Get scientist name from sciId
     string getScientistName(int n) const                                                              // Make _name from the vector persons available.

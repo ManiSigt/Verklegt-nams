@@ -558,8 +558,7 @@ void ClassUI::searchComputer()
                 viewComputer(i);
             }
         }
-
-        if(list.computerNameSearcher(nameSearch) == false)
+        if (list.computerNameSearcher(nameSearch) == false)
         {
             cout << "Sorry that name is not in our database, but you can add a new computer in the 'Add section' in the main menu." << endl;
             return mainMenu();
@@ -640,10 +639,9 @@ void ClassUI::searchScientist()
             if (found!=std::string::npos)
             {
                 viewScientist(i);
-            }
+            }     
         }
-
-        if(list.nameSearcher(nameSearch) == false)
+        if (list.nameSearcher(nameSearch) == false)
         {
             cout << "Sorry that name is not in our database, but you can add a new scientist in the 'Add section' in the main menu." << endl;
             return mainMenu();
@@ -962,7 +960,6 @@ void ClassUI::viewMenu()
         cout << " (5) - Return to main menu." << endl;
         cout << "Enter your command (1 - 5): ";
         cin >> viewCho;
-        cout << endl;
         if(viewCho == "1" || viewCho == "2" || viewCho == "3" || viewCho == "4")
         {
             list.sortConnections(viewCho);
@@ -992,15 +989,84 @@ void ClassUI::viewMenu()
 }
 void ClassUI::editScientist()
 {
-    string name;
+    string ename;
+    int found;
     cout << "Enter the full name of the scientist that you want to edit: ";
     cin.ignore();
-    std::getline(std::cin,name);
-
-    if(list.removePersonFound(name))
+    std::getline(std::cin,ename);
+    for(int i = 0; i < list.personsSize(); i++)
     {
-        list.removePerson(name);
-        addScientist();
+        if(ename == list.getScientistName(i))
+        {
+            cout << list.getScientistName(i) << endl;
+            found = i;
+        }
+    }
+    int sciId = list.getScientistId(found);
+
+    if(list.removePersonFound(ename))
+    {
+        string name;
+        string comment;
+        char gender;
+        char yesOrNo;
+        int yearOfBirth = 0;
+        int yearOfDeath = 0;
+
+        cout << "--------------------------------------------------------------" << endl;
+        cout << "Enter name of the scientist: ";
+        std::getline(std::cin,name);
+        if(name == "")
+        {
+            cout << "Invalid name! Try again." << endl;
+            return mainMenu();
+        }
+        cout << "Enter a gender (M/F): ";
+        cin >> gender;
+
+        if (gender == 'm')
+        {
+            gender = 'M';
+        }
+        else if (gender == 'f')
+        {
+            gender = 'F';
+        }
+
+        if (gender == 'm' || gender == 'M' || gender == 'f' || gender == 'F')
+        {
+           cout << "Enter a year of birth: ";
+           cin >> yearOfBirth;
+           if (yearOfBirth < 0 || yearOfBirth > 2016)
+           {
+               cout << "not a valid year of birth" << endl;
+               return mainMenu();
+           }
+           cout << "Is the individual deceased? (y/n) ";
+           cin >> yesOrNo;
+
+           if (yesOrNo == 'Y' || yesOrNo == 'y')
+           {
+                cout << "Enter a year of death: ";
+                cin >> yearOfDeath;
+                if(yearOfBirth > yearOfDeath)
+                {
+                    cout << "Not a valid year of death" << endl;
+                    return mainMenu();
+                }
+            }
+
+            cout << "Enter a comment about the scientist(optional): ";
+            cin.ignore();
+            std::getline(std::cin,comment);
+            }
+            else
+            {
+                cout << "Invalid gender! Try again." << endl;
+                return mainMenu();
+            }
+
+        list.updateScientist(name,gender,yearOfBirth,yearOfDeath,comment, sciId);
     }
     else
     {
