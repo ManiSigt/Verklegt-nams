@@ -28,7 +28,7 @@ public:
     void sortComputerDateReverse();
     void sortComputerType();
     void refreshVector();
-    void removeConnection(string scientist, string computer);
+    void removeConnection(string scientist, string computer);   // Removes a computer or a scientist from the database.
     void removeConnection(int s, int c);
     void saveFile();                                    // Deletes the file and makes a new one, and reads the vector into the new file.
     bool computerNameSearcher(string name);
@@ -40,10 +40,10 @@ public:
     bool removePersonFound(string name);                // Check if person to remove is found or not.
     bool removeComputer(string name);                   // Remove computer from the vector.
     bool removeComputerFound(string name);              // Check if computer to remove is found or not.
-    bool typeSearcher(string type);
+    bool typeSearcher(string type);                     // Finds type of computer.
     bool yearSearcher(int year);                        // Searches for a specific year within the vector using a for loop.
-    int computerIdFinder();
-    int scientistIdFinder();
+    int computerIdFinder();                             // Finds ID of computer.
+    int scientistIdFinder();                            // Finds ID of scientist.
     int editPersonFinder(string name);                  // Edit a scientist.
     int getScientistNameSize(int n) const;              // Returns the size of _name from persons.
     int getComputerNameSize(int n) const;               // Returns the size of _name from Computer.
