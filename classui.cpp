@@ -84,7 +84,7 @@ void ClassUI::select(string ch)
         }
             else
         {
-            cout << "Invalid input. Please enter a number between 1 - 3." << endl;
+            cout << "Invalid input. Please enter a number between 1 - 4." << endl;
             select("1");
         }
     }
@@ -337,53 +337,54 @@ void ClassUI::addScientist()
     }
 }
 void ClassUI::addComputer()
+{
+    string name;
+    string type;
+    string isbuilt;
+    int Yearbuilt = 0;
+
+    cout << "--------------------------------------------------------------" << endl;
+    cout << "Enter name of the computer: ";
+    std::getline(std::cin,name);
+    cout << "Enter the type of the computer: ";
+    std::getline(std::cin,type);
+    cout << "Enter the year the computer was built: ";
+    cin >> Yearbuilt;
+
+    if (Yearbuilt < 0 || Yearbuilt > 2016)
     {
-        string name;
-        string type;
-        string isbuilt;
-        int Yearbuilt = 0;
+       cout << "not a valid building year" << endl;
+       return mainMenu();
+    }
+    cout << "Did they finish building the computer? (y/n) ";
+    cin >> isbuilt;
 
-        cout << "--------------------------------------------------------------" << endl;
-        cout << "Enter name of the computer: ";
-        std::getline(std::cin,name);
-        cout << "Enter the type of the computer: ";
-        std::getline(std::cin,type);
-        cout << "Enter the year the computer was built: ";
-           cin >> Yearbuilt;
-           if (Yearbuilt < 0 || Yearbuilt > 2016)
-           {
-               cout << "not a valid building year" << endl;
-               return mainMenu();
-           }
-           cout << "Did they finish building the computer? (y/n) ";
-           cin >> isbuilt;
-           if (isbuilt == "y" || isbuilt == "y")
-           {
-               isbuilt = "Yes";
-           }
-           else if (isbuilt == "n" || isbuilt == "N")
-           {
-               isbuilt = "No";
-           }
-           else
-           {
-                cout << "Not a valid input." << endl;
-                return mainMenu();
-           }
+    if (isbuilt == "y" || isbuilt == "y")
+    {
+       isbuilt = "Yes";
+    }
+    else if (isbuilt == "n" || isbuilt == "N")
+    {
+       isbuilt = "No";
+    }
+    else
+    {
+        cout << "Not a valid input." << endl;
+        return mainMenu();
+    }
+    cout << "Are you sure that you want to add this computer? (y/n) ";
+    string validateComputer;
+    cin >> validateComputer;
 
-        cout << "Are you sure that you want to add this computer? (y/n) ";
-        string validateComputer;
-        cin >> validateComputer;
-
-        if(validateComputer == "y")
-        {
-            cout << "New computer added!" << endl;
-            list.addNewComputer(name, type ,Yearbuilt, isbuilt);
-        }
-        else
-        {
-            cout << "scientist not added!" << endl;
-        }
+    if(validateComputer == "y")
+    {
+        cout << "New computer added!" << endl;
+        list.addNewComputer(name, type ,Yearbuilt, isbuilt);
+    }
+    else
+    {
+        cout << "scientist not added!" << endl;
+    }
 }
 void ClassUI::addConnection()
 {
@@ -394,6 +395,7 @@ void ClassUI::addConnection()
     int validateScientist = 0;
     cout << "--------------------------------------------------------------" << endl;
     cout << "Number - Scientist name" << endl;
+
     for(int i = 0; i < list.personsSize(); i++)
     {
      cout << list.getScientistId(i) << " - " << list.getScientistName(i) << endl;
@@ -451,18 +453,18 @@ void ClassUI::addConnection()
     }
 
     cout << "Are you sure that you want to add this connection? (y/n) ";
-            string validate;
-            cin >> validate;
+    string validate;
+    cin >> validate;
 
-            if(validate == "y")
-            {
-                cout << "New connection added!" << endl;
-                list.addNewConnection(linkId, compId , sciId);
-            }
-            else
-            {
-                cout << "connection not added!" << endl;
-            }
+    if(validate == "y")
+    {
+        cout << "New connection added!" << endl;
+        list.addNewConnection(linkId, compId , sciId);
+    }
+    else
+    {
+        cout << "connection not added!" << endl;
+    }
 
 }
 void ClassUI::selectSearch()
@@ -768,12 +770,10 @@ void ClassUI::removeScientist()
 void ClassUI::removeComputer()
 {
     string name;
-    //int id;
     cout << "--------------------------------------------------------------" << endl;
     cout << "Enter the full name of the computer that you want to remove: ";
     cin.ignore();
     std::getline(std::cin,name);
-    //cin >> id;
 
     if (list.removeComputerFound(name) == true)
     {
@@ -897,7 +897,6 @@ void ClassUI::viewMenu()
             viewMenu();
         }
     }
-
     else if(viewBy == "2")
     {
         cout << "--------------------------------------------------------------" << endl;
@@ -941,8 +940,6 @@ void ClassUI::viewMenu()
             viewMenu();
         }
     }
-
-
     else if(viewBy == "3")
     {
         findScientistConnections();
@@ -952,22 +949,20 @@ void ClassUI::viewMenu()
     {
         clearTheScreen();
         mainMenu();
-
     }
     else
     {
         cout << "That is not a valid command! Try again." << endl;
         viewMenu();
     }
-
 }
 void ClassUI::editScientist()
 {
     string name;
     cout << "Enter the full name of the Scientist that you want to edit: ";
-
     cin.ignore();
     std::getline(std::cin,name);
+
     if(list.removePersonFound(name))
     {
         list.removePerson(name);
@@ -978,13 +973,11 @@ void ClassUI::editScientist()
         cout << "Scientist not found!" << endl;
     }
 }
-
-
 void ClassUI::findScientistConnections()
 {
     int found = 0;
-
     cout << "--------------------------------------------------------------" << endl;
+
     for(int i = 0; i < list.getLinkSize(); i++)
     {
         int compId = list.getLinkCompId(i);
@@ -1019,20 +1012,18 @@ void ClassUI::findScientistConnections()
         cout << endl;
     }
 }
-
 void ClassUI::clearTheScreen()
 {
     system("cls||clear");
     return;
 }
-
-
 void ClassUI::editComputer()
 {
     string cmpname;
     cout << "Enter the full name of the computer that you want to edit: ";
     cin.ignore();
     std::getline(std::cin,cmpname);
+
     if(list.removeComputerFound(cmpname))
     {
         list.removeComputer(cmpname);
@@ -1043,7 +1034,6 @@ void ClassUI::editComputer()
         cout << "Computer not found!" << endl;
     }
 }
-
 void ClassUI::hangman()
 {
     clearTheScreen();
