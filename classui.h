@@ -33,7 +33,7 @@ public:
     void hangman();               // Function to play a game of hangman, with a few random words.
     int fillIn(char guess, string secretword, string &guessword);  // Checks if you got a right letter in hangman.
     void hangmanPicture(int wrong_guess);   // Prints out a picture of the hangman.
-    void hangmanRun(int &numWrongGuess, string secretWord, char input, string theword);
+    void hangmanRun(int &numWrongGuess, string secretWord, char input, string theword, char theArray []);
 
 private:
     bool runOn = true;

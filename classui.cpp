@@ -8,6 +8,7 @@
 
 using namespace std;
 const int maxTries = 5; // A number for hangman, used for how many tries you got left.
+const int maxArraySize = 25;
 ClassUI::ClassUI()
 {
 
@@ -1036,13 +1037,15 @@ void ClassUI::editComputer()
         cout << "Computer not found!" << endl;
     }
 }
+
 void ClassUI::hangman()
 {
     clearTheScreen();
     string name;
-    char letter;
+    char letter = ' ';
     int numOfWrongGuesses = 0;
     string word;
+    char theArray [maxArraySize];
 
     srand(time(NULL));
 
@@ -1069,7 +1072,7 @@ void ClassUI::hangman()
         cout << "You may type only one letter in one try." << endl;
         cout << "You have " << maxTries << " tries to try and guess the word." << endl;
         cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
-        hangmanRun(numOfWrongGuesses, unknown, letter, word);
+        hangmanRun(numOfWrongGuesses, unknown, letter, word, theArray);
         if (numOfWrongGuesses == maxTries)
         {
             cout << "Sorry, you lose...you've been hanged." << endl;
@@ -1093,7 +1096,7 @@ void ClassUI::hangman()
         cout << "You may type only one letter in one try." << endl;
         cout << "You have " << maxTries << " tries to try and guess the word." << endl;
         cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
-        hangmanRun(numOfWrongGuesses, unknown, letter, word);
+        hangmanRun(numOfWrongGuesses, unknown, letter, word, theArray);
         if (numOfWrongGuesses == maxTries)
         {
             cout << "Sorry, you lose...you've been hanged." << endl;
@@ -1117,7 +1120,7 @@ void ClassUI::hangman()
         cout << "You may type only one letter in one try." << endl;
         cout << "You have " << maxTries << " tries to try and guess the word." << endl;
         cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
-        hangmanRun(numOfWrongGuesses, unknown, letter, word);
+        hangmanRun(numOfWrongGuesses, unknown, letter, word, theArray);
         if (numOfWrongGuesses == maxTries)
         {
             cout << "Sorry, you lose...you've been hanged." << endl;
@@ -1203,13 +1206,22 @@ void ClassUI::hangmanPicture(int wrongGuess)
       cout << "_|___" << endl;
     }
 }
-void ClassUI::hangmanRun(int &numWrongGuess, string secretWord, char input, string theword)
+void ClassUI::hangmanRun(int &numWrongGuess, string secretWord, char input, string theword, char myarray[maxArraySize])
 {
+    int i = 0;
     while (numWrongGuess < maxTries)
     {
         cout  << secretWord << endl;
         cout << "Guess a letter: " << endl;
+        cout << " You have entered the following letters: ";
+        for (int k = 0; k < i; k++ )
+        {
+            cout << myarray[k] << " ";
+        }
+        cout << endl;
         cin >> input;
+        myarray[i] = input;
+
         if (fillIn(input, theword, secretWord) == 0)
         {
             cout << endl << "That letter isn't in there!" << endl;
@@ -1229,8 +1241,10 @@ void ClassUI::hangmanRun(int &numWrongGuess, string secretWord, char input, stri
             cout << "Press Enter to continue" << endl;
             break;
         }
+        i++;
     }
 }
+
 
 void ClassUI::removeConnection()
 {
