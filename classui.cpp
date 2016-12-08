@@ -964,8 +964,7 @@ void ClassUI::viewMenu()
         cout << "Enter your command (1 - 5): ";
         cin >> viewCho;
         cout << endl;
-
-        if(viewCho == "1" && viewCho == "2" && viewCho == "3" && viewCho == "4")
+        if(viewCho == "1" || viewCho == "2" || viewCho == "3" || viewCho == "4")
         {
             list.sortConnections(viewCho);
             findScientistConnections();
