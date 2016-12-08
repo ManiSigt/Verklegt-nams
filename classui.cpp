@@ -957,15 +957,28 @@ void ClassUI::viewMenu()
     {
         cout << "--------------------------------------------------------------" << endl;
         cout << " (1) - Sort Scientists by ascending alphabetical order." << endl;
-        cout << " (2) - Return to main menu." << endl;
-        cout << "Enter your command (1 - 2): ";
+        cout << " (2) - Sort Scientists by descending alphabetical order." << endl;
+        cout << " (3) - Sort Computers by ascending alphabetical order." << endl;
+        cout << " (4) - Sort Computers by descending alphabetical order." << endl;
+        cout << " (5) - Return to main menu." << endl;
+        cout << "Enter your command (1 - 5): ";
         cin >> viewCho;
         cout << endl;
 
-        if(viewCho == "1")
+        if(viewCho == "1" && viewCho == "2" && viewCho == "3" && viewCho == "4")
         {
             list.sortConnections(viewCho);
             findScientistConnections();
+        }
+        else if (viewCho == "5")
+        {
+            clearTheScreen();
+            mainMenu();
+        }
+        else
+        {
+            cout << "That is not a valid command! Try again." << endl;
+            viewMenu();
         }
     }
     else if(viewBy == "4")

@@ -1,5 +1,6 @@
 #include "listworker.h"
 #include "datalayer.h"
+#include "linkeroutput.h"
 #include <iostream>
 #include <string>
 
@@ -294,6 +295,7 @@ void ListWorker::refreshVector()
     data.readScientistsFromDatabase(persons);
     link.erase(link.begin(),link.end());
     data.readLinksFromDatabase(link);
+    linkout.erase(linkout.begin(),linkout.end());
 }
 string ListWorker::getComputerNameFromId(int n) const
 {
@@ -343,7 +345,19 @@ void ListWorker::sortConnections(string selection)
 {
     if (selection == "1")
     {
-        data.SortConnectionsBySciName(linkout);
+        data.sortConnectionsBySciName(linkout);
+    }
+    else if(selection == "2")
+    {
+        data.sortConnectionsBySciNameDesc(linkout);
+    }
+    else if(selection == "3")
+    {
+        data.sortConnectionsByCompName(linkout);
+    }
+    else if(selection == "4")
+    {
+        data.sortConnectionsByCompNameDesc(linkout);
     }
 }
 int ListWorker::getLinkoutputCompNameSize(int n)
