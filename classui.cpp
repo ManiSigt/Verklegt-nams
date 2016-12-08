@@ -557,12 +557,11 @@ void ClassUI::searchComputer()
             {
                 viewComputer(i);
             }
-            if (i+1 == list.computerSize())
-            {
-                cout << "Sorry that name is not in our database, but you can add a new computer in the 'Add section' in the main menu." << endl;
-                return mainMenu();
-            }
-
+        }
+        if (list.nameSearcher(nameSearch) == false)
+        {
+            cout << "Sorry that name is not in our database, but you can add a new scientist in the 'Add section' in the main menu." << endl;
+            return mainMenu();
         }
     }
     else if (searchChoice == "2")
@@ -642,12 +641,12 @@ void ClassUI::searchScientist()
             if (found!=std::string::npos)
             {
                 viewScientist(i);
-            }
-            if (i+1 == list.computerSize())
-            {
-                cout << "Sorry that name is not in our database, but you can add a new computer in the 'Add section' in the main menu." << endl;
-                return mainMenu();
-            }
+            }     
+        }
+        if (list.nameSearcher(nameSearch) == false)
+        {
+            cout << "Sorry that name is not in our database, but you can add a new scientist in the 'Add section' in the main menu." << endl;
+            return mainMenu();
         }
     }
     else if (searchChoice == "2")
