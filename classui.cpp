@@ -1048,10 +1048,7 @@ void ClassUI::findScientistConnections()
         cout << "|" << list.getLinkOutputSciName(i) << endl;
     }
 
-    if (found > 0)
-    {
-        cout << endl;
-    }
+
 }
 void ClassUI::clearTheScreen()
 {
