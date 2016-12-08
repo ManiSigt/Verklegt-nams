@@ -271,7 +271,7 @@ void DataLayer::sortConnectionsByCompName(vector<LinkerOutput>& linkout)
 {
     db.open();
     QSqlQuery query(db);
-    query.exec("SELECT Scientist.SciName, Computers.CompName FROM Scientist, Computers INNER JOIN CompAndSci ON Scientist.ID=CompAndSci.ScientistID AND Computers.ID = CompAndSci.ComputerID ORDER BY Computer.CompName ASC");
+    query.exec("SELECT Scientist.SciName, Computers.CompName FROM Scientist, Computers INNER JOIN CompAndSci ON Scientist.ID=CompAndSci.ScientistID AND Computers.ID = CompAndSci.ComputerID ORDER BY Computers.CompName ASC");
 
     while(query.next())
     {
@@ -297,7 +297,7 @@ void DataLayer::sortConnectionsByCompNameDesc(vector<LinkerOutput>& linkout)
 {
     db.open();
     QSqlQuery query(db);
-    query.exec("SELECT Scientist.SciName, Computers.CompName FROM Scientist, Computers INNER JOIN CompAndSci ON Scientist.ID=CompAndSci.ScientistID AND Computers.ID = CompAndSci.ComputerID ORDER BY Computer.CompName DESC");
+    query.exec("SELECT Scientist.SciName, Computers.CompName FROM Scientist, Computers INNER JOIN CompAndSci ON Scientist.ID=CompAndSci.ScientistID AND Computers.ID = CompAndSci.ComputerID ORDER BY Computers.CompName DESC");
 
     while(query.next())
     {
