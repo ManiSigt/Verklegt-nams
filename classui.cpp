@@ -1220,6 +1220,14 @@ void ClassUI::hangmanRun(int &numWrongGuess, string secretWord, char input, stri
         }
         cout << endl;
         cin >> input;
+        for (int k = 0; k < i; k++)
+        {
+            if (input == myarray[k])
+            {
+                cout << "you have already entered this letter" << endl;
+                return hangmanRun(numWrongGuess, secretWord, input, theword, myarray);
+            }
+        }
         myarray[i] = input;
 
         if (fillIn(input, theword, secretWord) == 0)
