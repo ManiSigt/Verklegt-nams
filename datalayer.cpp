@@ -254,11 +254,50 @@ void DataLayer::removeConnection(int sciId, int compId)
     queryRemove.exec();
 
 }
-void DataLayer::SortConnectionsBySciName(vector<LinkerOutput>& linkout)
+void DataLayer::sortConnectionsBySciName(vector<LinkerOutput>& linkout)
 {
     db.open();
     QSqlQuery query(db);
     query.exec("SELECT Scientist.SciName, Computers.CompName FROM Scientist, Computers INNER JOIN CompAndSci ON Scientist.ID=CompAndSci.ScientistID AND Computers.ID = CompAndSci.ComputerID ORDER BY Scientist.SciName ASC");
+
+    while(query.next())
+    {
+        string sciName = query.value("SciName").toString().toStdString();
+        string compName = query.value("CompName").toString().toStdString();
+        linkout.push_back(LinkerOutput(sciName, compName));
+    }
+}
+void DataLayer::sortConnectionsByCompName(vector<LinkerOutput>& linkout)
+{
+    db.open();
+    QSqlQuery query(db);
+    query.exec("SELECT Scientist.SciName, Computers.CompName FROM Scientist, Computers INNER JOIN CompAndSci ON Scientist.ID=CompAndSci.ScientistID AND Computers.ID = CompAndSci.ComputerID ORDER BY Computer.CompName ASC");
+
+    while(query.next())
+    {
+        string sciName = query.value("SciName").toString().toStdString();
+        string compName = query.value("CompName").toString().toStdString();
+        linkout.push_back(LinkerOutput(sciName, compName));
+    }
+}
+void DataLayer::sortConnectionsBySciNameDesc(vector<LinkerOutput>& linkout)
+{
+    db.open();
+    QSqlQuery query(db);
+    query.exec("SELECT Scientist.SciName, Computers.CompName FROM Scientist, Computers INNER JOIN CompAndSci ON Scientist.ID=CompAndSci.ScientistID AND Computers.ID = CompAndSci.ComputerID ORDER BY Scientist.SciName DESC");
+
+    while(query.next())
+    {
+        string sciName = query.value("SciName").toString().toStdString();
+        string compName = query.value("CompName").toString().toStdString();
+        linkout.push_back(LinkerOutput(sciName, compName));
+    }
+}
+void DataLayer::sortConnectionsByCompNameDesc(vector<LinkerOutput>& linkout)
+{
+    db.open();
+    QSqlQuery query(db);
+    query.exec("SELECT Scientist.SciName, Computers.CompName FROM Scientist, Computers INNER JOIN CompAndSci ON Scientist.ID=CompAndSci.ScientistID AND Computers.ID = CompAndSci.ComputerID ORDER BY Computer.CompName DESC");
 
     while(query.next())
     {
