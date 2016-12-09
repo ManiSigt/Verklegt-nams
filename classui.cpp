@@ -988,7 +988,7 @@ void ClassUI::viewMenu()
 void ClassUI::editScientist()
 {
     string ename;
-    int found;
+    int found = -1;
     cout << "Enter the full name of the scientist that you want to edit: ";
     cin.ignore();
     std::getline(std::cin,ename);
@@ -1001,7 +1001,7 @@ void ClassUI::editScientist()
     }
     int sciId = list.getScientistId(found);
 
-    if(list.removePersonFound(ename))
+    if(found >= 0)
     {
         string name;
         string comment;
