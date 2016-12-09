@@ -347,8 +347,18 @@ void ClassUI::addComputer()
     cout << "--------------------------------------------------------------" << endl;
     cout << "Enter name of the computer: ";
     std::getline(std::cin,name);
+    if(name == "")
+    {
+        cout << "Invalid name! Try again." << endl;
+        return mainMenu();
+    }
     cout << "Enter the type of the computer: ";
     std::getline(std::cin,type);
+    if(type == "")
+    {
+        cout << "Invalid type! Try again." << endl;
+        return mainMenu();
+    }
     cout << "Enter the year the computer was built: ";
     cin >> Yearbuilt;
 
@@ -548,11 +558,9 @@ void ClassUI::searchComputer()
                 viewComputer(i);
             }
         }
-
-        if(list.computerNameSearcher(nameSearch) == false)
+        if (list.computerNameSearcher(nameSearch) == false)
         {
             cout << "Sorry that name is not in our database, but you can add a new computer in the 'Add section' in the main menu." << endl;
-            cout << endl;
             return mainMenu();
         }
     }
@@ -574,7 +582,6 @@ void ClassUI::searchComputer()
         if(list.typeSearcher(typesearch) == false)
         {
             cout << "Sorry that type is not in our database, but you can add a new type in the 'Add section' in the main menu." << endl;
-            cout << endl;
             return mainMenu();
         }
     }
@@ -596,7 +603,6 @@ void ClassUI::searchComputer()
             if(list.builtDateSearcher(yearSearch) == false)
             {
                 cout << "Sorry that year is not in our database, but you can add a new scientist in the 'Add section' in the main menu." << endl;
-                cout << endl;
                 return mainMenu();
             }
     }
@@ -615,7 +621,6 @@ void ClassUI::searchScientist()
 {
     string searchChoice;
     cin >> searchChoice;
-    cout << endl;
 
     if (searchChoice == "1")
     {
@@ -634,13 +639,11 @@ void ClassUI::searchScientist()
             if (found!=std::string::npos)
             {
                 viewScientist(i);
-            }
+            }     
         }
-
-        if(list.nameSearcher(nameSearch) == false)
+        if (list.nameSearcher(nameSearch) == false)
         {
             cout << "Sorry that name is not in our database, but you can add a new scientist in the 'Add section' in the main menu." << endl;
-            cout << endl;
             return mainMenu();
         }
     }
@@ -672,7 +675,6 @@ void ClassUI::searchScientist()
         if(list.genderSearcher(genderSearch) == false)
         {
             cout << "Sorry that gender is not in our database, but you can add a new scientist in the 'Add section' in the main menu." << endl;
-            cout << endl;
             return mainMenu();
         }
     }
@@ -694,7 +696,6 @@ void ClassUI::searchScientist()
             if(list.yearSearcher(yearSearch) == false)
             {
                 cout << "Sorry that year is not in our database, but you can add a new scientist in the 'Add section' in the main menu." << endl;
-                cout << endl;
                 return mainMenu();
             }
     }
@@ -716,7 +717,6 @@ void ClassUI::searchScientist()
         if(list.ageSearcher(ageSearch) == false)
         {
             cout << "Sorry that age is not in our database, but you can add a new scientist in the 'Add section' in the main menu." << endl;
-            cout << endl;
             return mainMenu();
         }
     }
@@ -839,7 +839,6 @@ void ClassUI::viewMenu()
 {
     string viewBy;
     string viewCho;
-    cout << "Enter a view command:" << endl;
     cout << "--------------------------------------------------------------" << endl;
     cout << " (1) - View scientists." << endl;
     cout << " (2) - View computers." << endl;
@@ -847,8 +846,6 @@ void ClassUI::viewMenu()
     cout << " (4) - Return to main menu." << endl;
     cout << "Enter your command (1 - 4): ";
     cin >> viewBy;
-    cout << endl;
-
     if(viewBy == "1")
     {
         cout << "--------------------------------------------------------------" << endl;
@@ -957,15 +954,26 @@ void ClassUI::viewMenu()
     {
         cout << "--------------------------------------------------------------" << endl;
         cout << " (1) - Sort Scientists by ascending alphabetical order." << endl;
-        cout << " (2) - Return to main menu." << endl;
-        cout << "Enter your command (1 - 2): ";
+        cout << " (2) - Sort Scientists by descending alphabetical order." << endl;
+        cout << " (3) - Sort Computers by ascending alphabetical order." << endl;
+        cout << " (4) - Sort Computers by descending alphabetical order." << endl;
+        cout << " (5) - Return to main menu." << endl;
+        cout << "Enter your command (1 - 5): ";
         cin >> viewCho;
-        cout << endl;
-
-        if(viewCho == "1")
+        if(viewCho == "1" || viewCho == "2" || viewCho == "3" || viewCho == "4")
         {
             list.sortConnections(viewCho);
             findScientistConnections();
+        }
+        else if (viewCho == "5")
+        {
+            clearTheScreen();
+            mainMenu();
+        }
+        else
+        {
+            cout << "That is not a valid command! Try again." << endl;
+            viewMenu();
         }
     }
     else if(viewBy == "4")
@@ -981,15 +989,84 @@ void ClassUI::viewMenu()
 }
 void ClassUI::editScientist()
 {
-    string name;
+    string ename;
+    int found;
     cout << "Enter the full name of the scientist that you want to edit: ";
     cin.ignore();
-    std::getline(std::cin,name);
-
-    if(list.removePersonFound(name))
+    std::getline(std::cin,ename);
+    for(int i = 0; i < list.personsSize(); i++)
     {
-        list.removePerson(name);
-        addScientist();
+        if(ename == list.getScientistName(i))
+        {
+            cout << list.getScientistName(i) << endl;
+            found = i;
+        }
+    }
+    int sciId = list.getScientistId(found);
+
+    if(list.removePersonFound(ename))
+    {
+        string name;
+        string comment;
+        char gender;
+        char yesOrNo;
+        int yearOfBirth = 0;
+        int yearOfDeath = 0;
+
+        cout << "--------------------------------------------------------------" << endl;
+        cout << "Enter name of the scientist: ";
+        std::getline(std::cin,name);
+        if(name == "")
+        {
+            cout << "Invalid name! Try again." << endl;
+            return mainMenu();
+        }
+        cout << "Enter a gender (M/F): ";
+        cin >> gender;
+
+        if (gender == 'm')
+        {
+            gender = 'M';
+        }
+        else if (gender == 'f')
+        {
+            gender = 'F';
+        }
+
+        if (gender == 'm' || gender == 'M' || gender == 'f' || gender == 'F')
+        {
+           cout << "Enter a year of birth: ";
+           cin >> yearOfBirth;
+           if (yearOfBirth < 0 || yearOfBirth > 2016)
+           {
+               cout << "not a valid year of birth" << endl;
+               return mainMenu();
+           }
+           cout << "Is the individual deceased? (y/n) ";
+           cin >> yesOrNo;
+
+           if (yesOrNo == 'Y' || yesOrNo == 'y')
+           {
+                cout << "Enter a year of death: ";
+                cin >> yearOfDeath;
+                if(yearOfBirth > yearOfDeath)
+                {
+                    cout << "Not a valid year of death" << endl;
+                    return mainMenu();
+                }
+            }
+
+            cout << "Enter a comment about the scientist(optional): ";
+            cin.ignore();
+            std::getline(std::cin,comment);
+            }
+            else
+            {
+                cout << "Invalid gender! Try again." << endl;
+                return mainMenu();
+            }
+
+        list.updateScientist(name,gender,yearOfBirth,yearOfDeath,comment, sciId);
     }
     else
     {
@@ -1026,10 +1103,7 @@ void ClassUI::findScientistConnections()
         cout << "|" << list.getLinkOutputSciName(i) << endl;
     }
 
-    if (found > 0)
-    {
-        cout << endl;
-    }
+
 }
 void ClassUI::clearTheScreen()
 {

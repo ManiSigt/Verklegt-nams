@@ -1,5 +1,6 @@
 #include "listworker.h"
 #include "datalayer.h"
+#include "linkeroutput.h"
 #include <iostream>
 #include <string>
 
@@ -171,7 +172,7 @@ bool ListWorker::nameSearcher(string name)
 {
     for(unsigned int i = 0; i < persons.size(); i++)
     {
-        std::size_t found = getScientistName(i).find(name);
+        std::size_t found = getScientistLowerCaseName(i).find(name);
         if (found!=std::string::npos)
         {
             return true;
@@ -294,6 +295,7 @@ void ListWorker::refreshVector()
     data.readScientistsFromDatabase(persons);
     link.erase(link.begin(),link.end());
     data.readLinksFromDatabase(link);
+    linkout.erase(linkout.begin(),linkout.end());
 }
 string ListWorker::getComputerNameFromId(int n) const
 {
@@ -343,7 +345,19 @@ void ListWorker::sortConnections(string selection)
 {
     if (selection == "1")
     {
-        data.SortConnectionsBySciName(linkout);
+        data.sortConnectionsBySciName(linkout);
+    }
+    else if(selection == "2")
+    {
+        data.sortConnectionsBySciNameDesc(linkout);
+    }
+    else if(selection == "3")
+    {
+        data.sortConnectionsByCompName(linkout);
+    }
+    else if(selection == "4")
+    {
+        data.sortConnectionsByCompNameDesc(linkout);
     }
 }
 int ListWorker::getLinkoutputCompNameSize(int n)
@@ -351,4 +365,8 @@ int ListWorker::getLinkoutputCompNameSize(int n)
     string name = linkout[n].getCompName();
     int size = name.size();
     return size;
+}
+void ListWorker::updateScientist(string name,char gender, int birth, int death, string comment, int sciId)
+{
+    data.updateScientist(name,gender,birth,death,comment,sciId);
 }
