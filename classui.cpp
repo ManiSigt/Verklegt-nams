@@ -334,7 +334,7 @@ void ClassUI::addScientist()
     }
     else
     {
-        cout << "scientist not added!" << endl;
+        cout << "Scientist not added!" << endl;
     }
 }
 void ClassUI::addComputer()
@@ -364,7 +364,7 @@ void ClassUI::addComputer()
 
     if (Yearbuilt < 0 || Yearbuilt > 2016)
     {
-       cout << "not a valid building year" << endl;
+       cout << "Not a valid building year" << endl;
        return mainMenu();
     }
     cout << "Did they finish building the computer? (y/n) ";
@@ -474,7 +474,7 @@ void ClassUI::addConnection()
     }
     else
     {
-        cout << "connection not added!" << endl;
+        cout << "Connection not added!" << endl;
     }
 
 }
@@ -1038,7 +1038,7 @@ void ClassUI::editScientist()
            cin >> yearOfBirth;
            if (yearOfBirth < 0 || yearOfBirth > 2016)
            {
-               cout << "not a valid year of birth" << endl;
+               cout << "Not a valid year of birth" << endl;
                return mainMenu();
            }
            cout << "Is the individual deceased? (y/n) ";
