@@ -1462,9 +1462,10 @@ void ClassUI::searchConnections()
         cout << "Enter name of scientist: ";
         cin.ignore();
         getline(cin,name);
+        transform(name.begin(), name.end(), name.begin(), ::tolower);
         for(int i = 0; i < list.personsSize(); i++)
         {
-            if(name == list.getScientistName(i))
+            if(name == list.getScientistLowerCaseName(i))
             {
                 id = list.getScientistId(i);
             }
@@ -1477,9 +1478,10 @@ void ClassUI::searchConnections()
         cout << "Enter name of computer: ";
         cin.ignore();
         getline(cin,name);
+        transform(name.begin(), name.end(), name.begin(), ::tolower);
         for(int i = 0; i < list.computerSize(); i++)
         {
-            if(name == list.getComputerName(i))
+            if(name == list.getComputerLowerCaseName(i))
             {
                 id = list.getComputerId(i);
             }
