@@ -202,7 +202,10 @@ void DataLayer::updateScientist(string name, char gender, int yearOfBirth, int y
     queryAdd.bindValue(":name", qname);
     queryAdd.bindValue(":gender", qgender);
     queryAdd.bindValue(":yearofbirth", yearOfBirth);
-    queryAdd.bindValue(":yearofdeath", yearOfDeath);
+    if(yearOfDeath != 0)
+    {
+        queryAdd.bindValue(":yearofdeath", yearOfDeath);
+    }
     queryAdd.bindValue(":comment", qcomment);
     queryAdd.exec();
 }

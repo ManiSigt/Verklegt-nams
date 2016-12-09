@@ -998,7 +998,6 @@ void ClassUI::editScientist()
     {
         if(ename == list.getScientistName(i))
         {
-            cout << list.getScientistName(i) << endl;
             found = i;
         }
     }
@@ -1067,6 +1066,7 @@ void ClassUI::editScientist()
             }
 
         list.updateScientist(name,gender,yearOfBirth,yearOfDeath,comment, sciId);
+        cout << "Scientist modified." << endl;
     }
     else
     {
