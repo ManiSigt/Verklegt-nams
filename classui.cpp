@@ -58,7 +58,7 @@ void ClassUI::select(string ch)
         string choice;
         cout << " (1) - Add a scientist." << endl;
         cout << " (2) - Add a computer." << endl;
-        cout << " (3) - Add a connection between computer and scientist" << endl;
+        cout << " (3) - Add a connection between computer and scientist." << endl;
         cout << " (4) - Return to main menu." << endl;
         cout << "Enter your command (1 - 4): ";
         cin >> choice;
