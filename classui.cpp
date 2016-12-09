@@ -1462,6 +1462,7 @@ void ClassUI::searchConnections()
         cout << "Enter a full name of scientist: ";
         cin.ignore();
         getline(cin,name);
+
         transform(name.begin(), name.end(), name.begin(), ::tolower);
         for(int i = 0; i < list.personsSize(); i++)
         {
@@ -1483,6 +1484,7 @@ void ClassUI::searchConnections()
         cout << "Enter full name of computer: ";
         cin.ignore();
         getline(cin,name);
+
         transform(name.begin(), name.end(), name.begin(), ::tolower);
         for(int i = 0; i < list.computerSize(); i++)
         {
