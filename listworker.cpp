@@ -30,7 +30,6 @@ void ListWorker::addNewConnection(int linkId, int compId, int sciId)
 {
     Linker l(linkId, sciId, compId);
     link.push_back(l);
-
     data.addConnection(linkId, sciId, compId);
 }
 void ListWorker::sortScientistNames()
@@ -300,6 +299,7 @@ void ListWorker::refreshVector()
 string ListWorker::getComputerNameFromId(int n) const
 {
     string name;
+
     for(unsigned int i = 0; i < com.size(); i++)
     {
         if(n == getComputerId(i))
@@ -312,6 +312,7 @@ string ListWorker::getComputerNameFromId(int n) const
 string ListWorker::getScientistNameFromId(int n) const
 {
     string name;
+
     for(unsigned int i = 0; i < persons.size(); i++)
     {
         if(n == persons[i].getScientistId())
@@ -325,6 +326,7 @@ void ListWorker::removeConnection(string scientist, string computer)
 {
     int scientId;
     int compId;
+
     for(int i = 0; i < personsSize(); i++)
     {
         if(scientist == getScientistName(i))

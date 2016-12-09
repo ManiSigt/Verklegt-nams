@@ -62,6 +62,7 @@ void ClassUI::select(string ch)
         cout << " (4) - Return to main menu." << endl;
         cout << "Enter your command (1 - 4): ";
         cin >> choice;
+
         if (choice == "1")
         {
             cin.ignore();           // When using editScientist it will ignore the first letter unless this ignore is here rather then in addScientist
@@ -147,7 +148,7 @@ void ClassUI::select(string ch)
         }
         else
         {
-            cout << "Invalid input. Please enter a number between 1 - 3" << endl;
+            cout << "Invalid input. Please enter a number between 1 - 3." << endl;
             select("5");
         }
     }
@@ -250,7 +251,6 @@ void ClassUI::viewAllComputers()
     cout << "--------------------------------------------------------------" << endl;
     cout << "Name" << "\t" << "\t" << "\t" << "\t" << "|Date " << "\t" << "|Built " << "\t" << "|Type" << endl;
 
-
     for(int i = 0; i < list.computerSize(); i++)
     {
         viewComputer(i);
@@ -293,7 +293,7 @@ void ClassUI::addScientist()
 
        if (yearOfBirth < 0 || yearOfBirth > 2016)
        {
-           cout << "not a valid year of birth" << endl;
+           cout << "Not a valid year of birth" << endl;
            return mainMenu();
        }
        cout << "Is the individual deceased? (y/n) ";
@@ -362,7 +362,7 @@ void ClassUI::addComputer()
 
     if (Yearbuilt < 0 || Yearbuilt > 2016)
     {
-       cout << "Not a valid building year" << endl;
+       cout << "Not a valid building year." << endl;
        return mainMenu();
     }
     cout << "Did they finish building the computer? (y/n) ";
@@ -451,8 +451,8 @@ void ClassUI::addConnection()
         cin.ignore();
         addConnection();
     }
-    //get free ID in database
 
+    //get free ID in database
     for(int i = 1; i < list.getLinkSize()+2; i++)
     {
         if(i != list.getLinkId(i))
@@ -484,7 +484,7 @@ void ClassUI::selectSearch()
     cout << " (2) - Search for a computer." << endl;
     cout << " (3) - Search for a connection." << endl;
     cout << " (4) - Return to main menu." << endl;
-    cout << "Enter your command (1 - 3): ";
+    cout << "Enter your command (1 - 4): ";
     cin >> searchChoice;
 
     if(searchChoice == "1")
@@ -558,6 +558,7 @@ void ClassUI::searchComputer()
                 viewComputer(i);
             }
         }
+
         if (list.computerNameSearcher(nameSearch) == false)
         {
             cout << "Sorry that name is not in our database, but you can add a new computer in the 'Add section' in the main menu." << endl;
@@ -573,6 +574,7 @@ void ClassUI::searchComputer()
         for(int i = 0; i < list.computerSize();++i)
         {
             std::size_t found = list.getComputerType(i).find(typesearch);
+
             if (found!=std::string::npos)
             {
                 viewComputer(i);
@@ -629,10 +631,9 @@ void ClassUI::searchScientist()
         cout << "Enter a name you want to search for: ";
         cin.ignore();
         getline(cin,nameSearch);
-
         transform(nameSearch.begin(), nameSearch.end(), nameSearch.begin(), ::tolower);
-
         cout << "--------------------------------------------------------------" << endl;
+
         for(int i = 0; i < list.personsSize();++i)
         {
             std::size_t found = list.getScientistLowerCaseName(i).find(nameSearch);
@@ -641,6 +642,7 @@ void ClassUI::searchScientist()
                 viewScientist(i);
             }     
         }
+
         if (list.nameSearcher(nameSearch) == false)
         {
             cout << "Sorry that name is not in our database, but you can add a new scientist in the 'Add section' in the main menu." << endl;
@@ -855,7 +857,7 @@ void ClassUI::viewMenu()
         cout << " (5) - Sorted by gender." << endl;
         cout << " (6) - Sorted by age." << endl;
         cout << " (7) - Return to main menu." << endl;
-        cout << "Enter your command (1 - 6): ";
+        cout << "Enter your command (1 - 7): ";
         cin >> viewCho;
 
         if(viewCho == "1")
@@ -909,7 +911,7 @@ void ClassUI::viewMenu()
         cout << " (4) - Sorted by descending chronological order." << endl;
         cout << " (5) - Sorted by type." << endl;
         cout << " (6) - Return to main menu." << endl;
-        cout << "Enter your command (1 - 5): ";
+        cout << "Enter your command (1 - 6): ";
         cin >> viewCho;
         cout << endl;
 
@@ -1014,6 +1016,7 @@ void ClassUI::editScientist()
         cout << "--------------------------------------------------------------" << endl;
         cout << "Enter new name of the scientist: ";
         std::getline(std::cin,name);
+
         if(name == "")
         {
             cout << "Invalid name! Try again." << endl;
@@ -1037,7 +1040,7 @@ void ClassUI::editScientist()
            cin >> yearOfBirth;
            if (yearOfBirth < 0 || yearOfBirth > 2016)
            {
-               cout << "Not a valid year of birth" << endl;
+               cout << "Not a valid year of birth." << endl;
                return mainMenu();
            }
            cout << "Is the individual deceased? (y/n) ";
@@ -1049,7 +1052,7 @@ void ClassUI::editScientist()
                 cin >> yearOfDeath;
                 if(yearOfBirth > yearOfDeath)
                 {
-                    cout << "Not a valid year of death" << endl;
+                    cout << "Not a valid year of death." << endl;
                     return mainMenu();
                 }
             }
@@ -1063,7 +1066,7 @@ void ClassUI::editScientist()
             cout << "Invalid gender! Try again." << endl;
             return mainMenu();
         }
-        cout << "The Scientist has been edited" << endl;
+        cout << "The Scientist has been edited." << endl;
         list.updateScientist(name,gender,yearOfBirth,yearOfDeath,comment, sciId);
 
     }
@@ -1098,7 +1101,6 @@ void ClassUI::showScientistAndComputerConnections()
         {
             cout << "\t";
         }
-
         cout << "|" << list.getLinkOutputSciName(i) << endl;
     }
 }
@@ -1152,7 +1154,7 @@ void ClassUI::editComputer()
 
         if (Yearbuilt < 0 || Yearbuilt > 2016)
         {
-           cout << "Not a valid year" << endl;
+           cout << "Not a valid building year." << endl;
            return mainMenu();
         }
         cout << "Did they finish building the computer, i.e. has it ever been built? (y/n) ";
@@ -1218,7 +1220,6 @@ void ClassUI::hangman()
     {
         string easy[] = { "array", "matrix", "binary", "virus" };
         string word;
-
         int n = rand() % 4;
         word = easy[n];
         string unknown(word.length(), '*');
@@ -1228,6 +1229,7 @@ void ClassUI::hangman()
         cout << "You have " << maxTries << " tries to try and guess the word." << endl;
         cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
         hangmanRun(numOfWrongGuesses, unknown, letter, word, theArray);
+
         if (numOfWrongGuesses == maxTries)
         {
             cout << "Sorry, you lose...you've been hanged." << endl;
@@ -1239,20 +1241,19 @@ void ClassUI::hangman()
         clearTheScreen();
         mainMenu();
     }
-
     else if (level == "2")
     {
         string average[] = { "bit", "runtime", "supercomputer" };
-
         int n = rand() % 3;
         word = average[n];
-
         string unknown(word.length(), '*');
+
         cout << "Each letter is represented by an asterisk." << endl;
         cout << "You may type only one letter in one try." << endl;
         cout << "You have " << maxTries << " tries to try and guess the word." << endl;
         cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
         hangmanRun(numOfWrongGuesses, unknown, letter, word, theArray);
+
         if (numOfWrongGuesses == maxTries)
         {
             cout << "Sorry, you lose...you've been hanged." << endl;
@@ -1264,20 +1265,19 @@ void ClassUI::hangman()
         clearTheScreen();
         mainMenu();
     }
-
     else if (level == "3")
     {
         string hard[] = { "microprocessor", "nanotechnology", "telecommunication" };
-
         int n = rand() % 3;
         word = hard[n];
-
         string unknown(word.length(), '*');
+
         cout << "Each letter is represented by an asterisk." << endl;
         cout << "You may type only one letter in one try." << endl;
         cout << "You have " << maxTries << " tries to try and guess the word." << endl;
         cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
         hangmanRun(numOfWrongGuesses, unknown, letter, word, theArray);
+
         if (numOfWrongGuesses == maxTries)
         {
             cout << "Sorry, you lose...you've been hanged." << endl;
@@ -1300,6 +1300,7 @@ int ClassUI::fillIn(char guess, string secretword, string &guessword)
     int i;
     int matches = 0;
     int len = secretword.length();
+
     for (i = 0; i< len; i++)
     {
         if (guess == guessword[i])
@@ -1367,6 +1368,7 @@ void ClassUI::hangmanPicture(int wrongGuess)
 void ClassUI::hangmanRun(int &numWrongGuess, string secretWord, char input, string theword, char myarray[maxArraySize])
 {
     int i = 0;
+
     while (numWrongGuess < maxTries)
     {
         cout  << secretWord << endl;
@@ -1399,13 +1401,13 @@ void ClassUI::hangmanRun(int &numWrongGuess, string secretWord, char input, stri
             break;
         }
         i++;
-
     }
 }
 void ClassUI::removeConnection()
 {
     string removeScientistConnection;
     string removeComputerConnection;
+
     showScientistAndComputerConnections();
     cout << "Here you can remove a connection between a Scientist and a Computer" << endl;
     cout << "Enter the name of the Scientist: ";
@@ -1420,6 +1422,7 @@ void ClassUI::removeConnection()
 
         cout << "Are you sure you want to remove this connection? (y/n): ";
         cin >> validateRemove;
+
         if(validateRemove == 'y' || validateRemove == 'Y')
         {
               list.removeConnection(removeScientistConnection, removeComputerConnection);
@@ -1431,7 +1434,6 @@ void ClassUI::removeConnection()
             cout << "Connection not removed!" << endl;
             return mainMenu();
         }
-
     }
     cout << "Connection not found!" << endl;
 }
@@ -1440,6 +1442,7 @@ void ClassUI::searchConnections()
     int select = 0;
     int id = -1;
     string name;
+
     cout << "--------------------------------------------------------------" << endl;
     cout << " (1) - Search connections by scientists." << endl;
     cout << " (2) - Search connections by computers." << endl;
@@ -1495,7 +1498,5 @@ void ClassUI::searchConnections()
         }
         list.searchConnectionsByComp(id);
         showScientistAndComputerConnections();
-
     }
-
 }
