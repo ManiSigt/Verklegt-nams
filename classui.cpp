@@ -1443,7 +1443,7 @@ void ClassUI::removeConnection()
 void ClassUI::searchConnections()
 {
     int select = 0;
-    int id = 0;
+    int id = -1;
     string name;
     cout << "--------------------------------------------------------------" << endl;
     cout << " (1) - Search connections by scientists." << endl;
@@ -1470,6 +1470,11 @@ void ClassUI::searchConnections()
                 id = list.getScientistId(i);
             }
         }
+        if (id < 0)
+        {
+            cout << "Scientist not found!" << endl;
+            return mainMenu();
+        }
         list.searchConnectionsBySci(id);
         showScientistAndComputerConnections();
     }
@@ -1486,8 +1491,14 @@ void ClassUI::searchConnections()
                 id = list.getComputerId(i);
             }
         }
+        if (id < 0)
+        {
+            cout << "Computer not found!" << endl;
+            return mainMenu();
+        }
         list.searchConnectionsByComp(id);
         showScientistAndComputerConnections();
+
     }
 
 }
