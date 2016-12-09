@@ -9,6 +9,7 @@
 using namespace std;
 const int maxTries = 5; // A number for hangman, used for how many tries you got left.
 const int maxArraySize = 25; // A number for hangman, used for an array that takes in the input from the user.
+
 ClassUI::ClassUI()
 {
 
@@ -49,7 +50,6 @@ void ClassUI::mainMenu()
     }while(runOn == true);
 
     cout << endl;
-
 }
 void ClassUI::select(string ch)
 {
@@ -62,6 +62,7 @@ void ClassUI::select(string ch)
         cout << " (4) - Return to main menu." << endl;
         cout << "Enter your command (1 - 4): ";
         cin >> choice;
+
         if (choice == "1")
         {
             cin.ignore();           // When using editScientist it will ignore the first letter unless this ignore is here rather then in addScientist
@@ -233,9 +234,7 @@ void ClassUI::viewComputer(int i)
     {
         cout << "\t";
     }
-
     cout  << "|" << list.getComputerDate(i) << "\t|" << list.getComputerWasItBuilt(i) << "\t|" << list.getComputerType(i) << endl;
-
 }
 void ClassUI::viewAllScientist()
 {
@@ -251,7 +250,6 @@ void ClassUI::viewAllComputers()
 {
     cout << "--------------------------------------------------------------" << endl;
     cout << "Name" << "\t" << "\t" << "\t" << "\t" << "|Date " << "\t" << "|Built " << "\t" << "|Type" << endl;
-
 
     for(int i = 0; i < list.computerSize(); i++)
     {
@@ -456,8 +454,8 @@ void ClassUI::addConnection()
         cin.ignore();
         addConnection();
     }
-    //get free ID in database
 
+    //get free ID in database
     for(int i = 1; i < list.getLinkSize()+2; i++)
     {
         if(i != list.getLinkId(i))
@@ -563,6 +561,7 @@ void ClassUI::searchComputer()
                 viewComputer(i);
             }
         }
+
         if (list.computerNameSearcher(nameSearch) == false)
         {
             cout << "Sorry that name is not in our database, but you can add a new computer in the 'Add section' in the main menu." << endl;
@@ -578,6 +577,7 @@ void ClassUI::searchComputer()
         for(int i = 0; i < list.computerSize();++i)
         {
             std::size_t found = list.getComputerType(i).find(typesearch);
+
             if (found!=std::string::npos)
             {
                 viewComputer(i);
@@ -634,10 +634,9 @@ void ClassUI::searchScientist()
         cout << "Enter a name you want to search for: ";
         cin.ignore();
         getline(cin,nameSearch);
-
         transform(nameSearch.begin(), nameSearch.end(), nameSearch.begin(), ::tolower);
-
         cout << "--------------------------------------------------------------" << endl;
+
         for(int i = 0; i < list.personsSize();++i)
         {
             std::size_t found = list.getScientistLowerCaseName(i).find(nameSearch);
@@ -646,6 +645,7 @@ void ClassUI::searchScientist()
                 viewScientist(i);
             }     
         }
+
         if (list.nameSearcher(nameSearch) == false)
         {
             cout << "Sorry that name is not in our database, but you can add a new scientist in the 'Add section' in the main menu." << endl;
@@ -1019,6 +1019,7 @@ void ClassUI::editScientist()
         cout << "--------------------------------------------------------------" << endl;
         cout << "Enter new name of the scientist: ";
         std::getline(std::cin,name);
+
         if(name == "")
         {
             cout << "Invalid name! Try again." << endl;
@@ -1103,7 +1104,6 @@ void ClassUI::showScientistAndComputerConnections()
         {
             cout << "\t";
         }
-
         cout << "|" << list.getLinkOutputSciName(i) << endl;
     }
 }
@@ -1223,7 +1223,6 @@ void ClassUI::hangman()
     {
         string easy[] = { "array", "matrix", "binary", "virus" };
         string word;
-
         int n = rand() % 4;
         word = easy[n];
         string unknown(word.length(), '*');
@@ -1233,6 +1232,7 @@ void ClassUI::hangman()
         cout << "You have " << maxTries << " tries to try and guess the word." << endl;
         cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
         hangmanRun(numOfWrongGuesses, unknown, letter, word, theArray);
+
         if (numOfWrongGuesses == maxTries)
         {
             cout << "Sorry, you lose...you've been hanged." << endl;
@@ -1244,20 +1244,19 @@ void ClassUI::hangman()
         clearTheScreen();
         mainMenu();
     }
-
     else if (level == "2")
     {
         string average[] = { "bit", "runtime", "supercomputer" };
-
         int n = rand() % 3;
         word = average[n];
-
         string unknown(word.length(), '*');
+
         cout << "Each letter is represented by an asterisk." << endl;
         cout << "You may type only one letter in one try." << endl;
         cout << "You have " << maxTries << " tries to try and guess the word." << endl;
         cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
         hangmanRun(numOfWrongGuesses, unknown, letter, word, theArray);
+
         if (numOfWrongGuesses == maxTries)
         {
             cout << "Sorry, you lose...you've been hanged." << endl;
@@ -1269,20 +1268,19 @@ void ClassUI::hangman()
         clearTheScreen();
         mainMenu();
     }
-
     else if (level == "3")
     {
         string hard[] = { "microprocessor", "nanotechnology", "telecommunication" };
-
         int n = rand() % 3;
         word = hard[n];
-
         string unknown(word.length(), '*');
+
         cout << "Each letter is represented by an asterisk." << endl;
         cout << "You may type only one letter in one try." << endl;
         cout << "You have " << maxTries << " tries to try and guess the word." << endl;
         cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
         hangmanRun(numOfWrongGuesses, unknown, letter, word, theArray);
+
         if (numOfWrongGuesses == maxTries)
         {
             cout << "Sorry, you lose...you've been hanged." << endl;
@@ -1305,6 +1303,7 @@ int ClassUI::fillIn(char guess, string secretword, string &guessword)
     int i;
     int matches = 0;
     int len = secretword.length();
+
     for (i = 0; i< len; i++)
     {
         if (guess == guessword[i])
@@ -1372,6 +1371,7 @@ void ClassUI::hangmanPicture(int wrongGuess)
 void ClassUI::hangmanRun(int &numWrongGuess, string secretWord, char input, string theword, char myarray[maxArraySize])
 {
     int i = 0;
+
     while (numWrongGuess < maxTries)
     {
         cout  << secretWord << endl;
@@ -1404,13 +1404,13 @@ void ClassUI::hangmanRun(int &numWrongGuess, string secretWord, char input, stri
             break;
         }
         i++;
-
     }
 }
 void ClassUI::removeConnection()
 {
     string removeScientistConnection;
     string removeComputerConnection;
+
     showScientistAndComputerConnections();
     cout << "Here you can remove a connection between a Scientist and a Computer" << endl;
     cout << "Enter the name of the Scientist: ";
@@ -1425,6 +1425,7 @@ void ClassUI::removeConnection()
 
         cout << "Are you sure you want to remove this connection? (y/n): ";
         cin >> validateRemove;
+
         if(validateRemove == 'y' || validateRemove == 'Y')
         {
               list.removeConnection(removeScientistConnection, removeComputerConnection);
@@ -1436,7 +1437,6 @@ void ClassUI::removeConnection()
             cout << "Connection not removed!" << endl;
             return mainMenu();
         }
-
     }
     cout << "Connection not found!" << endl;
 }
@@ -1445,6 +1445,7 @@ void ClassUI::searchConnections()
     int select = 0;
     int id = -1;
     string name;
+
     cout << "--------------------------------------------------------------" << endl;
     cout << " (1) - Search connections by scientists." << endl;
     cout << " (2) - Search connections by computers." << endl;
@@ -1500,7 +1501,5 @@ void ClassUI::searchConnections()
         }
         list.searchConnectionsByComp(id);
         showScientistAndComputerConnections();
-
     }
-
 }

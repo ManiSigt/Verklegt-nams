@@ -147,7 +147,6 @@ void DataLayer::readComputersFromDatabase(vector<Computer>& com)
         string type = query.value("type").toString().toStdString();
         int date = query.value("date").toUInt();
         string wasItBuilt = query.value("wasitbuilt").toString().toStdString();
-
         com.push_back(Computer(name, wasItBuilt, date, type, id));
     }
 }
@@ -186,7 +185,6 @@ void DataLayer::addComputer(string name, string type, int yearbuilt, string isbu
     queryAdd.bindValue(":isbuilt", qisbuilt);
     queryAdd.bindValue(":yearbuilt", yearbuilt);
     queryAdd.bindValue(":type", qtype);
-
     queryAdd.exec();
 }
 void DataLayer::updateScientist(string name, char gender, int yearOfBirth, int yearOfDeath, string comment, int sciId)
@@ -260,7 +258,6 @@ void DataLayer::removeScientist(string name)
     QSqlQuery queryRemove;
     queryRemove.prepare("DELETE FROM Scientist Where SciName=:name");
     queryRemove.bindValue(":name", qname);
-
     queryRemove.exec();
 }
 void DataLayer::readLinksFromDatabase(vector<Linker>& link)
@@ -274,7 +271,6 @@ void DataLayer::readLinksFromDatabase(vector<Linker>& link)
     {
         int id = query.value("id").toUInt();
         int sciId = query.value("ScientistID").toUInt();
-
         int comId = query.value("ComputerID").toUInt();
 
         link.push_back(Linker(id, sciId, comId));
@@ -286,7 +282,6 @@ void DataLayer::removeConnection(int sciId, int compId)
     queryRemove.prepare("DELETE FROM CompAndSci Where ComputerID=:compId AND ScientistID=:sciId");
     queryRemove.bindValue(":sciId", sciId);
     queryRemove.bindValue(":compId", compId);
-
     queryRemove.exec();
 
 }
@@ -348,7 +343,6 @@ void DataLayer::searchConnectionsBySci(vector<LinkerOutput>& linkout, int sciId)
     QSqlQuery query(db);
     query.prepare("SELECT Scientist.SciName, Computers.CompName FROM Scientist, Computers INNER JOIN CompAndSci ON Scientist.ID=CompAndSci.ScientistID AND Computers.ID = CompAndSci.ComputerID WHERE CompAndSci.ScientistID=:id");
     query.bindValue(":id", sciId);
-
     query.exec();
 
     while(query.next())
@@ -364,7 +358,6 @@ void DataLayer::searchConnectionsByComp(vector<LinkerOutput>& linkout, int compI
     QSqlQuery query(db);
     query.prepare("SELECT Scientist.SciName, Computers.CompName FROM Scientist, Computers INNER JOIN CompAndSci ON Scientist.ID=CompAndSci.ScientistID AND Computers.ID = CompAndSci.ComputerID WHERE CompAndSci.ComputerID=:id");
     query.bindValue(":id", compId);
-
     query.exec();
 
     while(query.next())
