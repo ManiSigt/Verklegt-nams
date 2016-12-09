@@ -1459,7 +1459,7 @@ void ClassUI::searchConnections()
     }
     else if(select == 1)
     {
-        cout << "Enter name of scientist: ";
+        cout << "Enter a full name of scientist: ";
         cin.ignore();
         getline(cin,name);
         transform(name.begin(), name.end(), name.begin(), ::tolower);
@@ -1480,7 +1480,7 @@ void ClassUI::searchConnections()
     }
     else if(select == 2)
     {
-        cout << "Enter name of computer: ";
+        cout << "Enter full name of computer: ";
         cin.ignore();
         getline(cin,name);
         transform(name.begin(), name.end(), name.begin(), ::tolower);
