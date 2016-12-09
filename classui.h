@@ -23,7 +23,7 @@ public:
     void removeScientist();                                                                                 // Checks if the person you wanted to delete is found then asks if you want to delete it or not, then removes it if the input was y and aborts if input was anything alse.
     void removeComputer();                                                                                  // Checks if the computer you wanted to delete is found then asks if you want to delete it or not, then removes it if the input was y and aborts if input was anything alse.
     void yo();                                                                                              // Secret phase
-    void viewMenu();
+    void viewMenu();                                                                                        // The function that has the sub-menu for view.
     void editScientist();                                                                                   // Edit a scientist that already exists.
     void clearTheScreen();                                                                                  // Function to clear the screen.
     void findComputerConnections(int i);                                                                    // Finds connections between computer and scientist.

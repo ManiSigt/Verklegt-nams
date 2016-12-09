@@ -9,6 +9,7 @@
 using namespace std;
 const int maxTries = 5; // A number for hangman, used for how many tries you got left.
 const int maxArraySize = 25; // A number for hangman, used for an array that takes in the input from the user.
+
 ClassUI::ClassUI()
 {
 
@@ -49,7 +50,6 @@ void ClassUI::mainMenu()
     }while(runOn == true);
 
     cout << endl;
-
 }
 void ClassUI::select(string ch)
 {
@@ -93,7 +93,7 @@ void ClassUI::select(string ch)
     {
         string choice;
         cout << " (1) - Remove scientist." << endl;
-        cout << " (2) - Remove Computer." << endl;
+        cout << " (2) - Remove computer." << endl;
         cout << " (3) - Return to main menu." << endl;
         cout << "Enter your command (1 - 3): ";
         cin >> choice;
@@ -233,9 +233,7 @@ void ClassUI::viewComputer(int i)
     {
         cout << "\t";
     }
-
     cout  << "|" << list.getComputerDate(i) << "\t|" << list.getComputerWasItBuilt(i) << "\t|" << list.getComputerType(i) << endl;
-
 }
 void ClassUI::viewAllScientist()
 {
@@ -276,7 +274,6 @@ void ClassUI::addScientist()
         cout << "Invalid name! Try again." << endl;
         return mainMenu();
     }
-
     cout << "Enter a gender (M/F): ";
     cin >> gender;
 
@@ -312,7 +309,6 @@ void ClassUI::addScientist()
                 return mainMenu();
             }
        }
-
        cout << "Enter a comment about the scientist(optional): ";
        cin.ignore();
        std::getline(std::cin,comment);
@@ -385,7 +381,6 @@ void ClassUI::addComputer()
         cout << "Not a valid input." << endl;
         return mainMenu();
     }
-
     cout << "Are you sure that you want to add this computer? (y/n) ";
     string validateComputer;
     cin >> validateComputer;
@@ -957,10 +952,10 @@ void ClassUI::viewMenu()
     else if(viewBy == "3")
     {
         cout << "--------------------------------------------------------------" << endl;
-        cout << " (1) - Sort Scientists by ascending alphabetical order." << endl;
-        cout << " (2) - Sort Scientists by descending alphabetical order." << endl;
-        cout << " (3) - Sort Computers by ascending alphabetical order." << endl;
-        cout << " (4) - Sort Computers by descending alphabetical order." << endl;
+        cout << " (1) - Sort scientists by ascending alphabetical order." << endl;
+        cout << " (2) - Sort scientists by descending alphabetical order." << endl;
+        cout << " (3) - Sort computers by ascending alphabetical order." << endl;
+        cout << " (4) - Sort computers by descending alphabetical order." << endl;
         cout << " (5) - Return to main menu." << endl;
         cout << "Enter your command (1 - 5): ";
         cin >> viewCho;
@@ -1152,15 +1147,15 @@ void ClassUI::editComputer()
             cout << "Invalid type! Try again." << endl;
             return mainMenu();
         }
-        cout << "Enter the year the computer was built: ";
+        cout << "Enter the year the computer was designed: ";
         cin >> Yearbuilt;
 
         if (Yearbuilt < 0 || Yearbuilt > 2016)
         {
-           cout << "Not a valid building year" << endl;
+           cout << "Not a valid year" << endl;
            return mainMenu();
         }
-        cout << "Did they finish building the computer? (y/n) ";
+        cout << "Did they finish building the computer, i.e. has it ever been built? (y/n) ";
         cin >> isbuilt;
 
         if (isbuilt == "y" || isbuilt == "y")
