@@ -394,7 +394,7 @@ void ClassUI::addComputer()
     }
     else
     {
-        cout << "scientist not added!" << endl;
+        cout << "Computer not added!" << endl;
     }
 }
 void ClassUI::addConnection()
@@ -998,7 +998,6 @@ void ClassUI::editScientist()
     {
         if(ename == list.getScientistName(i))
         {
-            cout << list.getScientistName(i) << endl;
             found = i;
         }
     }
@@ -1060,13 +1059,14 @@ void ClassUI::editScientist()
             cin.ignore();
             std::getline(std::cin,comment);
             }
-            else
-            {
-                cout << "Invalid gender! Try again." << endl;
-                return mainMenu();
-            }
-
+        else
+        {
+            cout << "Invalid gender! Try again." << endl;
+            return mainMenu();
+        }
+        cout << "The Scientist has been edited" << endl;
         list.updateScientist(name,gender,yearOfBirth,yearOfDeath,comment, sciId);
+        cout << "Scientist modified." << endl;
     }
     else
     {

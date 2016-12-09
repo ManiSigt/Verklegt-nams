@@ -202,8 +202,27 @@ void DataLayer::updateScientist(string name, char gender, int yearOfBirth, int y
     queryAdd.bindValue(":name", qname);
     queryAdd.bindValue(":gender", qgender);
     queryAdd.bindValue(":yearofbirth", yearOfBirth);
-    queryAdd.bindValue(":yearofdeath", yearOfDeath);
+    if(yearOfDeath != 0)
+    {
+        queryAdd.bindValue(":yearofdeath", yearOfDeath);
+    }
     queryAdd.bindValue(":comment", qcomment);
+    queryAdd.exec();
+}
+void DataLayer::updateComputer(string name, string type, string isbuilt, int Yearbuilt, int compId)
+{
+    QString qname = QString::fromStdString(name);
+    QString qtype = QString::fromStdString(type);
+    QString qisbuilt = QString::fromStdString(isbuilt);
+
+    QSqlQuery queryAdd;
+    queryAdd.prepare("UPDATE Computers SET CompName=:name, Type=:type, Date=:Yearbuilt, WasItBuilt=:isbuilt WHERE ID=:id");
+
+    queryAdd.bindValue(":id", compId);
+    queryAdd.bindValue(":name", qname);
+    queryAdd.bindValue(":type", qtype);
+    queryAdd.bindValue(":isbuilt", qisbuilt);
+    queryAdd.bindValue(":yearofdeath", Yearbuilt);
     queryAdd.exec();
 }
 void DataLayer::addConnection(int linkId, int sciId, int compId)
