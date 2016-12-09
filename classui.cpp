@@ -293,7 +293,7 @@ void ClassUI::addScientist()
 
        if (yearOfBirth < 0 || yearOfBirth > 2016)
        {
-           cout << "Not a valid year of birth" << endl;
+           cout << "Not a valid year of birth." << endl;
            return mainMenu();
        }
        cout << "Is the individual deceased? (y/n) ";
@@ -305,7 +305,7 @@ void ClassUI::addScientist()
             cin >> yearOfDeath;
             if(yearOfBirth > yearOfDeath)
             {
-                cout << "Not a valid year of death" << endl;
+                cout << "Not a valid year of death." << endl;
                 return mainMenu();
             }
        }
