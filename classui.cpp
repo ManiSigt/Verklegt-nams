@@ -651,7 +651,7 @@ void ClassUI::searchScientist()
     {
         char genderSearch;
 
-        cout << "Enter a gender you want to search for: (M/F)";
+        cout << "Enter a gender you want to search for: (M/F) ";
         cin >> genderSearch;
 
         if(genderSearch == 'm')
