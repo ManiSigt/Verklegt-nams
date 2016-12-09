@@ -147,7 +147,7 @@ void ClassUI::select(string ch)
         }
         else
         {
-            cout << "Invalid input. Please enter a number between 1 - 3" << endl;
+            cout << "Invalid input. Please enter a number between 1 - 3." << endl;
             select("5");
         }
     }
@@ -296,7 +296,7 @@ void ClassUI::addScientist()
 
        if (yearOfBirth < 0 || yearOfBirth > 2016)
        {
-           cout << "not a valid year of birth" << endl;
+           cout << "Not a valid year of birth" << endl;
            return mainMenu();
        }
        cout << "Is the individual deceased? (y/n) ";
@@ -366,7 +366,7 @@ void ClassUI::addComputer()
 
     if (Yearbuilt < 0 || Yearbuilt > 2016)
     {
-       cout << "Not a valid building year" << endl;
+       cout << "Not a valid building year." << endl;
        return mainMenu();
     }
     cout << "Did they finish building the computer? (y/n) ";
@@ -489,7 +489,7 @@ void ClassUI::selectSearch()
     cout << " (2) - Search for a computer." << endl;
     cout << " (3) - Search for a connection." << endl;
     cout << " (4) - Return to main menu." << endl;
-    cout << "Enter your command (1 - 3): ";
+    cout << "Enter your command (1 - 4): ";
     cin >> searchChoice;
 
     if(searchChoice == "1")
