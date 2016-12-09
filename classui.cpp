@@ -1019,7 +1019,6 @@ void ClassUI::editScientist()
         if(name == "")
         {
             cout << "Invalid name! Try again." << endl;
-            cout << "lol";
             return mainMenu();
         }
         cout << "Enter a gender (M/F): ";
