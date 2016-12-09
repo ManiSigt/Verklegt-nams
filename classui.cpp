@@ -29,7 +29,7 @@ void ClassUI::mainMenu()
         list.refreshVector();
         cout << "--------------------------------------------------------------" << endl;
         cout << " (1) - "  << "Add to the database." << endl;
-        cout << " (2) - "  << "Remove a from the database." << endl;
+        cout << " (2) - "  << "Remove from the database." << endl;
         cout << " (3) - "  << "View." << endl;
         cout << " (4) - "  << "Search." << endl;
         cout << " (5) - "  << "Edit database." << endl;
@@ -394,7 +394,7 @@ void ClassUI::addComputer()
     }
     else
     {
-        cout << "scientist not added!" << endl;
+        cout << "Computer not added!" << endl;
     }
 }
 void ClassUI::addConnection()
@@ -1059,12 +1059,12 @@ void ClassUI::editScientist()
             cin.ignore();
             std::getline(std::cin,comment);
             }
-            else
-            {
-                cout << "Invalid gender! Try again." << endl;
-                return mainMenu();
-            }
-
+        else
+        {
+            cout << "Invalid gender! Try again." << endl;
+            return mainMenu();
+        }
+        cout << "The Scientist has been edited" << endl;
         list.updateScientist(name,gender,yearOfBirth,yearOfDeath,comment, sciId);
         cout << "Scientist modified." << endl;
     }

@@ -33,6 +33,7 @@ public:
     void removeConnection(int s, int c);
     void saveFile();                                                                                  // Deletes the file and makes a new one, and reads the vector into the new file.
     void updateScientist(string name,char gender, int birth, int death, string comment, int sciId);
+    void updateComputer(string name, string type, string isbuilt, int Yearbuilt, int compId);
     bool computerNameSearcher(string name);                                                           // Searches for a specific name within the vector com.
     bool ageSearcher(int age);                                                                        // Searches for a specific age within the vector using a for-loop.
     bool builtDateSearcher(int year);                                                                 // Searches for a specific date within the vector using a for-loop
@@ -124,7 +125,7 @@ public:
     {
         return link.size();
     }
-    int getLinkOutputSize() const                             // Returns size of vector linkout
+    int getLinkOutputSize() const                                                                  // Returns size of vector linkout
     {
         return linkout.size();
     }

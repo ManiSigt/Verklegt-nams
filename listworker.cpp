@@ -370,3 +370,7 @@ void ListWorker::updateScientist(string name,char gender, int birth, int death, 
 {
     data.updateScientist(name,gender,birth,death,comment,sciId);
 }
+void ListWorker::updateComputer(string name, string type, string isbuilt, int Yearbuilt, int compId)
+{
+    data.updateComputer(name, type, isbuilt, Yearbuilt, compId);
+}
