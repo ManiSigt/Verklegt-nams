@@ -8,7 +8,7 @@
 
 using namespace std;
 const int maxTries = 5; // A number for hangman, used for how many tries you got left.
-const int maxArraySize = 25;
+const int maxArraySize = 25; // A number for hangman, used for an array that takes in the input from the user.
 ClassUI::ClassUI()
 {
 
