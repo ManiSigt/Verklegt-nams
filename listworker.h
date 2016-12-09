@@ -122,7 +122,7 @@ public:
     {
         return link.size();
     }
-    int getLinkOutputSize() const                             // Returns size of vector linkout
+    int getLinkOutputSize() const                                                                  // Returns size of vector linkout
     {
         return linkout.size();
     }
