@@ -342,3 +342,35 @@ void DataLayer::sortConnectionsByCompNameDesc(vector<LinkerOutput>& linkout)
         linkout.push_back(LinkerOutput(sciName, compName));
     }
 }
+void DataLayer::searchConnectionsBySci(vector<LinkerOutput>& linkout, int sciId)
+{
+    db.open();
+    QSqlQuery query(db);
+    query.prepare("SELECT Scientist.SciName, Computers.CompName FROM Scientist, Computers INNER JOIN CompAndSci ON Scientist.ID=CompAndSci.ScientistID AND Computers.ID = CompAndSci.ComputerID WHERE CompAndSci.ScientistID=:id");
+    query.bindValue(":id", sciId);
+
+    query.exec();
+
+    while(query.next())
+    {
+        string sciName = query.value("SciName").toString().toStdString();
+        string compName = query.value("CompName").toString().toStdString();
+        linkout.push_back(LinkerOutput(sciName, compName));
+    }
+}
+void DataLayer::searchConnectionsByComp(vector<LinkerOutput>& linkout, int compId)
+{
+    db.open();
+    QSqlQuery query(db);
+    query.prepare("SELECT Scientist.SciName, Computers.CompName FROM Scientist, Computers INNER JOIN CompAndSci ON Scientist.ID=CompAndSci.ScientistID AND Computers.ID = CompAndSci.ComputerID WHERE CompAndSci.ComputerID=:id");
+    query.bindValue(":id", compId);
+
+    query.exec();
+
+    while(query.next())
+    {
+        string sciName = query.value("SciName").toString().toStdString();
+        string compName = query.value("CompName").toString().toStdString();
+        linkout.push_back(LinkerOutput(sciName, compName));
+    }
+}

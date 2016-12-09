@@ -163,17 +163,12 @@ void ClassUI::select(string ch)
         cout << "Invalid input. Please enter a number between 1 - 7." << endl;
     }
 }
-
-
 void ClassUI::viewScientist(int i)
 {
     cout << "--------------------------------------------------------------" << endl;
     int nameSize  = list.getScientistNameSize(i);
 
-
     cout << list.getScientistName(i);
-
-
 
     if(nameSize > 0 && nameSize <= 7)
     {
@@ -256,6 +251,7 @@ void ClassUI::viewAllComputers()
     cout << "--------------------------------------------------------------" << endl;
     cout << "Name" << "\t" << "\t" << "\t" << "\t" << "|Date " << "\t" << "|Built " << "\t" << "|Type" << endl;
 
+
     for(int i = 0; i < list.computerSize(); i++)
     {
         viewComputer(i);
@@ -273,11 +269,13 @@ void ClassUI::addScientist()
     cout << "--------------------------------------------------------------" << endl;
     cout << "Enter name of the scientist: ";
     std::getline(std::cin,name);
+
     if(name == "")
     {
         cout << "Invalid name! Try again." << endl;
         return mainMenu();
     }
+
     cout << "Enter a gender (M/F): ";
     cin >> gender;
 
@@ -294,6 +292,7 @@ void ClassUI::addScientist()
     {
        cout << "Enter a year of birth: ";
        cin >> yearOfBirth;
+
        if (yearOfBirth < 0 || yearOfBirth > 2016)
        {
            cout << "not a valid year of birth" << endl;
@@ -347,6 +346,7 @@ void ClassUI::addComputer()
     cout << "--------------------------------------------------------------" << endl;
     cout << "Enter name of the computer: ";
     std::getline(std::cin,name);
+
     if(name == "")
     {
         cout << "Invalid name! Try again." << endl;
@@ -354,6 +354,7 @@ void ClassUI::addComputer()
     }
     cout << "Enter the type of the computer: ";
     std::getline(std::cin,type);
+
     if(type == "")
     {
         cout << "Invalid type! Try again." << endl;
@@ -383,6 +384,7 @@ void ClassUI::addComputer()
         cout << "Not a valid input." << endl;
         return mainMenu();
     }
+
     cout << "Are you sure that you want to add this computer? (y/n) ";
     string validateComputer;
     cin >> validateComputer;
@@ -414,7 +416,6 @@ void ClassUI::addConnection()
     cout << "Enter the number in front of the scientist you wish to connect: ";
     cin >> sciId;
 
-    //checking for valid input
     for(int i = 0; i < list.personsSize(); i++)
     {
         if(sciId == list.getScientistId(i))
@@ -422,6 +423,7 @@ void ClassUI::addConnection()
             validateScientist = 1;
         }
     }
+
     if(validateScientist == 0)
     {
         cout << "Wrong input! Try again." << endl;
@@ -439,7 +441,6 @@ void ClassUI::addConnection()
     cin.ignore();
     cin >> compId;
 
-    //checking for valid input
     for(int i = 0; i < list.computerSize(); i++)
     {
         if(compId == list.getComputerId(i))
@@ -447,6 +448,7 @@ void ClassUI::addConnection()
             validateComputer = 1;
         }
     }
+
     if(validateComputer == 0)
     {
         cout << "Wrong input! Try again." << endl;
@@ -476,7 +478,6 @@ void ClassUI::addConnection()
     {
         cout << "connection not added!" << endl;
     }
-
 }
 void ClassUI::selectSearch()
 {
@@ -485,9 +486,11 @@ void ClassUI::selectSearch()
     cout << "What do you want to search for?" << endl;
     cout << " (1) - Search for a scientist." << endl;
     cout << " (2) - Search for a computer." << endl;
-    cout << " (3) - Return to main menu." << endl;
+    cout << " (3) - Search for a connection." << endl;
+    cout << " (4) - Return to main menu." << endl;
     cout << "Enter your command (1 - 3): ";
     cin >> searchChoice;
+
     if(searchChoice == "1")
     {
         searchingScientist();
@@ -498,16 +501,19 @@ void ClassUI::selectSearch()
     }
     else if(searchChoice == "3")
     {
+        searchConnections();
+    }
+    else if(searchChoice == "4")
+    {
         clearTheScreen();
         return mainMenu();
     }
     else
     {
-        cout << "Error reading input. Please enter a number between 1- 3." << endl;
+        cout << "Error reading input. Please enter a number between 1- 4." << endl;
         return selectSearch();
     }
 }
-
 void ClassUI::searchingScientist()
 {
     cout << "-------------Select any of the following commands-------------" << endl;
@@ -766,7 +772,6 @@ void ClassUI::removeScientist()
     {
         cout << "Scientist not found!" << endl;
     }
-
 }
 void ClassUI::removeComputer()
 {
@@ -963,7 +968,7 @@ void ClassUI::viewMenu()
         if(viewCho == "1" || viewCho == "2" || viewCho == "3" || viewCho == "4")
         {
             list.sortConnections(viewCho);
-            findScientistConnections();
+            showScientistAndComputerConnections();
         }
         else if (viewCho == "5")
         {
@@ -1013,7 +1018,7 @@ void ClassUI::editScientist()
         int yearOfDeath = 0;
 
         cout << "--------------------------------------------------------------" << endl;
-        cout << "Enter name of the scientist: ";
+        cout << "Enter new name of the scientist: ";
         std::getline(std::cin,name);
         if(name == "")
         {
@@ -1066,14 +1071,14 @@ void ClassUI::editScientist()
         }
         cout << "The Scientist has been edited" << endl;
         list.updateScientist(name,gender,yearOfBirth,yearOfDeath,comment, sciId);
-        cout << "Scientist modified." << endl;
+
     }
     else
     {
         cout << "Scientist not found!" << endl;
     }
 }
-void ClassUI::findScientistConnections()
+void ClassUI::showScientistAndComputerConnections()
 {
     int found = 0;
     cout << "--------------------------------------------------------------" << endl;
@@ -1102,8 +1107,6 @@ void ClassUI::findScientistConnections()
 
         cout << "|" << list.getLinkOutputSciName(i) << endl;
     }
-
-
 }
 void ClassUI::clearTheScreen()
 {
@@ -1342,7 +1345,7 @@ void ClassUI::removeConnection()
 {
     string removeScientistConnection;
     string removeComputerConnection;
-    findScientistConnections();
+    showScientistAndComputerConnections();
     cout << "Here you can remove a connection between a Scientist and a Computer" << endl;
     cout << "Enter the name of the Scientist: ";
     cin.ignore();
@@ -1370,4 +1373,53 @@ void ClassUI::removeConnection()
 
     }
     cout << "Connection not found!" << endl;
+}
+void ClassUI::searchConnections()
+{
+    int select = 0;
+    int id = 0;
+    string name;
+    cout << "--------------------------------------------------------------" << endl;
+    cout << " (1) - Search connections by scientists." << endl;
+    cout << " (2) - Search connections by computers." << endl;
+    cout << " (3) - Exit to main menu." << endl;
+    cout << "Enter your command (1 - 3): ";
+    cin >> select;
+
+    if(select < 1 || select > 2)
+    {
+        cout << "Invalid input!" << endl;
+        mainMenu();
+    }
+    else if(select == 1)
+    {
+        cout << "Enter name of scientist: ";
+        cin.ignore();
+        getline(cin,name);
+        for(int i = 0; i < list.personsSize(); i++)
+        {
+            if(name == list.getScientistName(i))
+            {
+                id = list.getScientistId(i);
+            }
+        }
+        list.searchConnectionsBySci(id);
+        showScientistAndComputerConnections();
+    }
+    else if(select == 2)
+    {
+        cout << "Enter name of computer: ";
+        cin.ignore();
+        getline(cin,name);
+        for(int i = 0; i < list.computerSize(); i++)
+        {
+            if(name == list.getComputerName(i))
+            {
+                id = list.getComputerId(i);
+            }
+        }
+        list.searchConnectionsByComp(id);
+        showScientistAndComputerConnections();
+    }
+
 }

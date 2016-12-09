@@ -147,7 +147,8 @@ public:
         return com.size();
     }
     void sortConnections(string selection);
-
+    void searchConnectionsByComp(int n);
+    void searchConnectionsBySci(int n);
 private:
     vector<LinkerOutput> linkout;
     DataLayer data;

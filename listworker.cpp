@@ -374,3 +374,11 @@ void ListWorker::updateComputer(string name, string type, string isbuilt, int Ye
 {
     data.updateComputer(name, type, isbuilt, Yearbuilt, compId);
 }
+void ListWorker::searchConnectionsByComp(int n)
+{
+    data.searchConnectionsByComp(linkout,n);
+}
+void ListWorker::searchConnectionsBySci(int n)
+{
+    data.searchConnectionsBySci(linkout,n);
+}
