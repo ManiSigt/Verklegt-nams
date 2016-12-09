@@ -537,7 +537,6 @@ void ClassUI::searchComputer()
 {
     string searchChoice;
     cin >> searchChoice;
-    cout << endl;
 
     if (searchChoice == "1")
     {
@@ -549,7 +548,6 @@ void ClassUI::searchComputer()
 
         transform(nameSearch.begin(), nameSearch.end(), nameSearch.begin(), ::tolower);
 
-        cout << "--------------------------------------------------------------" << endl;
         for(int i = 0; i < list.computerSize();++i)
         {
             std::size_t found = list.getComputerLowerCaseName(i).find(nameSearch);
