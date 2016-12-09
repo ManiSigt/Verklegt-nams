@@ -130,6 +130,7 @@ void ClassUI::select(string ch)
         cout << " (1) - Edit a scientist." << endl;
         cout << " (2) - Edit a computer." << endl;
         cout << " (3) - Return to main menu." << endl;
+        cout << "Enter your command (1 - 3): ";
         cin >> choice;
         if (choice == "1")
         {
@@ -333,7 +334,7 @@ void ClassUI::addScientist()
     }
     else
     {
-        cout << "scientist not added!" << endl;
+        cout << "Scientist not added!" << endl;
     }
 }
 void ClassUI::addComputer()
@@ -365,7 +366,7 @@ void ClassUI::addComputer()
 
     if (Yearbuilt < 0 || Yearbuilt > 2016)
     {
-       cout << "not a valid building year" << endl;
+       cout << "Not a valid building year" << endl;
        return mainMenu();
     }
     cout << "Did they finish building the computer? (y/n) ";
@@ -476,7 +477,7 @@ void ClassUI::addConnection()
     }
     else
     {
-        cout << "connection not added!" << endl;
+        cout << "Connection not added!" << endl;
     }
 }
 void ClassUI::selectSearch()
@@ -543,7 +544,6 @@ void ClassUI::searchComputer()
 {
     string searchChoice;
     cin >> searchChoice;
-    cout << endl;
 
     if (searchChoice == "1")
     {
@@ -555,7 +555,6 @@ void ClassUI::searchComputer()
 
         transform(nameSearch.begin(), nameSearch.end(), nameSearch.begin(), ::tolower);
 
-        cout << "--------------------------------------------------------------" << endl;
         for(int i = 0; i < list.computerSize();++i)
         {
             std::size_t found = list.getComputerLowerCaseName(i).find(nameSearch);
@@ -657,7 +656,7 @@ void ClassUI::searchScientist()
     {
         char genderSearch;
 
-        cout << "Enter a gender you want to search for: (M/F)";
+        cout << "Enter a gender you want to search for: (M/F) ";
         cin >> genderSearch;
 
         if(genderSearch == 'm')
@@ -995,7 +994,7 @@ void ClassUI::viewMenu()
 void ClassUI::editScientist()
 {
     string ename;
-    int found;
+    int found = -1;
     cout << "Enter the full name of the scientist that you want to edit: ";
     cin.ignore();
     std::getline(std::cin,ename);
@@ -1008,7 +1007,7 @@ void ClassUI::editScientist()
     }
     int sciId = list.getScientistId(found);
 
-    if(list.removePersonFound(ename))
+    if(found >= 0)
     {
         string name;
         string comment;
@@ -1043,7 +1042,7 @@ void ClassUI::editScientist()
            cin >> yearOfBirth;
            if (yearOfBirth < 0 || yearOfBirth > 2016)
            {
-               cout << "not a valid year of birth" << endl;
+               cout << "Not a valid year of birth" << endl;
                return mainMenu();
            }
            cout << "Is the individual deceased? (y/n) ";
