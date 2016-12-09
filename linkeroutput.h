@@ -6,7 +6,7 @@ using namespace std;
 class LinkerOutput
 {
 public:
-    LinkerOutput(string sciName, string compName);
+    LinkerOutput(string sciName, string compName);  // Class constructor for variables.
     string getSciName() const
     {
         return _sciName;
