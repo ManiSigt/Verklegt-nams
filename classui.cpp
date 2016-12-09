@@ -1114,15 +1114,82 @@ void ClassUI::clearTheScreen()
 }
 void ClassUI::editComputer()
 {
-    string cmpname;
+    string ename;
+    int found = -1;
     cout << "Enter the full name of the computer that you want to edit: ";
     cin.ignore();
-    std::getline(std::cin,cmpname);
-
-    if(list.removeComputerFound(cmpname))
+    std::getline(std::cin,ename);
+    for(int i = 0; i < list.computerSize(); i++)
     {
-        list.removeComputer(cmpname);
-        addComputer();
+        if(ename == list.getComputerName(i))
+        {
+            found = i;
+        }
+    }
+    int compId = list.getComputerId(found);
+
+    if(found >= 0)
+    {
+        string name;
+        string type;
+        string isbuilt;
+        int Yearbuilt = 0;
+
+        cout << "--------------------------------------------------------------" << endl;
+        cout << "Enter a new name of the computer: ";
+        std::getline(std::cin,name);
+
+        if(name == "")
+        {
+            cout << "Invalid name! Try again." << endl;
+            return mainMenu();
+        }
+        cout << "Enter the type of the computer: ";
+        std::getline(std::cin,type);
+
+        if(type == "")
+        {
+            cout << "Invalid type! Try again." << endl;
+            return mainMenu();
+        }
+        cout << "Enter the year the computer was built: ";
+        cin >> Yearbuilt;
+
+        if (Yearbuilt < 0 || Yearbuilt > 2016)
+        {
+           cout << "Not a valid building year" << endl;
+           return mainMenu();
+        }
+        cout << "Did they finish building the computer? (y/n) ";
+        cin >> isbuilt;
+
+        if (isbuilt == "y" || isbuilt == "y")
+        {
+           isbuilt = "Yes";
+        }
+        else if (isbuilt == "n" || isbuilt == "N")
+        {
+           isbuilt = "No";
+        }
+        else
+        {
+            cout << "Not a valid input." << endl;
+            return mainMenu();
+        }
+
+        cout << "Are you sure that you want to edit this computer? (y/n) ";
+        string validateComputer;
+        cin >> validateComputer;
+
+        if(validateComputer == "y" || validateComputer == "Y")
+        {
+            list.updateComputer(name, type, isbuilt, Yearbuilt, compId);
+            cout << "Computer edited!" << endl;
+        }
+        else
+        {
+            cout << "Computer not edited!" << endl;
+        }
     }
     else
     {
