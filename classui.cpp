@@ -148,7 +148,7 @@ void ClassUI::select(string ch)
         }
         else
         {
-            cout << "Invalid input. Please enter a number between 1 - 3" << endl;
+            cout << "Invalid input. Please enter a number between 1 - 3." << endl;
             select("5");
         }
     }
@@ -294,7 +294,7 @@ void ClassUI::addScientist()
 
        if (yearOfBirth < 0 || yearOfBirth > 2016)
        {
-           cout << "not a valid year of birth" << endl;
+           cout << "Not a valid year of birth" << endl;
            return mainMenu();
        }
        cout << "Is the individual deceased? (y/n) ";
@@ -364,7 +364,7 @@ void ClassUI::addComputer()
 
     if (Yearbuilt < 0 || Yearbuilt > 2016)
     {
-       cout << "Not a valid building year" << endl;
+       cout << "Not a valid building year." << endl;
        return mainMenu();
     }
     cout << "Did they finish building the computer? (y/n) ";
@@ -487,7 +487,7 @@ void ClassUI::selectSearch()
     cout << " (2) - Search for a computer." << endl;
     cout << " (3) - Search for a connection." << endl;
     cout << " (4) - Return to main menu." << endl;
-    cout << "Enter your command (1 - 3): ";
+    cout << "Enter your command (1 - 4): ";
     cin >> searchChoice;
 
     if(searchChoice == "1")
@@ -860,7 +860,7 @@ void ClassUI::viewMenu()
         cout << " (5) - Sorted by gender." << endl;
         cout << " (6) - Sorted by age." << endl;
         cout << " (7) - Return to main menu." << endl;
-        cout << "Enter your command (1 - 6): ";
+        cout << "Enter your command (1 - 7): ";
         cin >> viewCho;
 
         if(viewCho == "1")
@@ -914,7 +914,7 @@ void ClassUI::viewMenu()
         cout << " (4) - Sorted by descending chronological order." << endl;
         cout << " (5) - Sorted by type." << endl;
         cout << " (6) - Return to main menu." << endl;
-        cout << "Enter your command (1 - 5): ";
+        cout << "Enter your command (1 - 6): ";
         cin >> viewCho;
         cout << endl;
 
@@ -1043,7 +1043,7 @@ void ClassUI::editScientist()
            cin >> yearOfBirth;
            if (yearOfBirth < 0 || yearOfBirth > 2016)
            {
-               cout << "Not a valid year of birth" << endl;
+               cout << "Not a valid year of birth." << endl;
                return mainMenu();
            }
            cout << "Is the individual deceased? (y/n) ";
@@ -1055,7 +1055,7 @@ void ClassUI::editScientist()
                 cin >> yearOfDeath;
                 if(yearOfBirth > yearOfDeath)
                 {
-                    cout << "Not a valid year of death" << endl;
+                    cout << "Not a valid year of death." << endl;
                     return mainMenu();
                 }
             }
@@ -1069,7 +1069,7 @@ void ClassUI::editScientist()
             cout << "Invalid gender! Try again." << endl;
             return mainMenu();
         }
-        cout << "The Scientist has been edited" << endl;
+        cout << "The Scientist has been edited." << endl;
         list.updateScientist(name,gender,yearOfBirth,yearOfDeath,comment, sciId);
 
     }
@@ -1157,7 +1157,7 @@ void ClassUI::editComputer()
 
         if (Yearbuilt < 0 || Yearbuilt > 2016)
         {
-           cout << "Not a valid building year" << endl;
+           cout << "Not a valid building year." << endl;
            return mainMenu();
         }
         cout << "Did they finish building the computer? (y/n) ";
