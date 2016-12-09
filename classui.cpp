@@ -29,7 +29,7 @@ void ClassUI::mainMenu()
         list.refreshVector();
         cout << "--------------------------------------------------------------" << endl;
         cout << " (1) - "  << "Add to the database." << endl;
-        cout << " (2) - "  << "Remove a from the database." << endl;
+        cout << " (2) - "  << "Remove from the database." << endl;
         cout << " (3) - "  << "View." << endl;
         cout << " (4) - "  << "Search." << endl;
         cout << " (5) - "  << "Edit database." << endl;
@@ -1025,7 +1025,7 @@ void ClassUI::editScientist()
         cout << "Enter a gender (M/F): ";
         cin >> gender;
 
-        if (gender == 'm')s
+        if (gender == 'm')
         {
             gender = 'M';
         }
