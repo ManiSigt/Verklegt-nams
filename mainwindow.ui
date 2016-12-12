@@ -14,239 +14,235 @@
    <string>The Amazing Database</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QTabWidget" name="tabWidget">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>10</y>
-      <width>571</width>
-      <height>371</height>
-     </rect>
-    </property>
-    <property name="currentIndex">
-     <number>0</number>
-    </property>
-    <widget class="QWidget" name="tab">
-     <attribute name="title">
-      <string>Scientists</string>
-     </attribute>
-     <layout class="QGridLayout" name="gridLayout">
-      <item row="5" column="1">
-       <widget class="QPushButton" name="button_scientist_remove">
-        <property name="text">
-         <string>Remove</string>
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QTabWidget" name="tabWidget">
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <widget class="QWidget" name="tab">
+       <attribute name="title">
+        <string>Scientists</string>
+       </attribute>
+       <layout class="QGridLayout" name="gridLayout">
+        <item row="5" column="1">
+         <widget class="QPushButton" name="button_scientist_remove">
+          <property name="text">
+           <string>Remove</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="0" colspan="3">
+         <widget class="QLineEdit" name="input_scientist"/>
+        </item>
+        <item row="5" column="0">
+         <widget class="QPushButton" name="button_scientist_add">
+          <property name="text">
+           <string>Add</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="3" colspan="2">
+         <widget class="QComboBox" name="dropdown_scientist"/>
+        </item>
+        <item row="5" column="2">
+         <widget class="QPushButton" name="button_scientist_edit">
+          <property name="text">
+           <string>Edit</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0" colspan="5">
+         <widget class="QTableWidget" name="table_scientist">
+          <property name="selectionBehavior">
+           <enum>QAbstractItemView::SelectRows</enum>
+          </property>
+          <property name="sortingEnabled">
+           <bool>true</bool>
+          </property>
+          <attribute name="verticalHeaderVisible">
+           <bool>false</bool>
+          </attribute>
+          <column>
+           <property name="text">
+            <string>Name</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Gender</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Birth</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Death</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Comment</string>
+           </property>
+          </column>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tab_2">
+       <attribute name="title">
+        <string>Computers</string>
+       </attribute>
+       <widget class="QComboBox" name="dropdown_computer">
+        <property name="geometry">
+         <rect>
+          <x>340</x>
+          <y>8</y>
+          <width>213</width>
+          <height>22</height>
+         </rect>
         </property>
        </widget>
-      </item>
-      <item row="1" column="0" colspan="5">
-       <widget class="QTableWidget" name="table_scientist">
-        <property name="selectionBehavior">
-         <enum>QAbstractItemView::SelectRows</enum>
-        </property>
-        <property name="sortingEnabled">
-         <bool>true</bool>
-        </property>
-        <attribute name="verticalHeaderVisible">
-         <bool>false</bool>
-        </attribute>
-        <column>
-         <property name="text">
-          <string>Name</string>
-         </property>
-        </column>
-        <column>
-         <property name="text">
-          <string>Gender</string>
-         </property>
-        </column>
-        <column>
-         <property name="text">
-          <string>Birth</string>
-         </property>
-        </column>
-        <column>
-         <property name="text">
-          <string>Death</string>
-         </property>
-        </column>
-        <column>
-         <property name="text">
-          <string>Comment</string>
-         </property>
-        </column>
-       </widget>
-      </item>
-      <item row="0" column="0" colspan="3">
-       <widget class="QLineEdit" name="input_scientist"/>
-      </item>
-      <item row="5" column="0">
-       <widget class="QPushButton" name="button_scientist_add">
-        <property name="text">
-         <string>Add</string>
+       <widget class="QLineEdit" name="input_computer">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>8</y>
+          <width>323</width>
+          <height>22</height>
+         </rect>
         </property>
        </widget>
-      </item>
-      <item row="0" column="3" colspan="2">
-       <widget class="QComboBox" name="dropdown_scientist"/>
-      </item>
-      <item row="5" column="2">
-       <widget class="QPushButton" name="button_scientist_edit">
+       <widget class="QPushButton" name="button_computer_edit">
+        <property name="geometry">
+         <rect>
+          <x>230</x>
+          <y>300</y>
+          <width>103</width>
+          <height>28</height>
+         </rect>
+        </property>
         <property name="text">
          <string>Edit</string>
         </property>
        </widget>
-      </item>
-     </layout>
-    </widget>
-    <widget class="QWidget" name="tab_2">
-     <attribute name="title">
-      <string>Computers</string>
-     </attribute>
-     <widget class="QComboBox" name="dropdown_computer">
-      <property name="geometry">
-       <rect>
-        <x>340</x>
-        <y>8</y>
-        <width>213</width>
-        <height>22</height>
-       </rect>
-      </property>
+       <widget class="QTableWidget" name="table_computer">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>37</y>
+          <width>543</width>
+          <height>251</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="button_computer_remove">
+        <property name="geometry">
+         <rect>
+          <x>120</x>
+          <y>300</y>
+          <width>103</width>
+          <height>28</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Remove</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="button_computer_add">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>300</y>
+          <width>103</width>
+          <height>28</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Add</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="tab_3">
+       <attribute name="title">
+        <string>Connections</string>
+       </attribute>
+       <widget class="QComboBox" name="dropdown_connections">
+        <property name="geometry">
+         <rect>
+          <x>340</x>
+          <y>8</y>
+          <width>213</width>
+          <height>22</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="input_connections">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>8</y>
+          <width>323</width>
+          <height>22</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="button_connections_edit">
+        <property name="geometry">
+         <rect>
+          <x>230</x>
+          <y>300</y>
+          <width>103</width>
+          <height>28</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Edit</string>
+        </property>
+       </widget>
+       <widget class="QTableWidget" name="table_connections">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>37</y>
+          <width>543</width>
+          <height>256</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="button_connections_remove">
+        <property name="geometry">
+         <rect>
+          <x>120</x>
+          <y>300</y>
+          <width>103</width>
+          <height>28</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Remove</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="button_connections_add">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>300</y>
+          <width>103</width>
+          <height>28</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Add</string>
+        </property>
+       </widget>
+      </widget>
      </widget>
-     <widget class="QLineEdit" name="input_computer">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>8</y>
-        <width>323</width>
-        <height>22</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="button_computer_edit">
-      <property name="geometry">
-       <rect>
-        <x>230</x>
-        <y>300</y>
-        <width>103</width>
-        <height>28</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Edit</string>
-      </property>
-     </widget>
-     <widget class="QTableWidget" name="table_computer">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>37</y>
-        <width>543</width>
-        <height>256</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="button_computer_remove">
-      <property name="geometry">
-       <rect>
-        <x>120</x>
-        <y>300</y>
-        <width>103</width>
-        <height>28</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Remove</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="button_computer_add">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>300</y>
-        <width>103</width>
-        <height>28</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Add</string>
-      </property>
-     </widget>
-    </widget>
-    <widget class="QWidget" name="tab_3">
-     <attribute name="title">
-      <string>Connections</string>
-     </attribute>
-     <widget class="QComboBox" name="dropdown_connections">
-      <property name="geometry">
-       <rect>
-        <x>340</x>
-        <y>8</y>
-        <width>213</width>
-        <height>22</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="input_connections">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>8</y>
-        <width>323</width>
-        <height>22</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="button_connections_edit">
-      <property name="geometry">
-       <rect>
-        <x>230</x>
-        <y>300</y>
-        <width>103</width>
-        <height>28</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Edit</string>
-      </property>
-     </widget>
-     <widget class="QTableWidget" name="table_connections">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>37</y>
-        <width>543</width>
-        <height>256</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="button_connections_remove">
-      <property name="geometry">
-       <rect>
-        <x>120</x>
-        <y>300</y>
-        <width>103</width>
-        <height>28</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Remove</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="button_connections_add">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>300</y>
-        <width>103</width>
-        <height>28</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Add</string>
-      </property>
-     </widget>
-    </widget>
-   </widget>
+    </item>
+   </layout>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">

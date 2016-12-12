@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "listworker.h"
+#include <QMessageBox>
 
 #include <QDebug>
 #include <string>
@@ -13,7 +14,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    showThings();
+    showScientists();
+    populateDropdownMenus();
 }
 
 MainWindow::~MainWindow()
@@ -21,9 +23,7 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-
-
-void MainWindow::showThings()
+void MainWindow::showScientists()
 {
     ui->table_scientist->clear();
 
@@ -53,7 +53,9 @@ void MainWindow::showThings()
         ui->table_scientist->setItem(i,4,new QTableWidgetItem(qcomment));
     }
     ui->table_scientist->resizeColumnsToContents();
+
 }
+
 /*
 void MainWindow::on_button_computers_clicked()
 {
@@ -79,9 +81,25 @@ void MainWindow::on_button_computers_clicked()
     }
     ui->tableWidget->resizeColumnsToContents();
 }
-
-void MainWindow::on_button_scientist_clicked()
-{
-     showThings();
-}
 */
+
+void MainWindow::on_dropdown_scientist_activated(const QString &arg1)
+{
+        QMessageBox::information(this, "Item Selection",
+        ui->dropdown_scientist->currentText());
+}
+
+void MainWindow::populateDropdownMenus()
+{
+        ui->dropdown_scientist->addItem("Name");
+        ui->dropdown_scientist->addItem("Gender");
+        ui->dropdown_scientist->addItem("Birth");
+        ui->dropdown_scientist->addItem("Death");
+
+        ui->dropdown_computer->addItem("Name");
+        ui->dropdown_computer->addItem("Type");
+        ui->dropdown_computer->addItem("Year");
+
+        ui->dropdown_connections->addItem("Scientist");
+        ui->dropdown_connections->addItem("Computer");
+}
