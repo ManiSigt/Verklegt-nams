@@ -20,6 +20,9 @@ public:
 
 private slots:
     void showThings();
+    void showComputers();
+
+    void on_tabWidget_tabBarClicked(int index);
 
 private:
     Ui::MainWindow *ui;
