@@ -1,13 +1,11 @@
-#include <iostream>
-#include "classui.h"
+#include "mainwindow.h"
+#include <QApplication>
 
-using namespace std;
-
-int main()
+int main(int argc, char *argv[])
 {
-    ClassUI ui;
+    QApplication application(argc, argv);
+    MainWindow window;
+    window.show();
 
-    ui.mainMenu();
-
-    return 0;
+    return application.exec();
 }
