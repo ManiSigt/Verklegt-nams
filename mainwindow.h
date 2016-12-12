@@ -19,10 +19,10 @@ public:
     ~MainWindow();
 
 private slots:
-    void showThings();
     void showComputers();
-
-    void on_tabWidget_tabBarClicked(int index);
+    void showScientists();
+    void populateDropdownMenus();
+    void on_dropdown_scientist_activated(const QString &arg1);
 
 private:
     Ui::MainWindow *ui;
