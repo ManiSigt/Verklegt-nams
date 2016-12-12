@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "listworker.h"
+#include <QMessageBox>
 
 #include <QDebug>
 #include <string>
@@ -13,7 +14,10 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    showThings();
+    showComputers();
+    showScientists();
+    populateDropdownMenus();
+>>>>>>> 6a5843876381e6151dd72c7c6fa06f4360cdd334
 }
 
 MainWindow::~MainWindow()
@@ -21,9 +25,7 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-
-
-void MainWindow::showThings()
+void MainWindow::showScientists()
 {
     ui->table_scientist->clear();
 
@@ -53,6 +55,34 @@ void MainWindow::showThings()
         ui->table_scientist->setItem(i,4,new QTableWidgetItem(qcomment));
     }
     ui->table_scientist->resizeColumnsToContents();
+
+}
+void MainWindow::showComputers()
+{
+    ui->table_computer->clear();
+
+    ui->table_computer->setHorizontalHeaderItem(0,new QTableWidgetItem("Name"));
+    ui->table_computer->setHorizontalHeaderItem(1,new QTableWidgetItem("Type"));
+    ui->table_computer->setHorizontalHeaderItem(2,new QTableWidgetItem("Date"));
+    ui->table_computer->setHorizontalHeaderItem(3,new QTableWidgetItem("Wasitbuilt"));
+
+    ui->table_computer->setRowCount(listWorker.computerSize());
+    ui->table_computer->setColumnCount(4);
+    for(int i = 0; i < listWorker.computerSize(); i++)
+    {
+        int date = listWorker.getComputerDate(i);
+
+        QString qname = QString::fromStdString(listWorker.getComputerName(i));
+        QString qtype = QString::fromStdString(listWorker.getComputerType(i));
+        QString qdate = QString::number(date);
+        QString qwasitbuilt = QString::fromStdString(listWorker.getComputerWasItBuilt(i));
+
+        ui->table_computer->setItem(i,0,new QTableWidgetItem(qname));
+        ui->table_computer->setItem(i,1,new QTableWidgetItem(qtype));
+        ui->table_computer->setItem(i,2,new QTableWidgetItem(qdate));
+        ui->table_computer->setItem(i,3,new QTableWidgetItem(qwasitbuilt));
+    }
+    ui->table_computer->resizeColumnsToContents();
 }
 /*
 void MainWindow::on_button_computers_clicked()
@@ -79,9 +109,25 @@ void MainWindow::on_button_computers_clicked()
     }
     ui->tableWidget->resizeColumnsToContents();
 }
-
-void MainWindow::on_button_scientist_clicked()
-{
-     showThings();
-}
 */
+
+void MainWindow::on_dropdown_scientist_activated(const QString &arg1)
+{
+        QMessageBox::information(this, "Item Selection",
+        ui->dropdown_scientist->currentText());
+}
+
+void MainWindow::populateDropdownMenus()
+{
+        ui->dropdown_scientist->addItem("Name");
+        ui->dropdown_scientist->addItem("Gender");
+        ui->dropdown_scientist->addItem("Birth");
+        ui->dropdown_scientist->addItem("Death");
+
+        ui->dropdown_computer->addItem("Name");
+        ui->dropdown_computer->addItem("Type");
+        ui->dropdown_computer->addItem("Year");
+
+        ui->dropdown_connections->addItem("Scientist");
+        ui->dropdown_connections->addItem("Computer");
+}
