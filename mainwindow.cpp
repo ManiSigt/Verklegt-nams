@@ -64,7 +64,7 @@ void MainWindow::showComputers()
     ui->table_computer->setHorizontalHeaderItem(0,new QTableWidgetItem("Name"));
     ui->table_computer->setHorizontalHeaderItem(1,new QTableWidgetItem("Type"));
     ui->table_computer->setHorizontalHeaderItem(2,new QTableWidgetItem("Date"));
-    ui->table_computer->setHorizontalHeaderItem(3,new QTableWidgetItem("Wasitbuilt"));
+    ui->table_computer->setHorizontalHeaderItem(3,new QTableWidgetItem("Was it built"));
 
     ui->table_computer->setRowCount(list.computerSize());
     ui->table_computer->setColumnCount(4);
@@ -90,8 +90,9 @@ void MainWindow::showConnections()
 
     ui->table_connections->clear();
 
-    ui->table_connections->setHorizontalHeaderItem(0,new QTableWidgetItem("SciName"));
-    ui->table_connections->setHorizontalHeaderItem(1,new QTableWidgetItem("CompName"));
+    ui->table_connections->setHorizontalHeaderItem(0,new QTableWidgetItem("Scientist Name"));
+    ui->table_connections->setHorizontalHeaderItem(1,new QTableWidgetItem("Computer Name"));
+
     ui->table_connections->setRowCount(list.getLinkOutputSize());
     ui->table_connections->setColumnCount(2);
 
