@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>AddScientistDialog</class>
+ <widget class="QDialog" name="AddScientistDialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>366</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QLabel" name="label_addNewScientist">
+     <property name="text">
+      <string>Add a new scientist</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLabel" name="label_scientistName">
+     <property name="text">
+      <string>Name</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLineEdit" name="input_scientistName"/>
+   </item>
+   <item>
+    <widget class="QLabel" name="label_scientistGender">
+     <property name="text">
+      <string>Gender</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLineEdit" name="input_scientistGender"/>
+   </item>
+   <item>
+    <widget class="QLabel" name="label_scientistBirth">
+     <property name="text">
+      <string>Birth</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLineEdit" name="input_scientistBirth"/>
+   </item>
+   <item>
+    <widget class="QLabel" name="label_scientistDeath">
+     <property name="text">
+      <string>Death</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLineEdit" name="input_scientistDeath"/>
+   </item>
+   <item>
+    <widget class="QLabel" name="label_scientistComment">
+     <property name="text">
+      <string>Comment</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLineEdit" name="input_scientistComment"/>
+   </item>
+   <item>
+    <widget class="QPushButton" name="button_addScientist">
+     <property name="text">
+      <string>Add scientist</string>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
