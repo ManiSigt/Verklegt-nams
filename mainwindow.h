@@ -25,7 +25,19 @@ private slots:
     void populateDropdownMenus();
     void on_dropdown_scientist_activated(const QString &arg1);
 
+
     void on_button_scientist_add_clicked();
+
+    void on_table_scientist_clicked(const QModelIndex &index);
+
+    void on_button_scientist_remove_clicked();
+    void on_input_scientist_textEdited(const QString &arg1);
+
+    void on_input_computer_textEdited(const QString &arg1);
+
+    void on_input_connections_textEdited(const QString &arg1);
+
+
 
 private:
     Ui::MainWindow *ui;

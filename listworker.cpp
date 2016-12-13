@@ -76,8 +76,9 @@ void ListWorker::sortComputerType()
 {
     data.sortTypeComputers(com);
 }
-bool ListWorker::removePerson(string name)
+bool ListWorker::removePerson(int rowNumber)
 {
+    string name = getScientistName(rowNumber);
     for(size_t i = 0; i < persons.size(); ++i)
     {
         if(name == persons[i].getScientistName())
