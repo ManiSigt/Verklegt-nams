@@ -162,6 +162,7 @@ void MainWindow::on_button_scientist_remove_clicked()
     if (sucsess)
     {
         showScientists();
+        ui->button_scientist_remove->setEnabled(false);
     }
     else
     {
@@ -196,6 +197,7 @@ void MainWindow::on_button_computer_remove_clicked()
     if (sucsess)
     {
         showComputers();
+        ui->button_computer_remove->setEnabled(false);
     }
     else
     {
