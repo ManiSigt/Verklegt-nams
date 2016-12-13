@@ -45,6 +45,8 @@ private slots:
     void on_button_computer_remove_clicked();
 
 
+    void on_button_connections_edit_clicked();
+
 private:
     Ui::MainWindow *ui;
     ListWorker list;

@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>EditScientistDialog</class>
+ <widget class="QDialog" name="EditScientistDialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>418</width>
+    <height>317</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <widget class="QLineEdit" name="input_scientist_name">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>28</y>
+     <width>378</width>
+     <height>22</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_scientist_birth">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>109</y>
+     <width>378</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Birth</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="input_scientist_birth">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>132</y>
+     <width>378</width>
+     <height>22</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="input_scientist_death">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>184</y>
+     <width>378</width>
+     <height>22</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_scientist_gender">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>57</y>
+     <width>378</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Gender</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_scientist_comment">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>213</y>
+     <width>378</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Comment</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_scientist_name">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>5</y>
+     <width>378</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Name</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="button_add_scientist">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>265</y>
+     <width>378</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Add scientist</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="input_scientist_comment">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>236</y>
+     <width>378</width>
+     <height>22</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_scientist_death">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>161</y>
+     <width>378</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Death</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="input_scientist_gender">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>80</y>
+     <width>378</width>
+     <height>22</height>
+    </rect>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
