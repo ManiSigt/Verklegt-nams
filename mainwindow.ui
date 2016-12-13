@@ -18,7 +18,7 @@
     <item>
      <widget class="QTabWidget" name="tabWidget">
       <property name="currentIndex">
-       <number>2</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="tab">
        <attribute name="title">
@@ -27,6 +27,9 @@
        <layout class="QGridLayout" name="gridLayout">
         <item row="5" column="1">
          <widget class="QPushButton" name="button_scientist_remove">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
           <property name="text">
            <string>Remove</string>
           </property>
@@ -246,6 +249,9 @@
         </attribute>
        </widget>
        <widget class="QPushButton" name="button_connections_remove">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
         <property name="geometry">
          <rect>
           <x>120</x>
@@ -282,7 +288,7 @@
      <x>0</x>
      <y>0</y>
      <width>609</width>
-     <height>26</height>
+     <height>22</height>
     </rect>
    </property>
   </widget>

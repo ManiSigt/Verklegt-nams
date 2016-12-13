@@ -25,6 +25,11 @@ private slots:
     void populateDropdownMenus();
     void on_dropdown_scientist_activated(const QString &arg1);
 
+
+    void on_table_scientist_clicked(const QModelIndex &index);
+
+    void on_button_scientist_remove_clicked();
+
 private:
     Ui::MainWindow *ui;
     ListWorker list;

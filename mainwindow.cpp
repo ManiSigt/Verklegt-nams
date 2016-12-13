@@ -107,32 +107,6 @@ void MainWindow::showConnections()
     }
     ui->table_connections->resizeColumnsToContents();
 }
-/*
-void MainWindow::on_button_computers_clicked()
-{
-    ui->tableWidget->clear();
-    ui->tableWidget->setRowCount(list.computerSize());
-    ui->tableWidget->setColumnCount(4);
-    ui->listWidget->clear();
-    for(int i = 0; i < list.computerSize(); i++)
-    {
-        int date = listWorker.getComputerDate(i);
-
-        QString qname = QString::fromStdString(list.getComputerName(i));
-        QString qdate = QString::number(date);
-        QString qtype = QString::fromStdString(list.getComputerType(i));
-        QString qbuilt = QString::fromStdString(list.getComputerWasItBuilt(i));
-
-        ui->listWidget->addItem(QString::fromStdString(list.getScientistName(i)));
-
-        ui->tableWidget->setItem(i,0,new QTableWidgetItem(qname));
-        ui->tableWidget->setItem(i,1,new QTableWidgetItem(qdate));
-        ui->tableWidget->setItem(i,2,new QTableWidgetItem(qtype));
-        ui->tableWidget->setItem(i,3,new QTableWidgetItem(qbuilt));
-    }
-    ui->tableWidget->resizeColumnsToContents();
-}
-*/
 
 void MainWindow::on_dropdown_scientist_activated(const QString &arg1)
 {
@@ -153,4 +127,23 @@ void MainWindow::populateDropdownMenus()
 
         ui->dropdown_connections->addItem("Scientist");
         ui->dropdown_connections->addItem("Computer");
+}
+void MainWindow::on_table_scientist_clicked(const QModelIndex &index)
+{
+     ui->button_scientist_remove->setEnabled(true);
+}
+
+void MainWindow::on_button_scientist_remove_clicked()
+{
+    int scientistRemove = ui->table_scientist->currentRow();
+    bool sucsess = list.removePerson(scientistRemove);
+
+    if (sucsess)
+    {
+        showScientists();
+    }
+    else
+    {
+        QMessageBox::warning(this, "Warning!", "Unable to remove scientist!😡");
+    }
 }
