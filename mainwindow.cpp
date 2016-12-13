@@ -64,7 +64,7 @@ void MainWindow::showComputers()
     ui->table_computer->setHorizontalHeaderItem(0,new QTableWidgetItem("Name"));
     ui->table_computer->setHorizontalHeaderItem(1,new QTableWidgetItem("Type"));
     ui->table_computer->setHorizontalHeaderItem(2,new QTableWidgetItem("Date"));
-    ui->table_computer->setHorizontalHeaderItem(3,new QTableWidgetItem("Wasitbuilt"));
+    ui->table_computer->setHorizontalHeaderItem(3,new QTableWidgetItem("Was it built"));
 
     ui->table_computer->setRowCount(list.computerSize());
     ui->table_computer->setColumnCount(4);
