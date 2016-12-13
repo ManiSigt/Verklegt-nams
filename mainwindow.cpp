@@ -15,9 +15,9 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     showComputers();
+  //  showConnections();
     showScientists();
     populateDropdownMenus();
->>>>>>> 6a5843876381e6151dd72c7c6fa06f4360cdd334
 }
 
 MainWindow::~MainWindow()
@@ -83,6 +83,25 @@ void MainWindow::showComputers()
         ui->table_computer->setItem(i,3,new QTableWidgetItem(qwasitbuilt));
     }
     ui->table_computer->resizeColumnsToContents();
+}
+void MainWindow::showConnections()
+{
+    ui->table_connections->clear();
+
+    ui->table_connections->setHorizontalHeaderItem(0,new QTableWidgetItem("SciName"));
+    ui->table_connections->setHorizontalHeaderItem(1,new QTableWidgetItem("CompName"));
+    ui->table_connections->setRowCount(listWorker.computerSize());
+    ui->table_connections->setColumnCount(2);
+
+    for(int i = 0; i < listWorker.getLinkSize(); i++)
+    {
+        QString qsciname = QString::fromStdString(listWorker.getLinkOutputSciName(i));
+        QString qcompname = QString::fromStdString(listWorker.getLinkOutputCompName(i));
+
+        ui->table_connections->setItem(i,0,new QTableWidgetItem(qsciname));
+        ui->table_connections->setItem(i,1,new QTableWidgetItem(qcompname));
+    }
+    ui->table_connections->resizeColumnsToContents();
 }
 /*
 void MainWindow::on_button_computers_clicked()
