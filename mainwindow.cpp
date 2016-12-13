@@ -35,16 +35,16 @@ void MainWindow::showScientists()
 
     ui->table_scientist->setRowCount(listWorker.personsSize());
     ui->table_scientist->setColumnCount(5);
-    for(int i = 0; i < listWorker.personsSize(); i++)
+    for(int i = 0; i < list.personsSize(); i++)
     {
-        int birth = listWorker.getScientistBirth(i);
-        int death = listWorker.getScientistDeath(i);
+        int birth = list.getScientistBirth(i);
+        int death = list.getScientistDeath(i);
 
-        QString qname = QString::fromStdString(listWorker.getScientistName(i));
-        QString qgender = QChar(listWorker.getScientistGender(i));
+        QString qname = QString::fromStdString(list.getScientistName(i));
+        QString qgender = QChar(list.getScientistGender(i));
         QString qbirth = QString::number(birth);
         QString qdeath = QString::number(death);
-        QString qcomment = QString::fromStdString(listWorker.getScientistComment(i));
+        QString qcomment = QString::fromStdString(list.getScientistComment(i));
 
         ui->table_scientist->setItem(i,0,new QTableWidgetItem(qname));
         ui->table_scientist->setItem(i,1,new QTableWidgetItem(qgender));
@@ -60,19 +60,19 @@ void MainWindow::showScientists()
 void MainWindow::on_button_computers_clicked()
 {
     ui->tableWidget->clear();
-    ui->tableWidget->setRowCount(listWorker.computerSize());
+    ui->tableWidget->setRowCount(list.computerSize());
     ui->tableWidget->setColumnCount(4);
     ui->listWidget->clear();
-    for(int i = 0; i < listWorker.computerSize(); i++)
+    for(int i = 0; i < list.computerSize(); i++)
     {
         int date = listWorker.getComputerDate(i);
 
-        QString qname = QString::fromStdString(listWorker.getComputerName(i));
+        QString qname = QString::fromStdString(list.getComputerName(i));
         QString qdate = QString::number(date);
-        QString qtype = QString::fromStdString(listWorker.getComputerType(i));
-        QString qbuilt = QString::fromStdString(listWorker.getComputerWasItBuilt(i));
+        QString qtype = QString::fromStdString(list.getComputerType(i));
+        QString qbuilt = QString::fromStdString(list.getComputerWasItBuilt(i));
 
-        ui->listWidget->addItem(QString::fromStdString(listWorker.getScientistName(i)));
+        ui->listWidget->addItem(QString::fromStdString(list.getScientistName(i)));
 
         ui->tableWidget->setItem(i,0,new QTableWidgetItem(qname));
         ui->tableWidget->setItem(i,1,new QTableWidgetItem(qdate));
