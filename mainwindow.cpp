@@ -15,7 +15,7 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     showComputers();
-   // showConnections();
+    showConnections();
     showScientists();
     populateDropdownMenus();
 }
@@ -86,15 +86,19 @@ void MainWindow::showComputers()
 }
 void MainWindow::showConnections()
 {
+    list.sortConnections("1"); //þegar sort verður lagfært þá verður þetta kannski fært.
+
     ui->table_connections->clear();
 
     ui->table_connections->setHorizontalHeaderItem(0,new QTableWidgetItem("SciName"));
     ui->table_connections->setHorizontalHeaderItem(1,new QTableWidgetItem("CompName"));
-    ui->table_connections->setRowCount(list.computerSize());
+    ui->table_connections->setRowCount(list.getLinkOutputSize());
     ui->table_connections->setColumnCount(2);
 
-    for(int i = 0; i < list.getLinkSize(); i++)
+    for(int i = 0; i < list.getLinkOutputSize(); i++)
     {
+
+
         QString qsciname = QString::fromStdString(list.getLinkOutputSciName(i));
         QString qcompname = QString::fromStdString(list.getLinkOutputCompName(i));
 
