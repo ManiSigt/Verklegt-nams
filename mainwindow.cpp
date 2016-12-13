@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 #include "listworker.h"
 #include "addscientistdialog.h"
+#include "addcomputerdialog.h"
 #include "editscientistdialog.h"
 #include <QMessageBox>
 #include <algorithm>
@@ -218,4 +219,10 @@ void MainWindow::on_button_connections_edit_clicked()
 {
     EditScientistDialog editSci;
         editSci.exec();
+}
+
+void MainWindow::on_button_computer_add_clicked()
+{
+    addComputerDialog addComputer;
+    addComputer.exec();
 }
