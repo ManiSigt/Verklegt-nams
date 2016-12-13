@@ -25,6 +25,8 @@ private slots:
     void populateDropdownMenus();
     void on_dropdown_scientist_activated(const QString &arg1);
 
+    void on_button_scientist_add_clicked();
+
 private:
     Ui::MainWindow *ui;
     ListWorker list;

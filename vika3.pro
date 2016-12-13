@@ -20,7 +20,8 @@ SOURCES += main.cpp\
     linker.cpp \
     linkeroutput.cpp \
     listworker.cpp \
-    person.cpp
+    person.cpp \
+    addscientistdialog.cpp
 
 HEADERS  += mainwindow.h \
     computer.h \
@@ -28,6 +29,8 @@ HEADERS  += mainwindow.h \
     linker.h \
     linkeroutput.h \
     listworker.h \
-    person.h
+    person.h \
+    addscientistdialog.h
 
-FORMS    += mainwindow.ui
+FORMS    += mainwindow.ui \
+    addscientistdialog.ui

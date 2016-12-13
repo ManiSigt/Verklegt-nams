@@ -1,55 +1,27 @@
 #include "addscientistdialog.h"
 #include "ui_addscientistdialog.h"
-#include "listworker.h"
-#include <QString>
 
-
-
-using namespace std;
-
-AddScientistDialog::AddScientistDialog(QWidget *parent) :
+addScientistDialog::addScientistDialog(QWidget *parent) :
     QDialog(parent),
-    ui(new Ui::AddScientistDialog)
+    ui(new Ui::addScientistDialog)
 {
     ui->setupUi(this);
 }
 
-AddScientistDialog::~AddScientistDialog()
+addScientistDialog::~addScientistDialog()
 {
     delete ui;
 }
 
-void AddScientistDialog::on_button_addScientist_clicked()
+void addScientistDialog::on_button_add_scientist_clicked()
 {
-    QString name = ui->input_scientistName->text();
-    QString gender = ui->input_scientistGender->text();
-    QString birth = ui->input_scientistBirth->text();
-    QString death = ui->input_scientistDeath->text();
-    QString comment = ui->input_scientistComment->text();
+    QString name = ui->input_scientist_name->text();
+    QString gender = ui->input_scientist_gender->text();
+    QString birth = ui->input_scientist_birth->text();
+    QString death = ui->input_scientist_death->text();
+    QString comment = ui->input_scientist_comment->text();
 
-    //list2.addNewScientist(name.toStdString(), gender.toStdString(), birth.toInt(), death.toInt(), comment.toStdString());
-/*
-    if(name.isEmpty())
-    {
-        // do nothing, show some error later
-        return;
-    }
+    //Á eftir að útfæra.
 
-    if(gender.isEmpty())
-    {
-        // also do nothing
-        return;
-    }
 
-    bool success = */
-    //ListWorker.addNewScientist(name.toStdString(), gender.toStdString(), birth.toInt(), death.toInt(), comment.toStdString());
-
-   /* if(success)
-    {
-        return;
-    }
-    else
-    {
-
-    }*/
 }

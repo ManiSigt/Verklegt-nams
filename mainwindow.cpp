@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "listworker.h"
+#include "addscientistdialog.h"
 #include <QMessageBox>
 
 #include <QDebug>
@@ -153,4 +154,10 @@ void MainWindow::populateDropdownMenus()
 
         ui->dropdown_connections->addItem("Scientist");
         ui->dropdown_connections->addItem("Computer");
+}
+
+void MainWindow::on_button_scientist_add_clicked()
+{
+    addScientistDialog addScientist;
+    addScientist.exec();
 }

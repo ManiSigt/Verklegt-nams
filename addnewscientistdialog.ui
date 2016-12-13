@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>addScientistDialog</class>
- <widget class="QDialog" name="addScientistDialog">
+ <class>Dialog</class>
+ <widget class="QDialog" name="Dialog">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -22,7 +22,7 @@
     </widget>
    </item>
    <item>
-    <widget class="QLineEdit" name="input_scientist_name"/>
+    <widget class="QLineEdit" name="line_scientist_name"/>
    </item>
    <item>
     <widget class="QLabel" name="label_scientist_gender">
@@ -32,7 +32,7 @@
     </widget>
    </item>
    <item>
-    <widget class="QLineEdit" name="input_scientist_gender"/>
+    <widget class="QLineEdit" name="line_scientist_gender"/>
    </item>
    <item>
     <widget class="QLabel" name="label_scientist_birth">
@@ -42,7 +42,7 @@
     </widget>
    </item>
    <item>
-    <widget class="QLineEdit" name="input_scientist_birth"/>
+    <widget class="QLineEdit" name="line_scientist_birth"/>
    </item>
    <item>
     <widget class="QLabel" name="label_scientist_death">
@@ -52,7 +52,7 @@
     </widget>
    </item>
    <item>
-    <widget class="QLineEdit" name="input_scientist_death"/>
+    <widget class="QLineEdit" name="line_scientist_death"/>
    </item>
    <item>
     <widget class="QLabel" name="label_scientist_comment">
@@ -62,10 +62,10 @@
     </widget>
    </item>
    <item>
-    <widget class="QLineEdit" name="input_scientist_comment"/>
+    <widget class="QLineEdit" name="line_scientist_comment"/>
    </item>
    <item>
-    <widget class="QPushButton" name="button_add_scientist">
+    <widget class="QPushButton" name="pushButton">
      <property name="text">
       <string>Add scientist</string>
      </property>

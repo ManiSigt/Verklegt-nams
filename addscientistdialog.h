@@ -3,34 +3,23 @@
 
 #include <QDialog>
 
-
-#include "mainwindow.h"
-
-#include "listworker.h"
-
-
 namespace Ui {
-class AddScientistDialog;
+class addScientistDialog;
 }
 
-class AddScientistDialog : public QDialog
+class addScientistDialog : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit AddScientistDialog(QWidget *parent = 0);
-    ~AddScientistDialog();
+    explicit addScientistDialog(QWidget *parent = 0);
+    ~addScientistDialog();
 
 private slots:
-    void on_button_addScientist_clicked();
+    void on_button_add_scientist_clicked();
 
 private:
-    Ui::AddScientistDialog *ui;
-    //ListWorker list2;
-
-
-
-
+    Ui::addScientistDialog *ui;
 };
 
 #endif // ADDSCIENTISTDIALOG_H
