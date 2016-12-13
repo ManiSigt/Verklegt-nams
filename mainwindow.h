@@ -35,6 +35,10 @@ private slots:
     void on_input_connections_textEdited(const QString &arg1);
 
 
+    void on_table_computer_clicked(const QModelIndex &index);
+
+    void on_button_computer_remove_clicked();
+
 private:
     Ui::MainWindow *ui;
     ListWorker list;

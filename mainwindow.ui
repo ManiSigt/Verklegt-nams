@@ -18,9 +18,7 @@
     <item>
      <widget class="QTabWidget" name="tabWidget">
       <property name="currentIndex">
-
        <number>1</number>
-
       </property>
       <widget class="QWidget" name="tab">
        <attribute name="title">
@@ -178,6 +176,9 @@
         </column>
        </widget>
        <widget class="QPushButton" name="button_computer_remove">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
         <property name="geometry">
          <rect>
           <x>120</x>

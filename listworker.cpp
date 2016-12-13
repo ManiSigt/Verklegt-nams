@@ -131,8 +131,9 @@ bool ListWorker::removePersonFound(string name)
     }
     return false;
 }
-bool ListWorker::removeComputer(string name)
+bool ListWorker::removeComputer(int rownumber)
 {
+    string name = getComputerName(rownumber);
     for(size_t i = 0; i < com.size(); ++i)
     {
         if(name == com[i].getComputerName())
