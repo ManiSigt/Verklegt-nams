@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include "listworker.h"
+#include "addscientistdialog.h"
 
 #include <string>
 
