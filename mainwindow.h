@@ -27,7 +27,7 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
-    ListWorker listWorker;
+    ListWorker list;
 };
 
 #endif // MAINWINDOW_H

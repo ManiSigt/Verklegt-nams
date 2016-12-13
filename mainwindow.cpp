@@ -15,7 +15,7 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     showComputers();
-  //  showConnections();
+    showConnections();
     showScientists();
     populateDropdownMenus();
 }
@@ -35,18 +35,18 @@ void MainWindow::showScientists()
     ui->table_scientist->setHorizontalHeaderItem(3,new QTableWidgetItem("Death"));
     ui->table_scientist->setHorizontalHeaderItem(4,new QTableWidgetItem("Comment"));
 
-    ui->table_scientist->setRowCount(listWorker.personsSize());
+    ui->table_scientist->setRowCount(list.personsSize());
     ui->table_scientist->setColumnCount(5);
-    for(int i = 0; i < listWorker.personsSize(); i++)
+    for(int i = 0; i < list.personsSize(); i++)
     {
-        int birth = listWorker.getScientistBirth(i);
-        int death = listWorker.getScientistDeath(i);
+        int birth = list.getScientistBirth(i);
+        int death = list.getScientistDeath(i);
 
-        QString qname = QString::fromStdString(listWorker.getScientistName(i));
-        QString qgender = QChar(listWorker.getScientistGender(i));
+        QString qname = QString::fromStdString(list.getScientistName(i));
+        QString qgender = QChar(list.getScientistGender(i));
         QString qbirth = QString::number(birth);
         QString qdeath = QString::number(death);
-        QString qcomment = QString::fromStdString(listWorker.getScientistComment(i));
+        QString qcomment = QString::fromStdString(list.getScientistComment(i));
 
         ui->table_scientist->setItem(i,0,new QTableWidgetItem(qname));
         ui->table_scientist->setItem(i,1,new QTableWidgetItem(qgender));
@@ -66,16 +66,16 @@ void MainWindow::showComputers()
     ui->table_computer->setHorizontalHeaderItem(2,new QTableWidgetItem("Date"));
     ui->table_computer->setHorizontalHeaderItem(3,new QTableWidgetItem("Wasitbuilt"));
 
-    ui->table_computer->setRowCount(listWorker.computerSize());
+    ui->table_computer->setRowCount(list.computerSize());
     ui->table_computer->setColumnCount(4);
-    for(int i = 0; i < listWorker.computerSize(); i++)
+    for(int i = 0; i < list.computerSize(); i++)
     {
-        int date = listWorker.getComputerDate(i);
+        int date = list.getComputerDate(i);
 
-        QString qname = QString::fromStdString(listWorker.getComputerName(i));
-        QString qtype = QString::fromStdString(listWorker.getComputerType(i));
+        QString qname = QString::fromStdString(list.getComputerName(i));
+        QString qtype = QString::fromStdString(list.getComputerType(i));
         QString qdate = QString::number(date);
-        QString qwasitbuilt = QString::fromStdString(listWorker.getComputerWasItBuilt(i));
+        QString qwasitbuilt = QString::fromStdString(list.getComputerWasItBuilt(i));
 
         ui->table_computer->setItem(i,0,new QTableWidgetItem(qname));
         ui->table_computer->setItem(i,1,new QTableWidgetItem(qtype));
@@ -86,17 +86,21 @@ void MainWindow::showComputers()
 }
 void MainWindow::showConnections()
 {
+    list.sortConnections("1"); //þegar sort verður lagfært þá verður þetta kannski fært.
+
     ui->table_connections->clear();
 
     ui->table_connections->setHorizontalHeaderItem(0,new QTableWidgetItem("SciName"));
     ui->table_connections->setHorizontalHeaderItem(1,new QTableWidgetItem("CompName"));
-    ui->table_connections->setRowCount(listWorker.computerSize());
+    ui->table_connections->setRowCount(list.getLinkOutputSize());
     ui->table_connections->setColumnCount(2);
 
-    for(int i = 0; i < listWorker.getLinkSize(); i++)
+    for(int i = 0; i < list.getLinkOutputSize(); i++)
     {
-        QString qsciname = QString::fromStdString(listWorker.getLinkOutputSciName(i));
-        QString qcompname = QString::fromStdString(listWorker.getLinkOutputCompName(i));
+
+
+        QString qsciname = QString::fromStdString(list.getLinkOutputSciName(i));
+        QString qcompname = QString::fromStdString(list.getLinkOutputCompName(i));
 
         ui->table_connections->setItem(i,0,new QTableWidgetItem(qsciname));
         ui->table_connections->setItem(i,1,new QTableWidgetItem(qcompname));
@@ -107,19 +111,19 @@ void MainWindow::showConnections()
 void MainWindow::on_button_computers_clicked()
 {
     ui->tableWidget->clear();
-    ui->tableWidget->setRowCount(listWorker.computerSize());
+    ui->tableWidget->setRowCount(list.computerSize());
     ui->tableWidget->setColumnCount(4);
     ui->listWidget->clear();
-    for(int i = 0; i < listWorker.computerSize(); i++)
+    for(int i = 0; i < list.computerSize(); i++)
     {
         int date = listWorker.getComputerDate(i);
 
-        QString qname = QString::fromStdString(listWorker.getComputerName(i));
+        QString qname = QString::fromStdString(list.getComputerName(i));
         QString qdate = QString::number(date);
-        QString qtype = QString::fromStdString(listWorker.getComputerType(i));
-        QString qbuilt = QString::fromStdString(listWorker.getComputerWasItBuilt(i));
+        QString qtype = QString::fromStdString(list.getComputerType(i));
+        QString qbuilt = QString::fromStdString(list.getComputerWasItBuilt(i));
 
-        ui->listWidget->addItem(QString::fromStdString(listWorker.getScientistName(i)));
+        ui->listWidget->addItem(QString::fromStdString(list.getScientistName(i)));
 
         ui->tableWidget->setItem(i,0,new QTableWidgetItem(qname));
         ui->tableWidget->setItem(i,1,new QTableWidgetItem(qdate));
