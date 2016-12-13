@@ -211,7 +211,7 @@ void MainWindow::on_button_computer_remove_clicked()
     }
     else
     {
-        QMessageBox::warning(this, "Warning!", "Unable to remove scientist!😡");
+        QMessageBox::warning(this, "Warning!", "Unable to remove computer!😡");
     }
 }
 

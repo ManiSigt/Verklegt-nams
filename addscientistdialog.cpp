@@ -21,6 +21,7 @@ void addScientistDialog::on_button_add_scientist_clicked()
     QString death = ui->input_scientist_death->text();
     QString comment = ui->input_scientist_comment->text();
 
+
     if(ui->radio_button_female->isChecked())
     {
         sex = 'F';
