@@ -169,6 +169,7 @@ void MainWindow::on_button_scientist_remove_clicked()
     if (sucsess)
     {
         showScientists();
+        ui->button_scientist_remove->setEnabled(false);
     }
     else
     {
@@ -189,4 +190,25 @@ void MainWindow::on_input_connections_textEdited(const QString &arg1)
 {
     showConnections();
 
+}
+
+void MainWindow::on_table_computer_clicked(const QModelIndex &index)
+{
+    ui->button_computer_remove->setEnabled(true);
+}
+
+void MainWindow::on_button_computer_remove_clicked()
+{
+    int computerRemove = ui->table_computer->currentRow();
+    bool sucsess = list.removeComputer(computerRemove);
+
+    if (sucsess)
+    {
+        showComputers();
+        ui->button_computer_remove->setEnabled(false);
+    }
+    else
+    {
+        QMessageBox::warning(this, "Warning!", "Unable to remove scientist!😡");
+    }
 }

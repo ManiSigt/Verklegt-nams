@@ -20,6 +20,7 @@
       <property name="currentIndex">
        <number>0</number>
        <number>1</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="tab">
        <attribute name="title">
@@ -177,6 +178,9 @@
         </column>
        </widget>
        <widget class="QPushButton" name="button_computer_remove">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
         <property name="geometry">
          <rect>
           <x>120</x>

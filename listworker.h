@@ -43,7 +43,7 @@ public:
     bool nameSearcher(string name);                                                                   // Searches for a specific name within the vector using a for-loop.
     bool removePerson(int rowNumber);                                                                   // Remove a scientist from the vector person.
     bool removePersonFound(string name);                                                              // Check if the scientist that user wants to remove is found or not.
-    bool removeComputer(string name);                                                                 // Remove a computer from the vector com.
+    bool removeComputer(int rowNumber);                                                                 // Remove a computer from the vector com.
     bool removeComputerFound(string name);                                                            // Check if the computer tat the user wants to remove is found or not.
     bool typeSearcher(string type);                                                                   // Finds a specific type of computer.
     bool yearSearcher(int year);                                                                      // Searches for a specific year within the vector using a for loop.
