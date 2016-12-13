@@ -33,7 +33,11 @@
          </widget>
         </item>
         <item row="0" column="0" colspan="3">
-         <widget class="QLineEdit" name="input_scientist"/>
+         <widget class="QLineEdit" name="input_scientist">
+          <property name="placeholderText">
+           <string>Filter Scientists</string>
+          </property>
+         </widget>
         </item>
         <item row="5" column="0">
          <widget class="QPushButton" name="button_scientist_add">
@@ -114,6 +118,9 @@
           <width>323</width>
           <height>22</height>
          </rect>
+        </property>
+        <property name="placeholderText">
+         <string>Filter Computers</string>
         </property>
        </widget>
        <widget class="QPushButton" name="button_computer_edit">
@@ -214,6 +221,9 @@
           <width>323</width>
           <height>22</height>
          </rect>
+        </property>
+        <property name="placeholderText">
+         <string>Filter Connections</string>
         </property>
        </widget>
        <widget class="QPushButton" name="button_connections_edit">
