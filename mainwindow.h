@@ -19,6 +19,8 @@ public:
     ~MainWindow();
 
 private slots:
+    void showComputers();
+    void showConnections();
     void showScientists();
     void populateDropdownMenus();
     void on_dropdown_scientist_activated(const QString &arg1);
