@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 #include "listworker.h"
 #include "addscientistdialog.h"
+#include "editscientistdialog.h"
 #include <QMessageBox>
 #include <algorithm>
 #include <QDebug>
@@ -211,4 +212,10 @@ void MainWindow::on_button_computer_remove_clicked()
     {
         QMessageBox::warning(this, "Warning!", "Unable to remove scientist!😡");
     }
+}
+
+void MainWindow::on_button_connections_edit_clicked()
+{
+    EditScientistDialog editSci;
+        editSci.exec();
 }
