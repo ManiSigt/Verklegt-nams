@@ -188,6 +188,7 @@ void MainWindow::on_button_scientist_remove_clicked()
     {
         showScientists();
         ui->button_scientist_remove->setEnabled(false);
+        statusBar()->showMessage("Scientist removed!",2000);
     }
     else
     {
@@ -224,6 +225,7 @@ void MainWindow::on_button_computer_remove_clicked()
     {
         showComputers();
         ui->button_computer_remove->setEnabled(false);
+        statusBar()->showMessage("Computer removed!",2000);
     }
     else
     {
