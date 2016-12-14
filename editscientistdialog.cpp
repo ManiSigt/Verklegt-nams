@@ -1,5 +1,6 @@
 #include "editscientistdialog.h"
 #include "ui_editscientistdialog.h"
+#include <QMessageBox>
 
 EditScientistDialog::EditScientistDialog(QWidget *parent) :
     QDialog(parent),
@@ -28,16 +29,38 @@ void EditScientistDialog::prepare(Person esci)
     }
 
     ui->input_scientist_birth->insert(QString::number(esci.getScientistBirth()));
-    ui->input_scientist_death->insert(QString::number(esci.getScientistDeath()));
+    if(esci.getScientistDeath() == 0)
+    {
+        ui->input_scientist_death->insert("n/a");
+    }
+    else
+    {
+        ui->input_scientist_death->insert(QString::number(esci.getScientistDeath()));
+    }
     ui->input_scientist_comment->insert(QString::fromStdString(esci.getScientistComment()));
 }
 
-void EditScientistDialog::on_button_add_scientist_clicked()
+void EditScientistDialog::on_button_scientist_edit_cancel_clicked()
 {
+    close();
+}
+
+void EditScientistDialog::on_button_scientist_edit_clicked()
+{
+    int error = 0;
+    int birth = -1;
+    int death = -1;
     char gender = 'a';
     string name = ui->input_scientist_name->text().toStdString();
-    int birth = ui->input_scientist_birth->text().toUInt();
-    int death = ui->input_scientist_death->text().toUInt();
+    birth = ui->input_scientist_birth->text().toUInt();
+    if(ui->input_scientist_death->text() == "n/a")
+    {
+        death = 0;
+    }
+    else
+    {
+        death = ui->input_scientist_death->text().toUInt();
+    }
     string comment = ui->input_scientist_comment->text().toStdString();
 
     if(ui->edit_scientist_radio_button_female->isChecked())
@@ -49,9 +72,27 @@ void EditScientistDialog::on_button_add_scientist_clicked()
         gender = 'M';
     }
 
+    if(name == "")
+    {
+        QMessageBox::warning(this, "Error!", "Name can not be empty!");
+        error++;
+    }
 
-    elist.updateScientist(name,gender,birth,death,comment,currentId);
+    if(birth <= 0 || birth >= 2016 || birth == -1)
+    {
+        QMessageBox::warning(this, "Error!", "Not a valid year of birth!");
+        error++;
+    }
+
+    if((death - birth) <= 0)
+    {
+        QMessageBox::warning(this, "Error!", "Not a valid year of death!");
+        error++;
+    }
+
+    if(error == 0)
+    {
+        elist.updateScientist(name,gender,birth,death,comment,currentId);
+        close();
+    }
 }
-
-
-//updateScientist(string name,char gender, int birth, int death, string comment, int sciId)
