@@ -154,7 +154,7 @@ private:
     vector<Person> persons;                                                                           // The vector containing all persons from the database.
     vector<Computer> com;                                                                             // The vector containing all computers from the database.
     vector<Linker> link;                                                                              // The vector containing all connections from the database.
-    vector<LinkerOutput> linkout;                                                                     // The vector containing all names from connections from the database.
+    vector<LinkerOutput> linkout;                                                                    // The vector containing all names from connections from the database.
 };
 
 #endif // LISTWORKER_H

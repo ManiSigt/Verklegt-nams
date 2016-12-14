@@ -12,3 +12,9 @@ EditScientistDialog::~EditScientistDialog()
 {
     delete ui;
 }
+
+void EditScientistDialog::prepare(Person esci)
+{
+    ui->input_scientist_name->insert(QString::fromStdString(esci.getScientistName()));
+    ui->input_scientist_gender->insert(QChar(esci.getScientistGender()));
+}

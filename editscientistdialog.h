@@ -1,5 +1,6 @@
 #ifndef EDITSCIENTISTDIALOG_H
 #define EDITSCIENTISTDIALOG_H
+#include <person.h>
 
 #include <QDialog>
 
@@ -14,6 +15,7 @@ class EditScientistDialog : public QDialog
 public:
     explicit EditScientistDialog(QWidget *parent = 0);
     ~EditScientistDialog();
+    void prepare(Person esci);
 
 private:
     Ui::EditScientistDialog *ui;
