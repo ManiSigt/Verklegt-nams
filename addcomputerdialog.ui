@@ -137,9 +137,9 @@
   <widget class="QLabel" name="error_name">
    <property name="geometry">
     <rect>
-     <x>320</x>
+     <x>280</x>
      <y>20</y>
-     <width>59</width>
+     <width>101</width>
      <height>16</height>
     </rect>
    </property>
@@ -150,10 +150,10 @@
   <widget class="QLabel" name="error_type">
    <property name="geometry">
     <rect>
-     <x>320</x>
+     <x>230</x>
      <y>70</y>
-     <width>59</width>
-     <height>16</height>
+     <width>151</width>
+     <height>20</height>
     </rect>
    </property>
    <property name="text">
@@ -163,10 +163,10 @@
   <widget class="QLabel" name="error_date">
    <property name="geometry">
     <rect>
-     <x>320</x>
+     <x>280</x>
      <y>120</y>
-     <width>59</width>
-     <height>16</height>
+     <width>111</width>
+     <height>20</height>
     </rect>
    </property>
    <property name="text">

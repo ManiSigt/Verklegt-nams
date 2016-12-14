@@ -19,7 +19,6 @@ public:
     void prepare(Person esci);
 
 private slots:
-    void on_button_add_scientist_clicked();
 
     void on_button_scientist_edit_cancel_clicked();
 
