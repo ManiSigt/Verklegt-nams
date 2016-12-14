@@ -640,7 +640,6 @@ void MainWindow::disableButtons()
     ui->button_computer_edit->setEnabled(false);
 }
 
-
 void MainWindow::on_table_connections_clicked(const QModelIndex &index)
 {
     ui->button_connections_remove->setEnabled(true);
@@ -664,4 +663,24 @@ void MainWindow::on_button_connections_remove_clicked()
         QMessageBox::warning(this, "Warning!", "Unable to remove connection!😡");
     }
     disableButtons();
+}
+void MainWindow::on_action_add_scientist_triggered()
+{
+    on_button_scientist_add_clicked();
+}
+
+void MainWindow::on_action_add_computer_triggered()
+{
+    on_button_computer_add_clicked();
+}
+
+void MainWindow::on_action_edit_scientist_triggered()
+{
+    on_button_scientist_edit_clicked();
+}
+
+void MainWindow::on_action_edit_computer_triggered()
+{
+    on_button_computer_edit_clicked();
+
 }
