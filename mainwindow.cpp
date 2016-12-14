@@ -31,6 +31,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::showScientistsName()
 {
+
     ui->table_scientist->clear();
 
     ui->table_scientist->setHorizontalHeaderItem(0,new QTableWidgetItem("Name"));
@@ -38,12 +39,10 @@ void MainWindow::showScientistsName()
     ui->table_scientist->setHorizontalHeaderItem(2,new QTableWidgetItem("Birth"));
     ui->table_scientist->setHorizontalHeaderItem(3,new QTableWidgetItem("Death"));
     ui->table_scientist->setHorizontalHeaderItem(4,new QTableWidgetItem("Comment"));
-
     ui->table_scientist->setRowCount(list.personsSize());
     ui->table_scientist->setColumnCount(5);
 
     int count = 0;
-
     for(int i = 0; i < list.personsSize(); i++)
     {
         string nameSearch = ui->input_scientist->text().toStdString();
@@ -69,6 +68,7 @@ void MainWindow::showScientistsName()
         }
     }
    ui->table_scientist->resizeColumnsToContents();
+   ui->table_scientist->setRowCount(count);
 
 }
 void MainWindow::showScientistsGender()
@@ -134,7 +134,7 @@ void MainWindow::showScientistsGender()
         }
     }
    ui->table_scientist->resizeColumnsToContents();
-
+   ui->table_scientist->setRowCount(count);
 }
 void MainWindow::showScientistsBirthYear()
 {
@@ -147,7 +147,6 @@ void MainWindow::showScientistsBirthYear()
     ui->table_scientist->setHorizontalHeaderItem(3,new QTableWidgetItem("Death"));
     ui->table_scientist->setHorizontalHeaderItem(4,new QTableWidgetItem("Comment"));
 
-    ui->table_scientist->setRowCount(list.personsSize());
     ui->table_scientist->setColumnCount(5);
     int count = 0;
     for(int i = 0; i < list.personsSize(); i++)
@@ -191,7 +190,7 @@ void MainWindow::showScientistsBirthYear()
         }
     }
    ui->table_scientist->resizeColumnsToContents();
-
+   ui->table_scientist->setRowCount(count);
 }
 void MainWindow::showScientistsDeathYear()
 {
@@ -204,7 +203,6 @@ void MainWindow::showScientistsDeathYear()
     ui->table_scientist->setHorizontalHeaderItem(3,new QTableWidgetItem("Death"));
     ui->table_scientist->setHorizontalHeaderItem(4,new QTableWidgetItem("Comment"));
 
-    ui->table_scientist->setRowCount(list.personsSize());
     ui->table_scientist->setColumnCount(5);
     int count = 0;
     for(int i = 0; i < list.personsSize(); i++)
@@ -248,6 +246,7 @@ void MainWindow::showScientistsDeathYear()
         }
     }
    ui->table_scientist->resizeColumnsToContents();
+   ui->table_scientist->setRowCount(count);
 
 }
 void MainWindow::showComputersName()
@@ -283,6 +282,7 @@ void MainWindow::showComputersName()
 
         }
     }
+    ui->table_computer->setRowCount(count);
     ui->table_computer->resizeColumnsToContents();
 }
 void MainWindow::showComputersType()
@@ -317,6 +317,7 @@ void MainWindow::showComputersType()
             count++;
         }
     }
+    ui->table_computer->setRowCount(count);
     ui->table_computer->resizeColumnsToContents();
 }
 void MainWindow::showComputersYear()
@@ -368,6 +369,7 @@ void MainWindow::showComputersYear()
         }
     }
    ui->table_computer->resizeColumnsToContents();
+   ui->table_computer->setRowCount(count);
 
 }
 void MainWindow::showConnectionsNameSci()
@@ -399,6 +401,7 @@ void MainWindow::showConnectionsNameSci()
             count++;
        }
     }
+    ui->table_connections->setRowCount(count);
     ui->table_connections->resizeColumnsToContents();
 }
 void MainWindow::showConnectionsNameComp()
@@ -431,6 +434,7 @@ void MainWindow::showConnectionsNameComp()
             count++;
        }
     }
+    ui->table_connections->setRowCount(count);
     ui->table_connections->resizeColumnsToContents();
 }
 void MainWindow::on_dropdown_scientist_activated(const QString &arg1)

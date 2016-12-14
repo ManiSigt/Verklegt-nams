@@ -20,7 +20,9 @@ public:
     ~MainWindow();
 
 
+
 private slots:
+    void populateTables();
     void showComputersName();
     void showComputersYear();
     void showComputersType();
