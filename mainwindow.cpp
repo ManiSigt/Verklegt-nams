@@ -4,6 +4,7 @@
 #include "addscientistdialog.h"
 #include "addcomputerdialog.h"
 #include "editscientistdialog.h"
+#include "editcomputerdialog.h"
 #include <QMessageBox>
 #include <algorithm>
 #include <QDebug>
@@ -139,8 +140,8 @@ void MainWindow::showConnections()
 }
 void MainWindow::on_dropdown_scientist_activated(const QString &arg1)
 {
-        QMessageBox::information(this, "Item Selection",
-        ui->dropdown_scientist->currentText());
+        //QMessageBox::information(this, "Item Selection",
+        //ui->dropdown_scientist->currentText());
 }
 
 void MainWindow::populateDropdownMenus()
@@ -177,6 +178,7 @@ void MainWindow::on_button_scientist_add_clicked()
 void MainWindow::on_table_scientist_clicked(const QModelIndex &index)
 {
      ui->button_scientist_remove->setEnabled(true);
+     ui->button_scientist_edit->setEnabled(true);
 }
 
 void MainWindow::on_button_scientist_remove_clicked()
@@ -213,6 +215,7 @@ void MainWindow::on_input_connections_textEdited(const QString &arg1)
 void MainWindow::on_table_computer_clicked(const QModelIndex &index)
 {
     ui->button_computer_remove->setEnabled(true);
+    ui->button_computer_edit->setEnabled(true);
 }
 
 void MainWindow::on_button_computer_remove_clicked()
@@ -270,4 +273,24 @@ void MainWindow::on_button_computer_add_clicked()
     {
         QMessageBox::warning(this, "error", "asdfasdfadsf");
     }
+}
+
+void MainWindow::on_button_computer_edit_clicked()
+{
+        int row = ui->table_computer->currentRow();
+        Computer ecom;
+
+        string name = list.getComputerName(row);
+        string type = list.getComputerType(row);
+        int date = list.getComputerDate(row);
+        string wasItBuilt = list.getComputerWasItBuilt(row);
+        int id = list.getComputerId(row);
+
+        ecom = Computer(name, wasItBuilt, date, type, id);
+
+        EditComputerDialog editCom;
+        editCom.prepare(ecom);
+            editCom.exec();
+            list.refreshVector();
+            showComputers();
 }

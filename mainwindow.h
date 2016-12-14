@@ -40,6 +40,8 @@ private slots:
 
     void on_button_computer_add_clicked();
 
+    void on_button_computer_edit_clicked();
+
 private:
     Ui::MainWindow *ui;
     ListWorker list;

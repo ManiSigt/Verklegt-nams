@@ -72,10 +72,10 @@
     </rect>
    </property>
    <property name="text">
-    <string>Year built</string>
+    <string>Date</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="input_computer_year_built">
+  <widget class="QLineEdit" name="input_computer_date">
    <property name="geometry">
     <rect>
      <x>10</x>
@@ -85,7 +85,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="QLineEdit" name="input_scientist_name">
+  <widget class="QLineEdit" name="input_computer_name">
    <property name="geometry">
     <rect>
      <x>10</x>
