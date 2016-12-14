@@ -373,6 +373,7 @@ int ListWorker::getLinkoutputCompNameSize(int n)
 void ListWorker::updateScientist(string name,char gender, int birth, int death, string comment, int sciId)
 {
     data.updateScientist(name,gender,birth,death,comment,sciId);
+
 }
 void ListWorker::updateComputer(string name, string type, string isbuilt, int Yearbuilt, int compId)
 {

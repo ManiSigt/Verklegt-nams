@@ -1,6 +1,8 @@
 #ifndef ADDSCIENTISTDIALOG_H
 #define ADDSCIENTISTDIALOG_H
 
+#include "mainwindow.h"
+#include "listworker.h"
 #include <QDialog>
 
 namespace Ui {
@@ -20,6 +22,7 @@ private slots:
 
 private:
     Ui::addScientistDialog *ui;
+    ListWorker list;
 };
 
 #endif // ADDSCIENTISTDIALOG_H

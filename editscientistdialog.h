@@ -1,6 +1,7 @@
 #ifndef EDITSCIENTISTDIALOG_H
 #define EDITSCIENTISTDIALOG_H
 #include <person.h>
+#include "listworker.h"
 
 #include <QDialog>
 
@@ -17,8 +18,13 @@ public:
     ~EditScientistDialog();
     void prepare(Person esci);
 
+private slots:
+    void on_button_add_scientist_clicked();
+
 private:
     Ui::EditScientistDialog *ui;
+    ListWorker elist;
+    int currentId;
 };
 
 #endif // EDITSCIENTISTDIALOG_H

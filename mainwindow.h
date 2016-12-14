@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include "listworker.h"
+#include "addscientistdialog.h"
 
 #include <string>
 
@@ -36,6 +37,8 @@ private slots:
 
 
     void on_button_scientist_edit_clicked();
+
+    void on_button_computer_add_clicked();
 
 private:
     Ui::MainWindow *ui;

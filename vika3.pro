@@ -22,7 +22,8 @@ SOURCES += main.cpp\
     listworker.cpp \
     person.cpp \
     addscientistdialog.cpp \
-    editscientistdialog.cpp
+    editscientistdialog.cpp \
+    addcomputerdialog.cpp
 
 HEADERS  += mainwindow.h \
     computer.h \
@@ -32,8 +33,10 @@ HEADERS  += mainwindow.h \
     listworker.h \
     person.h \
     addscientistdialog.h \
-    editscientistdialog.h
+    editscientistdialog.h \
+    addcomputerdialog.h
 
 FORMS    += mainwindow.ui \
     addscientistdialog.ui \
-    editscientistdialog.ui
+    editscientistdialog.ui \
+    addcomputerdialog.ui

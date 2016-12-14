@@ -2,12 +2,14 @@
 #include "ui_mainwindow.h"
 #include "listworker.h"
 #include "addscientistdialog.h"
+#include "addcomputerdialog.h"
 #include "editscientistdialog.h"
 #include <QMessageBox>
 #include <algorithm>
 #include <QDebug>
 #include <string>
 #include <QList>
+#include <QTableWidget>
 
 using namespace std;
 
@@ -98,6 +100,10 @@ void MainWindow::showComputers()
             ui->table_computer->setItem(i,3,new QTableWidgetItem(qwasitbuilt));
 
         }
+        else
+        {
+            ui->table_computer->hideRow(i);
+        }
     }
     ui->table_computer->resizeColumnsToContents();
 }
@@ -131,7 +137,6 @@ void MainWindow::showConnections()
     }
     ui->table_connections->resizeColumnsToContents();
 }
-
 void MainWindow::on_dropdown_scientist_activated(const QString &arg1)
 {
         QMessageBox::information(this, "Item Selection",
@@ -212,10 +217,9 @@ void MainWindow::on_button_computer_remove_clicked()
     }
     else
     {
-        QMessageBox::warning(this, "Warning!", "Unable to remove scientist!😡");
+        QMessageBox::warning(this, "Warning!", "Unable to remove computer!😡");
     }
 }
-
 void MainWindow::on_button_connections_edit_clicked()
 {
 
@@ -239,4 +243,11 @@ void MainWindow::on_button_scientist_edit_clicked()
     EditScientistDialog editSci;
     editSci.prepare(esci);
         editSci.exec();
+        list.refreshVector();
+        showScientists();
+}
+void MainWindow::on_button_computer_add_clicked()
+{
+    addComputerDialog addComputer;
+    addComputer.exec();
 }
