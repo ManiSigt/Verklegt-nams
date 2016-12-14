@@ -18,9 +18,7 @@
     <item>
      <widget class="QTabWidget" name="tabWidget">
       <property name="currentIndex">
-       <number>2</number>
        <number>0</number>
-       <number>1</number>
       </property>
       <widget class="QWidget" name="tab">
        <attribute name="title">
@@ -270,6 +268,27 @@
   <widget class="QStatusBar" name="statusBar"/>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
+ <tabstops>
+  <tabstop>tabWidget</tabstop>
+  <tabstop>table_scientist</tabstop>
+  <tabstop>table_computer</tabstop>
+  <tabstop>table_connections</tabstop>
+  <tabstop>input_scientist</tabstop>
+  <tabstop>button_scientist_add</tabstop>
+  <tabstop>button_scientist_remove</tabstop>
+  <tabstop>button_scientist_edit</tabstop>
+  <tabstop>input_computer</tabstop>
+  <tabstop>button_computer_add</tabstop>
+  <tabstop>button_computer_remove</tabstop>
+  <tabstop>button_computer_edit</tabstop>
+  <tabstop>input_connections</tabstop>
+  <tabstop>button_connections_add</tabstop>
+  <tabstop>button_connections_remove</tabstop>
+  <tabstop>button_connections_edit</tabstop>
+  <tabstop>dropdown_scientist</tabstop>
+  <tabstop>dropdown_computer</tabstop>
+  <tabstop>dropdown_connections</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>

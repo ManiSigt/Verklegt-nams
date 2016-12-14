@@ -72,6 +72,7 @@ void EditScientistDialog::on_button_scientist_edit_clicked()
         gender = 'M';
     }
 
+
     if(name == "")
     {
         QMessageBox::warning(this, "Error!", "Name can not be empty!");
@@ -83,12 +84,14 @@ void EditScientistDialog::on_button_scientist_edit_clicked()
         QMessageBox::warning(this, "Error!", "Not a valid year of birth!");
         error++;
     }
-
-    if((death - birth) <= 0)
-    {
-        QMessageBox::warning(this, "Error!", "Not a valid year of death!");
-        error++;
-    }
+    if(death != 0)
+        {
+        if(death - birth <= 0)
+            {
+                QMessageBox::warning(this, "Error!", "Not a valid year of death!");
+                error++;
+            }
+        }
 
     if(error == 0)
     {
