@@ -592,6 +592,7 @@ qDebug() << sciId << " " << comId << " " << id;
             list.refreshVector();
             showConnectionsNameComp();
         disableButtons();
+
 }
 
 

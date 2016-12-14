@@ -1,0 +1,10 @@
+<RCC>
+    <qresource prefix="/icons">
+        <file>icons/addComputer.jpg</file>
+        <file>icons/addConnection.jpg</file>
+        <file>icons/addScientist.jpg</file>
+        <file>icons/edit.png</file>
+        <file>icons/editComputer.jpg</file>
+        <file>icons/editPerson.jpg</file>
+    </qresource>
+</RCC>

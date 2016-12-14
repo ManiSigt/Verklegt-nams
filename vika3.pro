@@ -46,3 +46,6 @@ FORMS    += mainwindow.ui \
     addcomputerdialog.ui \
     editcomputerdialog.ui \
     editconnectionsdialog.ui
+
+RESOURCES += \
+    myresourcefile.qrc
