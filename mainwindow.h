@@ -19,10 +19,17 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
+
 private slots:
-    void showComputers();
-    void showConnections();
-    void showScientists();
+    void showComputersName();
+    void showComputersYear();
+    void showComputersType();
+    void showConnectionsNameSci();
+    void showConnectionsNameComp();
+    void showScientistsName();
+    void showScientistsGender();
+    void showScientistsBirthYear();
+    void showScientistsDeathYear();
     void populateDropdownMenus();
     void on_dropdown_scientist_activated(const QString &arg1);
 

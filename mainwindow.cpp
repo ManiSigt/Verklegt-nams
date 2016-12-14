@@ -9,7 +9,6 @@
 #include <QDebug>
 #include <string>
 #include <QList>
-#include <QTableWidget>
 
 using namespace std;
 
@@ -18,9 +17,9 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    showComputers();
-    showConnections();
-    showScientists();
+    showComputersName();
+    showConnectionsNameSci();
+    showScientistsName();
     populateDropdownMenus();
 }
 
@@ -29,7 +28,7 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::showScientists()
+void MainWindow::showScientistsName()
 {
     ui->table_scientist->clear();
 
@@ -41,6 +40,7 @@ void MainWindow::showScientists()
 
     ui->table_scientist->setRowCount(list.personsSize());
     ui->table_scientist->setColumnCount(5);
+    int count = 0;
     for(int i = 0; i < list.personsSize(); i++)
     {
         string nameSearch = ui->input_scientist->text().toStdString();
@@ -57,20 +57,199 @@ void MainWindow::showScientists()
             QString qdeath = QString::number(death);
             QString qcomment = QString::fromStdString(list.getScientistComment(i));
 
-            ui->table_scientist->setItem(i,0,new QTableWidgetItem(qname));
-            ui->table_scientist->setItem(i,1,new QTableWidgetItem(qgender));
-            ui->table_scientist->setItem(i,2,new QTableWidgetItem(qbirth));
-            ui->table_scientist->setItem(i,3,new QTableWidgetItem(qdeath));
-            ui->table_scientist->setItem(i,4,new QTableWidgetItem(qcomment));
+            ui->table_scientist->setItem(count,0,new QTableWidgetItem(qname));
+            ui->table_scientist->setItem(count,1,new QTableWidgetItem(qgender));
+            ui->table_scientist->setItem(count,2,new QTableWidgetItem(qbirth));
+            ui->table_scientist->setItem(count,3,new QTableWidgetItem(qdeath));
+            ui->table_scientist->setItem(count,4,new QTableWidgetItem(qcomment));
+            count++;
         }
     }
-    ui->table_scientist->resizeColumnsToContents();
+   ui->table_scientist->resizeColumnsToContents();
 
 }
-void MainWindow::showComputers()
+void MainWindow::showScientistsGender()
+{
+    ui->table_scientist->clear();
+
+    ui->table_scientist->setHorizontalHeaderItem(0,new QTableWidgetItem("Name"));
+    ui->table_scientist->setHorizontalHeaderItem(1,new QTableWidgetItem("Gender"));
+    ui->table_scientist->setHorizontalHeaderItem(2,new QTableWidgetItem("Birth"));
+    ui->table_scientist->setHorizontalHeaderItem(3,new QTableWidgetItem("Death"));
+    ui->table_scientist->setHorizontalHeaderItem(4,new QTableWidgetItem("Comment"));
+
+    ui->table_scientist->setRowCount(list.personsSize());
+    ui->table_scientist->setColumnCount(5);
+    int count = 0;
+    for(int i = 0; i < list.personsSize(); i++)
+    {
+        string nameSearch = ui->input_scientist->text().toStdString();
+        char genderSearch = nameSearch[0];
+        if(genderSearch == 'f')
+        {
+            genderSearch = 'F';
+        }
+        else if(genderSearch == 'm')
+        {
+            genderSearch = 'M';
+        }
+        if(genderSearch == list.getScientistGender(i))
+        {
+            int birth = list.getScientistBirth(i);
+            int death = list.getScientistDeath(i);
+
+            QString qname = QString::fromStdString(list.getScientistName(i));
+            QString qgender = QChar(list.getScientistGender(i));
+            QString qbirth = QString::number(birth);
+            QString qdeath = QString::number(death);
+            QString qcomment = QString::fromStdString(list.getScientistComment(i));
+
+            ui->table_scientist->setItem(count,0,new QTableWidgetItem(qname));
+            ui->table_scientist->setItem(count,1,new QTableWidgetItem(qgender));
+            ui->table_scientist->setItem(count,2,new QTableWidgetItem(qbirth));
+            ui->table_scientist->setItem(count,3,new QTableWidgetItem(qdeath));
+            ui->table_scientist->setItem(count,4,new QTableWidgetItem(qcomment));
+            count++;
+        }
+        else if(nameSearch == "")
+        {
+            int birth = list.getScientistBirth(i);
+            int death = list.getScientistDeath(i);
+
+            QString qname = QString::fromStdString(list.getScientistName(i));
+            QString qgender = QChar(list.getScientistGender(i));
+            QString qbirth = QString::number(birth);
+            QString qdeath = QString::number(death);
+            QString qcomment = QString::fromStdString(list.getScientistComment(i));
+
+            ui->table_scientist->setItem(count,0,new QTableWidgetItem(qname));
+            ui->table_scientist->setItem(count,1,new QTableWidgetItem(qgender));
+            ui->table_scientist->setItem(count,2,new QTableWidgetItem(qbirth));
+            ui->table_scientist->setItem(count,3,new QTableWidgetItem(qdeath));
+            ui->table_scientist->setItem(count,4,new QTableWidgetItem(qcomment));
+            count++;
+        }
+    }
+   ui->table_scientist->resizeColumnsToContents();
+
+}
+void MainWindow::showScientistsBirthYear()
+{
+    int yearSearch = -1;
+    ui->table_scientist->clear();
+
+    ui->table_scientist->setHorizontalHeaderItem(0,new QTableWidgetItem("Name"));
+    ui->table_scientist->setHorizontalHeaderItem(1,new QTableWidgetItem("Gender"));
+    ui->table_scientist->setHorizontalHeaderItem(2,new QTableWidgetItem("Birth"));
+    ui->table_scientist->setHorizontalHeaderItem(3,new QTableWidgetItem("Death"));
+    ui->table_scientist->setHorizontalHeaderItem(4,new QTableWidgetItem("Comment"));
+
+    ui->table_scientist->setRowCount(list.personsSize());
+    ui->table_scientist->setColumnCount(5);
+    int count = 0;
+    for(int i = 0; i < list.personsSize(); i++)
+    {
+        yearSearch = ui->input_scientist->text().toInt();
+        if(yearSearch == list.getScientistBirth(i)) // Brotið, matchar ekki hluta af tölu.
+        {
+            int birth = list.getScientistBirth(i);
+            int death = list.getScientistDeath(i);
+
+            QString qname = QString::fromStdString(list.getScientistName(i));
+            QString qgender = QChar(list.getScientistGender(i));
+            QString qbirth = QString::number(birth);
+            QString qdeath = QString::number(death);
+            QString qcomment = QString::fromStdString(list.getScientistComment(i));
+
+            ui->table_scientist->setItem(count,0,new QTableWidgetItem(qname));
+            ui->table_scientist->setItem(count,1,new QTableWidgetItem(qgender));
+            ui->table_scientist->setItem(count,2,new QTableWidgetItem(qbirth));
+            ui->table_scientist->setItem(count,3,new QTableWidgetItem(qdeath));
+            ui->table_scientist->setItem(count,4,new QTableWidgetItem(qcomment));
+            count++;
+        }
+        else if(yearSearch == -1)
+        {
+            int birth = list.getScientistBirth(i);
+            int death = list.getScientistDeath(i);
+
+            QString qname = QString::fromStdString(list.getScientistName(i));
+            QString qgender = QChar(list.getScientistGender(i));
+            QString qbirth = QString::number(birth);
+            QString qdeath = QString::number(death);
+            QString qcomment = QString::fromStdString(list.getScientistComment(i));
+
+            ui->table_scientist->setItem(count,0,new QTableWidgetItem(qname));
+            ui->table_scientist->setItem(count,1,new QTableWidgetItem(qgender));
+            ui->table_scientist->setItem(count,2,new QTableWidgetItem(qbirth));
+            ui->table_scientist->setItem(count,3,new QTableWidgetItem(qdeath));
+            ui->table_scientist->setItem(count,4,new QTableWidgetItem(qcomment));
+            count++;
+        }
+    }
+   ui->table_scientist->resizeColumnsToContents();
+
+}
+void MainWindow::showScientistsDeathYear()
+{
+    int yearSearch = -1;
+    ui->table_scientist->clear();
+
+    ui->table_scientist->setHorizontalHeaderItem(0,new QTableWidgetItem("Name"));
+    ui->table_scientist->setHorizontalHeaderItem(1,new QTableWidgetItem("Gender"));
+    ui->table_scientist->setHorizontalHeaderItem(2,new QTableWidgetItem("Birth"));
+    ui->table_scientist->setHorizontalHeaderItem(3,new QTableWidgetItem("Death"));
+    ui->table_scientist->setHorizontalHeaderItem(4,new QTableWidgetItem("Comment"));
+
+    ui->table_scientist->setRowCount(list.personsSize());
+    ui->table_scientist->setColumnCount(5);
+    int count = 0;
+    for(int i = 0; i < list.personsSize(); i++)
+    {
+        yearSearch = ui->input_scientist->text().toInt();
+        if(yearSearch == list.getScientistDeath(i)) // Brotið, matchar ekki hluta af tölu.
+        {
+            int birth = list.getScientistBirth(i);
+            int death = list.getScientistDeath(i);
+
+            QString qname = QString::fromStdString(list.getScientistName(i));
+            QString qgender = QChar(list.getScientistGender(i));
+            QString qbirth = QString::number(birth);
+            QString qdeath = QString::number(death);
+            QString qcomment = QString::fromStdString(list.getScientistComment(i));
+
+            ui->table_scientist->setItem(count,0,new QTableWidgetItem(qname));
+            ui->table_scientist->setItem(count,1,new QTableWidgetItem(qgender));
+            ui->table_scientist->setItem(count,2,new QTableWidgetItem(qbirth));
+            ui->table_scientist->setItem(count,3,new QTableWidgetItem(qdeath));
+            ui->table_scientist->setItem(count,4,new QTableWidgetItem(qcomment));
+            count++;
+        }
+        else if(yearSearch == -1)
+        {
+            int birth = list.getScientistBirth(i);
+            int death = list.getScientistDeath(i);
+
+            QString qname = QString::fromStdString(list.getScientistName(i));
+            QString qgender = QChar(list.getScientistGender(i));
+            QString qbirth = QString::number(birth);
+            QString qdeath = QString::number(death);
+            QString qcomment = QString::fromStdString(list.getScientistComment(i));
+
+            ui->table_scientist->setItem(count,0,new QTableWidgetItem(qname));
+            ui->table_scientist->setItem(count,1,new QTableWidgetItem(qgender));
+            ui->table_scientist->setItem(count,2,new QTableWidgetItem(qbirth));
+            ui->table_scientist->setItem(count,3,new QTableWidgetItem(qdeath));
+            ui->table_scientist->setItem(count,4,new QTableWidgetItem(qcomment));
+            count++;
+        }
+    }
+   ui->table_scientist->resizeColumnsToContents();
+
+}
+void MainWindow::showComputersName()
 {
     ui->table_computer->clear();
-
     ui->table_computer->setHorizontalHeaderItem(0,new QTableWidgetItem("Name"));
     ui->table_computer->setHorizontalHeaderItem(1,new QTableWidgetItem("Type"));
     ui->table_computer->setHorizontalHeaderItem(2,new QTableWidgetItem("Date"));
@@ -78,7 +257,7 @@ void MainWindow::showComputers()
 
     ui->table_computer->setRowCount(list.computerSize());
     ui->table_computer->setColumnCount(4);
-
+    int count = 0;
     for(int i = 0; i < list.computerSize(); i++)
     {
         string nameSearch = ui->input_computer->text().toStdString();
@@ -93,20 +272,103 @@ void MainWindow::showComputers()
             QString qdate = QString::number(date);
             QString qwasitbuilt = QString::fromStdString(list.getComputerWasItBuilt(i));
 
-            ui->table_computer->setItem(i,0,new QTableWidgetItem(qname));
-            ui->table_computer->setItem(i,1,new QTableWidgetItem(qtype));
-            ui->table_computer->setItem(i,2,new QTableWidgetItem(qdate));
-            ui->table_computer->setItem(i,3,new QTableWidgetItem(qwasitbuilt));
-        }
-        else
-        {
-            ui->table_computer->hideRow(i);
+            ui->table_computer->setItem(count,0,new QTableWidgetItem(qname));
+            ui->table_computer->setItem(count,1,new QTableWidgetItem(qtype));
+            ui->table_computer->setItem(count,2,new QTableWidgetItem(qdate));
+            ui->table_computer->setItem(count,3,new QTableWidgetItem(qwasitbuilt));
+            count++;
         }
     }
     ui->table_computer->resizeColumnsToContents();
 }
-void MainWindow::showConnections()
+void MainWindow::showComputersType()
 {
+    ui->table_computer->clear();
+    ui->table_computer->setHorizontalHeaderItem(0,new QTableWidgetItem("Name"));
+    ui->table_computer->setHorizontalHeaderItem(1,new QTableWidgetItem("Type"));
+    ui->table_computer->setHorizontalHeaderItem(2,new QTableWidgetItem("Date"));
+    ui->table_computer->setHorizontalHeaderItem(3,new QTableWidgetItem("Was it built"));
+
+    ui->table_computer->setRowCount(list.computerSize());
+    ui->table_computer->setColumnCount(4);
+    int count = 0;
+    for(int i = 0; i < list.computerSize(); i++)
+    {
+        string nameSearch = ui->input_computer->text().toStdString();
+        transform(nameSearch.begin(), nameSearch.end(), nameSearch.begin(), ::tolower);
+        size_t found = list.getComputerLowerCaseType(i).find(nameSearch);
+        if(found!=std::string::npos)
+        {
+            int date = list.getComputerDate(i);
+
+            QString qname = QString::fromStdString(list.getComputerName(i));
+            QString qtype = QString::fromStdString(list.getComputerType(i));
+            QString qdate = QString::number(date);
+            QString qwasitbuilt = QString::fromStdString(list.getComputerWasItBuilt(i));
+
+            ui->table_computer->setItem(count,0,new QTableWidgetItem(qname));
+            ui->table_computer->setItem(count,1,new QTableWidgetItem(qtype));
+            ui->table_computer->setItem(count,2,new QTableWidgetItem(qdate));
+            ui->table_computer->setItem(count,3,new QTableWidgetItem(qwasitbuilt));
+            count++;
+        }
+    }
+    ui->table_computer->resizeColumnsToContents();
+}
+void MainWindow::showComputersYear()
+{
+    int yearSearch = -1;
+    ui->table_computer->clear();
+
+    ui->table_computer->clear();
+    ui->table_computer->setHorizontalHeaderItem(0,new QTableWidgetItem("Name"));
+    ui->table_computer->setHorizontalHeaderItem(1,new QTableWidgetItem("Type"));
+    ui->table_computer->setHorizontalHeaderItem(2,new QTableWidgetItem("Date"));
+    ui->table_computer->setHorizontalHeaderItem(3,new QTableWidgetItem("Was it built"));
+
+    ui->table_computer->setRowCount(list.computerSize());
+    ui->table_computer->setColumnCount(4);
+    int count = 0;
+    for(int i = 0; i < list.computerSize(); i++)
+    {
+        yearSearch = ui->input_computer->text().toInt();
+        if(yearSearch == list.getComputerDate(i)) // Brotið, matchar ekki hluta af tölu.
+        {
+            int date = list.getComputerDate(i);
+
+            QString qname = QString::fromStdString(list.getComputerName(i));
+            QString qtype = QString::fromStdString(list.getComputerType(i));
+            QString qdate = QString::number(date);
+            QString qwasitbuilt = QString::fromStdString(list.getComputerWasItBuilt(i));
+
+            ui->table_computer->setItem(count,0,new QTableWidgetItem(qname));
+            ui->table_computer->setItem(count,1,new QTableWidgetItem(qtype));
+            ui->table_computer->setItem(count,2,new QTableWidgetItem(qdate));
+            ui->table_computer->setItem(count,3,new QTableWidgetItem(qwasitbuilt));
+            count++;
+        }
+        else if(yearSearch == -1)
+        {
+            int date = list.getComputerDate(i);
+
+            QString qname = QString::fromStdString(list.getComputerName(i));
+            QString qtype = QString::fromStdString(list.getComputerType(i));
+            QString qdate = QString::number(date);
+            QString qwasitbuilt = QString::fromStdString(list.getComputerWasItBuilt(i));
+
+            ui->table_computer->setItem(count,0,new QTableWidgetItem(qname));
+            ui->table_computer->setItem(count,1,new QTableWidgetItem(qtype));
+            ui->table_computer->setItem(count,2,new QTableWidgetItem(qdate));
+            ui->table_computer->setItem(count,3,new QTableWidgetItem(qwasitbuilt));
+            count++;
+        }
+    }
+   ui->table_computer->resizeColumnsToContents();
+
+}
+void MainWindow::showConnectionsNameSci()
+{
+    list.eraser(); // skítmix
     ui->table_connections->clearContents();
     list.sortConnections("1"); //þegar sort verður lagfært þá verður þetta kannski fært.
 
@@ -117,19 +379,51 @@ void MainWindow::showConnections()
 
     ui->table_connections->setRowCount(list.getLinkOutputSize());
     ui->table_connections->setColumnCount(2);
-
+    int count = 0;
     for(int i = 0; i < list.getLinkOutputSize(); i++)
     {
         string nameSearch = ui->input_connections->text().toStdString();
         transform(nameSearch.begin(), nameSearch.end(), nameSearch.begin(), ::tolower);
-        size_t found = list.getScientistLowerCaseName(i).find(nameSearch);
+        size_t found = list.getLinkOutputSciNameLower(i).find(nameSearch);
         if(found!=std::string::npos)
         {
             QString qsciname = QString::fromStdString(list.getLinkOutputSciName(i));
             QString qcompname = QString::fromStdString(list.getLinkOutputCompName(i));
 
-            ui->table_connections->setItem(i,0,new QTableWidgetItem(qsciname));
-            ui->table_connections->setItem(i,1,new QTableWidgetItem(qcompname));
+            ui->table_connections->setItem(count,0,new QTableWidgetItem(qsciname));
+            ui->table_connections->setItem(count,1,new QTableWidgetItem(qcompname));
+            count++;
+       }
+    }
+    ui->table_connections->resizeColumnsToContents();
+}
+void MainWindow::showConnectionsNameComp()
+{
+    list.eraser(); // skítmix
+    ui->table_connections->clearContents();
+    list.sortConnections("1"); //þegar sort verður lagfært þá verður þetta kannski fært.
+
+    ui->table_connections->clear();
+
+    ui->table_connections->setHorizontalHeaderItem(0,new QTableWidgetItem("Scientist Name"));
+    ui->table_connections->setHorizontalHeaderItem(1,new QTableWidgetItem("Computer Name"));
+
+    ui->table_connections->setRowCount(list.getLinkOutputSize());
+    ui->table_connections->setColumnCount(2);
+    int count = 0;
+    for(int i = 0; i < list.getLinkOutputSize(); i++)
+    {
+        string nameSearch = ui->input_connections->text().toStdString();
+        transform(nameSearch.begin(), nameSearch.end(), nameSearch.begin(), ::tolower);
+        size_t found = list.getLinkOutputCompNameLower(i).find(nameSearch);
+        if(found!=std::string::npos)
+        {
+            QString qsciname = QString::fromStdString(list.getLinkOutputSciName(i));
+            QString qcompname = QString::fromStdString(list.getLinkOutputCompName(i));
+
+            ui->table_connections->setItem(count,0,new QTableWidgetItem(qsciname));
+            ui->table_connections->setItem(count,1,new QTableWidgetItem(qcompname));
+            count++;
        }
     }
     ui->table_connections->resizeColumnsToContents();
@@ -172,7 +466,7 @@ void MainWindow::on_button_scientist_remove_clicked()
 
     if (sucsess)
     {
-        showScientists();
+        showScientistsName();
         ui->button_scientist_remove->setEnabled(false);
     }
     else
@@ -182,18 +476,55 @@ void MainWindow::on_button_scientist_remove_clicked()
 }
 void MainWindow::on_input_scientist_textEdited(const QString &arg1)
 {
-    showScientists();
-}
+    int i = ui->dropdown_scientist->currentIndex();
 
+    if(i == 0)  // NAME
+    {
+        showScientistsName();
+    }
+    else if (i == 1) // Gender
+    {
+        showScientistsGender();
+    }
+    else if (i == 2) // Birth
+    {
+        showScientistsBirthYear();
+    }
+    else if (i == 3) // Death
+    {
+        showScientistsDeathYear();
+    }
+}
 void MainWindow::on_input_computer_textEdited(const QString &arg1)
 {
-    showComputers();
+    int i = ui->dropdown_computer->currentIndex();
+
+    if(i == 0)  // NAME
+    {
+        showComputersName();
+    }
+    else if (i == 1) // Type
+    {
+        showComputersType();
+    }
+    else if (i == 2) // Year
+    {
+        showComputersYear();
+    }
 }
 
 void MainWindow::on_input_connections_textEdited(const QString &arg1)
 {
-    showConnections();
+    int i = ui->dropdown_connections->currentIndex();
 
+    if(i == 0)  // Scientist
+    {
+        showConnectionsNameSci();
+    }
+    else if (i == 1) // Computer
+    {
+        showConnectionsNameComp();
+    }
 }
 
 void MainWindow::on_table_computer_clicked(const QModelIndex &index)
@@ -208,7 +539,7 @@ void MainWindow::on_button_computer_remove_clicked()
 
     if (sucsess)
     {
-        showComputers();
+        showComputersName();
         ui->button_computer_remove->setEnabled(false);
     }
     else

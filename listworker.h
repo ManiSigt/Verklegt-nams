@@ -70,6 +70,10 @@ public:
     {
         return com[n].getComputerLowerCaseName();
     }
+    string getComputerLowerCaseType(int n)                                                            // Reurns the type of a computer in lower case.
+    {
+        return com[n].getComputerLowerCaseType();
+    }
     string getScientistComment(int n) const                                                           // Make comment from the vector persons available.
     {
         return persons[n].getScientistComment();
@@ -138,6 +142,14 @@ public:
     {
         return linkout[n].getSciName();
     }
+    string getLinkOutputCompNameLower(int n) const                                                    // Returns computer name in lower case from vector linkout.
+    {
+        return linkout[n].getCompNameLower();
+    }
+    string getLinkOutputSciNameLower(int n) const                                                     // Returns scientist name in lower case from vector linkout.
+    {
+        return linkout[n].getSciNameLower();
+    }
     int getLinkoutputCompNameSize(int n);
     int personsSize() const                                                                           // Returns the size of vector persons.
     {
@@ -148,6 +160,7 @@ public:
         return com.size();
     }
 
+    void eraser();
 private:
 
     DataLayer data;
