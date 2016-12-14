@@ -302,7 +302,6 @@ int ListWorker::scientistIdFinder()
 }
 void ListWorker::refreshVector()
 {
-    com.erase (com.begin(),com.end());
     data.readComputersFromDatabase(com);
     persons.erase (persons.begin(),persons.end());
     data.readScientistsFromDatabase(persons);
@@ -398,4 +397,8 @@ void ListWorker::searchConnectionsByComp(int n)
 void ListWorker::searchConnectionsBySci(int n)
 {
     data.searchConnectionsBySci(linkout,n);
+}
+void ListWorker::eraser()
+{
+    linkout.erase(linkout.begin(),linkout.end());
 }

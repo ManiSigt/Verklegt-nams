@@ -15,9 +15,21 @@ public:
     {
         return _comName;
     }
+    string getSciNameLower() const
+    {
+        return _lowercaseSciName;
+    }
+    string getCompNameLower() const
+    {
+        return _lowercaseCompName;
+    }
+
 private:
     string _sciName;
     string _comName;
+    string _lowercaseSciName;
+    string _lowercaseCompName;
+
 };
 
 #endif // LINKEROUTPUT_H
