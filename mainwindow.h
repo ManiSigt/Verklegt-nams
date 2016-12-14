@@ -22,7 +22,6 @@ public:
 
 
 private slots:
-    void populateTables();
     void showComputersName();
     void showComputersYear();
     void showComputersType();
@@ -50,6 +49,10 @@ private slots:
     void on_button_computer_add_clicked();
 
     void on_button_computer_edit_clicked();
+
+    void on_table_connections_clicked(const QModelIndex &index);
+
+    void on_button_connections_remove_clicked();
 
     void on_action_add_scientist_triggered();
 

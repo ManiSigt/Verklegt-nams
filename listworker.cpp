@@ -102,7 +102,7 @@ bool ListWorker::removePerson(int rowNumber)
     }
     return false;
 }
-void ListWorker::removeConnection(int s, int c)
+bool ListWorker::removeConnection(int s, int c)
 {
     if(c == 0)
     {
@@ -130,6 +130,7 @@ void ListWorker::removeConnection(int s, int c)
             }
         }
     }
+    return true;
 }
 bool ListWorker::removePersonFound(string name)
 {
