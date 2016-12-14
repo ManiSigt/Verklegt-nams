@@ -290,8 +290,8 @@
   <widget class="QStatusBar" name="statusBar"/>
   <action name="action_add_scientist">
    <property name="icon">
-    <iconset>
-     <normaloff>../../../add5.jpg</normaloff>../../../add5.jpg</iconset>
+    <iconset resource="myresourcefile.qrc">
+     <normaloff>:/icons/icons/addScientist.jpg</normaloff>:/icons/icons/addScientist.jpg</iconset>
    </property>
    <property name="text">
     <string>Add scientist</string>
@@ -299,8 +299,8 @@
   </action>
   <action name="action_add_computer">
    <property name="icon">
-    <iconset>
-     <normaloff>../../../comp2.jpg</normaloff>../../../comp2.jpg</iconset>
+    <iconset resource="myresourcefile.qrc">
+     <normaloff>:/icons/icons/addComputer.jpg</normaloff>:/icons/icons/addComputer.jpg</iconset>
    </property>
    <property name="text">
     <string>Add computer</string>
@@ -308,8 +308,8 @@
   </action>
   <action name="action_edit_scientist">
    <property name="icon">
-    <iconset>
-     <normaloff>../../../edit.jpg</normaloff>../../../edit.jpg</iconset>
+    <iconset resource="myresourcefile.qrc">
+     <normaloff>:/icons/icons/editPerson.jpg</normaloff>:/icons/icons/editPerson.jpg</iconset>
    </property>
    <property name="text">
     <string>Edit scientist</string>
@@ -317,8 +317,8 @@
   </action>
   <action name="action_edit_computer">
    <property name="icon">
-    <iconset>
-     <normaloff>../../../editcomputer2.jpg</normaloff>../../../editcomputer2.jpg</iconset>
+    <iconset resource="myresourcefile.qrc">
+     <normaloff>:/icons/icons/edit.png</normaloff>:/icons/icons/edit.png</iconset>
    </property>
    <property name="text">
     <string>Edit computer</string>
@@ -347,6 +347,8 @@
   <tabstop>dropdown_computer</tabstop>
   <tabstop>dropdown_connections</tabstop>
  </tabstops>
- <resources/>
+ <resources>
+  <include location="myresourcefile.qrc"/>
+ </resources>
  <connections/>
 </ui>
