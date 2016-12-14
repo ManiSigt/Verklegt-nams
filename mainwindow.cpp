@@ -308,3 +308,27 @@ void MainWindow::disableButtons()
     ui->button_computer_edit->setEnabled(false);
 }
 
+
+void MainWindow::on_table_connections_clicked(const QModelIndex &index)
+{
+    ui->button_connections_remove->setEnabled(true);
+}
+
+void MainWindow::on_button_connections_remove_clicked()
+{
+    int connectionremove = ui->table_connections->currentRow();
+    int sciID = list.getLinkOutputSciName(connectionremove);
+    int compID = list.getLinkOutputCompName(connectionremove);
+    bool success = list.removeConnection(sciID,compID);
+    if (success)
+    {
+        showConnections();
+        ui->button_connections_remove->setEnabled(false);
+        statusBar()->showMessage("Connection removed!",2000);
+    }
+    else
+    {
+        QMessageBox::warning(this, "Warning!", "Unable to remove connection!😡");
+    }
+    disableButtons();
+}

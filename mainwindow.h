@@ -42,6 +42,10 @@ private slots:
 
     void on_button_computer_edit_clicked();
 
+    void on_table_connections_clicked(const QModelIndex &index);
+
+    void on_button_connections_remove_clicked();
+
 private:
     Ui::MainWindow *ui;
     ListWorker list;

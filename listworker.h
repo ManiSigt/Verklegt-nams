@@ -33,7 +33,7 @@ public:
     void searchConnectionsByComp(int n);                                                              // Calls the function searchConnectionsByComp in datalayer.
     void searchConnectionsBySci(int n);                                                               // Calls the function searchConnectionsBySci in datalayer.
     void removeConnection(string scientist, string computer);                                         // Removes a computer or a scientist from the database.
-    void removeConnection(int s, int c);                                                              // Removes a computer or a scientist from the database.
+    bool removeConnection(int s, int c);                                                              // Removes a computer or a scientist from the database.
     void updateScientist(string name,char gender, int birth, int death, string comment, int sciId);   // Calls the function updateScientist in datalayer.
     void updateComputer(string name, string type, string isbuilt, int Yearbuilt, int compId);         // Calls the function updateComputer in datalayer.
     bool computerNameSearcher(string name);                                                           // Searches for a specific name within the vector com.
