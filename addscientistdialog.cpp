@@ -31,8 +31,15 @@ void addScientistDialog::on_button_add_scientist_clicked()
         sex = 'M';
     }
 
-    list.addNewScientist(name.toStdString(), sex , birth.toInt(), death.toInt(), comment.toStdString());
+    bool success = list.addNewScientist(name.toStdString(), sex , birth.toInt(), death.toInt(), comment.toStdString());
     //Á eftir að útfæra villutékk og útfæra að gluggi lokist þegar búið er að adda scientist.
-
+    if (success)
+    {
+        this->done(0);
+    }
+    else
+    {
+        this->done(1);
+    }
 
 }

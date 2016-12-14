@@ -158,7 +158,17 @@ void MainWindow::populateDropdownMenus()
 void MainWindow::on_button_scientist_add_clicked()
 {
     addScientistDialog addScientist;
-    addScientist.exec();
+    int add = addScientist.exec();
+    if (add == 0)
+    {
+        list.refreshVector();
+        showScientists();
+        statusBar()->showMessage("Scientist added!",2000);
+    }
+    else
+    {
+        QMessageBox::warning(this, "error", "asdfasdfadsf");
+    }
 }
 void MainWindow::on_table_scientist_clicked(const QModelIndex &index)
 {
