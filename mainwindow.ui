@@ -52,13 +52,6 @@
         <item row="0" column="3" colspan="2">
          <widget class="QComboBox" name="dropdown_scientist"/>
         </item>
-        <item row="5" column="2">
-         <widget class="QPushButton" name="button_scientist_edit">
-          <property name="text">
-           <string>Edit</string>
-          </property>
-         </widget>
-        </item>
         <item row="1" column="0" colspan="5">
          <widget class="QTableWidget" name="table_scientist">
           <property name="selectionBehavior">
@@ -97,221 +90,164 @@
           </column>
          </widget>
         </item>
+        <item row="5" column="2">
+         <widget class="QPushButton" name="button_scientist_edit">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+          <property name="text">
+           <string>Edit</string>
+          </property>
+         </widget>
+        </item>
        </layout>
       </widget>
       <widget class="QWidget" name="tab_2">
        <attribute name="title">
         <string>Computers</string>
        </attribute>
-       <widget class="QComboBox" name="dropdown_computer">
-        <property name="geometry">
-         <rect>
-          <x>340</x>
-          <y>8</y>
-          <width>213</width>
-          <height>22</height>
-         </rect>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="input_computer">
-        <property name="geometry">
-         <rect>
-          <x>10</x>
-          <y>8</y>
-          <width>323</width>
-          <height>22</height>
-         </rect>
-        </property>
-        <property name="placeholderText">
-         <string>Filter Computers</string>
-        </property>
-       </widget>
-       <widget class="QPushButton" name="button_computer_edit">
-        <property name="geometry">
-         <rect>
-          <x>230</x>
-          <y>300</y>
-          <width>103</width>
-          <height>28</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>Edit</string>
-        </property>
-       </widget>
-       <widget class="QTableWidget" name="table_computer">
-        <property name="geometry">
-         <rect>
-          <x>10</x>
-          <y>37</y>
-          <width>543</width>
-          <height>251</height>
-         </rect>
-        </property>
-        <property name="selectionBehavior">
-         <enum>QAbstractItemView::SelectRows</enum>
-        </property>
-        <property name="sortingEnabled">
-         <bool>true</bool>
-        </property>
-        <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
-         <bool>true</bool>
-        </attribute>
-        <attribute name="verticalHeaderVisible">
-         <bool>false</bool>
-        </attribute>
-        <column>
-         <property name="text">
-          <string>Name</string>
-         </property>
-        </column>
-        <column>
-         <property name="text">
-          <string>Type</string>
-         </property>
-        </column>
-        <column>
-         <property name="text">
-          <string>Date</string>
-         </property>
-        </column>
-        <column>
-         <property name="text">
-          <string>Was it built?</string>
-         </property>
-        </column>
-       </widget>
-       <widget class="QPushButton" name="button_computer_remove">
-        <property name="enabled">
-         <bool>false</bool>
-        </property>
-        <property name="geometry">
-         <rect>
-          <x>120</x>
-          <y>300</y>
-          <width>103</width>
-          <height>28</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>Remove</string>
-        </property>
-       </widget>
-       <widget class="QPushButton" name="button_computer_add">
-        <property name="geometry">
-         <rect>
-          <x>10</x>
-          <y>300</y>
-          <width>103</width>
-          <height>28</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>Add</string>
-        </property>
-       </widget>
+       <layout class="QGridLayout" name="gridLayout_2">
+        <item row="0" column="0" colspan="3">
+         <widget class="QLineEdit" name="input_computer">
+          <property name="placeholderText">
+           <string>Filter Computers</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="3">
+         <widget class="QComboBox" name="dropdown_computer"/>
+        </item>
+        <item row="1" column="0" colspan="4">
+         <widget class="QTableWidget" name="table_computer">
+          <property name="selectionBehavior">
+           <enum>QAbstractItemView::SelectRows</enum>
+          </property>
+          <property name="sortingEnabled">
+           <bool>true</bool>
+          </property>
+          <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
+           <bool>true</bool>
+          </attribute>
+          <attribute name="verticalHeaderVisible">
+           <bool>false</bool>
+          </attribute>
+          <column>
+           <property name="text">
+            <string>Name</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Type</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Date</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Was it built?</string>
+           </property>
+          </column>
+         </widget>
+        </item>
+        <item row="2" column="0">
+         <widget class="QPushButton" name="button_computer_add">
+          <property name="text">
+           <string>Add</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="1">
+         <widget class="QPushButton" name="button_computer_remove">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+          <property name="text">
+           <string>Remove</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="2">
+         <widget class="QPushButton" name="button_computer_edit">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+          <property name="text">
+           <string>Edit</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
       </widget>
       <widget class="QWidget" name="tab_3">
        <attribute name="title">
         <string>Connections</string>
        </attribute>
-       <widget class="QComboBox" name="dropdown_connections">
-        <property name="geometry">
-         <rect>
-          <x>340</x>
-          <y>8</y>
-          <width>213</width>
-          <height>22</height>
-         </rect>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="input_connections">
-        <property name="geometry">
-         <rect>
-          <x>10</x>
-          <y>8</y>
-          <width>323</width>
-          <height>22</height>
-         </rect>
-        </property>
-        <property name="placeholderText">
-         <string>Filter Connections</string>
-        </property>
-       </widget>
-       <widget class="QPushButton" name="button_connections_edit">
-        <property name="geometry">
-         <rect>
-          <x>230</x>
-          <y>300</y>
-          <width>103</width>
-          <height>28</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>Edit</string>
-        </property>
-       </widget>
-       <widget class="QTableWidget" name="table_connections">
-        <property name="geometry">
-         <rect>
-          <x>10</x>
-          <y>37</y>
-          <width>543</width>
-          <height>256</height>
-         </rect>
-        </property>
-        <property name="selectionBehavior">
-         <enum>QAbstractItemView::SelectRows</enum>
-        </property>
-        <property name="sortingEnabled">
-         <bool>true</bool>
-        </property>
-        <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
-         <bool>true</bool>
-        </attribute>
-        <attribute name="verticalHeaderVisible">
-         <bool>false</bool>
-        </attribute>
-        <column>
-         <property name="text">
-          <string>Scientist</string>
-         </property>
-        </column>
-        <column>
-         <property name="text">
-          <string>Computer</string>
-         </property>
-        </column>
-       </widget>
-       <widget class="QPushButton" name="button_connections_remove">
-        <property name="enabled">
-         <bool>true</bool>
-        </property>
-        <property name="geometry">
-         <rect>
-          <x>120</x>
-          <y>300</y>
-          <width>103</width>
-          <height>28</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>Remove</string>
-        </property>
-       </widget>
-       <widget class="QPushButton" name="button_connections_add">
-        <property name="geometry">
-         <rect>
-          <x>10</x>
-          <y>300</y>
-          <width>103</width>
-          <height>28</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>Add</string>
-        </property>
-       </widget>
+       <layout class="QGridLayout" name="gridLayout_3">
+        <item row="0" column="0" colspan="3">
+         <widget class="QLineEdit" name="input_connections">
+          <property name="placeholderText">
+           <string>Filter Connections</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="3">
+         <widget class="QComboBox" name="dropdown_connections"/>
+        </item>
+        <item row="1" column="0" colspan="4">
+         <widget class="QTableWidget" name="table_connections">
+          <property name="selectionBehavior">
+           <enum>QAbstractItemView::SelectRows</enum>
+          </property>
+          <property name="sortingEnabled">
+           <bool>true</bool>
+          </property>
+          <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
+           <bool>true</bool>
+          </attribute>
+          <attribute name="verticalHeaderVisible">
+           <bool>false</bool>
+          </attribute>
+          <column>
+           <property name="text">
+            <string>Scientist</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Computer</string>
+           </property>
+          </column>
+         </widget>
+        </item>
+        <item row="2" column="0">
+         <widget class="QPushButton" name="button_connections_add">
+          <property name="text">
+           <string>Add</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="1">
+         <widget class="QPushButton" name="button_connections_remove">
+          <property name="enabled">
+           <bool>true</bool>
+          </property>
+          <property name="text">
+           <string>Remove</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="2">
+         <widget class="QPushButton" name="button_connections_edit">
+          <property name="text">
+           <string>Edit</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
       </widget>
      </widget>
     </item>
@@ -338,6 +274,27 @@
   <widget class="QStatusBar" name="statusBar"/>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
+ <tabstops>
+  <tabstop>tabWidget</tabstop>
+  <tabstop>table_scientist</tabstop>
+  <tabstop>table_computer</tabstop>
+  <tabstop>table_connections</tabstop>
+  <tabstop>input_scientist</tabstop>
+  <tabstop>button_scientist_add</tabstop>
+  <tabstop>button_scientist_remove</tabstop>
+  <tabstop>button_scientist_edit</tabstop>
+  <tabstop>input_computer</tabstop>
+  <tabstop>button_computer_add</tabstop>
+  <tabstop>button_computer_remove</tabstop>
+  <tabstop>button_computer_edit</tabstop>
+  <tabstop>input_connections</tabstop>
+  <tabstop>button_connections_add</tabstop>
+  <tabstop>button_connections_remove</tabstop>
+  <tabstop>button_connections_edit</tabstop>
+  <tabstop>dropdown_scientist</tabstop>
+  <tabstop>dropdown_computer</tabstop>
+  <tabstop>dropdown_connections</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>

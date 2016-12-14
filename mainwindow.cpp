@@ -4,6 +4,7 @@
 #include "addscientistdialog.h"
 #include "addcomputerdialog.h"
 #include "editscientistdialog.h"
+#include "editcomputerdialog.h"
 #include <QMessageBox>
 #include <algorithm>
 #include <QDebug>
@@ -40,7 +41,9 @@ void MainWindow::showScientistsName()
 
     ui->table_scientist->setRowCount(list.personsSize());
     ui->table_scientist->setColumnCount(5);
+
     int count = 0;
+
     for(int i = 0; i < list.personsSize(); i++)
     {
         string nameSearch = ui->input_scientist->text().toStdString();
@@ -277,6 +280,7 @@ void MainWindow::showComputersName()
             ui->table_computer->setItem(count,2,new QTableWidgetItem(qdate));
             ui->table_computer->setItem(count,3,new QTableWidgetItem(qwasitbuilt));
             count++;
+
         }
     }
     ui->table_computer->resizeColumnsToContents();
@@ -418,6 +422,7 @@ void MainWindow::showConnectionsNameComp()
         size_t found = list.getLinkOutputCompNameLower(i).find(nameSearch);
         if(found!=std::string::npos)
         {
+
             QString qsciname = QString::fromStdString(list.getLinkOutputSciName(i));
             QString qcompname = QString::fromStdString(list.getLinkOutputCompName(i));
 
@@ -430,8 +435,8 @@ void MainWindow::showConnectionsNameComp()
 }
 void MainWindow::on_dropdown_scientist_activated(const QString &arg1)
 {
-        QMessageBox::information(this, "Item Selection",
-        ui->dropdown_scientist->currentText());
+        //QMessageBox::information(this, "Item Selection",
+        //ui->dropdown_scientist->currentText());
 }
 
 void MainWindow::populateDropdownMenus()
@@ -452,11 +457,23 @@ void MainWindow::populateDropdownMenus()
 void MainWindow::on_button_scientist_add_clicked()
 {
     addScientistDialog addScientist;
-    addScientist.exec();
+
+    int add = addScientist.exec();
+    if (add == 0)
+    {
+        list.refreshVector();
+        showScientistsName();
+        statusBar()->showMessage("Scientist added!",2000);
+    }
+    else
+    {
+        QMessageBox::warning(this, "error", "asdfasdfadsf");
+    }
 }
 void MainWindow::on_table_scientist_clicked(const QModelIndex &index)
 {
      ui->button_scientist_remove->setEnabled(true);
+     ui->button_scientist_edit->setEnabled(true);
 }
 
 void MainWindow::on_button_scientist_remove_clicked()
@@ -468,11 +485,13 @@ void MainWindow::on_button_scientist_remove_clicked()
     {
         showScientistsName();
         ui->button_scientist_remove->setEnabled(false);
+        statusBar()->showMessage("Scientist removed!",2000);
     }
     else
     {
         QMessageBox::warning(this, "Warning!", "Unable to remove scientist!😡");
     }
+    disableButtons();
 }
 void MainWindow::on_input_scientist_textEdited(const QString &arg1)
 {
@@ -530,30 +549,94 @@ void MainWindow::on_input_connections_textEdited(const QString &arg1)
 void MainWindow::on_table_computer_clicked(const QModelIndex &index)
 {
     ui->button_computer_remove->setEnabled(true);
+    ui->button_computer_edit->setEnabled(true);
 }
 
 void MainWindow::on_button_computer_remove_clicked()
 {
     int computerRemove = ui->table_computer->currentRow();
-    bool sucsess = list.removeComputer(computerRemove);
+    bool success = list.removeComputer(computerRemove);
 
-    if (sucsess)
+    if (success)
     {
         showComputersName();
         ui->button_computer_remove->setEnabled(false);
+        statusBar()->showMessage("Computer removed!",2000);
     }
     else
     {
         QMessageBox::warning(this, "Warning!", "Unable to remove computer!😡");
     }
+    disableButtons();
 }
 void MainWindow::on_button_connections_edit_clicked()
 {
+
+}
+
+
+void MainWindow::on_button_scientist_edit_clicked()
+{
+    int row = ui->table_scientist->currentRow();
+    Person esci;
+
+    string name = list.getScientistName(row);
+    char gender = list.getScientistGender(row);
+    int birth = list.getScientistBirth(row);
+    int death = list.getScientistDeath(row);
+    string comment = list.getScientistComment(row);
+    int id = list.getScientistId(row);
+
+    esci = Person(name,gender,birth,death,comment,id);
+
     EditScientistDialog editSci;
+    editSci.prepare(esci);
         editSci.exec();
+        list.refreshVector();
+        showScientistsName();
+    disableButtons();
 }
 void MainWindow::on_button_computer_add_clicked()
 {
     addComputerDialog addComputer;
-    addComputer.exec();
+    int add = addComputer.exec();
+    if (add == 0)
+    {
+        list.refreshVector();
+        showComputersName();
+        statusBar()->showMessage("Computer added!",2000);
+    }
+    else
+    {
+        QMessageBox::warning(this, "error", "asdfasdfadsf");
+    }
 }
+
+void MainWindow::on_button_computer_edit_clicked()
+{
+        int row = ui->table_computer->currentRow();
+        Computer ecom;
+
+        string name = list.getComputerName(row);
+        string type = list.getComputerType(row);
+        int date = list.getComputerDate(row);
+        string wasItBuilt = list.getComputerWasItBuilt(row);
+        int id = list.getComputerId(row);
+
+        ecom = Computer(name, wasItBuilt, date, type, id);
+
+        EditComputerDialog editCom;
+        editCom.prepare(ecom);
+            editCom.exec();
+            list.refreshVector();
+            showComputersName();
+    disableButtons();
+}
+void MainWindow::disableButtons()
+{
+    ui->button_scientist_remove->setEnabled(false);
+    ui->button_scientist_edit->setEnabled(false);
+    ui->button_computer_remove->setEnabled(false);
+    ui->button_computer_edit->setEnabled(false);
+}
+
