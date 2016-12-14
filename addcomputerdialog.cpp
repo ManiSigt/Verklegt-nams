@@ -19,19 +19,19 @@ void addComputerDialog::on_add_computer_button_clicked()
     QString name = ui->input_computer_name->text();
     if(name.isEmpty())
     {
-        ui->error_name->setText("No name in input!");
+        ui->error_name->setText("<span style='color: #FF1100'>No name in input!</span>");
         return;
     }
     QString type = ui->input_computer_type->text();
     if(type.isEmpty())
     {
-        ui->error_type->setText("No type name in input!");
+        ui->error_type->setText("<span style='color: #FF1100'>No type name in input!</span>");
         return;
     }
     QString date = ui->input_computer_date->text();
     if (date.isEmpty())
     {
-        ui->error_date->setText("No date in input!");
+        ui->error_date->setText("<span style='color: #FF1100'>No date in input!</span>");
         return;
     }
     if(ui->radioButton_Yes->isChecked())

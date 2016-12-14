@@ -19,13 +19,13 @@ void addScientistDialog::on_button_add_scientist_clicked()
     QString name = ui->input_scientist_name->text();
     if (name.isEmpty())
     {
-        ui->error_name->setText("No name in input!");
+        ui->error_name->setText("<span style='color: #FF1100'>No name in input!</span>");
         return;
     }
     QString birth = ui->input_scientist_birth->text();
     if (birth.isEmpty())
     {
-        ui->error_birth->setText("no birth year in input!");
+        ui->error_birth->setText("<span style='color: #FF1100'>No birth year in input!</span>");
         return;
     }
     QString death = ui->input_scientist_death->text();
