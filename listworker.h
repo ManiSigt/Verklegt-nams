@@ -33,7 +33,7 @@ public:
     void searchConnectionsByComp(int n);                                                              // Calls the function searchConnectionsByComp in datalayer.
     void searchConnectionsBySci(int n);                                                               // Calls the function searchConnectionsBySci in datalayer.
     void removeConnection(string scientist, string computer);                                         // Removes a computer or a scientist from the database.
-    void removeConnection(int s, int c);                                                              // Removes a computer or a scientist from the database.
+    bool removeConnection(int s, int c);                                                              // Removes a computer or a scientist from the database.
     void updateScientist(string name,char gender, int birth, int death, string comment, int sciId);   // Calls the function updateScientist in datalayer.
     void updateComputer(string name, string type, string isbuilt, int Yearbuilt, int compId);         // Calls the function updateComputer in datalayer.
     bool computerNameSearcher(string name);                                                           // Searches for a specific name within the vector com.
@@ -69,6 +69,10 @@ public:
     string getComputerLowerCaseName(int n)                                                            // Reurns the name of a computer in lower case.
     {
         return com[n].getComputerLowerCaseName();
+    }
+    string getComputerLowerCaseType(int n)                                                            // Reurns the type of a computer in lower case.
+    {
+        return com[n].getComputerLowerCaseType();
     }
     string getScientistComment(int n) const                                                           // Make comment from the vector persons available.
     {
@@ -138,6 +142,14 @@ public:
     {
         return linkout[n].getSciName();
     }
+    string getLinkOutputCompNameLower(int n) const                                                    // Returns computer name in lower case from vector linkout.
+    {
+        return linkout[n].getCompNameLower();
+    }
+    string getLinkOutputSciNameLower(int n) const                                                     // Returns scientist name in lower case from vector linkout.
+    {
+        return linkout[n].getSciNameLower();
+    }
     int getLinkoutputCompNameSize(int n);
     int personsSize() const                                                                           // Returns the size of vector persons.
     {
@@ -148,6 +160,7 @@ public:
         return com.size();
     }
 
+    void eraser();
 private:
 
     DataLayer data;

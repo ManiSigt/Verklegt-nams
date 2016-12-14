@@ -102,7 +102,7 @@ bool ListWorker::removePerson(int rowNumber)
     }
     return false;
 }
-void ListWorker::removeConnection(int s, int c)
+bool ListWorker::removeConnection(int s, int c)
 {
     if(c == 0)
     {
@@ -130,6 +130,7 @@ void ListWorker::removeConnection(int s, int c)
             }
         }
     }
+    return true;
 }
 bool ListWorker::removePersonFound(string name)
 {
@@ -301,7 +302,6 @@ int ListWorker::scientistIdFinder()
 }
 void ListWorker::refreshVector()
 {
-    com.erase (com.begin(),com.end());
     data.readComputersFromDatabase(com);
     persons.erase (persons.begin(),persons.end());
     data.readScientistsFromDatabase(persons);
@@ -397,4 +397,8 @@ void ListWorker::searchConnectionsByComp(int n)
 void ListWorker::searchConnectionsBySci(int n)
 {
     data.searchConnectionsBySci(linkout,n);
+}
+void ListWorker::eraser()
+{
+    linkout.erase(linkout.begin(),linkout.end());
 }
