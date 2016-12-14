@@ -95,12 +95,12 @@
     <string>Name</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="button_add_scientist">
+  <widget class="QPushButton" name="button_scientist_edit">
    <property name="geometry">
     <rect>
      <x>20</x>
      <y>265</y>
-     <width>378</width>
+     <width>185</width>
      <height>28</height>
     </rect>
    </property>
@@ -129,6 +129,19 @@
    </property>
    <property name="text">
     <string>Death</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="button_scientist_edit_cancel">
+   <property name="geometry">
+    <rect>
+     <x>210</x>
+     <y>265</y>
+     <width>185</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Cancel</string>
    </property>
   </widget>
   <widget class="QRadioButton" name="edit_scientist_radio_button_male">

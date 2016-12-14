@@ -21,6 +21,10 @@ public:
 private slots:
     void on_button_add_scientist_clicked();
 
+    void on_button_scientist_edit_cancel_clicked();
+
+    void on_button_scientist_edit_clicked();
+
 private:
     Ui::EditScientistDialog *ui;
     ListWorker elist;
