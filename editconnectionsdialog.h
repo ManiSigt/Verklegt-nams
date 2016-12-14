@@ -1,21 +1,22 @@
-#ifndef EDITCONNECTIONDIALOG_H
-#define EDITCONNECTIONDIALOG_H
+#ifndef EDITCONNECTIONSDIALOG_H
+#define EDITCONNECTIONSDIALOG_H
+
 #include "listworker.h"
 #include "linker.h"
 
 #include <QDialog>
 
 namespace Ui {
-class EditConnectionDialog;
+class EditConnectionsDialog;
 }
 
-class EditConnectionDialog : public QDialog
+class EditConnectionsDialog : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit EditConnectionDialog(QWidget *parent = 0);
-    ~EditConnectionDialog();
+    explicit EditConnectionsDialog(QWidget *parent = 0);
+    ~EditConnectionsDialog();
     void prepare(Linker elink);
 
 private slots:
@@ -24,11 +25,11 @@ private slots:
     void on_list_scientists_clicked(const QModelIndex &index);
 
 private:
-    Ui::EditConnectionDialog *ui;
+    Ui::EditConnectionsDialog *ui;
     ListWorker elist;
     int currentId = 0;
     bool clickedScientist = false;
     bool clickedComputer = false;
 };
 
-#endif // EDITCONNECTIONDIALOG_H
+#endif // EDITCONNECTIONSDIALOG_H

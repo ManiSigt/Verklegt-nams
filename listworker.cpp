@@ -322,6 +322,44 @@ string ListWorker::getComputerNameFromId(int n) const
     }
     return name;
 }
+int ListWorker::getComputerIdFromName(string name) const
+{
+    int id;
+
+    for(unsigned int i = 0; i < com.size(); i++)
+    {
+        if(name == com[i].getComputerName())
+        {
+            id = com[i].getComputerId();
+        }
+    }
+    return id;
+}
+int ListWorker::getScientistIdFromName(string name) const
+{
+    int id;
+
+    for(unsigned int i = 0; i < persons.size(); i++)
+    {
+        if(name == persons[i].getScientistName())
+        {
+            id = persons[i].getScientistId();
+        }
+    }
+    return id;
+}
+int ListWorker::getLinkIdFromSciComIds(int sciId, int comId) const
+{
+    int id;
+    for(int i = 0; i < link.size(); i++)
+    {
+        if(getLinkCompId(i) == comId && getLinkSciId(i) == sciId)
+        {
+            id = getLinkId(i);
+        }
+    }
+    return id;
+}
 string ListWorker::getScientistNameFromId(int n) const
 {
     string name;

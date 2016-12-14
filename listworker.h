@@ -151,6 +151,9 @@ public:
         return linkout[n].getSciNameLower();
     }
     int getLinkoutputCompNameSize(int n);
+    int getComputerIdFromName(string name) const;
+    int getScientistIdFromName(string name) const;
+    int getLinkIdFromSciComIds(int sciId, int comId) const;
     int personsSize() const                                                                           // Returns the size of vector persons.
     {
         return persons.size();

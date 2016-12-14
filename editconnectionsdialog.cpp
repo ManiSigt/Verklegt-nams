@@ -1,22 +1,22 @@
-#include "editconnectiondialog.h"
-#include "ui_editconnectiondialog.h"
+#include "editconnectionsdialog.h"
+#include "ui_editconnectionsdialog.h"
 #include <QDebug>
 #include <QTableWidget>
 using namespace std;
 
-EditConnectionDialog::EditConnectionDialog(QWidget *parent) :
+EditConnectionsDialog::EditConnectionsDialog(QWidget *parent) :
     QDialog(parent),
-    ui(new Ui::EditConnectionDialog)
+    ui(new Ui::EditConnectionsDialog)
 {
     ui->setupUi(this);
 }
 
-EditConnectionDialog::~EditConnectionDialog()
+EditConnectionsDialog::~EditConnectionsDialog()
 {
     delete ui;
 }
 
-void EditConnectionDialog::prepare(Linker elink)
+void EditConnectionsDialog::prepare(Linker elink)
 {
     int comId = elink.getComId();
     int sciId = elink.getSciId();
@@ -34,7 +34,7 @@ void EditConnectionDialog::prepare(Linker elink)
 
 }
 
-void EditConnectionDialog::on_list_computers_clicked(const QModelIndex &index)
+void EditConnectionsDialog::on_list_computers_clicked(const QModelIndex &index)
 {
     clickedComputer = true;
     if(clickedComputer == true && clickedScientist == true)
@@ -43,7 +43,7 @@ void EditConnectionDialog::on_list_computers_clicked(const QModelIndex &index)
     }
 }
 
-void EditConnectionDialog::on_list_scientists_clicked(const QModelIndex &index)
+void EditConnectionsDialog::on_list_scientists_clicked(const QModelIndex &index)
 {
     clickedScientist = true;
     if(clickedComputer == true && clickedScientist == true)
