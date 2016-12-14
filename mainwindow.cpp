@@ -161,7 +161,10 @@ void MainWindow::populateDropdownMenus()
 void MainWindow::on_button_scientist_add_clicked()
 {
     addScientistDialog addScientist;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 99e456831db634b0e1c1c0a87b996faba89b274c
     int add = addScientist.exec();
     if (add == 0)
     {
@@ -259,5 +262,15 @@ void MainWindow::on_button_scientist_edit_clicked()
 void MainWindow::on_button_computer_add_clicked()
 {
     addComputerDialog addComputer;
-    addComputer.exec();
+    int add = addComputer.exec();
+    if (add == 0)
+    {
+        list.refreshVector();
+        showComputers();
+        statusBar()->showMessage("Computer added!",2000);
+    }
+    else
+    {
+        QMessageBox::warning(this, "error", "asdfasdfadsf");
+    }
 }
