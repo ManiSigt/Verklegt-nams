@@ -20,12 +20,13 @@ bool ListWorker::addNewScientist(string name, char gender, int yearOfBirth, int 
     data.addScientist(name, gender, yearOfBirth, yearOfDeath, comment, vsize);
     return true;
 }
-void ListWorker::addNewComputer(string name, string type, int yearbuilt, string isbuilt)
+bool ListWorker::addNewComputer(string name, string type, int yearbuilt, string isbuilt)
 {
     int vsize = computerIdFinder();
     Computer c(name, isbuilt, yearbuilt, type, vsize);
     com.erase (com.begin(),com.end());
     data.addComputer(name, type, yearbuilt, isbuilt, vsize);
+    return true;
 }
 void ListWorker::addNewConnection(int linkId, int compId, int sciId)
 {
@@ -296,8 +297,8 @@ void ListWorker::refreshVector()
     persons.erase (persons.begin(),persons.end());
     data.readScientistsFromDatabase(persons);
     link.erase(link.begin(),link.end());
-    data.readLinksFromDatabase(link);
     linkout.erase(linkout.begin(),linkout.end());
+    data.readLinksFromDatabase(link);
 }
 string ListWorker::getComputerNameFromId(int n) const
 {
@@ -374,6 +375,7 @@ int ListWorker::getLinkoutputCompNameSize(int n)
 void ListWorker::updateScientist(string name,char gender, int birth, int death, string comment, int sciId)
 {
     data.updateScientist(name,gender,birth,death,comment,sciId);
+
 }
 void ListWorker::updateComputer(string name, string type, string isbuilt, int Yearbuilt, int compId)
 {

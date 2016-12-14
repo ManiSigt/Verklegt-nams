@@ -22,6 +22,13 @@
     </widget>
    </item>
    <item>
+    <widget class="QLabel" name="error_name">
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+   </item>
+   <item>
     <widget class="QLineEdit" name="input_scientist_name"/>
    </item>
    <item>
@@ -56,6 +63,13 @@
     <widget class="QLabel" name="label_scientist_birth">
      <property name="text">
       <string>Birth</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLabel" name="error_birth">
+     <property name="text">
+      <string/>
      </property>
     </widget>
    </item>
