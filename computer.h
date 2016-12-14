@@ -38,10 +38,15 @@ public:
     {
         return _lowerCaseName;
     }
+    string getComputerLowerCaseType() const
+    {
+        return _lowerCaseType;
+    }
 
 private:
     string _name;
     string _lowerCaseName;
+    string _lowerCaseType;
     string _type;
     string _wasItBuilt;
     int _date;
