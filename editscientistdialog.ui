@@ -105,7 +105,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>Add scientist</string>
+    <string>Edit Scientist</string>
    </property>
   </widget>
   <widget class="QLineEdit" name="input_scientist_comment">
@@ -131,14 +131,33 @@
     <string>Death</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="input_scientist_gender">
+  <widget class="QRadioButton" name="edit_scientist_radio_button_male">
    <property name="geometry">
     <rect>
-     <x>20</x>
+     <x>100</x>
      <y>80</y>
-     <width>378</width>
-     <height>22</height>
+     <width>81</width>
+     <height>20</height>
     </rect>
+   </property>
+   <property name="text">
+    <string>Male</string>
+   </property>
+  </widget>
+  <widget class="QRadioButton" name="edit_scientist_radio_button_female">
+   <property name="geometry">
+    <rect>
+     <x>24</x>
+     <y>80</y>
+     <width>69</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Female</string>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
    </property>
   </widget>
  </widget>

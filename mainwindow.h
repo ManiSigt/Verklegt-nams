@@ -25,27 +25,18 @@ private slots:
     void showScientists();
     void populateDropdownMenus();
     void on_dropdown_scientist_activated(const QString &arg1);
-
-
     void on_button_scientist_add_clicked();
-
     void on_table_scientist_clicked(const QModelIndex &index);
-
     void on_button_scientist_remove_clicked();
     void on_input_scientist_textEdited(const QString &arg1);
-
     void on_input_computer_textEdited(const QString &arg1);
-
     void on_input_connections_textEdited(const QString &arg1);
-
-
-
     void on_table_computer_clicked(const QModelIndex &index);
-
     void on_button_computer_remove_clicked();
-
-
     void on_button_connections_edit_clicked();
+
+
+    void on_button_scientist_edit_clicked();
 
     void on_button_computer_add_clicked();
 

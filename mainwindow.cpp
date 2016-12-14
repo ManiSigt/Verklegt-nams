@@ -41,6 +41,7 @@ void MainWindow::showScientists()
 
     ui->table_scientist->setRowCount(list.personsSize());
     ui->table_scientist->setColumnCount(5);
+
     for(int i = 0; i < list.personsSize(); i++)
     {
         string nameSearch = ui->input_scientist->text().toStdString();
@@ -97,6 +98,7 @@ void MainWindow::showComputers()
             ui->table_computer->setItem(i,1,new QTableWidgetItem(qtype));
             ui->table_computer->setItem(i,2,new QTableWidgetItem(qdate));
             ui->table_computer->setItem(i,3,new QTableWidgetItem(qwasitbuilt));
+
         }
         else
         {
@@ -125,6 +127,7 @@ void MainWindow::showConnections()
         size_t found = list.getScientistLowerCaseName(i).find(nameSearch);
         if(found!=std::string::npos)
         {
+
             QString qsciname = QString::fromStdString(list.getLinkOutputSciName(i));
             QString qcompname = QString::fromStdString(list.getLinkOutputCompName(i));
 
@@ -158,6 +161,10 @@ void MainWindow::populateDropdownMenus()
 void MainWindow::on_button_scientist_add_clicked()
 {
     addScientistDialog addScientist;
+<<<<<<< HEAD
+    addScientist.exec();
+    showScientists();
+=======
     int add = addScientist.exec();
     if (add == 0)
     {
@@ -169,6 +176,7 @@ void MainWindow::on_button_scientist_add_clicked()
     {
         QMessageBox::warning(this, "error", "asdfasdfadsf");
     }
+>>>>>>> 624c4ed1c016d8ebfb09d315504028f0064b57e2
 }
 void MainWindow::on_table_scientist_clicked(const QModelIndex &index)
 {
@@ -228,8 +236,29 @@ void MainWindow::on_button_computer_remove_clicked()
 }
 void MainWindow::on_button_connections_edit_clicked()
 {
+
+}
+
+
+void MainWindow::on_button_scientist_edit_clicked()
+{
+    int row = ui->table_scientist->currentRow();
+    Person esci;
+
+    string name = list.getScientistName(row);
+    char gender = list.getScientistGender(row);
+    int birth = list.getScientistBirth(row);
+    int death = list.getScientistDeath(row);
+    string comment = list.getScientistComment(row);
+    int id = list.getScientistId(row);
+
+    esci = Person(name,gender,birth,death,comment,id);
+
     EditScientistDialog editSci;
+    editSci.prepare(esci);
         editSci.exec();
+        list.refreshVector();
+        showScientists();
 }
 void MainWindow::on_button_computer_add_clicked()
 {

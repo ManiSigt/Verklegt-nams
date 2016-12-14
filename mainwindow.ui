@@ -18,7 +18,11 @@
     <item>
      <widget class="QTabWidget" name="tabWidget">
       <property name="currentIndex">
+
+       <number>0</number>
+
        <number>1</number>
+
       </property>
       <widget class="QWidget" name="tab">
        <attribute name="title">
@@ -51,13 +55,6 @@
         </item>
         <item row="0" column="3" colspan="2">
          <widget class="QComboBox" name="dropdown_scientist"/>
-        </item>
-        <item row="5" column="2">
-         <widget class="QPushButton" name="button_scientist_edit">
-          <property name="text">
-           <string>Edit</string>
-          </property>
-         </widget>
         </item>
         <item row="1" column="0" colspan="5">
          <widget class="QTableWidget" name="table_scientist">
@@ -95,6 +92,13 @@
             <string>Comment</string>
            </property>
           </column>
+         </widget>
+        </item>
+        <item row="5" column="2">
+         <widget class="QPushButton" name="button_scientist_edit">
+          <property name="text">
+           <string>Edit</string>
+          </property>
          </widget>
         </item>
        </layout>
