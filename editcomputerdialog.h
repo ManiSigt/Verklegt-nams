@@ -21,6 +21,8 @@ public:
 private slots:
     void on_button_computer_edit_clicked();
 
+    void on_button_computer_edit_cancel_clicked();
+
 private:
     Ui::EditComputerDialog *ui;
     ListWorker elist;

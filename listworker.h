@@ -16,7 +16,7 @@ public:
     ListWorker();
     bool addNewScientist(string name, char gender, int yearOfBirth, int yearOFDeath, string comment); // Adds a person to the vector persons and adds them to the database.
     bool addNewComputer(string name, string type, int yearbuilt, string isbuilt);                     // Adds a computer to the vector that holds the list of computers and then adds it to the database.
-    void addNewConnection(int linkId, int compId, int sciId);                                         // Adds a link between a computer and a scientist that the user chooses and adds them to the SQL database.
+    void addNewConnection(int compId, int sciId);                                                     // Adds a link between a computer and a scientist that the user chooses and adds them to the SQL database.
     void sortScientistBirth();                                                                        // Calls the function sortScientistBirth from the datalayer class.
     void sortScientistBirthReverse();                                                                 // Calls the function sortScientistBirthReverse from the datalayer class.
     void sortScientistNames();                                                                        // Calls the function sortScientistNames from the datalayer class.

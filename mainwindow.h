@@ -34,7 +34,7 @@ private slots:
     void on_table_computer_clicked(const QModelIndex &index);
     void on_button_computer_remove_clicked();
     void on_button_connections_edit_clicked();
-
+    void disableButtons();
 
     void on_button_scientist_edit_clicked();
 

@@ -215,13 +215,13 @@ void DataLayer::updateComputer(string name, string type, string isbuilt, int Yea
     QString qisbuilt = QString::fromStdString(isbuilt);
 
     QSqlQuery queryAdd;
-    queryAdd.prepare("UPDATE Computers SET CompName=:name, Type=:type, Date=:Yearbuilt, WasItBuilt=:isbuilt WHERE ID=:id");
+    queryAdd.prepare("UPDATE Computers SET CompName=:name, Type=:type, Date=:yearbuilt, WasItBuilt=:isbuilt WHERE ID=:id");
 
     queryAdd.bindValue(":id", compId);
     queryAdd.bindValue(":name", qname);
     queryAdd.bindValue(":type", qtype);
     queryAdd.bindValue(":isbuilt", qisbuilt);
-    queryAdd.bindValue(":yearofdeath", Yearbuilt);
+    queryAdd.bindValue(":yearbuilt", Yearbuilt);
     queryAdd.exec();
 }
 void DataLayer::addConnection(int linkId, int sciId, int compId)

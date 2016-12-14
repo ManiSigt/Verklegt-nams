@@ -28,8 +28,17 @@ bool ListWorker::addNewComputer(string name, string type, int yearbuilt, string 
     data.addComputer(name, type, yearbuilt, isbuilt, vsize);
     return true;
 }
-void ListWorker::addNewConnection(int linkId, int compId, int sciId)
+void ListWorker::addNewConnection(int compId, int sciId)
 {
+    int linkId;
+    //get free ID in database
+    for(int i = 1; i < getLinkSize()+2; i++)
+    {
+        if(i != getLinkId(i))
+        {
+            linkId = i;
+        }
+    }
     Linker l(linkId, sciId, compId);
     link.push_back(l);
     data.addConnection(linkId, sciId, compId);

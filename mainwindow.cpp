@@ -196,6 +196,7 @@ void MainWindow::on_button_scientist_remove_clicked()
     {
         QMessageBox::warning(this, "Warning!", "Unable to remove scientist!😡");
     }
+    disableButtons();
 }
 void MainWindow::on_input_scientist_textEdited(const QString &arg1)
 {
@@ -234,6 +235,7 @@ void MainWindow::on_button_computer_remove_clicked()
     {
         QMessageBox::warning(this, "Warning!", "Unable to remove computer!😡");
     }
+    disableButtons();
 }
 void MainWindow::on_button_connections_edit_clicked()
 {
@@ -260,6 +262,7 @@ void MainWindow::on_button_scientist_edit_clicked()
         editSci.exec();
         list.refreshVector();
         showScientists();
+    disableButtons();
 }
 void MainWindow::on_button_computer_add_clicked()
 {
@@ -295,4 +298,13 @@ void MainWindow::on_button_computer_edit_clicked()
             editCom.exec();
             list.refreshVector();
             showComputers();
+    disableButtons();
 }
+void MainWindow::disableButtons()
+{
+    ui->button_scientist_remove->setEnabled(false);
+    ui->button_scientist_edit->setEnabled(false);
+    ui->button_computer_remove->setEnabled(false);
+    ui->button_computer_edit->setEnabled(false);
+}
+
