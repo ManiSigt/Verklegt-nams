@@ -20,12 +20,13 @@ bool ListWorker::addNewScientist(string name, char gender, int yearOfBirth, int 
     data.addScientist(name, gender, yearOfBirth, yearOfDeath, comment, vsize);
     return true;
 }
-void ListWorker::addNewComputer(string name, string type, int yearbuilt, string isbuilt)
+bool ListWorker::addNewComputer(string name, string type, int yearbuilt, string isbuilt)
 {
     int vsize = computerIdFinder();
     Computer c(name, isbuilt, yearbuilt, type, vsize);
     com.erase (com.begin(),com.end());
     data.addComputer(name, type, yearbuilt, isbuilt, vsize);
+    return true;
 }
 void ListWorker::addNewConnection(int linkId, int compId, int sciId)
 {

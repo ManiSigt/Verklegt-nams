@@ -29,6 +29,13 @@ void addComputerDialog::on_add_computer_button_clicked()
         yesNo = "No";
     }
 
-    list.addNewComputer(name.toStdString(), type.toStdString(), date.toInt(), yesNo);
-
+    bool success = list.addNewComputer(name.toStdString(), type.toStdString(), date.toInt(), yesNo);
+    if (success)
+    {
+        this->done(0);
+    }
+    else
+    {
+        this->done(1);
+    }
 }

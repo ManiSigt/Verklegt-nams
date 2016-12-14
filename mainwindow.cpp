@@ -234,5 +234,15 @@ void MainWindow::on_button_connections_edit_clicked()
 void MainWindow::on_button_computer_add_clicked()
 {
     addComputerDialog addComputer;
-    addComputer.exec();
+    int add = addComputer.exec();
+    if (add == 0)
+    {
+        list.refreshVector();
+        showComputers();
+        statusBar()->showMessage("Computer added!",2000);
+    }
+    else
+    {
+        QMessageBox::warning(this, "error", "asdfasdfadsf");
+    }
 }
