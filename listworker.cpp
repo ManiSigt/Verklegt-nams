@@ -12,12 +12,13 @@ ListWorker::ListWorker()
     data.readComputersFromDatabase(com);
     data.readLinksFromDatabase(link);
 }
-void ListWorker::addNewScientist(string name, char gender, int yearOfBirth, int yearOfDeath, string comment)
+bool ListWorker::addNewScientist(string name, char gender, int yearOfBirth, int yearOfDeath, string comment)
 {
     int vsize = scientistIdFinder();
     Person p(name, gender, yearOfBirth, yearOfDeath, comment, vsize);
     persons.push_back(p);
     data.addScientist(name, gender, yearOfBirth, yearOfDeath, comment, vsize);
+    return true;
 }
 void ListWorker::addNewComputer(string name, string type, int yearbuilt, string isbuilt)
 {

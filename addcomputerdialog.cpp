@@ -30,4 +30,5 @@ void addComputerDialog::on_add_computer_button_clicked()
     }
 
     list.addNewComputer(name.toStdString(), type.toStdString(), date.toInt(), yesNo);
+
 }

@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>400</width>
-    <height>310</height>
+    <height>316</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -18,6 +18,13 @@
     <widget class="QLabel" name="label_scientist_name">
      <property name="text">
       <string>Name</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLabel" name="error_name">
+     <property name="text">
+      <string/>
      </property>
     </widget>
    </item>
@@ -56,6 +63,13 @@
     <widget class="QLabel" name="label_scientist_birth">
      <property name="text">
       <string>Birth</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLabel" name="error_birth">
+     <property name="text">
+      <string/>
      </property>
     </widget>
    </item>
