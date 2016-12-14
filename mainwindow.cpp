@@ -9,6 +9,7 @@
 #include <QDebug>
 #include <string>
 #include <QList>
+#include <QTableWidget>
 
 using namespace std;
 
@@ -68,7 +69,6 @@ void MainWindow::showScientists()
 }
 void MainWindow::showComputers()
 {
-    int rowCount;
     ui->table_computer->clear();
 
     ui->table_computer->setHorizontalHeaderItem(0,new QTableWidgetItem("Name"));
@@ -97,7 +97,10 @@ void MainWindow::showComputers()
             ui->table_computer->setItem(i,1,new QTableWidgetItem(qtype));
             ui->table_computer->setItem(i,2,new QTableWidgetItem(qdate));
             ui->table_computer->setItem(i,3,new QTableWidgetItem(qwasitbuilt));
-            rowCount = i;
+        }
+        else
+        {
+            ui->table_computer->hideRow(i);
         }
     }
     ui->table_computer->resizeColumnsToContents();
@@ -131,7 +134,6 @@ void MainWindow::showConnections()
     }
     ui->table_connections->resizeColumnsToContents();
 }
-
 void MainWindow::on_dropdown_scientist_activated(const QString &arg1)
 {
         QMessageBox::information(this, "Item Selection",
@@ -214,13 +216,11 @@ void MainWindow::on_button_computer_remove_clicked()
         QMessageBox::warning(this, "Warning!", "Unable to remove computer!😡");
     }
 }
-
 void MainWindow::on_button_connections_edit_clicked()
 {
     EditScientistDialog editSci;
         editSci.exec();
 }
-
 void MainWindow::on_button_computer_add_clicked()
 {
     addComputerDialog addComputer;

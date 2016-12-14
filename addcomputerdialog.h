@@ -18,8 +18,6 @@ public:
     ~addComputerDialog();
 
 private slots:
-    void on_button_add_computer_clicked();
-
     void on_add_computer_button_clicked();
 
 private:
