@@ -42,6 +42,14 @@ private slots:
 
     void on_button_computer_edit_clicked();
 
+    void on_action_add_scientist_triggered();
+
+    void on_action_add_computer_triggered();
+
+    void on_action_edit_scientist_triggered();
+
+    void on_action_edit_computer_triggered();
+
 private:
     Ui::MainWindow *ui;
     ListWorker list;

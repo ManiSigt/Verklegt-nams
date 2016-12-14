@@ -262,6 +262,22 @@
      <height>26</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>Add</string>
+    </property>
+    <addaction name="action_add_scientist"/>
+    <addaction name="action_add_computer"/>
+   </widget>
+   <widget class="QMenu" name="menuEdit">
+    <property name="title">
+     <string>Edit</string>
+    </property>
+    <addaction name="action_edit_scientist"/>
+    <addaction name="action_edit_computer"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuEdit"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
    <attribute name="toolBarArea">
@@ -272,6 +288,42 @@
    </attribute>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
+  <action name="action_add_scientist">
+   <property name="icon">
+    <iconset>
+     <normaloff>../../../add5.jpg</normaloff>../../../add5.jpg</iconset>
+   </property>
+   <property name="text">
+    <string>Add scientist</string>
+   </property>
+  </action>
+  <action name="action_add_computer">
+   <property name="icon">
+    <iconset>
+     <normaloff>../../../comp2.jpg</normaloff>../../../comp2.jpg</iconset>
+   </property>
+   <property name="text">
+    <string>Add computer</string>
+   </property>
+  </action>
+  <action name="action_edit_scientist">
+   <property name="icon">
+    <iconset>
+     <normaloff>../../../edit.jpg</normaloff>../../../edit.jpg</iconset>
+   </property>
+   <property name="text">
+    <string>Edit scientist</string>
+   </property>
+  </action>
+  <action name="action_edit_computer">
+   <property name="icon">
+    <iconset>
+     <normaloff>../../../editcomputer2.jpg</normaloff>../../../editcomputer2.jpg</iconset>
+   </property>
+   <property name="text">
+    <string>Edit computer</string>
+   </property>
+  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <tabstops>
