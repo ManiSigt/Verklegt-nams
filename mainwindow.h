@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include "listworker.h"
 #include "addscientistdialog.h"
+#include "linker.h"
 
 #include <string>
 
@@ -41,6 +42,8 @@ private slots:
     void on_button_computer_add_clicked();
 
     void on_button_computer_edit_clicked();
+
+    void on_dropdown_connections_activated(int index);
 
 private:
     Ui::MainWindow *ui;

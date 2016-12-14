@@ -18,7 +18,7 @@
     <item>
      <widget class="QTabWidget" name="tabWidget">
       <property name="currentIndex">
-       <number>1</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="tab">
        <attribute name="title">
@@ -194,9 +194,6 @@
           </property>
          </widget>
         </item>
-        <item row="0" column="3">
-         <widget class="QComboBox" name="dropdown_connections"/>
-        </item>
         <item row="1" column="0" colspan="4">
          <widget class="QTableWidget" name="table_connections">
           <property name="selectionBehavior">
@@ -293,7 +290,6 @@
   <tabstop>button_connections_edit</tabstop>
   <tabstop>dropdown_scientist</tabstop>
   <tabstop>dropdown_computer</tabstop>
-  <tabstop>dropdown_connections</tabstop>
  </tabstops>
  <resources/>
  <connections/>

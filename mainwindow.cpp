@@ -5,6 +5,7 @@
 #include "addcomputerdialog.h"
 #include "editscientistdialog.h"
 #include "editcomputerdialog.h"
+#include "editconnectiondialog.h"
 #include <QMessageBox>
 #include <algorithm>
 #include <QDebug>
@@ -155,8 +156,8 @@ void MainWindow::populateDropdownMenus()
         ui->dropdown_computer->addItem("Type");
         ui->dropdown_computer->addItem("Year");
 
-        ui->dropdown_connections->addItem("Scientist");
-        ui->dropdown_connections->addItem("Computer");
+        //ui->dropdown_connections->addItem("Scientist");
+        //ui->dropdown_connections->addItem("Computer");
 }
 
 void MainWindow::on_button_scientist_add_clicked()
@@ -240,6 +241,18 @@ void MainWindow::on_button_computer_remove_clicked()
 void MainWindow::on_button_connections_edit_clicked()
 {
 
+    int row = ui->table_connections->currentRow()+1;
+    int id = list.getLinkId(row);
+    int sciId = list.getLinkSciId(row);
+    int comId = list.getLinkCompId(row);
+    qDebug() << list.getScientistNameFromId(sciId).c_str();
+    Linker elink = Linker(id,sciId,comId);
+    EditConnectionDialog editCon;
+    editCon.prepare(elink);
+        editCon.exec();
+        list.refreshVector();
+        showConnections();
+    disableButtons();
 }
 
 
@@ -307,4 +320,6 @@ void MainWindow::disableButtons()
     ui->button_computer_remove->setEnabled(false);
     ui->button_computer_edit->setEnabled(false);
 }
+
+
 
