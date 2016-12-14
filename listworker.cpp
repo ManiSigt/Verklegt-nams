@@ -20,6 +20,10 @@ bool ListWorker::addNewScientist(string name, char gender, int yearOfBirth, int 
     data.addScientist(name, gender, yearOfBirth, yearOfDeath, comment, vsize);
     return true;
 }
+bool ListWorker::removeConnectionById(int id)
+{
+
+}
 bool ListWorker::addNewComputer(string name, string type, int yearbuilt, string isbuilt)
 {
     int vsize = computerIdFinder();

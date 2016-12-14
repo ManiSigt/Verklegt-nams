@@ -46,6 +46,7 @@ public:
     bool removeComputer(int rowNumber);                                                                 // Remove a computer from the vector com.
     bool removeComputerFound(string name);                                                            // Check if the computer tat the user wants to remove is found or not.
     bool typeSearcher(string type);                                                                   // Finds a specific type of computer.
+    bool removeConnectionById(int id);
     bool yearSearcher(int year);                                                                      // Searches for a specific year within the vector using a for loop.
     int computerIdFinder();                                                                           // Finds ID of computer.
     int scientistIdFinder();                                                                          // Finds ID of scientist.

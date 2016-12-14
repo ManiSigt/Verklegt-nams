@@ -479,6 +479,7 @@ void MainWindow::on_table_scientist_clicked(const QModelIndex &index)
 {
      ui->button_scientist_remove->setEnabled(true);
      ui->button_scientist_edit->setEnabled(true);
+     ui->action_edit_scientist->setEnabled(true);
 }
 
 void MainWindow::on_button_scientist_remove_clicked()
@@ -555,6 +556,7 @@ void MainWindow::on_table_computer_clicked(const QModelIndex &index)
 {
     ui->button_computer_remove->setEnabled(true);
     ui->button_computer_edit->setEnabled(true);
+    ui->action_edit_computer->setEnabled(true);
 }
 
 void MainWindow::on_button_computer_remove_clicked()
@@ -579,7 +581,7 @@ void MainWindow::on_button_connections_edit_clicked()
         int row = ui->table_connections->currentRow();
         string comName = list.getLinkOutputCompName(row);
         string sciName = list.getLinkOutputSciName(row);
-qDebug() << "here";
+
 
         int sciId = list.getScientistIdFromName(sciName);
         int comId = list.getComputerIdFromName(comName);
@@ -669,10 +671,14 @@ void MainWindow::on_table_connections_clicked(const QModelIndex &index)
 
 void MainWindow::on_button_connections_remove_clicked()
 {
-    int connectionremove = ui->table_connections->currentRow();
-    int sciID = list.getLinkSciId(connectionremove);
-    int compID = list.getLinkCompId(connectionremove);
-    bool success = list.removeConnection(sciID,compID);
+    int row = ui->table_connections->currentRow();
+    string comName = list.getLinkOutputCompName(row);
+    string sciName = list.getLinkOutputSciName(row);
+
+    int sciId = list.getScientistIdFromName(sciName);
+    int comId = list.getComputerIdFromName(comName);
+    int id = list.getLinkIdFromSciComIds(sciId,comId);
+    bool success = list.removeConnection(sciId,comId);
     if (success)
     {
         showConnectionsNameComp();
