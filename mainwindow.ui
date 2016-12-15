@@ -315,22 +315,6 @@
      <height>26</height>
     </rect>
    </property>
-   <widget class="QMenu" name="menuFile">
-    <property name="title">
-     <string>Add</string>
-    </property>
-    <addaction name="action_add_scientist"/>
-    <addaction name="action_add_computer"/>
-   </widget>
-   <widget class="QMenu" name="menuEdit">
-    <property name="title">
-     <string>Edit</string>
-    </property>
-    <addaction name="action_edit_scientist"/>
-    <addaction name="action_edit_computer"/>
-   </widget>
-   <addaction name="menuFile"/>
-   <addaction name="menuEdit"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
    <attribute name="toolBarArea">
