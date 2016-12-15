@@ -12,5 +12,7 @@
         <file>icons/Deletesexy.png</file>
         <file>icons/Sexymainicon.png</file>
         <file>icons/editsexy.png</file>
+        <file>icons/deletesexy2.png</file>
+        <file>icons/themesexy.png</file>
     </qresource>
 </RCC>
