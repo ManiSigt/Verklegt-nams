@@ -281,7 +281,7 @@ void DataLayer::readLinksFromDatabase(vector<Linker>& link)
 
     while(query.next())
     {
-        int id = query.value("ID").toUInt();
+        int id = query.value("id").toUInt();
         int sciId = query.value("ScientistID").toUInt();
         int comId = query.value("ComputerID").toUInt();
 

@@ -38,7 +38,7 @@ void ListWorker::addNewConnection(int compId, int sciId)
 {
     int linkId;
     //get free ID in database
-    for(int i = 1; i < getLinkSize(); i++)
+    for(int i = 1; i < getLinkSize()+2; i++)
     {
         if(i != getLinkId(i))
         {
@@ -358,14 +358,11 @@ int ListWorker::getScientistIdFromName(string name) const
 int ListWorker::getLinkIdFromSciComIds(int sciId, int comId) const
 {
     int id;
-    for(unsigned int i = 0; i < link.size(); i++)
+    for(int i = 0; i < link.size(); i++)
     {
-        if(getLinkCompId(i) == comId)
+        if(getLinkCompId(i) == comId && getLinkSciId(i) == sciId)
         {
-            if(getLinkSciId(i) == sciId)
-            {
-                id = getLinkId(i);
-            }
+            id = getLinkId(i);
         }
     }
     return id;
