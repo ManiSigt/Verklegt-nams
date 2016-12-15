@@ -33,7 +33,11 @@
     </rect>
    </property>
    <property name="text">
-    <string>Cancel</string>
+    <string> Cancel</string>
+   </property>
+   <property name="icon">
+    <iconset resource="myresourcefile.qrc">
+     <normaloff>:/icons/icons/cancel.png</normaloff>:/icons/icons/cancel.png</iconset>
    </property>
   </widget>
   <widget class="QRadioButton" name="edit_computer_radiobutton_no">
@@ -105,7 +109,11 @@
     </rect>
    </property>
    <property name="text">
-    <string>Edit Computer</string>
+    <string> Edit computer</string>
+   </property>
+   <property name="icon">
+    <iconset resource="myresourcefile.qrc">
+     <normaloff>:/icons/icons/edit2.png</normaloff>:/icons/icons/edit2.png</iconset>
    </property>
   </widget>
   <widget class="QRadioButton" name="edit_computer_radiobutton_yes">
@@ -151,6 +159,8 @@
    </property>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="myresourcefile.qrc"/>
+ </resources>
  <connections/>
 </ui>

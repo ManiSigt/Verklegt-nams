@@ -116,12 +116,18 @@
    <item>
     <widget class="QPushButton" name="button_add_scientist">
      <property name="text">
-      <string>Add scientist</string>
+      <string> Add scientist</string>
+     </property>
+     <property name="icon">
+      <iconset resource="myresourcefile.qrc">
+       <normaloff>:/icons/icons/add2.png</normaloff>:/icons/icons/add2.png</iconset>
      </property>
     </widget>
    </item>
   </layout>
  </widget>
- <resources/>
+ <resources>
+  <include location="myresourcefile.qrc"/>
+ </resources>
  <connections/>
 </ui>

@@ -67,14 +67,22 @@
       <bool>false</bool>
      </property>
      <property name="text">
-      <string>Edit Connection</string>
+      <string> Edit Connection</string>
+     </property>
+     <property name="icon">
+      <iconset resource="myresourcefile.qrc">
+       <normaloff>:/icons/icons/edit2.png</normaloff>:/icons/icons/edit2.png</iconset>
      </property>
     </widget>
    </item>
    <item row="4" column="1" colspan="2">
     <widget class="QPushButton" name="button_edit_connection_cancel">
      <property name="text">
-      <string>Cancel</string>
+      <string> Cancel</string>
+     </property>
+     <property name="icon">
+      <iconset resource="myresourcefile.qrc">
+       <normaloff>:/icons/icons/cancel.png</normaloff>:/icons/icons/cancel.png</iconset>
      </property>
     </widget>
    </item>
@@ -87,6 +95,8 @@
    </item>
   </layout>
  </widget>
- <resources/>
+ <resources>
+  <include location="myresourcefile.qrc"/>
+ </resources>
  <connections/>
 </ui>
