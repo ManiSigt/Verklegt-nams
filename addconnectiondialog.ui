@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>EditConnectionsDialog</class>
- <widget class="QDialog" name="EditConnectionsDialog">
+ <class>AddConnectionDialog</class>
+ <widget class="QDialog" name="AddConnectionDialog">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>526</width>
-    <height>431</height>
+    <width>534</width>
+    <height>433</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -31,13 +31,20 @@
    <item row="1" column="0">
     <widget class="QListWidget" name="list_computers"/>
    </item>
-   <item row="1" column="1" colspan="2">
+   <item row="1" column="1">
     <widget class="QListWidget" name="list_scientists"/>
    </item>
    <item row="2" column="0">
     <widget class="QLabel" name="label_3">
      <property name="text">
       <string>Current Computer</string>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="1">
+    <widget class="QLabel" name="label_4">
+     <property name="text">
+      <string>Current Scientist</string>
      </property>
     </widget>
    </item>
@@ -51,7 +58,7 @@
      </property>
     </widget>
    </item>
-   <item row="3" column="1" colspan="2">
+   <item row="3" column="1">
     <widget class="QLineEdit" name="input_current_scientist">
      <property name="enabled">
       <bool>true</bool>
@@ -62,41 +69,24 @@
     </widget>
    </item>
    <item row="4" column="0">
-    <widget class="QPushButton" name="button_edit_connection">
+    <widget class="QPushButton" name="button_add_connection">
      <property name="enabled">
       <bool>false</bool>
      </property>
      <property name="text">
-      <string> Edit Connection</string>
-     </property>
-     <property name="icon">
-      <iconset resource="myresourcefile.qrc">
-       <normaloff>:/icons/icons/edit2.png</normaloff>:/icons/icons/edit2.png</iconset>
+      <string>Add Connection</string>
      </property>
     </widget>
    </item>
-   <item row="4" column="1" colspan="2">
+   <item row="4" column="1">
     <widget class="QPushButton" name="button_edit_connection_cancel">
      <property name="text">
-      <string> Cancel</string>
-     </property>
-     <property name="icon">
-      <iconset resource="myresourcefile.qrc">
-       <normaloff>:/icons/icons/cancel.png</normaloff>:/icons/icons/cancel.png</iconset>
-     </property>
-    </widget>
-   </item>
-   <item row="2" column="1">
-    <widget class="QLabel" name="label_4">
-     <property name="text">
-      <string>Current Scientist</string>
+      <string>Cancel</string>
      </property>
     </widget>
    </item>
   </layout>
  </widget>
- <resources>
-  <include location="myresourcefile.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

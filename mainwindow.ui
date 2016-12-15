@@ -297,6 +297,9 @@
         </item>
         <item row="2" column="2">
          <widget class="QPushButton" name="button_connections_edit">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
           <property name="text">
            <string> Edit</string>
           </property>
@@ -318,9 +321,25 @@
      <x>0</x>
      <y>0</y>
      <width>662</width>
-     <height>26</height>
+     <height>22</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <widget class="QMenu" name="menuChange_color">
+     <property name="title">
+      <string>Change color</string>
+     </property>
+     <addaction name="actionRed"/>
+     <addaction name="actionPink"/>
+     <addaction name="actionWhite"/>
+     <addaction name="actionOrange"/>
+    </widget>
+    <addaction name="menuChange_color"/>
+   </widget>
+   <addaction name="menuFile"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
    <attribute name="toolBarArea">
@@ -371,6 +390,26 @@
    </property>
    <property name="text">
     <string>Edit computer</string>
+   </property>
+  </action>
+  <action name="actionRed">
+   <property name="text">
+    <string>Cyan</string>
+   </property>
+  </action>
+  <action name="actionPink">
+   <property name="text">
+    <string>Pink</string>
+   </property>
+  </action>
+  <action name="actionWhite">
+   <property name="text">
+    <string>Crimson</string>
+   </property>
+  </action>
+  <action name="actionOrange">
+   <property name="text">
+    <string>Orange</string>
    </property>
   </action>
  </widget>

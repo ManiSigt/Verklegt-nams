@@ -63,6 +63,16 @@ private slots:
 
     void on_tabWidget_tabBarClicked(int index);
 
+    void on_actionRed_triggered();
+
+    void on_actionPink_triggered();
+
+    void on_actionWhite_triggered();
+
+    void on_actionOrange_triggered();
+
+    void on_button_connections_add_clicked();
+
 private:
     Ui::MainWindow *ui;
     ListWorker list;

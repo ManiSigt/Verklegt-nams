@@ -105,7 +105,11 @@
     </rect>
    </property>
    <property name="text">
-    <string>Edit Scientist</string>
+    <string> Edit scientist</string>
+   </property>
+   <property name="icon">
+    <iconset resource="myresourcefile.qrc">
+     <normaloff>:/icons/icons/edit2.png</normaloff>:/icons/icons/edit2.png</iconset>
    </property>
   </widget>
   <widget class="QLineEdit" name="input_scientist_comment">
@@ -141,7 +145,11 @@
     </rect>
    </property>
    <property name="text">
-    <string>Cancel</string>
+    <string> Cancel</string>
+   </property>
+   <property name="icon">
+    <iconset resource="myresourcefile.qrc">
+     <normaloff>:/icons/icons/cancel.png</normaloff>:/icons/icons/cancel.png</iconset>
    </property>
   </widget>
   <widget class="QRadioButton" name="edit_scientist_radio_button_male">
@@ -174,6 +182,8 @@
    </property>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="myresourcefile.qrc"/>
+ </resources>
  <connections/>
 </ui>
