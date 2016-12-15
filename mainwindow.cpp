@@ -725,3 +725,23 @@ void MainWindow::on_tabWidget_tabBarClicked(int index)
     ui->table_connections->clearSelection();
     ui->table_scientist->clearSelection();
 }
+
+void MainWindow::on_actionRed_triggered()
+{
+        setStyleSheet("background-color: cyan;");
+}
+
+void MainWindow::on_actionPink_triggered()
+{
+        setStyleSheet("background-color: pink;");
+}
+
+void MainWindow::on_actionWhite_triggered()
+{
+        setStyleSheet("background-color: crimson;");
+}
+
+void MainWindow::on_actionOrange_triggered()
+{
+        setStyleSheet("background-color: orange;");
+}
