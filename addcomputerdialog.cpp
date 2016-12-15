@@ -6,6 +6,7 @@ addComputerDialog::addComputerDialog(QWidget *parent) :
     ui(new Ui::addComputerDialog)
 {
     ui->setupUi(this);
+    setWindowIcon(QIcon(":/icons/icons/add2.png"));
 }
 
 addComputerDialog::~addComputerDialog()

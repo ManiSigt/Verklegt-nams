@@ -7,6 +7,7 @@ EditScientistDialog::EditScientistDialog(QWidget *parent) :
     ui(new Ui::EditScientistDialog)
 {
     ui->setupUi(this);
+    setWindowIcon(QIcon(":/icons/icons/edit2.png"));
 }
 
 EditScientistDialog::~EditScientistDialog()

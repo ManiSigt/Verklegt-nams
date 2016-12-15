@@ -6,6 +6,7 @@ addScientistDialog::addScientistDialog(QWidget *parent) :
     ui(new Ui::addScientistDialog)
 {
     ui->setupUi(this);
+    setWindowIcon(QIcon(":/icons/icons/add2.png"));
 }
 
 addScientistDialog::~addScientistDialog()
