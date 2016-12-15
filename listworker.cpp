@@ -443,4 +443,6 @@ void ListWorker::searchConnectionsBySci(int n)
 void ListWorker::eraser()
 {
     linkout.erase(linkout.begin(),linkout.end());
+    persons.erase (persons.begin(),persons.end());
+    link.erase(link.begin(),link.end());
 }

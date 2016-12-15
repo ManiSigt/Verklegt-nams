@@ -19,6 +19,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    setWindowIcon(QIcon(":/icons/icons/skull-512.ico"));
     showComputersName();
     showConnectionsNameSci();
     showScientistsName();
@@ -74,6 +75,7 @@ void MainWindow::showScientistsName()
 }
 void MainWindow::showScientistsGender()
 {
+    list.eraser();
     ui->table_scientist->clear();
 
     ui->table_scientist->setHorizontalHeaderItem(0,new QTableWidgetItem("Name"));
@@ -139,6 +141,7 @@ void MainWindow::showScientistsGender()
 }
 void MainWindow::showScientistsBirthYear()
 {
+    list.eraser();
     int yearSearch = -1;
     ui->table_scientist->clear();
 
@@ -195,6 +198,7 @@ void MainWindow::showScientistsBirthYear()
 }
 void MainWindow::showScientistsDeathYear()
 {
+    list.eraser();
     int yearSearch = -1;
     ui->table_scientist->clear();
 
@@ -252,6 +256,7 @@ void MainWindow::showScientistsDeathYear()
 }
 void MainWindow::showComputersName()
 {
+    list.eraser();
     ui->table_computer->clear();
     ui->table_computer->setHorizontalHeaderItem(0,new QTableWidgetItem("Name"));
     ui->table_computer->setHorizontalHeaderItem(1,new QTableWidgetItem("Type"));
@@ -288,6 +293,7 @@ void MainWindow::showComputersName()
 }
 void MainWindow::showComputersType()
 {
+    list.eraser();
     ui->table_computer->clear();
     ui->table_computer->setHorizontalHeaderItem(0,new QTableWidgetItem("Name"));
     ui->table_computer->setHorizontalHeaderItem(1,new QTableWidgetItem("Type"));
@@ -323,6 +329,7 @@ void MainWindow::showComputersType()
 }
 void MainWindow::showComputersYear()
 {
+    list.eraser();
     int yearSearch = -1;
     ui->table_computer->clear();
 

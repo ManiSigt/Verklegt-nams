@@ -6,5 +6,6 @@
         <file>icons/edit.png</file>
         <file>icons/editComputer.jpg</file>
         <file>icons/editPerson.jpg</file>
+        <file>icons/skull-512.ico</file>
     </qresource>
 </RCC>

@@ -62,6 +62,7 @@ private slots:
 
     void on_action_edit_computer_triggered();
 
+
 private:
     Ui::MainWindow *ui;
     ListWorker list;
