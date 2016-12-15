@@ -33,7 +33,6 @@ MainWindow::~MainWindow()
 
 void MainWindow::showScientistsName()
 {
-
     ui->table_scientist->clear();
 
     ui->table_scientist->setHorizontalHeaderItem(0,new QTableWidgetItem("Name"));
@@ -75,7 +74,6 @@ void MainWindow::showScientistsName()
 }
 void MainWindow::showScientistsGender()
 {
-    list.eraser();
     ui->table_scientist->clear();
 
     ui->table_scientist->setHorizontalHeaderItem(0,new QTableWidgetItem("Name"));
@@ -141,7 +139,6 @@ void MainWindow::showScientistsGender()
 }
 void MainWindow::showScientistsBirthYear()
 {
-    list.eraser();
     int yearSearch = -1;
     ui->table_scientist->clear();
 
@@ -198,7 +195,6 @@ void MainWindow::showScientistsBirthYear()
 }
 void MainWindow::showScientistsDeathYear()
 {
-    list.eraser();
     int yearSearch = -1;
     ui->table_scientist->clear();
 
@@ -682,7 +678,7 @@ void MainWindow::on_button_connections_remove_clicked()
     string comName = list.getLinkOutputCompName(row);
     string sciName = list.getLinkOutputSciName(row);
     cout << sciName;
-qDebug() << row;
+    qDebug() << row;
     int sciId = list.getScientistIdFromName(sciName);
     int comId = list.getComputerIdFromName(comName);
     int id = list.getLinkIdFromSciComIds(sciId,comId);
