@@ -6,6 +6,7 @@
 #include "editscientistdialog.h"
 #include "editcomputerdialog.h"
 #include "editconnectionsdialog.h"
+#include "themedialog.h"
 #include <QMessageBox>
 #include <algorithm>
 #include <QDebug>
@@ -19,11 +20,16 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    setWindowIcon(QIcon(":/icons/icons/skull-512.ico"));
+    ThemeDialog themeDialog;
+    themeDialog.exec();
     showComputersName();
     showConnectionsNameSci();
     showScientistsName();
     populateDropdownMenus();
+    ui->input_scientist->setFixedHeight(30);
+    ui->input_scientist->setFixedWidth(457);
+    ui->dropdown_scientist->setFixedHeight(30);
+    ui->dropdown_scientist->setFixedWidth(148);
 }
 
 MainWindow::~MainWindow()

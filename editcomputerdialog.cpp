@@ -8,7 +8,8 @@ EditComputerDialog::EditComputerDialog(QWidget *parent) :
     ui(new Ui::EditComputerDialog)
 {
     ui->setupUi(this);
-    setWindowIcon(QIcon(":/icons/icons/edit2.png"));
+
+
 }
 
 EditComputerDialog::~EditComputerDialog()
