@@ -821,3 +821,8 @@ void MainWindow::on_button_connections_add_clicked()
         statusBar()->showMessage("Canceled!",2000);
     }
 }
+
+void MainWindow::on_actionNormal_triggered()
+{
+    setStyleSheet("background-color: normal;");
+}

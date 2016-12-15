@@ -72,6 +72,8 @@ private slots:
 
     void on_button_connections_add_clicked();
 
+    void on_actionNormal_triggered();
+
 private:
     Ui::MainWindow *ui;
     ListWorker list;

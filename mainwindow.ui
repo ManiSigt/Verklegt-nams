@@ -336,6 +336,7 @@
      <addaction name="actionPink"/>
      <addaction name="actionWhite"/>
      <addaction name="actionOrange"/>
+     <addaction name="actionNormal"/>
     </widget>
     <addaction name="menuChange_color"/>
    </widget>
@@ -410,6 +411,11 @@
   <action name="actionOrange">
    <property name="text">
     <string>Orange</string>
+   </property>
+  </action>
+  <action name="actionNormal">
+   <property name="text">
+    <string>Normal</string>
    </property>
   </action>
  </widget>
