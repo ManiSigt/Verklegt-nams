@@ -28,7 +28,6 @@ AddConnectionDialog::~AddConnectionDialog()
 
 void AddConnectionDialog::on_list_scientists_clicked(const QModelIndex &index)
 {
-    cout << "here";
     ui->input_current_scientist->clear();
     int row = ui->list_scientists->currentRow();
     QString sciName = QString::fromStdString(elist.getScientistName(row));
@@ -43,7 +42,6 @@ void AddConnectionDialog::on_list_scientists_clicked(const QModelIndex &index)
 
 void AddConnectionDialog::on_list_computers_clicked(const QModelIndex &index)
 {
-    cout << "here 2";
     ui->input_current_computer->clear();
     int row = ui->list_computers->currentRow();
     QString comName = QString::fromStdString(elist.getComputerName(row));

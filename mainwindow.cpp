@@ -259,8 +259,8 @@ void MainWindow::showScientistsDeathYear()
 }
 void MainWindow::showComputersName()
 {
-    list.eraser();
     ui->table_computer->clear();
+    ui->table_computer->clearContents();
     ui->table_computer->setHorizontalHeaderItem(0,new QTableWidgetItem("Name"));
     ui->table_computer->setHorizontalHeaderItem(1,new QTableWidgetItem("Type"));
     ui->table_computer->setHorizontalHeaderItem(2,new QTableWidgetItem("Date"));
@@ -296,7 +296,6 @@ void MainWindow::showComputersName()
 }
 void MainWindow::showComputersType()
 {
-    list.eraser();
     ui->table_computer->clear();
     ui->table_computer->setHorizontalHeaderItem(0,new QTableWidgetItem("Name"));
     ui->table_computer->setHorizontalHeaderItem(1,new QTableWidgetItem("Type"));
@@ -332,7 +331,6 @@ void MainWindow::showComputersType()
 }
 void MainWindow::showComputersYear()
 {
-    list.eraser();
     int yearSearch = -1;
     ui->table_computer->clear();
 
@@ -385,7 +383,6 @@ void MainWindow::showComputersYear()
 }
 void MainWindow::showConnectionsNameSci()
 {
-    list.eraser(); // skítmix
     ui->table_connections->clearContents();
     list.sortConnections("1"); //þegar sort verður lagfært þá verður þetta kannski fært.
 
@@ -417,7 +414,6 @@ void MainWindow::showConnectionsNameSci()
 }
 void MainWindow::showConnectionsNameComp()
 {
-    list.eraser(); // skítmix
     ui->table_connections->clearContents();
     list.sortConnections("1"); //þegar sort verður lagfært þá verður þetta kannski fært.
 
@@ -476,6 +472,7 @@ void MainWindow::on_button_scientist_add_clicked()
     int add = addScientist.exec();
     if (add == 0)
     {
+        list.eraser();
         list.refreshVector();
         showScientistsName();
         statusBar()->showMessage("Scientist added!",2000);
@@ -495,10 +492,12 @@ void MainWindow::on_table_scientist_clicked(const QModelIndex &index)
 void MainWindow::on_button_scientist_remove_clicked()
 {
     int scientistRemove = ui->table_scientist->currentRow();
-    bool sucsess = list.removePerson(scientistRemove);
+    bool success = list.removePerson(scientistRemove);
 
-    if (sucsess)
+    if (success)
     {
+        list.eraser();
+        list.refreshVector();
         showScientistsName();
         ui->button_scientist_remove->setEnabled(false);
         statusBar()->showMessage("Scientist removed!",2000);
@@ -576,6 +575,8 @@ void MainWindow::on_button_computer_remove_clicked()
 
     if (success)
     {
+        list.eraser();
+        list.refreshVector();
         showComputersName();
         ui->button_computer_remove->setEnabled(false);
         statusBar()->showMessage("Computer removed!",2000);
@@ -585,7 +586,6 @@ void MainWindow::on_button_computer_remove_clicked()
         QMessageBox::warning(this, "Warning!", "Unable to remove computer!😡");
     }
     disableButtons();
-    list.eraser();
 }
 void MainWindow::on_button_connections_edit_clicked()
 {
@@ -602,6 +602,8 @@ qDebug() << sciId << " " << comId << " " << id;
         EditConnectionsDialog editCon;
         editCon.prepare(elink);
             editCon.exec();
+
+            list.eraser();
             list.refreshVector();
             showConnectionsNameComp();
         disableButtons();
@@ -636,14 +638,16 @@ void MainWindow::on_button_computer_add_clicked()
     int add = addComputer.exec();
     if (add == 0)
     {
-        list.refreshVector();
-        showComputersName();
+
         statusBar()->showMessage("Computer added!",2000);
     }
     else
     {
         QMessageBox::warning(this, "error", "asdfasdfadsf");
     }
+    list.eraser();
+    list.refreshVector();
+    showComputersName();
 }
 
 void MainWindow::on_button_computer_edit_clicked()
@@ -663,6 +667,7 @@ void MainWindow::on_button_computer_edit_clicked()
         EditComputerDialog editCom;
         editCom.prepare(ecom);
             editCom.exec();
+            list.eraser();
             list.refreshVector();
             showComputersName();
     disableButtons();
@@ -706,8 +711,9 @@ void MainWindow::on_button_connections_remove_clicked()
     bool success = list.removeConnectionById(id);
     if (success)
     {
+        list.eraser();
+        list.refreshVector();
         showConnectionsNameComp();
-        showConnectionsNameSci();
         ui->button_connections_remove->setEnabled(false);
         statusBar()->showMessage("Connection removed!",2000);
     }
@@ -770,6 +776,7 @@ void MainWindow::on_button_connections_add_clicked()
     int add = addCon.exec();
     if (add == 0)
     {
+        list.eraser();
         list.refreshVector();
         showConnectionsNameComp();
         disableButtons();

@@ -450,6 +450,7 @@ void ListWorker::searchConnectionsBySci(int n)
 }
 void ListWorker::eraser()
 {
+    com.erase(com.begin(),com.end());
     linkout.erase(linkout.begin(),linkout.end());
-    link.erase(link.begin(),link.end());
+    //link.erase(link.begin(),link.end());
 }
