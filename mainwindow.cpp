@@ -72,8 +72,8 @@ void MainWindow::showScientistsName()
             count++;
         }
     }
-   ui->table_scientist->resizeColumnsToContents();
-   ui->table_scientist->setRowCount(count);
+    ui->table_scientist->resizeColumnsToContents();
+    ui->table_scientist->setRowCount(count);
 
 }
 void MainWindow::showScientistsGender()
@@ -138,8 +138,8 @@ void MainWindow::showScientistsGender()
             count++;
         }
     }
-   ui->table_scientist->resizeColumnsToContents();
-   ui->table_scientist->setRowCount(count);
+    ui->table_scientist->resizeColumnsToContents();
+    ui->table_scientist->setRowCount(count);
 }
 void MainWindow::showScientistsBirthYear()
 {
@@ -194,8 +194,8 @@ void MainWindow::showScientistsBirthYear()
             count++;
         }
     }
-   ui->table_scientist->resizeColumnsToContents();
-   ui->table_scientist->setRowCount(count);
+    ui->table_scientist->resizeColumnsToContents();
+    ui->table_scientist->setRowCount(count);
 }
 void MainWindow::showScientistsDeathYear()
 {
@@ -250,8 +250,8 @@ void MainWindow::showScientistsDeathYear()
             count++;
         }
     }
-   ui->table_scientist->resizeColumnsToContents();
-   ui->table_scientist->setRowCount(count);
+    ui->table_scientist->resizeColumnsToContents();
+    ui->table_scientist->setRowCount(count);
 
 }
 void MainWindow::showComputersName()
@@ -374,8 +374,8 @@ void MainWindow::showComputersYear()
             count++;
         }
     }
-   ui->table_computer->resizeColumnsToContents();
-   ui->table_computer->setRowCount(count);
+    ui->table_computer->resizeColumnsToContents();
+    ui->table_computer->setRowCount(count);
 
 }
 void MainWindow::showConnectionsNameSci()
@@ -465,7 +465,7 @@ void MainWindow::on_button_scientist_add_clicked()
     int add = addScientist.exec();
     if (add == 1)
     {
-        list.eraser();
+        //list.eraser();
         list.refreshVector();
         showScientistsName();
         statusBar()->showMessage("Scientist added!",2000);
@@ -586,7 +586,6 @@ void MainWindow::on_button_connections_edit_clicked()
         string comName = list.getLinkOutputCompName(row);
         string sciName = list.getLinkOutputSciName(row);
 
-
         int sciId = list.getScientistIdFromName(sciName);
         int comId = list.getComputerIdFromName(comName);
         int id = list.getLinkIdFromSciComIds(sciId,comId);
@@ -611,12 +610,7 @@ void MainWindow::on_button_connections_edit_clicked()
         }
 
         editCon.exec();
-
-
-
 }
-
-
 void MainWindow::on_button_scientist_edit_clicked()
 {
     int row = ui->table_scientist->currentRow();
@@ -633,7 +627,6 @@ void MainWindow::on_button_scientist_edit_clicked()
 
     EditScientistDialog editSci;
     editSci.prepare(esci);
-
 
     bool add = editSci.exec();
 
@@ -667,7 +660,6 @@ void MainWindow::on_button_computer_add_clicked()
     list.refreshVector();
     showComputersName();
 }
-
 void MainWindow::on_button_computer_edit_clicked()
 {
         int row = ui->table_computer->currentRow();
@@ -684,20 +676,6 @@ void MainWindow::on_button_computer_edit_clicked()
 
         EditComputerDialog editCom;
         editCom.prepare(ecom);
-            bool add = editCom.exec();
-
-            if (add == 1)
-            {
-                list.eraser();
-                list.refreshVector();
-                showComputersName();
-                disableButtons();
-                statusBar()->showMessage("Computer edited!",2000);
-            }
-            else
-            {
-                statusBar()->showMessage("Canceled!",2000);
-            }
 
 
 }
@@ -917,7 +895,6 @@ void MainWindow::christmasTheme()
     ui->button_connections_remove->setIconSize(QSize(30,30));
 
 }
-
 void MainWindow::on_button_scientist_theme_clicked()
 {
     ThemeDialog theme;
@@ -935,7 +912,6 @@ void MainWindow::on_button_scientist_theme_clicked()
         christmasTheme();
     }
 }
-
 void MainWindow::on_button_computer_theme_clicked()
 {
     ThemeDialog theme;
