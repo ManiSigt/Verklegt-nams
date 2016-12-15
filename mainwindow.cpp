@@ -22,16 +22,10 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    ThemeDialog themeDialog;
-    themeDialog.exec();
     showComputersName();
     showConnectionsNameSci();
     showScientistsName();
     populateDropdownMenus();
-    ui->input_scientist->setFixedHeight(30);
-    ui->input_scientist->setFixedWidth(457);
-    ui->dropdown_scientist->setFixedHeight(30);
-    ui->dropdown_scientist->setFixedWidth(148);
     setStyleSheet("background-color: white;");
 }
 
@@ -825,4 +819,74 @@ void MainWindow::on_button_connections_add_clicked()
 void MainWindow::on_actionNormal_triggered()
 {
     setStyleSheet("background-color: normal;");
+}
+
+
+void MainWindow::skullTheme()
+{
+    setWindowIcon(QIcon(":/icons/icons/skull-512.ico"));
+
+}
+void MainWindow::sexyTheme()
+{
+    //setWindowIcon(QIcon(":/icons/icon.png"));
+
+}
+void MainWindow::christmasTheme()
+{
+    //setWindowIcon(QIcon(":/icons/icon.png"));
+
+}
+
+void MainWindow::on_button_scientist_theme_clicked()
+{
+    ThemeDialog theme;
+    int themes = theme.exec();
+    if(themes == 1)
+    {
+        skullTheme();
+    }
+    else if(themes == 2)
+    {
+        sexyTheme();
+    }
+    else if(themes == 3)
+    {
+        christmasTheme();
+    }
+}
+
+void MainWindow::on_button_computer_theme_clicked()
+{
+    ThemeDialog theme;
+    int themes = theme.exec();
+    if(themes == 1)
+    {
+        skullTheme();
+    }
+    else if(themes == 2)
+    {
+        sexyTheme();
+    }
+    else if(themes == 3)
+    {
+        christmasTheme();
+    }
+}
+void MainWindow::on_button_connections_theme_clicked()
+{
+    ThemeDialog theme;
+    int themes = theme.exec();
+    if(themes == 1)
+    {
+        skullTheme();
+    }
+    else if(themes == 2)
+    {
+        sexyTheme();
+    }
+    else if(themes == 3)
+    {
+        christmasTheme();
+    }
 }

@@ -20,6 +20,9 @@ public:
     ~MainWindow();
 
 private slots:
+    void christmasTheme();
+    void sexyTheme();
+    void skullTheme();
     void showComputersName();
     void showComputersYear();
     void showComputersType();
@@ -73,6 +76,12 @@ private slots:
     void on_button_connections_add_clicked();
 
     void on_actionNormal_triggered();
+
+    void on_button_connections_theme_clicked();
+
+    void on_button_computer_theme_clicked();
+
+    void on_button_scientist_theme_clicked();
 
 private:
     Ui::MainWindow *ui;

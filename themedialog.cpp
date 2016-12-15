@@ -17,17 +17,16 @@ void ThemeDialog::on_theme_ok_button_clicked()
 {
     if(ui->theme_skull_radio_button->isChecked())
     {
-
+        this->done(1);
     }
     if(ui->theme_sexy_radio_button->isChecked())
     {
-
+        this->done(2);
     }
     if(ui->theme_christmas_radio_button->isChecked())
     {
-
+        this->done(3);
     }
-    this->close();
 }
 
 void ThemeDialog::on_theme_cancel_button_clicked()

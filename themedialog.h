@@ -1,6 +1,6 @@
 #ifndef THEMEDIALOG_H
 #define THEMEDIALOG_H
-
+#include "mainwindow.h"
 #include <QDialog>
 
 namespace Ui {
