@@ -369,6 +369,11 @@ int ListWorker::getLinkIdFromSciComIds(int sciId, int comId) const
     return id;
 }
 
+bool ListWorker::updateScientistImage(QString fileName)
+{
+    data.addScientistImage(fileName);
+}
+
 bool ListWorker::updateConnection(int currentId, int sciId, int comId)
 {
     data.updateConnection(currentId,sciId,comId);

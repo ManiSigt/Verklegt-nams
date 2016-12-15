@@ -1,6 +1,8 @@
 #include "editscientistdialog.h"
 #include "ui_editscientistdialog.h"
 #include <QMessageBox>
+#include <QFileDialog>
+#include <QPixmap>
 
 EditScientistDialog::EditScientistDialog(QWidget *parent) :
     QDialog(parent),
@@ -104,6 +106,50 @@ void EditScientistDialog::on_button_scientist_edit_clicked()
         {
             this->done(-1);
         }
-
     }
+}
+
+void EditScientistDialog::on_button_file_open_clicked()
+{
+    QString fileName = QFileDialog::getOpenFileName(this,
+            tr("Jpg image"), "",
+            tr("Image file (*.jpg);;All Files (*)"));
+    ui->input_imagename->setText(fileName);
+    elist.updateScientistImage(fileName);
+    QPixmap  mypix(fileName);
+
+    int w = mypix.width();
+    int h = mypix.height();
+
+    int labelHeight = ui->label_image->height();
+
+    qDebug() << w << " " << h << " " << labelHeight;
+    if(h >= w)
+    {
+        do
+        {
+
+            h--;
+            w--;
+
+        }while(h >= 250);
+    }
+    else
+        do
+        {
+
+            h--;
+            w--;
+
+        }while(w >= 350);
+    qDebug() << w << " " << h << " " << labelHeight;
+
+    ui->label_image->setPixmap(mypix);
+    ui->label_image->setSizePolicy(QSizePolicy::Ignored, QSizePolicy::Ignored);
+    ui->label_image->setPixmap(mypix.scaled(w,h,Qt::KeepAspectRatioByExpanding));
+}
+
+void EditScientistDialog::on_button_file_save_clicked()
+{
+
 }
