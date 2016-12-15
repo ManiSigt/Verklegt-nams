@@ -30,7 +30,7 @@
        </font>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="tab">
        <attribute name="title">
@@ -321,7 +321,7 @@
      <x>0</x>
      <y>0</y>
      <width>662</width>
-     <height>22</height>
+     <height>26</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -352,7 +352,7 @@
   <widget class="QStatusBar" name="statusBar"/>
   <action name="action_add_scientist">
    <property name="icon">
-    <iconset resource="myresourcefile.qrc">
+    <iconset>
      <normaloff>:/icons/icons/addScientist.jpg</normaloff>:/icons/icons/addScientist.jpg</iconset>
    </property>
    <property name="text">
@@ -361,7 +361,7 @@
   </action>
   <action name="action_add_computer">
    <property name="icon">
-    <iconset resource="myresourcefile.qrc">
+    <iconset>
      <normaloff>:/icons/icons/addComputer.jpg</normaloff>:/icons/icons/addComputer.jpg</iconset>
    </property>
    <property name="text">
@@ -373,7 +373,7 @@
     <bool>false</bool>
    </property>
    <property name="icon">
-    <iconset resource="myresourcefile.qrc">
+    <iconset>
      <normaloff>:/icons/icons/editPerson.jpg</normaloff>:/icons/icons/editPerson.jpg</iconset>
    </property>
    <property name="text">
@@ -385,7 +385,7 @@
     <bool>false</bool>
    </property>
    <property name="icon">
-    <iconset resource="myresourcefile.qrc">
+    <iconset>
      <normaloff>:/icons/icons/edit.png</normaloff>:/icons/icons/edit.png</iconset>
    </property>
    <property name="text">

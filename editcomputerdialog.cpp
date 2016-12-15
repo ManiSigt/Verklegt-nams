@@ -59,8 +59,16 @@ void EditComputerDialog::on_button_computer_edit_clicked()
 
     if(error == 0)
     {
-        elist.updateComputer(name, type, built, date, currentId);
-        close();
+        bool success = elist.updateComputer(name, type, built, date, currentId);
+        if (success)
+        {
+            this->done(1);
+        }
+        else
+        {
+            this->done(-1);
+        }
+
     }
 }
 

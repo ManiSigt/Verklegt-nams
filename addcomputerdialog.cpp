@@ -46,10 +46,10 @@ void addComputerDialog::on_add_computer_button_clicked()
     bool success = list.addNewComputer(name.toStdString(), type.toStdString(), date.toInt(), yesNo);
     if (success)
     {
-        this->done(0);
+        this->done(1);
     }
     else
     {
-        this->done(1);
+        this->done(-1);
     }
 }

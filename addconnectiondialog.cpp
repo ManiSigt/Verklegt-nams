@@ -10,11 +10,11 @@ AddConnectionDialog::AddConnectionDialog(QWidget *parent) :
 }
 void AddConnectionDialog::prepare()
 {
-    for(unsigned int i = 0; i < elist.computerSize();i++)
+    for(int i = 0; i < elist.computerSize();i++)
     {
         ui->list_computers->insertItem(i,QString::fromStdString(elist.getComputerName(i)));
     }
-    for(unsigned int i = 0; i < elist.personsSize();i++)
+    for(int i = 0; i < elist.personsSize();i++)
     {
         ui->list_scientists->insertItem(i,QString::fromStdString(elist.getScientistName(i)));
     }
@@ -26,7 +26,7 @@ AddConnectionDialog::~AddConnectionDialog()
     delete ui;
 }
 
-void AddConnectionDialog::on_list_scientists_clicked(const QModelIndex &index)
+void AddConnectionDialog::on_list_scientists_clicked()
 {
     ui->input_current_scientist->clear();
     int row = ui->list_scientists->currentRow();
@@ -40,7 +40,7 @@ void AddConnectionDialog::on_list_scientists_clicked(const QModelIndex &index)
     }
 }
 
-void AddConnectionDialog::on_list_computers_clicked(const QModelIndex &index)
+void AddConnectionDialog::on_list_computers_clicked()
 {
     ui->input_current_computer->clear();
     int row = ui->list_computers->currentRow();
@@ -67,6 +67,14 @@ void AddConnectionDialog::on_button_add_connection_clicked()
     int sciId = elist.getScientistIdFromName(sciName);
     int comId = elist.getComputerIdFromName(comName);
 
-    elist.addNewConnection(comId,sciId);
-    this->close();
+    bool success = elist.addNewConnection(comId,sciId);;
+    if (success)
+    {
+        this->done(1);
+    }
+    else
+    {
+        this->done(-1);
+    }
+
 }

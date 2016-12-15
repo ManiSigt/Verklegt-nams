@@ -95,7 +95,15 @@ void EditScientistDialog::on_button_scientist_edit_clicked()
 
     if(error == 0)
     {
-        elist.updateScientist(name,gender,birth,death,comment,currentId);
-        close();
+        bool success = elist.updateScientist(name, gender, birth, death, comment, currentId);
+        if (success)
+        {
+            this->done(1);
+        }
+        else
+        {
+            this->done(-1);
+        }
+
     }
 }

@@ -34,7 +34,7 @@ void EditConnectionsDialog::prepare(Linker elink)
 
 }
 
-void EditConnectionsDialog::on_list_computers_clicked(const QModelIndex &index)
+void EditConnectionsDialog::on_list_computers_clicked()
 {
     ui->input_current_computer->clear();
     int row = ui->list_computers->currentRow();
@@ -48,7 +48,7 @@ void EditConnectionsDialog::on_list_computers_clicked(const QModelIndex &index)
     }
 }
 
-void EditConnectionsDialog::on_list_scientists_clicked(const QModelIndex &index)
+void EditConnectionsDialog::on_list_scientists_clicked()
 {
     ui->input_current_scientist->clear();
     int row = ui->list_scientists->currentRow();
@@ -75,6 +75,13 @@ void EditConnectionsDialog::on_button_edit_connection_clicked()
     int sciId = elist.getScientistIdFromName(sciName);
     int comId = elist.getComputerIdFromName(comName);
 
-    elist.updateConnection(currentId,sciId,comId);
-    this->close();
+    bool success = elist.updateConnection(currentId,sciId,comId);
+    if (success)
+    {
+        this->done(1);
+    }
+    else
+    {
+        this->done(-1);
+    }
 }

@@ -14,6 +14,7 @@
 #include <string>
 #include <QList>
 
+
 using namespace std;
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -31,6 +32,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->input_scientist->setFixedWidth(457);
     ui->dropdown_scientist->setFixedHeight(30);
     ui->dropdown_scientist->setFixedWidth(148);
+    setStyleSheet("background-color: white;");
 }
 
 MainWindow::~MainWindow()
@@ -444,11 +446,7 @@ void MainWindow::showConnectionsNameComp()
     ui->table_connections->setRowCount(count);
     ui->table_connections->resizeColumnsToContents();
 }
-void MainWindow::on_dropdown_scientist_activated(const QString &arg1)
-{
-        //QMessageBox::information(this, "Item Selection",
-        //ui->dropdown_scientist->currentText());
-}
+
 
 void MainWindow::populateDropdownMenus()
 {
@@ -470,7 +468,7 @@ void MainWindow::on_button_scientist_add_clicked()
     addScientistDialog addScientist;
 
     int add = addScientist.exec();
-    if (add == 0)
+    if (add == 1)
     {
         list.eraser();
         list.refreshVector();
@@ -479,10 +477,10 @@ void MainWindow::on_button_scientist_add_clicked()
     }
     else
     {
-        QMessageBox::warning(this, "error", "asdfasdfadsf");
+        statusBar()->showMessage("Canceled!",2000);
     }
 }
-void MainWindow::on_table_scientist_clicked(const QModelIndex &index)
+void MainWindow::on_table_scientist_clicked()
 {
      ui->button_scientist_remove->setEnabled(true);
      ui->button_scientist_edit->setEnabled(true);
@@ -508,7 +506,7 @@ void MainWindow::on_button_scientist_remove_clicked()
     }
     disableButtons();
 }
-void MainWindow::on_input_scientist_textEdited(const QString &arg1)
+void MainWindow::on_input_scientist_textEdited()
 {
     int i = ui->dropdown_scientist->currentIndex();
 
@@ -529,7 +527,7 @@ void MainWindow::on_input_scientist_textEdited(const QString &arg1)
         showScientistsDeathYear();
     }
 }
-void MainWindow::on_input_computer_textEdited(const QString &arg1)
+void MainWindow::on_input_computer_textEdited()
 {
     int i = ui->dropdown_computer->currentIndex();
 
@@ -547,7 +545,7 @@ void MainWindow::on_input_computer_textEdited(const QString &arg1)
     }
 }
 
-void MainWindow::on_input_connections_textEdited(const QString &arg1)
+void MainWindow::on_input_connections_textEdited()
 {
     int i = ui->dropdown_connections->currentIndex();
 
@@ -561,7 +559,7 @@ void MainWindow::on_input_connections_textEdited(const QString &arg1)
     }
 }
 
-void MainWindow::on_table_computer_clicked(const QModelIndex &index)
+void MainWindow::on_table_computer_clicked()
 {
     ui->button_computer_remove->setEnabled(true);
     ui->button_computer_edit->setEnabled(true);
@@ -597,16 +595,29 @@ void MainWindow::on_button_connections_edit_clicked()
         int sciId = list.getScientistIdFromName(sciName);
         int comId = list.getComputerIdFromName(comName);
         int id = list.getLinkIdFromSciComIds(sciId,comId);
-qDebug() << sciId << " " << comId << " " << id;
+
         Linker elink = Linker(id,sciId,comId);
         EditConnectionsDialog editCon;
         editCon.prepare(elink);
-            editCon.exec();
 
+        bool add = editCon.exec();
+
+        if (add == 1)
+        {
             list.eraser();
             list.refreshVector();
             showConnectionsNameComp();
-        disableButtons();
+            disableButtons();
+            statusBar()->showMessage("Connection edited!",2000);
+        }
+        else
+        {
+            statusBar()->showMessage("Canceled!",2000);
+        }
+
+        editCon.exec();
+
+
 
 }
 
@@ -627,23 +638,35 @@ void MainWindow::on_button_scientist_edit_clicked()
 
     EditScientistDialog editSci;
     editSci.prepare(esci);
-        editSci.exec();
+
+
+    bool add = editSci.exec();
+
+    if (add == 1)
+    {
+        list.eraser();
         list.refreshVector();
-        showScientistsName();
-    disableButtons();
+        showComputersName();
+        disableButtons();
+        statusBar()->showMessage("Computer edited!",2000);
+    }
+    else
+    {
+        statusBar()->showMessage("Canceled!",2000);
+    }
 }
 void MainWindow::on_button_computer_add_clicked()
 {
     addComputerDialog addComputer;
     int add = addComputer.exec();
-    if (add == 0)
+    if (add == 1)
     {
 
         statusBar()->showMessage("Computer added!",2000);
     }
     else
     {
-        QMessageBox::warning(this, "error", "asdfasdfadsf");
+        statusBar()->showMessage("Canceled!",2000);
     }
     list.eraser();
     list.refreshVector();
@@ -666,11 +689,22 @@ void MainWindow::on_button_computer_edit_clicked()
 
         EditComputerDialog editCom;
         editCom.prepare(ecom);
-            editCom.exec();
-            list.eraser();
-            list.refreshVector();
-            showComputersName();
-    disableButtons();
+            bool add = editCom.exec();
+
+            if (add == 1)
+            {
+                list.eraser();
+                list.refreshVector();
+                showComputersName();
+                disableButtons();
+                statusBar()->showMessage("Computer edited!",2000);
+            }
+            else
+            {
+                statusBar()->showMessage("Canceled!",2000);
+            }
+
+
 }
 void MainWindow::disableButtons()
 {
@@ -682,7 +716,7 @@ void MainWindow::disableButtons()
     ui->button_connections_edit->setEnabled(false);
 }
 
-void MainWindow::on_table_connections_clicked(const QModelIndex &index)
+void MainWindow::on_table_connections_clicked()
 {
     ui->button_connections_remove->setEnabled(true);
     ui->button_connections_edit->setEnabled(true);
@@ -744,7 +778,7 @@ void MainWindow::on_action_edit_computer_triggered()
 
 }
 
-void MainWindow::on_tabWidget_tabBarClicked(int index)
+void MainWindow::on_tabWidget_tabBarClicked()
 {
     ui->table_computer->clearSelection();
     ui->table_connections->clearSelection();
@@ -774,7 +808,7 @@ void MainWindow::on_button_connections_add_clicked()
     AddConnectionDialog addCon;
 
     int add = addCon.exec();
-    if (add == 0)
+    if (add == 1)
     {
         list.eraser();
         list.refreshVector();
@@ -784,6 +818,6 @@ void MainWindow::on_button_connections_add_clicked()
     }
     else
     {
-        QMessageBox::warning(this, "error", "asdfasdfadsf");
+        statusBar()->showMessage("Canceled!",2000);
     }
 }

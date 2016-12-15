@@ -16,7 +16,7 @@ public:
     ListWorker();
     bool addNewScientist(string name, char gender, int yearOfBirth, int yearOFDeath, string comment); // Adds a person to the vector persons and adds them to the database.
     bool addNewComputer(string name, string type, int yearbuilt, string isbuilt);                     // Adds a computer to the vector that holds the list of computers and then adds it to the database.
-    void addNewConnection(int compId, int sciId);                                                     // Adds a link between a computer and a scientist that the user chooses and adds them to the SQL database.
+    bool addNewConnection(int compId, int sciId);                                                     // Adds a link between a computer and a scientist that the user chooses and adds them to the SQL database.
     void sortScientistBirth();                                                                        // Calls the function sortScientistBirth from the datalayer class.
     void sortScientistBirthReverse();                                                                 // Calls the function sortScientistBirthReverse from the datalayer class.
     void sortScientistNames();                                                                        // Calls the function sortScientistNames from the datalayer class.
@@ -34,8 +34,8 @@ public:
     void searchConnectionsBySci(int n);                                                               // Calls the function searchConnectionsBySci in datalayer.
     void removeConnection(string scientist, string computer);                                         // Removes a computer or a scientist from the database.
     bool removeConnection(int s, int c);                                                              // Removes a computer or a scientist from the database.
-    void updateScientist(string name,char gender, int birth, int death, string comment, int sciId);   // Calls the function updateScientist in datalayer.
-    void updateComputer(string name, string type, string isbuilt, int Yearbuilt, int compId);         // Calls the function updateComputer in datalayer.
+    bool updateScientist(string name,char gender, int birth, int death, string comment, int sciId);   // Calls the function updateScientist in datalayer.
+    bool updateComputer(string name, string type, string isbuilt, int Yearbuilt, int compId);         // Calls the function updateComputer in datalayer.
     bool computerNameSearcher(string name);                                                           // Searches for a specific name within the vector com.
     bool ageSearcher(int age);                                                                        // Searches for a specific age within the vector using a for-loop.
     bool builtDateSearcher(int year);                                                                 // Searches for a specific date within the vector using a for-loop
@@ -155,7 +155,7 @@ public:
     int getComputerIdFromName(string name) const;
     int getScientistIdFromName(string name) const;
     int getLinkIdFromSciComIds(int sciId, int comId) const;
-    void updateConnection(int currentId,int sciId,int comId);
+    bool updateConnection(int currentId,int sciId,int comId);
     int personsSize() const                                                                           // Returns the size of vector persons.
     {
         return persons.size();

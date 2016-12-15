@@ -44,11 +44,11 @@ void addScientistDialog::on_button_add_scientist_clicked()
     bool success = list.addNewScientist(name.toStdString(), sex , birth.toInt(), death.toInt(), comment.toStdString());
     if (success)
     {
-        this->done(0);
+        this->done(1);
     }
     else
     {
-        this->done(1);
+        this->done(-1);
     }
 
 }

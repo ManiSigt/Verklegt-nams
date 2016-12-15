@@ -30,14 +30,13 @@ private slots:
     void showScientistsBirthYear();
     void showScientistsDeathYear();
     void populateDropdownMenus();
-    void on_dropdown_scientist_activated(const QString &arg1);
     void on_button_scientist_add_clicked();
-    void on_table_scientist_clicked(const QModelIndex &index);
+    void on_table_scientist_clicked();
     void on_button_scientist_remove_clicked();
-    void on_input_scientist_textEdited(const QString &arg1);
-    void on_input_computer_textEdited(const QString &arg1);
-    void on_input_connections_textEdited(const QString &arg1);
-    void on_table_computer_clicked(const QModelIndex &index);
+    void on_input_scientist_textEdited();
+    void on_input_computer_textEdited();
+    void on_input_connections_textEdited();
+    void on_table_computer_clicked();
     void on_button_computer_remove_clicked();
     void on_button_connections_edit_clicked();
     void disableButtons();
@@ -48,7 +47,7 @@ private slots:
 
     void on_button_computer_edit_clicked();
 
-    void on_table_connections_clicked(const QModelIndex &index);
+    void on_table_connections_clicked();
 
     void on_button_connections_remove_clicked();
 
@@ -61,7 +60,7 @@ private slots:
     void on_action_edit_computer_triggered();
 
 
-    void on_tabWidget_tabBarClicked(int index);
+    void on_tabWidget_tabBarClicked();
 
     void on_actionRed_triggered();
 

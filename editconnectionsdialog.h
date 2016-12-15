@@ -20,9 +20,9 @@ public:
     void prepare(Linker elink);
 
 private slots:
-    void on_list_computers_clicked(const QModelIndex &index);
+    void on_list_computers_clicked();
 
-    void on_list_scientists_clicked(const QModelIndex &index);
+    void on_list_scientists_clicked();
 
     void on_button_edit_connection_cancel_clicked();
 

@@ -34,7 +34,7 @@ bool ListWorker::addNewComputer(string name, string type, int yearbuilt, string 
     data.addComputer(name, type, yearbuilt, isbuilt, vsize);
     return true;
 }
-void ListWorker::addNewConnection(int compId, int sciId)
+bool ListWorker::addNewConnection(int compId, int sciId)
 {
     int linkId;
     //get free ID in database
@@ -48,6 +48,7 @@ void ListWorker::addNewConnection(int compId, int sciId)
     Linker l(linkId, sciId, compId);
     link.push_back(l);
     data.addConnection(linkId, sciId, compId);
+    return true;
 }
 void ListWorker::sortScientistNames()
 {
@@ -345,7 +346,7 @@ int ListWorker::getScientistIdFromName(string name) const
 {
     int id;
     string check;
-    for(unsigned int i = 0; i < personsSize(); i++)
+    for(int i = 0; i < personsSize(); i++)
     {
        check = getScientistName(i);
         if(name == check)
@@ -358,7 +359,7 @@ int ListWorker::getScientistIdFromName(string name) const
 int ListWorker::getLinkIdFromSciComIds(int sciId, int comId) const
 {
     int id;
-    for(int i = 0; i < link.size(); i++)
+    for(unsigned int i = 0; i < link.size(); i++)
     {
         if(getLinkCompId(i) == comId && getLinkSciId(i) == sciId)
         {
@@ -368,9 +369,10 @@ int ListWorker::getLinkIdFromSciComIds(int sciId, int comId) const
     return id;
 }
 
-void ListWorker::updateConnection(int currentId, int sciId, int comId)
+bool ListWorker::updateConnection(int currentId, int sciId, int comId)
 {
     data.updateConnection(currentId,sciId,comId);
+    return true;
 }
 string ListWorker::getScientistNameFromId(int n) const
 {
@@ -431,14 +433,15 @@ int ListWorker::getLinkoutputCompNameSize(int n)
     int size = name.size();
     return size;
 }
-void ListWorker::updateScientist(string name,char gender, int birth, int death, string comment, int sciId)
+bool ListWorker::updateScientist(string name,char gender, int birth, int death, string comment, int sciId)
 {
     data.updateScientist(name,gender,birth,death,comment,sciId);
-
+    return true;
 }
-void ListWorker::updateComputer(string name, string type, string isbuilt, int Yearbuilt, int compId)
+bool ListWorker::updateComputer(string name, string type, string isbuilt, int Yearbuilt, int compId)
 {
     data.updateComputer(name, type, isbuilt, Yearbuilt, compId);
+    return true;
 }
 void ListWorker::searchConnectionsByComp(int n)
 {
