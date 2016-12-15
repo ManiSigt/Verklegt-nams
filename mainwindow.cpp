@@ -787,3 +787,8 @@ void MainWindow::on_button_connections_add_clicked()
         QMessageBox::warning(this, "error", "asdfasdfadsf");
     }
 }
+
+void MainWindow::on_actionNormal_triggered()
+{
+    setStyleSheet("background-color: normal;");
+}
