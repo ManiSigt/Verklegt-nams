@@ -28,6 +28,7 @@ MainWindow::MainWindow(QWidget *parent) :
     showScientistsName();
     populateDropdownMenus();
     setStyleSheet("background-color: white;");
+    defaultTheme();
 }
 
 MainWindow::~MainWindow()
