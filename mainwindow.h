@@ -71,6 +71,8 @@ private slots:
 
     void on_actionOrange_triggered();
 
+    void on_button_connections_add_clicked();
+
 private:
     Ui::MainWindow *ui;
     ListWorker list;

@@ -3,6 +3,7 @@
 #include "listworker.h"
 #include "addscientistdialog.h"
 #include "addcomputerdialog.h"
+#include "addconnectiondialog.h"
 #include "editscientistdialog.h"
 #include "editcomputerdialog.h"
 #include "editconnectionsdialog.h"
@@ -666,11 +667,14 @@ void MainWindow::disableButtons()
     ui->button_scientist_edit->setEnabled(false);
     ui->button_computer_remove->setEnabled(false);
     ui->button_computer_edit->setEnabled(false);
+    ui->button_connections_remove->setEnabled(false);
+    ui->button_connections_edit->setEnabled(false);
 }
 
 void MainWindow::on_table_connections_clicked(const QModelIndex &index)
 {
     ui->button_connections_remove->setEnabled(true);
+    ui->button_connections_edit->setEnabled(true);
 }
 
 void MainWindow::on_button_connections_remove_clicked()
@@ -725,7 +729,6 @@ void MainWindow::on_tabWidget_tabBarClicked(int index)
     ui->table_connections->clearSelection();
     ui->table_scientist->clearSelection();
 }
-
 void MainWindow::on_actionRed_triggered()
 {
         setStyleSheet("background-color: cyan;");
@@ -744,4 +747,21 @@ void MainWindow::on_actionWhite_triggered()
 void MainWindow::on_actionOrange_triggered()
 {
         setStyleSheet("background-color: orange;");
+}
+void MainWindow::on_button_connections_add_clicked()
+{
+    AddConnectionDialog addCon;
+
+    int add = addCon.exec();
+    if (add == 0)
+    {
+        list.refreshVector();
+        showConnectionsNameComp();
+        disableButtons();
+        statusBar()->showMessage("Connection added!",2000);
+    }
+    else
+    {
+        QMessageBox::warning(this, "error", "asdfasdfadsf");
+    }
 }

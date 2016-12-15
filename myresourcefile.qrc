@@ -12,5 +12,6 @@
         <file>icons/edit22.png</file>
         <file>icons/remove.png</file>
         <file>icons/edit2.png</file>
+        <file>icons/cancel.png</file>
     </qresource>
 </RCC>
