@@ -578,6 +578,7 @@ void MainWindow::on_button_computer_remove_clicked()
         QMessageBox::warning(this, "Warning!", "Unable to remove computer!😡");
     }
     disableButtons();
+    list.eraser();
 }
 void MainWindow::on_button_connections_edit_clicked()
 {

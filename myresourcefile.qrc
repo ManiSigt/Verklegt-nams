@@ -7,5 +7,10 @@
         <file>icons/editComputer.jpg</file>
         <file>icons/editPerson.jpg</file>
         <file>icons/skull-512.ico</file>
+        <file>icons/add.jpg</file>
+        <file>icons/add2.png</file>
+        <file>icons/edit22.png</file>
+        <file>icons/remove.png</file>
+        <file>icons/edit2.png</file>
     </qresource>
 </RCC>
