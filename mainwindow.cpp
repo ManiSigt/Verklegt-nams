@@ -13,6 +13,7 @@
 #include <QDebug>
 #include <string>
 #include <QList>
+#include <QPushButton>
 
 
 using namespace std;
@@ -803,6 +804,32 @@ void MainWindow::on_actionNormal_triggered()
 void MainWindow::skullTheme()
 {
     setWindowIcon(QIcon(":/icons/icons/skull-512.ico"));
+    ui->button_computer_add->setIcon(QIcon(":/icons/icons/skull-512.ico"));
+    ui->button_computer_add->setIconSize(QSize(30,30));
+    ui->button_computer_theme->setIcon(QIcon(":/icons/icons/skull-512.ico"));
+    ui->button_computer_theme->setIconSize(QSize(30,30));
+    ui->button_computer_edit->setIcon(QIcon(":/icons/icons/skull-512.ico"));
+    ui->button_computer_edit->setIconSize(QSize(30,30));
+    ui->button_computer_remove->setIcon(QIcon(":/icons/icons/skull-512.ico"));
+    ui->button_computer_remove->setIconSize(QSize(30,30));
+
+    ui->button_scientist_add->setIcon(QIcon(":/icons/icons/skull-512.ico"));
+    ui->button_scientist_add->setIconSize(QSize(30,30));
+    ui->button_scientist_theme->setIcon(QIcon(":/icons/icons/skull-512.ico"));
+    ui->button_scientist_theme->setIconSize(QSize(30,30));
+    ui->button_scientist_edit->setIcon(QIcon(":/icons/icons/skull-512.ico"));
+    ui->button_scientist_edit->setIconSize(QSize(30,30));
+    ui->button_scientist_remove->setIcon(QIcon(":/icons/icons/skull-512.ico"));
+    ui->button_scientist_remove->setIconSize(QSize(30,30));
+
+    ui->button_connections_add->setIcon(QIcon(":/icons/icons/skull-512.ico"));
+    ui->button_connections_add->setIconSize(QSize(30,30));
+    ui->button_connections_theme->setIcon(QIcon(":/icons/icons/skull-512.ico"));
+    ui->button_connections_theme->setIconSize(QSize(30,30));
+    ui->button_connections_edit->setIcon(QIcon(":/icons/icons/skull-512.ico"));
+    ui->button_connections_edit->setIconSize(QSize(30,30));
+    ui->button_connections_remove->setIcon(QIcon(":/icons/icons/skull-512.ico"));
+    ui->button_connections_remove->setIconSize(QSize(30,30));
 
 }
 void MainWindow::sexyTheme()
@@ -810,9 +837,35 @@ void MainWindow::sexyTheme()
     //setWindowIcon(QIcon(":/icons/icon.png"));
 
 }
-void MainWindow::christmasTheme()
+void MainWindow::christmasTheme() // Jói hendir inn myndum.
 {
-    //setWindowIcon(QIcon(":/icons/icon.png"));
+    setWindowIcon(QIcon(":/icons/icons/skull-512.ico"));
+    ui->button_computer_add->setIcon(QIcon(":/icons/icons/skull-512.ico"));
+    ui->button_computer_add->setIconSize(QSize(30,30));
+    ui->button_computer_theme->setIcon(QIcon(":/icons/icons/skull-512.ico"));
+    ui->button_computer_theme->setIconSize(QSize(30,30));
+    ui->button_computer_edit->setIcon(QIcon(":/icons/icons/skull-512.ico"));
+    ui->button_computer_edit->setIconSize(QSize(30,30));
+    ui->button_computer_remove->setIcon(QIcon(":/icons/icons/skull-512.ico"));
+    ui->button_computer_remove->setIconSize(QSize(30,30));
+
+    ui->button_scientist_add->setIcon(QIcon(":/icons/icons/skull-512.ico"));
+    ui->button_scientist_add->setIconSize(QSize(30,30));
+    ui->button_scientist_theme->setIcon(QIcon(":/icons/icons/skull-512.ico"));
+    ui->button_scientist_theme->setIconSize(QSize(30,30));
+    ui->button_scientist_edit->setIcon(QIcon(":/icons/icons/skull-512.ico"));
+    ui->button_scientist_edit->setIconSize(QSize(30,30));
+    ui->button_scientist_remove->setIcon(QIcon(":/icons/icons/skull-512.ico"));
+    ui->button_scientist_remove->setIconSize(QSize(30,30));
+
+    ui->button_connections_add->setIcon(QIcon(":/icons/icons/skull-512.ico"));
+    ui->button_connections_add->setIconSize(QSize(30,30));
+    ui->button_connections_theme->setIcon(QIcon(":/icons/icons/skull-512.ico"));
+    ui->button_connections_theme->setIconSize(QSize(30,30));
+    ui->button_connections_edit->setIcon(QIcon(":/icons/icons/skull-512.ico"));
+    ui->button_connections_edit->setIconSize(QSize(30,30));
+    ui->button_connections_remove->setIcon(QIcon(":/icons/icons/skull-512.ico"));
+    ui->button_connections_remove->setIconSize(QSize(30,30));
 
 }
 
