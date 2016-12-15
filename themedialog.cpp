@@ -27,6 +27,10 @@ void ThemeDialog::on_theme_ok_button_clicked()
     {
         this->done(3);
     }
+    if(ui->default_radio_button->isChecked())
+    {
+        this->done(4);
+    }
 }
 
 void ThemeDialog::on_theme_cancel_button_clicked()

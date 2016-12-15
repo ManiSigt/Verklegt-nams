@@ -14,5 +14,17 @@
         <file>icons/editsexy.png</file>
         <file>icons/deletesexy2.png</file>
         <file>icons/themesexy.png</file>
+        <file>icons/cancelSkull.jpg</file>
+        <file>icons/christmas.png</file>
+        <file>icons/christmas2.png</file>
+        <file>icons/christmas3.png</file>
+        <file>icons/christmas4.png</file>
+        <file>icons/christmas5.png</file>
+        <file>icons/christmas6.png</file>
+        <file>icons/death.jpg</file>
+        <file>icons/ninjaskull.png</file>
+        <file>icons/pirateSkull.png</file>
+        <file>icons/skull.jpg</file>
+        <file>icons/theme.png</file>
     </qresource>
 </RCC>
