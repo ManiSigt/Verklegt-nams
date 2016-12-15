@@ -19,8 +19,6 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
-
-
 private slots:
     void showComputersName();
     void showComputersYear();
@@ -62,6 +60,8 @@ private slots:
 
     void on_action_edit_computer_triggered();
 
+
+    void on_tabWidget_tabBarClicked(int index);
 
 private:
     Ui::MainWindow *ui;

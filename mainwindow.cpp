@@ -681,11 +681,13 @@ void MainWindow::on_button_connections_remove_clicked()
     int row = ui->table_connections->currentRow();
     string comName = list.getLinkOutputCompName(row);
     string sciName = list.getLinkOutputSciName(row);
-
+    cout << sciName;
+qDebug() << row;
     int sciId = list.getScientistIdFromName(sciName);
     int comId = list.getComputerIdFromName(comName);
     int id = list.getLinkIdFromSciComIds(sciId,comId);
-    bool success = list.removeConnection(sciId,comId);
+    qDebug() << "id: " << id << " comId: " << comId  << " sciId: " << sciId;
+    bool success = list.removeConnectionById(id);
     if (success)
     {
         showConnectionsNameComp();
@@ -718,4 +720,11 @@ void MainWindow::on_action_edit_computer_triggered()
 {
     on_button_computer_edit_clicked();
 
+}
+
+void MainWindow::on_tabWidget_tabBarClicked(int index)
+{
+    ui->table_computer->clearSelection();
+    ui->table_connections->clearSelection();
+    ui->table_scientist->clearSelection();
 }

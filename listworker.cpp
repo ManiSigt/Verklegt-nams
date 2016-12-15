@@ -3,6 +3,7 @@
 #include "linkeroutput.h"
 #include <iostream>
 #include <string>
+#include <QDebug>
 
 using namespace std;
 
@@ -291,7 +292,7 @@ int ListWorker::computerIdFinder()
 int ListWorker::scientistIdFinder()
 {
     int idValue;
-    for (int i = 1; i <= personsSize(); i++)
+    for (int i = 1; i < personsSize(); i++)
     {
         if(i != getScientistId(i-1))
         {
@@ -342,12 +343,13 @@ int ListWorker::getComputerIdFromName(string name) const
 int ListWorker::getScientistIdFromName(string name) const
 {
     int id;
-
-    for(unsigned int i = 0; i < persons.size(); i++)
+    string check;
+    for(unsigned int i = 0; i < personsSize(); i++)
     {
-        if(name == persons[i].getScientistName())
+       check = getScientistName(i);
+        if(name == check)
         {
-            id = persons[i].getScientistId();
+            id = getScientistId(i);
         }
     }
     return id;
