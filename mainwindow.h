@@ -23,6 +23,7 @@ private slots:
     void christmasTheme();
     void sexyTheme();
     void skullTheme();
+    void defaultTheme();
     void showComputersName();
     void showComputersYear();
     void showComputersType();
