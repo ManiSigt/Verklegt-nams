@@ -1,11 +1,5 @@
 <RCC>
     <qresource prefix="/icons">
-        <file>icons/addComputer.jpg</file>
-        <file>icons/addConnection.jpg</file>
-        <file>icons/addScientist.jpg</file>
-        <file>icons/edit.png</file>
-        <file>icons/editComputer.jpg</file>
-        <file>icons/editPerson.jpg</file>
         <file>icons/skull-512.ico</file>
         <file>icons/add.jpg</file>
         <file>icons/add2.png</file>
@@ -13,5 +7,10 @@
         <file>icons/remove.png</file>
         <file>icons/edit2.png</file>
         <file>icons/cancel.png</file>
+        <file>icons/addsexy.png</file>
+        <file>icons/cancelsexy.png</file>
+        <file>icons/Deletesexy.png</file>
+        <file>icons/Sexymainicon.png</file>
+        <file>icons/editsexy.png</file>
     </qresource>
 </RCC>
