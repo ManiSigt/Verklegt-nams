@@ -1,5 +1,6 @@
 #include "addconnectiondialog.h"
 #include "ui_addconnectiondialog.h"
+#include <QDebug>
 
 AddConnectionDialog::AddConnectionDialog(QWidget *parent) :
     QDialog(parent),
@@ -66,7 +67,10 @@ void AddConnectionDialog::on_button_add_connection_clicked()
 
     int sciId = elist.getScientistIdFromName(sciName);
     int comId = elist.getComputerIdFromName(comName);
-
+    QString qname = QString::fromStdString(elist.getComputerNameFromId(comId));
+    QString qnam = QString::fromStdString(elist.getScientistNameFromId(sciId));
+    qDebug() << qname;
+    qDebug() << qnam;
     bool success = elist.addNewConnection(comId,sciId);;
     if (success)
     {

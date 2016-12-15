@@ -1,5 +1,7 @@
 #include "addcomputerdialog.h"
 #include "ui_addcomputerdialog.h"
+#include <QPushButton>
+#include <QDebug>
 
 addComputerDialog::addComputerDialog(QWidget *parent) :
     QDialog(parent),
@@ -52,4 +54,33 @@ void addComputerDialog::on_add_computer_button_clicked()
     {
         this->done(-1);
     }
+}
+void addComputerDialog::themeChanger(int changer)
+{
+    if(changer == 1)  //Skulltheme
+    {
+        qDebug() << "drunk";
+        setWindowIcon(QIcon(":/icons/icons/skull-512.ico"));
+        ui->add_computer_button->setIcon(QIcon(":/icons/icons/ninjaskull"));
+        ui->add_computer_button->setIconSize(QSize(30,30));
+    }
+    if(changer == 2)  // Annað theme
+    {
+        setWindowIcon(QIcon(":/icons/icons/skull-512.ico"));
+        ui->add_computer_button->setIcon(QIcon(":/icons/icons/ninjaskull"));
+        ui->add_computer_button->setIconSize(QSize(30,30));
+    }
+    if(changer == 3)  //Annað theme
+    {
+        setWindowIcon(QIcon(":/icons/icons/skull-512.ico"));
+        ui->add_computer_button->setIcon(QIcon(":/icons/icons/ninjaskull"));
+        ui->add_computer_button->setIconSize(QSize(30,30));
+    }
+    if(changer == 4)  //Annað theme
+    {
+        setWindowIcon(QIcon(":/icons/icons/skull-512.ico"));
+        ui->add_computer_button->setIcon(QIcon(":/icons/icons/ninjaskull"));
+        ui->add_computer_button->setIconSize(QSize(30,30));
+    }
+
 }

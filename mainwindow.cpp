@@ -40,6 +40,9 @@ void MainWindow::showScientistsName()
 {
     ui->table_scientist->clear();
 
+    ui->table_scientist->horizontalHeader()->setStyleSheet("QHeaderView { font-size: 12pt; }");
+    ui->table_scientist->resizeColumnsToContents();
+
     ui->table_scientist->setHorizontalHeaderItem(0,new QTableWidgetItem("Name"));
     ui->table_scientist->setHorizontalHeaderItem(1,new QTableWidgetItem("Gender"));
     ui->table_scientist->setHorizontalHeaderItem(2,new QTableWidgetItem("Birth"));
@@ -259,6 +262,8 @@ void MainWindow::showComputersName()
 {
     ui->table_computer->clear();
     ui->table_computer->clearContents();
+    ui->table_computer->horizontalHeader()->setStyleSheet("QHeaderView { font-size: 12pt; }");
+    ui->table_computer->resizeColumnsToContents();
     ui->table_computer->setHorizontalHeaderItem(0,new QTableWidgetItem("Name"));
     ui->table_computer->setHorizontalHeaderItem(1,new QTableWidgetItem("Type"));
     ui->table_computer->setHorizontalHeaderItem(2,new QTableWidgetItem("Date"));
@@ -385,7 +390,8 @@ void MainWindow::showConnectionsNameSci()
     list.sortConnections("1"); //þegar sort verður lagfært þá verður þetta kannski fært.
 
     ui->table_connections->clear();
-
+    ui->table_connections->horizontalHeader()->setStyleSheet("QHeaderView { font-size: 12pt; }");
+    ui->table_connections->resizeColumnsToContents();
     ui->table_connections->setHorizontalHeaderItem(0,new QTableWidgetItem("Scientist Name"));
     ui->table_connections->setHorizontalHeaderItem(1,new QTableWidgetItem("Computer Name"));
 
@@ -926,7 +932,7 @@ void MainWindow::defaultTheme()
     ui->button_connections_edit->setIcon(QIcon(":/icons/icons/edit2"));
     ui->button_connections_edit->setIconSize(QSize(30,30));
     ui->button_connections_remove->setIcon(QIcon(":/icons/icons/remove"));
-    ui->button_connections_remove->setIconSize(QSize(30,30));
+    ui->button_connections_remove->setIconSize(QSize(30,30));  
 }
 void MainWindow::on_button_scientist_theme_clicked()
 {
