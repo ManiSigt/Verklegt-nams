@@ -964,6 +964,10 @@ void MainWindow::on_button_computer_theme_clicked()
     {
         christmasTheme();
     }
+    else if(themes == 4)
+    {
+        defaultTheme();
+    }
 }
 void MainWindow::on_button_connections_theme_clicked()
 {
@@ -980,5 +984,9 @@ void MainWindow::on_button_connections_theme_clicked()
     else if(themes == 3)
     {
         christmasTheme();
+    }
+    else if (themes == 4)
+    {
+        defaultTheme();
     }
 }
