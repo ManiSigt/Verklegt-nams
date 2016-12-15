@@ -9,7 +9,6 @@ EditConnectionsDialog::EditConnectionsDialog(QWidget *parent) :
     ui(new Ui::EditConnectionsDialog)
 {
     ui->setupUi(this);
-    setWindowIcon(QIcon(":/icons/icons/edit2.png"));
 }
 
 EditConnectionsDialog::~EditConnectionsDialog()

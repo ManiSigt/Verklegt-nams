@@ -30,24 +30,39 @@
        </font>
       </property>
       <property name="currentIndex">
-       <number>2</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="tab">
        <attribute name="title">
         <string>Scientists</string>
        </attribute>
        <layout class="QGridLayout" name="gridLayout">
-        <item row="0" column="0" colspan="3">
-         <widget class="QLineEdit" name="input_scientist">
-          <property name="placeholderText">
-           <string>Filter Scientists</string>
+        <item row="5" column="1">
+         <widget class="QPushButton" name="button_scientist_remove">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+          <property name="text">
+           <string> Remove</string>
+          </property>
+          <property name="icon">
+           <iconset resource="myresourcefile.qrc">
+            <normaloff>:/icons/icons/remove.png</normaloff>:/icons/icons/remove.png</iconset>
           </property>
          </widget>
         </item>
-        <item row="0" column="3">
-         <widget class="QComboBox" name="dropdown_scientist"/>
+        <item row="5" column="0">
+         <widget class="QPushButton" name="button_scientist_add">
+          <property name="text">
+           <string> Add</string>
+          </property>
+          <property name="icon">
+           <iconset resource="myresourcefile.qrc">
+            <normaloff>:/icons/icons/add2.png</normaloff>:/icons/icons/add2.png</iconset>
+          </property>
+         </widget>
         </item>
-        <item row="1" column="0" colspan="4">
+        <item row="1" column="0" colspan="5">
          <widget class="QTableWidget" name="table_scientist">
           <property name="font">
            <font>
@@ -128,6 +143,22 @@
             <normaloff>:/icons/icons/edit2.png</normaloff>:/icons/icons/edit2.png</iconset>
           </property>
          </widget>
+        </item>
+        <item row="0" column="0" colspan="3">
+         <widget class="QLineEdit" name="input_scientist">
+          <property name="minimumSize">
+           <size>
+            <width>364</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="placeholderText">
+           <string>Filter Scientists</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="3" colspan="2">
+         <widget class="QComboBox" name="dropdown_scientist"/>
         </item>
        </layout>
       </widget>
@@ -334,9 +365,25 @@
      <x>0</x>
      <y>0</y>
      <width>662</width>
-     <height>26</height>
+     <height>22</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <widget class="QMenu" name="menuChange_color">
+     <property name="title">
+      <string>Change color</string>
+     </property>
+     <addaction name="actionRed"/>
+     <addaction name="actionPink"/>
+     <addaction name="actionWhite"/>
+     <addaction name="actionOrange"/>
+    </widget>
+    <addaction name="menuChange_color"/>
+   </widget>
+   <addaction name="menuFile"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
    <attribute name="toolBarArea">
@@ -387,6 +434,26 @@
    </property>
    <property name="text">
     <string>Edit computer</string>
+   </property>
+  </action>
+  <action name="actionRed">
+   <property name="text">
+    <string>Cyan</string>
+   </property>
+  </action>
+  <action name="actionPink">
+   <property name="text">
+    <string>Pink</string>
+   </property>
+  </action>
+  <action name="actionWhite">
+   <property name="text">
+    <string>Crimson</string>
+   </property>
+  </action>
+  <action name="actionOrange">
+   <property name="text">
+    <string>Orange</string>
    </property>
   </action>
  </widget>
