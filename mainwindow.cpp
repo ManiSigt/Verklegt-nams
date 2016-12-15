@@ -465,7 +465,7 @@ void MainWindow::on_button_scientist_add_clicked()
     int add = addScientist.exec();
     if (add == 1)
     {
-        list.eraser();
+        //list.eraser();
         list.refreshVector();
         showScientistsName();
         statusBar()->showMessage("Scientist added!",2000);
