@@ -487,20 +487,26 @@ void MainWindow::on_button_scientist_remove_clicked()
 {
     int scientistRemove = ui->table_scientist->currentRow();
     bool success = list.removePerson(scientistRemove);
-
-    if (success)
+    QMessageBox::StandardButton reply;
+    reply = QMessageBox::question(this, "Test", "Are you sure you want to remove scientist?",
+                              QMessageBox::Yes|QMessageBox::No);
+    if (reply == QMessageBox::Yes)
     {
-        list.eraser();
-        list.refreshVector();
-        showScientistsName();
-        ui->button_scientist_remove->setEnabled(false);
-        statusBar()->showMessage("Scientist removed!",2000);
+        if (success)
+        {
+            list.eraser();
+            list.refreshVector();
+            showScientistsName();
+            ui->button_scientist_remove->setEnabled(false);
+            statusBar()->showMessage("Scientist removed!",2000);
+        }
     }
     else
     {
         QMessageBox::warning(this, "Warning!", "Unable to remove scientist!😡");
     }
-    disableButtons();
+
+  disableButtons();
 }
 void MainWindow::on_input_scientist_textEdited()
 {
@@ -564,21 +570,29 @@ void MainWindow::on_table_computer_clicked()
 
 void MainWindow::on_button_computer_remove_clicked()
 {
+
     int computerRemove = ui->table_computer->currentRow();
     bool success = list.removeComputer(computerRemove);
 
-    if (success)
+    QMessageBox::StandardButton reply;
+    reply = QMessageBox::question(this, "Test", "Are you sure you want to remove computer?",
+                              QMessageBox::Yes|QMessageBox::No);
+     if (reply == QMessageBox::Yes)
     {
-        list.eraser();
-        list.refreshVector();
-        showComputersName();
-        ui->button_computer_remove->setEnabled(false);
-        statusBar()->showMessage("Computer removed!",2000);
+        if (success)
+        {
+            list.eraser();
+            list.refreshVector();
+            showComputersName();
+            ui->button_computer_remove->setEnabled(false);
+            statusBar()->showMessage("Computer removed!",2000);
+        }
     }
     else
     {
         QMessageBox::warning(this, "Warning!", "Unable to remove computer!😡");
     }
+
     disableButtons();
 }
 void MainWindow::on_button_connections_edit_clicked()
@@ -717,6 +731,9 @@ void MainWindow::on_button_connections_remove_clicked()
         }
     }
     bool success = list.removeConnectionById(id);
+    QMessageBox::StandardButton reply;
+    reply = QMessageBox::question(this, "Test", "Are you sure you want to remove connection?",
+                                QMessageBox::Yes|QMessageBox::No);
     if (success)
     {
         list.eraser();

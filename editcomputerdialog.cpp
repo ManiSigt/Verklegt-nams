@@ -8,8 +8,6 @@ EditComputerDialog::EditComputerDialog(QWidget *parent) :
     ui(new Ui::EditComputerDialog)
 {
     ui->setupUi(this);
-
-
 }
 
 EditComputerDialog::~EditComputerDialog()
