@@ -24,6 +24,7 @@ bool ListWorker::addNewScientist(string name, char gender, int yearOfBirth, int 
 bool ListWorker::removeConnectionById(int id)
 {
     data.removeConnection(id);
+    return true;
 }
 bool ListWorker::addNewComputer(string name, string type, int yearbuilt, string isbuilt)
 {
