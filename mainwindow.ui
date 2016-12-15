@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>662</width>
-    <height>493</height>
+    <height>502</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -37,20 +37,6 @@
         <string>Scientists</string>
        </attribute>
        <layout class="QGridLayout" name="gridLayout">
-        <item row="5" column="1">
-         <widget class="QPushButton" name="button_scientist_remove">
-          <property name="enabled">
-           <bool>false</bool>
-          </property>
-          <property name="text">
-           <string> Remove</string>
-          </property>
-          <property name="icon">
-           <iconset resource="myresourcefile.qrc">
-            <normaloff>:/icons/icons/remove.png</normaloff>:/icons/icons/remove.png</iconset>
-          </property>
-         </widget>
-        </item>
         <item row="0" column="0" colspan="3">
          <widget class="QLineEdit" name="input_scientist">
           <property name="placeholderText">
@@ -58,21 +44,10 @@
           </property>
          </widget>
         </item>
-        <item row="5" column="0">
-         <widget class="QPushButton" name="button_scientist_add">
-          <property name="text">
-           <string> Add</string>
-          </property>
-          <property name="icon">
-           <iconset resource="myresourcefile.qrc">
-            <normaloff>:/icons/icons/add2.png</normaloff>:/icons/icons/add2.png</iconset>
-          </property>
-         </widget>
-        </item>
-        <item row="0" column="3" colspan="2">
+        <item row="0" column="3">
          <widget class="QComboBox" name="dropdown_scientist"/>
         </item>
-        <item row="1" column="0" colspan="5">
+        <item row="1" column="0" colspan="4">
          <widget class="QTableWidget" name="table_scientist">
           <property name="font">
            <font>
@@ -115,7 +90,32 @@
           </column>
          </widget>
         </item>
-        <item row="5" column="2">
+        <item row="2" column="0">
+         <widget class="QPushButton" name="button_scientist_add">
+          <property name="text">
+           <string> Add</string>
+          </property>
+          <property name="icon">
+           <iconset resource="myresourcefile.qrc">
+            <normaloff>:/icons/icons/add2.png</normaloff>:/icons/icons/add2.png</iconset>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="1">
+         <widget class="QPushButton" name="button_scientist_remove">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+          <property name="text">
+           <string> Remove</string>
+          </property>
+          <property name="icon">
+           <iconset resource="myresourcefile.qrc">
+            <normaloff>:/icons/icons/remove.png</normaloff>:/icons/icons/remove.png</iconset>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="2">
          <widget class="QPushButton" name="button_scientist_edit">
           <property name="enabled">
            <bool>false</bool>
@@ -148,6 +148,11 @@
         </item>
         <item row="1" column="0" colspan="4">
          <widget class="QTableWidget" name="table_computer">
+          <property name="font">
+           <font>
+            <pointsize>10</pointsize>
+           </font>
+          </property>
           <property name="selectionBehavior">
            <enum>QAbstractItemView::SelectRows</enum>
           </property>
@@ -240,6 +245,17 @@
         </item>
         <item row="1" column="0" colspan="4">
          <widget class="QTableWidget" name="table_connections">
+          <property name="font">
+           <font>
+            <pointsize>10</pointsize>
+           </font>
+          </property>
+          <property name="lineWidth">
+           <number>1</number>
+          </property>
+          <property name="midLineWidth">
+           <number>0</number>
+          </property>
           <property name="selectionBehavior">
            <enum>QAbstractItemView::SelectRows</enum>
           </property>
@@ -251,6 +267,9 @@
           </attribute>
           <attribute name="verticalHeaderVisible">
            <bool>false</bool>
+          </attribute>
+          <attribute name="verticalHeaderMinimumSectionSize">
+           <number>33</number>
           </attribute>
           <column>
            <property name="text">

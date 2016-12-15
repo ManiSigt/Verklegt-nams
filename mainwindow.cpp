@@ -682,12 +682,21 @@ void MainWindow::on_button_connections_remove_clicked()
     int row = ui->table_connections->currentRow();
     string comName = list.getLinkOutputCompName(row);
     string sciName = list.getLinkOutputSciName(row);
-    cout << sciName;
-    qDebug() << row;
+
     int sciId = list.getScientistIdFromName(sciName);
     int comId = list.getComputerIdFromName(comName);
-    int id = list.getLinkIdFromSciComIds(sciId,comId);
-    qDebug() << "id: " << id << " comId: " << comId  << " sciId: " << sciId;
+    int id = 0;
+
+    for(unsigned int i = 0; i < 16;i++)
+    {
+        if(sciId == list.getLinkSciId(i))
+        {
+            if(comId == list.getLinkCompId(i))
+            {
+                id = list.getLinkId(i);
+            }
+        }
+    }
     bool success = list.removeConnectionById(id);
     if (success)
     {
