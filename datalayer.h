@@ -41,6 +41,7 @@ public:
     void addConnection(int linkId, int sciId, int compId);                                                      // Adds a connection from to the SQL databse.
     void updateScientist(string name, char gender, int yearOfBirth, int yearOfDeath, string comment, int sciId);// Updates a scientist in the database with new info.
     void updateComputer(string name, string type, string isbuilt, int Yearbuilt, int compId);                   // Updates a computer in the database with new info.
+    void updateConnection(int currentId,int sciId,int comId);
     friend bool sortByNameComputers(const Computer &lhs, const Computer &rhs);                                  // Compares two instances of name in the vector com and returns the one that is lower in alphabetical order.
     friend bool sortByNameComputersReverse(const Computer &lhs, const Computer &rhs);                           // Compares two instances of name in the vector com and returns the one that is higher in alphabetical order.
     friend bool sortByDateComputers(const Computer &lhs, const Computer &rhs);                                  // Compares two instances of date in the vector com and returns the one that is lower in chronological order.

@@ -36,6 +36,11 @@ void EditConnectionsDialog::prepare(Linker elink)
 
 void EditConnectionsDialog::on_list_computers_clicked(const QModelIndex &index)
 {
+    ui->input_current_computer->clear();
+    int row = ui->list_computers->currentRow();
+    QString comName = QString::fromStdString(elist.getComputerName(row));
+    ui->input_current_computer->insert(comName);
+
     clickedComputer = true;
     if(clickedComputer == true && clickedScientist == true)
     {
@@ -45,9 +50,31 @@ void EditConnectionsDialog::on_list_computers_clicked(const QModelIndex &index)
 
 void EditConnectionsDialog::on_list_scientists_clicked(const QModelIndex &index)
 {
+    ui->input_current_scientist->clear();
+    int row = ui->list_scientists->currentRow();
+    QString sciName = QString::fromStdString(elist.getScientistName(row));
+    ui->input_current_scientist->insert(sciName);
+
     clickedScientist = true;
     if(clickedComputer == true && clickedScientist == true)
     {
         ui->button_edit_connection->setEnabled(true);
     }
+}
+
+void EditConnectionsDialog::on_button_edit_connection_cancel_clicked()
+{
+    this->close();
+}
+
+void EditConnectionsDialog::on_button_edit_connection_clicked()
+{
+    string comName = ui->input_current_computer->text().toStdString();
+    string sciName = ui->input_current_scientist->text().toStdString();
+
+    int sciId = elist.getScientistIdFromName(sciName);
+    int comId = elist.getComputerIdFromName(comName);
+
+    elist.updateConnection(currentId,sciId,comId);
+    this->close();
 }

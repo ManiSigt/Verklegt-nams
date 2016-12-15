@@ -24,6 +24,10 @@ private slots:
 
     void on_list_scientists_clicked(const QModelIndex &index);
 
+    void on_button_edit_connection_cancel_clicked();
+
+    void on_button_edit_connection_clicked();
+
 private:
     Ui::EditConnectionsDialog *ui;
     ListWorker elist;

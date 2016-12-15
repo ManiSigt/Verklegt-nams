@@ -22,7 +22,7 @@ bool ListWorker::addNewScientist(string name, char gender, int yearOfBirth, int 
 }
 bool ListWorker::removeConnectionById(int id)
 {
-
+    data.removeConnection(id);
 }
 bool ListWorker::addNewComputer(string name, string type, int yearbuilt, string isbuilt)
 {
@@ -363,6 +363,11 @@ int ListWorker::getLinkIdFromSciComIds(int sciId, int comId) const
         }
     }
     return id;
+}
+
+void ListWorker::updateConnection(int currentId, int sciId, int comId)
+{
+    data.updateConnection(currentId,sciId,comId);
 }
 string ListWorker::getScientistNameFromId(int n) const
 {
