@@ -51,13 +51,6 @@
           </property>
          </widget>
         </item>
-        <item row="0" column="0" colspan="3">
-         <widget class="QLineEdit" name="input_scientist">
-          <property name="placeholderText">
-           <string>Filter Scientists</string>
-          </property>
-         </widget>
-        </item>
         <item row="5" column="0">
          <widget class="QPushButton" name="button_scientist_add">
           <property name="text">
@@ -68,9 +61,6 @@
             <normaloff>:/icons/icons/add2.png</normaloff>:/icons/icons/add2.png</iconset>
           </property>
          </widget>
-        </item>
-        <item row="0" column="3" colspan="2">
-         <widget class="QComboBox" name="dropdown_scientist"/>
         </item>
         <item row="1" column="0" colspan="5">
          <widget class="QTableWidget" name="table_scientist">
@@ -128,6 +118,22 @@
             <normaloff>:/icons/icons/edit2.png</normaloff>:/icons/icons/edit2.png</iconset>
           </property>
          </widget>
+        </item>
+        <item row="0" column="0" colspan="3">
+         <widget class="QLineEdit" name="input_scientist">
+          <property name="minimumSize">
+           <size>
+            <width>364</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="placeholderText">
+           <string>Filter Scientists</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="3" colspan="2">
+         <widget class="QComboBox" name="dropdown_scientist"/>
         </item>
        </layout>
       </widget>
