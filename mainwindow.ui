@@ -398,7 +398,7 @@
   </action>
   <action name="actionWhite">
    <property name="text">
-    <string>White</string>
+    <string>Crimson</string>
    </property>
   </action>
   <action name="actionOrange">
