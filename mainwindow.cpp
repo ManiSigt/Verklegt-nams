@@ -33,7 +33,6 @@ MainWindow::~MainWindow()
 
 void MainWindow::showScientistsName()
 {
-
     ui->table_scientist->clear();
 
     ui->table_scientist->setHorizontalHeaderItem(0,new QTableWidgetItem("Name"));
