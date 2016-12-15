@@ -155,6 +155,7 @@ public:
     int getComputerIdFromName(string name) const;
     int getScientistIdFromName(string name) const;
     int getLinkIdFromSciComIds(int sciId, int comId) const;
+    void updateConnection(int currentId,int sciId,int comId);
     int personsSize() const                                                                           // Returns the size of vector persons.
     {
         return persons.size();

@@ -224,6 +224,17 @@ void DataLayer::updateComputer(string name, string type, string isbuilt, int Yea
     queryAdd.bindValue(":yearbuilt", Yearbuilt);
     queryAdd.exec();
 }
+
+void DataLayer::updateConnection(int currentId, int sciId, int comId)
+{
+    QSqlQuery queryAdd;
+    queryAdd.prepare("UPDATE CompAndSci SET ComputerID=:comid, ScientistID=:sciid WHERE ID=:id");
+
+    queryAdd.bindValue(":id", currentId);
+    queryAdd.bindValue(":comid", comId);
+    queryAdd.bindValue(":sciid", sciId);
+    queryAdd.exec();
+}
 void DataLayer::addConnection(int linkId, int sciId, int compId)
 {
         QSqlQuery queryAdd;
