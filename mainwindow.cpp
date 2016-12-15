@@ -868,7 +868,6 @@ void MainWindow::christmasTheme() // Jói hendir inn myndum.
     ui->button_connections_remove->setIconSize(QSize(30,30));
 
 }
-
 void MainWindow::on_button_scientist_theme_clicked()
 {
     ThemeDialog theme;
@@ -886,7 +885,6 @@ void MainWindow::on_button_scientist_theme_clicked()
         christmasTheme();
     }
 }
-
 void MainWindow::on_button_computer_theme_clicked()
 {
     ThemeDialog theme;
