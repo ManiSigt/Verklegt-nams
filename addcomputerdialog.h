@@ -1,7 +1,7 @@
 #ifndef ADDCOMPUTERDIALOG_H
 #define ADDCOMPUTERDIALOG_H
 
-#include "mainwindow.h"
+//#include "mainwindow.h"
 #include "listworker.h"
 #include <QDialog>
 
@@ -17,6 +17,7 @@ public:
     explicit addComputerDialog(QWidget *parent = 0);
     ~addComputerDialog();
 
+    void themeChanger(int changer);
 private slots:
     void on_add_computer_button_clicked();              // a function that dictates what happens when the user presses a specific button
 

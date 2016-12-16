@@ -4,6 +4,7 @@
 #include <iostream>
 #include <string>
 #include <QDebug>
+#include <QString>
 
 using namespace std;
 
@@ -47,11 +48,19 @@ bool ListWorker::addNewConnection(int compId, int sciId)
 {
     int linkId;
     //get free ID in database
-    for(int i = 1; i < getLinkSize()+2; i++)
+
+    if(getLinkSize() == 0)
     {
-        if(i != getLinkId(i))
+        linkId = 1;
+    }
+    else
+    {
+        for(int i = 1; i < getLinkSize()+2; i++)
         {
-            linkId = i;
+            if(i != getLinkId(i))
+            {
+                linkId = i;
+            }
         }
     }
     Linker l(linkId, sciId, compId);
@@ -105,7 +114,9 @@ void ListWorker::sortComputerType()
 }
 bool ListWorker::removePerson(int rowNumber)
 {
-    string name = getScientistName(rowNumber);
+    string name = getScientistNameFromId(rowNumber);
+    QString qname = QString::fromStdString(name);
+    qDebug() << qname;
     for(size_t i = 0; i < persons.size(); ++i)
     {
         if(name == persons[i].getScientistName())
@@ -123,6 +134,8 @@ bool ListWorker::removeConnection(int s, int c)
     if(c == 0)
     {
         int removeId = getScientistId(s);
+        QString qbirth = QString::number(removeId);
+        qDebug() << qbirth;
         for(int i = 0; i < getLinkSize()+2; i++)
         {
             if(removeId == getLinkSciId(i))
@@ -161,7 +174,7 @@ bool ListWorker::removePersonFound(string name)
 }
 bool ListWorker::removeComputer(int rownumber)
 {
-    string name = getComputerName(rownumber);
+    string name = getComputerNameFromId(rownumber);
     for(size_t i = 0; i < com.size(); ++i)
     {
         if(name == com[i].getComputerName())
