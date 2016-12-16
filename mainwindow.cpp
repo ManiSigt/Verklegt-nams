@@ -692,6 +692,20 @@ void MainWindow::on_button_computer_edit_clicked()
         EditComputerDialog editCom;
         editCom.prepare(ecom);
 
+        bool add = editCom.exec();
+
+        if (add == 1)
+        {
+            list.eraser();
+            list.refreshVector();
+            showComputersName();
+            disableButtons();
+            statusBar()->showMessage("Computer edited!",2000);
+        }
+        else
+        {
+            statusBar()->showMessage("Canceled!",2000);
+        }
 
 }
 void MainWindow::disableButtons()
