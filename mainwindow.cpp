@@ -29,12 +29,10 @@ MainWindow::MainWindow(QWidget *parent) :
     populateDropdownMenus();
     defaultTheme();
 }
-
 MainWindow::~MainWindow()
 {
     delete ui;
 }
-
 void MainWindow::showScientistsName()
 {
     ui->table_scientist->clear();
@@ -51,11 +49,13 @@ void MainWindow::showScientistsName()
     ui->table_scientist->setColumnCount(5);
 
     int count = 0;
+
     for(int i = 0; i < list.personsSize(); i++)
     {
         string nameSearch = ui->input_scientist->text().toStdString();
         transform(nameSearch.begin(), nameSearch.end(), nameSearch.begin(), ::tolower);
         size_t found = list.getScientistLowerCaseName(i).find(nameSearch);
+
         if(found!=std::string::npos)
         {
             int birth = list.getScientistBirth(i);
@@ -75,6 +75,7 @@ void MainWindow::showScientistsName()
             count++;
         }
     }
+
     ui->table_scientist->resizeColumnsToContents();
     ui->table_scientist->setRowCount(count);
 
@@ -92,10 +93,12 @@ void MainWindow::showScientistsGender()
     ui->table_scientist->setRowCount(list.personsSize());
     ui->table_scientist->setColumnCount(5);
     int count = 0;
+
     for(int i = 0; i < list.personsSize(); i++)
     {
         string nameSearch = ui->input_scientist->text().toStdString();
         char genderSearch = nameSearch[0];
+
         if(genderSearch == 'f')
         {
             genderSearch = 'F';
@@ -104,6 +107,7 @@ void MainWindow::showScientistsGender()
         {
             genderSearch = 'M';
         }
+
         if(genderSearch == list.getScientistGender(i))
         {
             int birth = list.getScientistBirth(i);
@@ -141,6 +145,7 @@ void MainWindow::showScientistsGender()
             count++;
         }
     }
+
     ui->table_scientist->resizeColumnsToContents();
     ui->table_scientist->setRowCount(count);
 }
@@ -156,10 +161,12 @@ void MainWindow::showScientistsBirthYear()
 
     ui->table_scientist->setColumnCount(5);
     int count = 0;
+
     for(int i = 0; i < list.personsSize(); i++)
     {
         string birthSearch = ui->input_scientist->text().toStdString();
         size_t found = list.getScientistBirthString(i).find(birthSearch);
+
         if(found!=std::string::npos)
         {
             int birth = list.getScientistBirth(i);
@@ -178,6 +185,7 @@ void MainWindow::showScientistsBirthYear()
             count++;
         }
     }
+
     ui->table_scientist->resizeColumnsToContents();
     ui->table_scientist->setRowCount(count);
 }
@@ -193,10 +201,12 @@ void MainWindow::showScientistsDeathYear()
 
     ui->table_scientist->setColumnCount(5);
     int count = 0;
+
     for(int i = 0; i < list.personsSize(); i++)
     {
         string deathSearch = ui->input_scientist->text().toStdString();
         size_t found = list.getScientistDeathString(i).find(deathSearch);
+
         if(found!=std::string::npos)
         {
             int birth = list.getScientistBirth(i);
@@ -215,9 +225,9 @@ void MainWindow::showScientistsDeathYear()
             count++;
         }
     }
+
     ui->table_scientist->resizeColumnsToContents();
     ui->table_scientist->setRowCount(count);
-
 }
 void MainWindow::showComputersName()
 {
@@ -233,15 +243,16 @@ void MainWindow::showComputersName()
     ui->table_computer->setRowCount(list.computerSize());
     ui->table_computer->setColumnCount(4);
     int count = 0;
+
     for(int i = 0; i < list.computerSize(); i++)
     {
         string nameSearch = ui->input_computer->text().toStdString();
         transform(nameSearch.begin(), nameSearch.end(), nameSearch.begin(), ::tolower);
         size_t found = list.getComputerLowerCaseName(i).find(nameSearch);
+
         if(found!=std::string::npos)
         {
             int date = list.getComputerDate(i);
-
             QString qname = QString::fromStdString(list.getComputerName(i));
             QString qtype = QString::fromStdString(list.getComputerType(i));
             QString qdate = QString::number(date);
@@ -252,9 +263,9 @@ void MainWindow::showComputersName()
             ui->table_computer->setItem(count,2,new QTableWidgetItem(qdate));
             ui->table_computer->setItem(count,3,new QTableWidgetItem(qwasitbuilt));
             count++;
-
         }
     }
+
     ui->table_computer->setRowCount(count);
     ui->table_computer->resizeColumnsToContents();
 }
@@ -269,15 +280,16 @@ void MainWindow::showComputersType()
     ui->table_computer->setRowCount(list.computerSize());
     ui->table_computer->setColumnCount(4);
     int count = 0;
+
     for(int i = 0; i < list.computerSize(); i++)
     {
         string nameSearch = ui->input_computer->text().toStdString();
         transform(nameSearch.begin(), nameSearch.end(), nameSearch.begin(), ::tolower);
         size_t found = list.getComputerLowerCaseType(i).find(nameSearch);
+
         if(found!=std::string::npos)
         {
             int date = list.getComputerDate(i);
-
             QString qname = QString::fromStdString(list.getComputerName(i));
             QString qtype = QString::fromStdString(list.getComputerType(i));
             QString qdate = QString::number(date);
@@ -290,13 +302,12 @@ void MainWindow::showComputersType()
             count++;
         }
     }
+
     ui->table_computer->setRowCount(count);
     ui->table_computer->resizeColumnsToContents();
 }
 void MainWindow::showComputersYear()
 {
-    ui->table_computer->clear();
-
     ui->table_computer->clear();
     ui->table_computer->setHorizontalHeaderItem(0,new QTableWidgetItem("Name"));
     ui->table_computer->setHorizontalHeaderItem(1,new QTableWidgetItem("Type"));
@@ -306,14 +317,15 @@ void MainWindow::showComputersYear()
     ui->table_computer->setRowCount(list.computerSize());
     ui->table_computer->setColumnCount(4);
     int count = 0;
+
     for(int i = 0; i < list.computerSize(); i++)
     {
         string yearSearch = ui->input_computer->text().toStdString();
         size_t found = list.getComputerStringDate(i).find(yearSearch);
+
         if(found!=std::string::npos)
         {
             int date = list.getComputerDate(i);
-
             QString qname = QString::fromStdString(list.getComputerName(i));
             QString qtype = QString::fromStdString(list.getComputerType(i));
             QString qdate = QString::number(date);
@@ -326,9 +338,9 @@ void MainWindow::showComputersYear()
             count++;
         }
     }
+
     ui->table_computer->resizeColumnsToContents();
     ui->table_computer->setRowCount(count);
-
 }
 void MainWindow::showConnectionsNameSci()
 {
@@ -344,6 +356,7 @@ void MainWindow::showConnectionsNameSci()
     ui->table_connections->setRowCount(list.getLinkOutputSize());
     ui->table_connections->setColumnCount(2);
     int count = 0;
+
     for(int i = 0; i < list.getLinkOutputSize(); i++)
     {
         string nameSearch = ui->input_connections->text().toStdString();
@@ -359,6 +372,7 @@ void MainWindow::showConnectionsNameSci()
             count++;
        }
     }
+
     ui->table_connections->setRowCount(count);
     ui->table_connections->resizeColumnsToContents();
 }
@@ -366,23 +380,22 @@ void MainWindow::showConnectionsNameComp()
 {
     ui->table_connections->clearContents();
     list.sortConnections("1"); //þegar sort verður lagfært þá verður þetta kannski fært.
-
     ui->table_connections->clear();
-
     ui->table_connections->setHorizontalHeaderItem(0,new QTableWidgetItem("Scientist Name"));
     ui->table_connections->setHorizontalHeaderItem(1,new QTableWidgetItem("Computer Name"));
 
     ui->table_connections->setRowCount(list.getLinkOutputSize());
     ui->table_connections->setColumnCount(2);
     int count = 0;
+
     for(int i = 0; i < list.getLinkOutputSize(); i++)
     {
         string nameSearch = ui->input_connections->text().toStdString();
         transform(nameSearch.begin(), nameSearch.end(), nameSearch.begin(), ::tolower);
         size_t found = list.getLinkOutputCompNameLower(i).find(nameSearch);
+
         if(found!=std::string::npos)
         {
-
             QString qsciname = QString::fromStdString(list.getLinkOutputSciName(i));
             QString qcompname = QString::fromStdString(list.getLinkOutputCompName(i));
 
@@ -391,10 +404,10 @@ void MainWindow::showConnectionsNameComp()
             count++;
        }
     }
+
     ui->table_connections->setRowCount(count);
     ui->table_connections->resizeColumnsToContents();
 }
-
 void MainWindow::populateDropdownMenus()
 {
         ui->dropdown_scientist->addItem("Name");
@@ -409,12 +422,12 @@ void MainWindow::populateDropdownMenus()
         ui->dropdown_connections->addItem("Scientist");
         ui->dropdown_connections->addItem("Computer");
 }
-
 void MainWindow::on_button_scientist_add_clicked()
 {
     addScientistDialog addScientist;
 
     int add = addScientist.exec();
+
     if (add == 1)
     {
         //list.eraser();
@@ -446,7 +459,8 @@ void MainWindow::on_button_scientist_remove_clicked()
 
     QMessageBox::StandardButton textBox;
     textBox = QMessageBox::question(this, "Remove", "Are you sure you want to remove scientist?",
-                              QMessageBox::Yes|QMessageBox::No);
+    QMessageBox::Yes|QMessageBox::No);
+
     if (textBox == QMessageBox::Yes)
     {
         if (success)
@@ -539,6 +553,7 @@ void MainWindow::on_button_computer_remove_clicked()
     QMessageBox::StandardButton textBox;
     textBox = QMessageBox::question(this, "Remove", "Are you sure you want to remove computer?",
     QMessageBox::Yes|QMessageBox::No);
+
     if (textBox == QMessageBox::Yes)
     {
         if (success)
@@ -639,6 +654,7 @@ void MainWindow::on_button_computer_add_clicked()
 {
     addComputerDialog addComputer;
     int add = addComputer.exec();
+
     if (add == 1)
     {
 
@@ -676,6 +692,7 @@ void MainWindow::on_button_computer_edit_clicked()
             id = list.getComputerId(i);
         }
     }
+
     ecom = Computer(comName, wasItBuilt, date, type, id);
 
     EditComputerDialog editCom;
@@ -707,13 +724,11 @@ void MainWindow::disableButtons()
     ui->button_computer_info->setEnabled(false);
     ui->button_scientist_info->setEnabled(false);
 }
-
 void MainWindow::on_table_connections_clicked()
 {
     ui->button_connections_remove->setEnabled(true);
     ui->button_connections_edit->setEnabled(true);
 }
-
 void MainWindow::on_button_connections_remove_clicked()
 {
     int row = ui->table_connections->currentRow();
@@ -734,10 +749,12 @@ void MainWindow::on_button_connections_remove_clicked()
             }
         }
     }
+
     bool success = list.removeConnectionById(id);
     QMessageBox::StandardButton textBox;
     textBox = QMessageBox::question(this, "Remove", "Are you sure you want to remove connection?",
     QMessageBox::Yes|QMessageBox::No);
+
     if(textBox == QMessageBox::Yes)
     {
         if (success)
@@ -753,6 +770,7 @@ void MainWindow::on_button_connections_remove_clicked()
     {
         QMessageBox::warning(this, "Abort", "Connection not removed.");
     }
+
     disableButtons();
 }
 
@@ -799,12 +817,10 @@ void MainWindow::on_button_connections_add_clicked()
         statusBar()->showMessage("Canceled!",2000);
     }
 }
-
 void MainWindow::on_actionNormal_triggered()
 {
     setStyleSheet("background-color: normal;");
 }
-
 void MainWindow::skullTheme()
 {
     setWindowIcon(QIcon(":/icons/icons/skull-512.ico"));
@@ -838,7 +854,6 @@ void MainWindow::skullTheme()
     ui->button_connections_edit->setIconSize(QSize(30,30));
     ui->button_connections_remove->setIcon(QIcon(":/icons/icons/death"));
     ui->button_connections_remove->setIconSize(QSize(30,30));
-
 }
 void MainWindow::sexyTheme()
 {
@@ -913,7 +928,6 @@ void MainWindow::christmasTheme()
     ui->button_connections_remove->setIconSize(QSize(30,30));
 
     EditComputerDialog editcomp;
-
 }
 void MainWindow::defaultTheme()
 {
@@ -1048,9 +1062,7 @@ void MainWindow::on_button_scientist_info_clicked()
     infoScientistDialog infoSci;
     infoSci.prepareShowSci(isci);
     infoSci.exec();
-
 }
-
 void MainWindow::on_button_computer_info_clicked()
 {
     int getRow = ui->table_computer->currentRow();

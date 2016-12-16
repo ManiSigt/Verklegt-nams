@@ -11,12 +11,10 @@ EditComputerDialog::EditComputerDialog(QWidget *parent) :
 {
     ui->setupUi(this);
 }
-
 EditComputerDialog::~EditComputerDialog()
 {
     delete ui;
 }
-
 void EditComputerDialog::prepare(Computer ecom)
 {
     currentId = ecom.getComputerId();
@@ -42,7 +40,6 @@ void EditComputerDialog::on_button_computer_edit_clicked()
         built = "No";
     }
 
-
     if(name == "")
     {
         QMessageBox::warning(this, "Error!", "Name can not be empty!");
@@ -55,7 +52,6 @@ void EditComputerDialog::on_button_computer_edit_clicked()
         error++;
     }
 
-
     if(error == 0)
     {
         bool success = elist.updateComputer(name, type, built, date, currentId,fileName);
@@ -67,20 +63,17 @@ void EditComputerDialog::on_button_computer_edit_clicked()
         {
             this->done(-1);
         }
-
     }
 }
-
 void EditComputerDialog::on_button_computer_edit_cancel_clicked()
 {
     close();
 }
-
 void EditComputerDialog::on_button_edit_picture_clicked()
 {
     fileName = QFileDialog::getOpenFileName(this,
-            tr("Jpg image"), "",
-            tr("Image file (*.jpg *.png);;All Files (*)"));
+    tr("Jpg image"), "",
+    tr("Image file (*.jpg *.png);;All Files (*)"));
 
     QFileInfo name(fileName);
     QString baseName = name.fileName();

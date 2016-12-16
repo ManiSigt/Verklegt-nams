@@ -21,6 +21,7 @@ bool ListWorker::addNewScientist(string name, char gender, int yearOfBirth, int 
     Person p(name, gender, yearOfBirth, yearOfDeath, comment, vsize);
     persons.push_back(p);
     data.addScientist(name, gender, yearOfBirth, yearOfDeath, comment, vsize);
+
     if(fileName != "0")
     {
         data.addImage(fileName, vsize, 0);
@@ -38,6 +39,7 @@ bool ListWorker::addNewComputer(string name, string type, int yearbuilt, string 
     Computer c(name, isbuilt, yearbuilt, type, vsize);
     com.erase (com.begin(),com.end());
     data.addComputer(name, type, yearbuilt, isbuilt, vsize);
+
     if(fileName != "0")
     {
         data.addImage(fileName, 0, vsize);
@@ -47,7 +49,6 @@ bool ListWorker::addNewComputer(string name, string type, int yearbuilt, string 
 bool ListWorker::addNewConnection(int compId, int sciId)
 {
     int linkId;
-    //get free ID in database
 
     if(getLinkSize() == 0)
     {
@@ -63,9 +64,11 @@ bool ListWorker::addNewConnection(int compId, int sciId)
             }
         }
     }
+
     Linker l(linkId, sciId, compId);
     link.push_back(l);
     data.addConnection(linkId, sciId, compId);
+
     return true;
 }
 void ListWorker::sortScientistNames()
@@ -116,6 +119,7 @@ bool ListWorker::removePerson(int rowNumber)
 {
     string name = getScientistNameFromId(rowNumber);
     QString qname = QString::fromStdString(name);
+
     for(size_t i = 0; i < persons.size(); ++i)
     {
         if(name == persons[i].getScientistName())
@@ -123,9 +127,11 @@ bool ListWorker::removePerson(int rowNumber)
             persons.erase(persons.begin() + i);
             removeConnection(i,0);
             data.removeScientist(name);
+
             return true;
         }
     }
+
     return false;
 }
 bool ListWorker::removeConnection(int s, int c)
@@ -157,6 +163,7 @@ bool ListWorker::removeConnection(int s, int c)
             }
         }
     }
+
     return true;
 }
 bool ListWorker::removePersonFound(string name)
@@ -168,11 +175,13 @@ bool ListWorker::removePersonFound(string name)
             return true;
         }
     }
+
     return false;
 }
 bool ListWorker::removeComputer(int rownumber)
 {
     string name = getComputerNameFromId(rownumber);
+
     for(size_t i = 0; i < com.size(); ++i)
     {
         if(name == com[i].getComputerName())
@@ -183,6 +192,7 @@ bool ListWorker::removeComputer(int rownumber)
             return true;
         }
     }
+
     return false;
 }
 bool ListWorker::removeComputerFound(string name)
@@ -194,18 +204,21 @@ bool ListWorker::removeComputerFound(string name)
             return true;
         }
     }
+
     return false;
 }
 int ListWorker::getScientistNameSize(int n) const
 {
     string name = persons[n].getScientistName();
     int size = name.size();
+
     return size;
 }
 int ListWorker::getComputerNameSize(int n) const
 {
     string name = com[n].getComputerName();
     int size = name.size();
+
     return size;
 }
 bool ListWorker::nameSearcher(string name)
@@ -213,12 +226,14 @@ bool ListWorker::nameSearcher(string name)
     for(unsigned int i = 0; i < persons.size(); i++)
     {
         std::size_t found = getScientistLowerCaseName(i).find(name);
+
         if (found!=std::string::npos)
         {
             return true;
             break;
         }
     }
+
     return false;
 }
 bool ListWorker::computerNameSearcher(string name)
@@ -226,12 +241,14 @@ bool ListWorker::computerNameSearcher(string name)
     for(int i = 0; i < computerSize(); i++)
     {
         std::size_t found = getComputerLowerCaseName(i).find(name);
+
         if (found!=std::string::npos)
         {
             return true;
             break;
         }
     }
+
     return false;
 }
 bool ListWorker::genderSearcher(char gender)
@@ -244,6 +261,7 @@ bool ListWorker::genderSearcher(char gender)
              break;
         }
     }
+
     return false;
 }
 bool ListWorker::typeSearcher(string type)
@@ -257,6 +275,7 @@ bool ListWorker::typeSearcher(string type)
             break;
         }
     }
+
     return false;
 }
 bool ListWorker::yearSearcher(int year)
@@ -269,6 +288,7 @@ bool ListWorker::yearSearcher(int year)
              break;
         }
     }
+
     return false;
 }
 bool ListWorker::builtDateSearcher(int year)
@@ -281,6 +301,7 @@ bool ListWorker::builtDateSearcher(int year)
              break;
         }
     }
+
     return false;
 }
 bool ListWorker::ageSearcher(int age)
@@ -293,11 +314,13 @@ bool ListWorker::ageSearcher(int age)
              break;
         }
     }
+
     return false;
 }
 int ListWorker::computerIdFinder()
 {
     int idValue;
+
     for (int i = 1; i <= computerSize(); i++)
     {
         if(i != getComputerId(i-1))
@@ -309,11 +332,13 @@ int ListWorker::computerIdFinder()
             idValue = i + 1;
         }
     }
+
     return idValue;
 }
 int ListWorker::scientistIdFinder()
 {
     int idValue;
+
     for (int i = 1; i < personsSize()+1; i++)
     {
         if(i != getScientistId(i-1))
@@ -325,6 +350,7 @@ int ListWorker::scientistIdFinder()
             idValue = i+1;
         }
     }
+
     return idValue;
 }
 void ListWorker::refreshVector()
@@ -349,6 +375,7 @@ string ListWorker::getComputerNameFromId(int n) const
             name = com[i].getComputerName();
         }
     }
+
     return name;
 }
 int ListWorker::getComputerIdFromName(string name) const
@@ -362,12 +389,14 @@ int ListWorker::getComputerIdFromName(string name) const
             id = com[i].getComputerId();
         }
     }
+
     return id;
 }
 int ListWorker::getScientistIdFromName(string name) const
 {
     int id;
     string check;
+
     for(int i = 0; i < personsSize(); i++)
     {
        check = getScientistName(i);
@@ -376,11 +405,13 @@ int ListWorker::getScientistIdFromName(string name) const
             id = getScientistId(i);
         }
     }
+
     return id;
 }
 int ListWorker::getLinkIdFromSciComIds(int sciId, int comId) const
 {
     int id;
+
     for(unsigned int i = 0; i < link.size(); i++)
     {
         if(getLinkCompId(i) == comId && getLinkSciId(i) == sciId)
@@ -388,14 +419,13 @@ int ListWorker::getLinkIdFromSciComIds(int sciId, int comId) const
             id = getLinkId(i);
         }
     }
+
     return id;
 }
-
-
-
 bool ListWorker::updateConnection(int currentId, int sciId, int comId)
 {
     data.updateConnection(currentId,sciId,comId);
+
     return true;
 }
 string ListWorker::getScientistNameFromId(int n) const
@@ -409,6 +439,7 @@ string ListWorker::getScientistNameFromId(int n) const
             name = persons[i].getScientistName();
         }
     }
+
     return name;
 }
 void ListWorker::removeConnection(string scientist, string computer)
@@ -423,6 +454,7 @@ void ListWorker::removeConnection(string scientist, string computer)
             scientId = getScientistId(i);
         }
     }
+
     for(int j = 0; j < computerSize(); j++)
     {
         if(computer == getComputerName(j))
@@ -430,6 +462,7 @@ void ListWorker::removeConnection(string scientist, string computer)
             compId = getComputerId(j);
         }
     }
+
     data.removeConnection(scientId, compId);
 }
 void ListWorker::sortConnections(string selection)
@@ -455,15 +488,18 @@ int ListWorker::getLinkoutputCompNameSize(int n)
 {
     string name = linkout[n].getCompName();
     int size = name.size();
+
     return size;
 }
 bool ListWorker::updateScientist(string name,char gender, int birth, int death, string comment, int sciId, QString fileName)
 {
     int found = 0;
     data.updateScientist(name,gender,birth,death,comment,sciId);
+
     for(unsigned int i = 0; i < img.size(); i++)
     {
         int id = img[i].getId();
+
         if(sciId == img[i].getSciId())
         {
             qDebug() << id << sciId << img[i].getSciId();
@@ -471,6 +507,7 @@ bool ListWorker::updateScientist(string name,char gender, int birth, int death, 
             found++;
         }
     }
+
     if (found == 0)
         {
             data.addImage(fileName,sciId, 0);
@@ -486,12 +523,14 @@ bool ListWorker::updateComputer(string name, string type, string isbuilt, int Ye
     for(unsigned int i = 0; i < img.size(); i++)
     {
         int id = img[i].getId();
+
         if(compId == img[i].getComId())
         {
             data.updateImage(fileName, id);
             found++;
         }
     }
+
     if (found == 0)
         {
             data.addImage(fileName,0, compId);
@@ -511,12 +550,12 @@ void ListWorker::eraser()
 {
     com.erase(com.begin(),com.end());
     linkout.erase(linkout.begin(),linkout.end());
-    //link.erase(link.begin(),link.end());
 }
 int ListWorker::getImageSci(int sciId)
 {
     int result;
     int found = 0;
+
     for(int i = 0; i < img.size(); i++)
     {
         if(sciId == img[i].getSciId())
@@ -525,16 +564,19 @@ int ListWorker::getImageSci(int sciId)
             found++;
         }
     }
+
     if(found == 0)
     {
         result = 12;
     }
+
     return result;
 }
 int ListWorker::getImageCom(int comId)
 {
     int result;
     int found = 0;
+
     for(int i = 0; i < img.size(); i++)
     {
         if(comId == img[i].getComId())
@@ -543,9 +585,11 @@ int ListWorker::getImageCom(int comId)
             found++;
         }
     }
+
     if(found == 0)
     {
         result = 0;
     }
+
     return result;
 }

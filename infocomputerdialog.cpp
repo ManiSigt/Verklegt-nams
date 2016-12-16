@@ -49,7 +49,6 @@ void infoComputerDialog::prepareShowCom(Computer infoCom)
     ui->label_image->setSizePolicy(QSizePolicy::Ignored, QSizePolicy::Ignored);
     ui->label_image->setPixmap(mypix.scaled(w,h,Qt::KeepAspectRatioByExpanding));
 }
-
 void infoComputerDialog::on_button_close_clicked()
 {
     this->close();

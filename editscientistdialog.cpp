@@ -10,12 +10,10 @@ EditScientistDialog::EditScientistDialog(QWidget *parent) :
 {
     ui->setupUi(this);
 }
-
 EditScientistDialog::~EditScientistDialog()
 {
     delete ui;
 }
-
 void EditScientistDialog::prepare(Person esci)
 {
     currentId = esci.getScientistId();
@@ -25,12 +23,13 @@ void EditScientistDialog::prepare(Person esci)
     {
         ui->edit_scientist_radio_button_male->setChecked(true);
     }
+
     if(esci.getScientistGender() == 'f' || esci.getScientistGender() == 'F')
     {
         ui->edit_scientist_radio_button_female->setChecked(true);
     }
-
     ui->input_scientist_birth->insert(QString::number(esci.getScientistBirth()));
+
     if(esci.getScientistDeath() == 0)
     {
         ui->input_scientist_death->insert("n/a");
@@ -41,12 +40,10 @@ void EditScientistDialog::prepare(Person esci)
     }
     ui->input_scientist_comment->insert(QString::fromStdString(esci.getScientistComment()));
 }
-
 void EditScientistDialog::on_button_scientist_edit_cancel_clicked()
 {
     close();
 }
-
 void EditScientistDialog::on_button_scientist_edit_clicked()
 {
     int error = 0;
@@ -55,6 +52,7 @@ void EditScientistDialog::on_button_scientist_edit_clicked()
     char gender = 'a';
     string name = ui->input_scientist_name->text().toStdString();
     birth = ui->input_scientist_birth->text().toUInt();
+
     if(ui->input_scientist_death->text() == "n/a")
     {
         death = 0;
@@ -63,6 +61,7 @@ void EditScientistDialog::on_button_scientist_edit_clicked()
     {
         death = ui->input_scientist_death->text().toUInt();
     }
+
     string comment = ui->input_scientist_comment->text().toStdString();
 
     if(ui->edit_scientist_radio_button_female->isChecked())
@@ -73,7 +72,6 @@ void EditScientistDialog::on_button_scientist_edit_clicked()
     {
         gender = 'M';
     }
-
 
     if(name == "")
     {
@@ -86,6 +84,7 @@ void EditScientistDialog::on_button_scientist_edit_clicked()
         QMessageBox::warning(this, "Error!", "Not a valid year of birth!");
         error++;
     }
+
     if(death != 0)
         {
         if(death - birth <= 0)
@@ -108,13 +107,11 @@ void EditScientistDialog::on_button_scientist_edit_clicked()
         }
     }
 }
-
-
 void EditScientistDialog::on_button_edit_picture_clicked()
 {
     fileName = QFileDialog::getOpenFileName(this,
-            tr("Jpg image"), "",
-            tr("Image file (*.jpg *.png);;All Files (*)"));
+    tr("Jpg image"), "",
+    tr("Image file (*.jpg *.png);;All Files (*)"));
 
     QFileInfo name(fileName);
     QString baseName = name.fileName();

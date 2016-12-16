@@ -17,6 +17,9 @@ public:
     explicit infoScientistDialog(QWidget *parent = 0);
     ~infoScientistDialog();
      void prepareShowSci(Person infoSci);
+private slots:
+     void on_button_close_clicked();
+
 private:
     Ui::infoScientistDialog *ui;
     ListWorker ilist;

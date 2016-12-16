@@ -238,14 +238,14 @@ void DataLayer::updateConnection(int currentId, int sciId, int comId)
 }
 void DataLayer::addConnection(int linkId, int sciId, int compId)
 {
-        QSqlQuery queryAdd;
-        queryAdd.prepare("INSERT INTO CompAndSci (ID, ComputerID, ScientistID) VALUES (:id, :compId, :sciId)");
+    QSqlQuery queryAdd;
+    queryAdd.prepare("INSERT INTO CompAndSci (ID, ComputerID, ScientistID) VALUES (:id, :compId, :sciId)");
 
-        queryAdd.bindValue(":id", linkId);
-        queryAdd.bindValue(":compId", compId);
-        queryAdd.bindValue(":sciId", sciId);
+    queryAdd.bindValue(":id", linkId);
+    queryAdd.bindValue(":compId", compId);
+    queryAdd.bindValue(":sciId", sciId);
 
-        queryAdd.exec();
+    queryAdd.exec();
 }
 void DataLayer::removeComputer(string name)
 {
@@ -383,7 +383,6 @@ void DataLayer::searchConnectionsByComp(vector<LinkerOutput>& linkout, int compI
 
 void DataLayer::addImage(QString fileName, int sciId, int comId)
 {
-    //Alternatively, load an image file directly into a QByteArray
     QFile file(fileName);
     if (!file.open(QIODevice::ReadOnly)) return;
     QByteArray inByteArray = file.readAll();
@@ -418,9 +417,6 @@ void DataLayer::addImage(QString fileName, int sciId, int comId)
 
 void DataLayer::updateImage(QString fileName, int id)
 {
-
-
-    //Alternatively, load an image file directly into a QByteArray
     QFile file(fileName);
     if (!file.open(QIODevice::ReadOnly)) return;
     QByteArray inByteArray = file.readAll();
@@ -429,8 +425,7 @@ void DataLayer::updateImage(QString fileName, int id)
     QString baseName = name.fileName();
 
     db.open();
-    QSqlQuery query(db);
-                        //UPDATE Computers SET CompName=:name, Type=:type, Date=:yearbuilt, WasItBuilt=:isbuilt WHERE ID=:id
+    QSqlQuery query(db);                   
 
         query.prepare( "UPDATE Images SET fileName=:name, Image=:img WHERE ID=:id" );
 
@@ -438,7 +433,7 @@ void DataLayer::updateImage(QString fileName, int id)
         query.bindValue( ":name", baseName);
         query.bindValue( ":img", inByteArray);
         if( !query.exec() )
-            qDebug() << "Error inserting image into table:\n" << query.lastError();
+        qDebug() << "Error inserting image into table:\n" << query.lastError();
 
 }
 void DataLayer::readImagesFromDatabase(vector<Images>& img)
