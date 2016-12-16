@@ -114,6 +114,8 @@ bool ListWorker::removeConnection(int s, int c)
     if(c == 0)
     {
         int removeId = getScientistId(s);
+        QString qbirth = QString::number(removeId);
+        qDebug() << qbirth;
         for(int i = 0; i < getLinkSize()+2; i++)
         {
             if(removeId == getLinkSciId(i))
