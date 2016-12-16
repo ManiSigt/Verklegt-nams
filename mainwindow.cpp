@@ -27,7 +27,6 @@ MainWindow::MainWindow(QWidget *parent) :
     showConnectionsNameSci();
     showScientistsName();
     populateDropdownMenus();
-    setStyleSheet("background-color: white;");
     defaultTheme();
 }
 
@@ -931,7 +930,7 @@ void MainWindow::christmasTheme()
 }
 void MainWindow::defaultTheme()
 {
-    setWindowIcon(QIcon(":/icons/icons/skull-512.ico"));
+    setWindowIcon(QIcon(":/icons/icons/mainmynd"));
     ui->button_computer_add->setIcon(QIcon(":/icons/icons/add2"));
     ui->button_computer_add->setIconSize(QSize(30,30));
     ui->button_computer_theme->setIcon(QIcon(":/icons/icons/theme"));

@@ -26,5 +26,6 @@
         <file>icons/pirateSkull.png</file>
         <file>icons/skull.jpg</file>
         <file>icons/theme.png</file>
+        <file>icons/mainmynd.png</file>
     </qresource>
 </RCC>
