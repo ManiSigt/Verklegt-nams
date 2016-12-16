@@ -50,10 +50,6 @@ private slots:
     void on_button_computer_edit_clicked();                 // a function that dictates what happens when the user presses a specific button
     void on_table_connections_clicked();                    // a function that dictates what happens when the user presses a specific button
     void on_button_connections_remove_clicked();            // a function that dictates what happens when the user presses a specific button
-    void on_action_add_scientist_triggered();               //
-    void on_action_add_computer_triggered();                //
-    void on_action_edit_scientist_triggered();              //
-    void on_action_edit_computer_triggered();               //
     void on_tabWidget_tabBarClicked();                      // a function that dictates what happens when the user presses a specific button
     void on_actionRed_triggered();                          // Makes the background color cyan when clicked.
     void on_actionPink_triggered();                         // Makes the background color pink when clicked.
