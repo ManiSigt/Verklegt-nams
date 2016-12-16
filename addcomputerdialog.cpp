@@ -72,7 +72,6 @@ void addComputerDialog::themeChanger(int changer)
 {
     if(changer == 1)  //Skulltheme
     {
-        qDebug() << "drunk";
         setWindowIcon(QIcon(":/icons/icons/skull-512.ico"));
         ui->add_computer_button->setIcon(QIcon(":/icons/icons/ninjaskull"));
         ui->add_computer_button->setIconSize(QSize(30,30));
@@ -100,7 +99,7 @@ void addComputerDialog::on_button_add_picture_clicked()
 {
     fileName = QFileDialog::getOpenFileName(this,
             tr("Jpg image"), "",
-            tr("Image file (*.jpg *.png *.bmp *.gif);;All Files (*)"));
+            tr("Image file (*.jpg *.png);;All Files (*)"));
 
     QFileInfo name(fileName);
     QString baseName = name.fileName();

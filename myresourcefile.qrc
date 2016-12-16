@@ -27,5 +27,7 @@
         <file>icons/skull.jpg</file>
         <file>icons/theme.png</file>
         <file>icons/mainmynd.png</file>
+        <file>icons/skull.png</file>
+        <file>icons/info.png</file>
     </qresource>
 </RCC>

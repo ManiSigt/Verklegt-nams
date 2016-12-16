@@ -8,6 +8,8 @@
 #include "editcomputerdialog.h"
 #include "editconnectionsdialog.h"
 #include "themedialog.h"
+#include "infoscientistdialog.h"
+#include "infocomputerdialog.h"
 #include <QMessageBox>
 #include <algorithm>
 #include <QDebug>
@@ -438,9 +440,7 @@ void MainWindow::on_button_scientist_remove_clicked()
     QTableWidgetItem *cellName = ui->table_scientist->item(getRow, 0);
     QString qsciName = cellName->text();
     string sciName = qsciName.toStdString();
-    qDebug() << qsciName;
     int scientistRemove = list.getScientistIdFromName(sciName);
-    qDebug() << scientistRemove;
     bool success = list.removePerson(scientistRemove);
 
     QMessageBox::StandardButton textBox;
@@ -721,26 +721,7 @@ void MainWindow::on_button_connections_remove_clicked()
     }
     disableButtons();
 }
-void MainWindow::on_action_add_scientist_triggered()
-{
-    on_button_scientist_add_clicked();
-}
 
-void MainWindow::on_action_add_computer_triggered()
-{
-    on_button_computer_add_clicked();
-}
-
-void MainWindow::on_action_edit_scientist_triggered()
-{
-    on_button_scientist_edit_clicked();
-}
-
-void MainWindow::on_action_edit_computer_triggered()
-{
-    on_button_computer_edit_clicked();
-
-}
 
 void MainWindow::on_tabWidget_tabBarClicked()
 {
@@ -803,6 +784,8 @@ void MainWindow::skullTheme()
     ui->button_computer_edit->setIconSize(QSize(30,30));
     ui->button_computer_remove->setIcon(QIcon(":/icons/icons/death"));
     ui->button_computer_remove->setIconSize(QSize(30,30));
+    ui->button_computer_info->setIcon(QIcon(":/icons/icons/skull"));
+    ui->button_computer_info->setIconSize(QSize(30,30));
 
     ui->button_scientist_add->setIcon(QIcon(":/icons/icons/ninjaskull"));
     ui->button_scientist_add->setIconSize(QSize(30,30));
@@ -812,6 +795,8 @@ void MainWindow::skullTheme()
     ui->button_scientist_edit->setIconSize(QSize(30,30));
     ui->button_scientist_remove->setIcon(QIcon(":/icons/icons/death"));
     ui->button_scientist_remove->setIconSize(QSize(30,30));
+    ui->button_scientist_info->setIcon(QIcon(":/icons/icons/skull"));
+    ui->button_scientist_info->setIconSize(QSize(30,30));
 
     ui->button_connections_add->setIcon(QIcon(":/icons/icons/ninjaskull"));
     ui->button_connections_add->setIconSize(QSize(30,30));
@@ -821,6 +806,7 @@ void MainWindow::skullTheme()
     ui->button_connections_edit->setIconSize(QSize(30,30));
     ui->button_connections_remove->setIcon(QIcon(":/icons/icons/death"));
     ui->button_connections_remove->setIconSize(QSize(30,30));
+
     setStyleSheet("background-color:grey");
 }
 void MainWindow::sexyTheme()
@@ -832,6 +818,8 @@ void MainWindow::sexyTheme()
     ui->button_scientist_add->setIconSize(QSize(30,30));
     ui->button_connections_add->setIcon(QIcon(":/icons/icons/addsexy"));
     ui->button_connections_add->setIconSize(QSize(30,30));
+    ui->button_computer_info->setIcon(QIcon(":/icons/icons/cancelsexy"));
+    ui->button_computer_info->setIconSize(QSize(30,30));
 
     ui->button_computer_edit->setIcon(QIcon(":/icons/icons/editsexy"));
     ui->button_computer_edit->setIconSize(QSize(30,30));
@@ -839,6 +827,8 @@ void MainWindow::sexyTheme()
     ui->button_scientist_edit->setIconSize(QSize(30,30));
     ui->button_connections_edit->setIcon(QIcon(":/icons/icons/editsexy"));
     ui->button_connections_edit->setIconSize(QSize(30,30));
+    ui->button_computer_info->setIcon(QIcon(":/icons/icons/cancelsexy"));
+    ui->button_computer_info->setIconSize(QSize(30,30));
 
     ui->button_computer_remove->setIcon(QIcon(":/icons/icons/deletesexy2"));
     ui->button_computer_remove->setIconSize(QSize(30,30));
@@ -846,6 +836,8 @@ void MainWindow::sexyTheme()
     ui->button_scientist_remove->setIconSize(QSize(30,30));
     ui->button_connections_remove->setIcon(QIcon(":/icons/icons/deletesexy2"));
     ui->button_connections_remove->setIconSize(QSize(30,30));
+    ui->button_scientist_info->setIcon(QIcon(":/icons/icons/cancelsexy"));
+    ui->button_scientist_info->setIconSize(QSize(30,30));
 
     ui->button_computer_theme->setIcon(QIcon(":/icons/icons/themesexy"));
     ui->button_computer_theme->setIconSize(QSize(30,30));
@@ -853,6 +845,7 @@ void MainWindow::sexyTheme()
     ui->button_scientist_theme->setIconSize(QSize(30,30));
     ui->button_connections_theme->setIcon(QIcon(":/icons/icons/themesexy"));
     ui->button_connections_theme->setIconSize(QSize(30,30));
+
     setStyleSheet("background-color:pink");
 }
 void MainWindow::christmasTheme()
@@ -866,6 +859,8 @@ void MainWindow::christmasTheme()
     ui->button_computer_edit->setIconSize(QSize(30,30));
     ui->button_computer_remove->setIcon(QIcon(":/icons/icons/christmas4"));
     ui->button_computer_remove->setIconSize(QSize(30,30));
+    ui->button_computer_info->setIcon(QIcon(":/icons/icons/christmas5"));
+    ui->button_computer_info->setIconSize(QSize(30,30));
 
     ui->button_scientist_add->setIcon(QIcon(":/icons/icons/christmas6"));
     ui->button_scientist_add->setIconSize(QSize(30,30));
@@ -875,6 +870,8 @@ void MainWindow::christmasTheme()
     ui->button_scientist_edit->setIconSize(QSize(30,30));
     ui->button_scientist_remove->setIcon(QIcon(":/icons/icons/christmas4"));
     ui->button_scientist_remove->setIconSize(QSize(30,30));
+    ui->button_scientist_info->setIcon(QIcon(":/icons/icons/christmas5"));
+    ui->button_scientist_info->setIconSize(QSize(30,30));
 
     ui->button_connections_add->setIcon(QIcon(":/icons/icons/christmas6"));
     ui->button_connections_add->setIconSize(QSize(30,30));
@@ -884,6 +881,7 @@ void MainWindow::christmasTheme()
     ui->button_connections_edit->setIconSize(QSize(30,30));
     ui->button_connections_remove->setIcon(QIcon(":/icons/icons/christmas4"));
     ui->button_connections_remove->setIconSize(QSize(30,30));
+
     setStyleSheet("background-color:crimson");
     EditComputerDialog editcomp;
 
@@ -899,6 +897,8 @@ void MainWindow::defaultTheme()
     ui->button_computer_edit->setIconSize(QSize(30,30));
     ui->button_computer_remove->setIcon(QIcon(":/icons/icons/remove"));
     ui->button_computer_remove->setIconSize(QSize(30,30));
+    ui->button_computer_info->setIcon(QIcon(":/icons/icons/info"));
+    ui->button_computer_info->setIconSize(QSize(30,30));
 
     ui->button_scientist_add->setIcon(QIcon(":/icons/icons/add2"));
     ui->button_scientist_add->setIconSize(QSize(30,30));
@@ -908,6 +908,8 @@ void MainWindow::defaultTheme()
     ui->button_scientist_edit->setIconSize(QSize(30,30));
     ui->button_scientist_remove->setIcon(QIcon(":/icons/icons/remove"));
     ui->button_scientist_remove->setIconSize(QSize(30,30));
+    ui->button_scientist_info->setIcon(QIcon(":/icons/icons/info"));
+    ui->button_scientist_info->setIconSize(QSize(30,30));
 
     ui->button_connections_add->setIcon(QIcon(":/icons/icons/add2"));
     ui->button_connections_add->setIconSize(QSize(30,30));
@@ -917,6 +919,7 @@ void MainWindow::defaultTheme()
     ui->button_connections_edit->setIconSize(QSize(30,30));
     ui->button_connections_remove->setIcon(QIcon(":/icons/icons/remove"));
     ui->button_connections_remove->setIconSize(QSize(30,30));
+
     setStyleSheet("background-color:normal");
 }
 void MainWindow::on_button_scientist_theme_clicked()
@@ -981,4 +984,17 @@ void MainWindow::on_button_connections_theme_clicked()
     {
         defaultTheme();
     }
+}
+
+
+void MainWindow::on_button_scientist_info_clicked()
+{
+    infoScientistDialog infoSci;
+    infoSci.exec();
+}
+
+void MainWindow::on_button_computer_info_clicked()
+{
+    infoComputerDialog infoCom;
+    infoCom.exec();
 }

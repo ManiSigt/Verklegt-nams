@@ -2,6 +2,8 @@
 #include "ui_editcomputerdialog.h"
 #include "computer.h"
 #include <QMessageBox>
+#include <QFileDialog>
+#include <QPixmap>
 
 EditComputerDialog::EditComputerDialog(QWidget *parent) :
     QDialog(parent),
@@ -29,7 +31,6 @@ void EditComputerDialog::on_button_computer_edit_clicked()
     string built = "";
     string name = ui->input_computer_name->text().toStdString();
     int date = ui->input_computer_date->text().toUInt();
-    qDebug() << date;
     string type = ui->input_computer_type->text().toStdString();
 
     if(ui->edit_computer_radiobutton_yes->isChecked())
@@ -57,7 +58,7 @@ void EditComputerDialog::on_button_computer_edit_clicked()
 
     if(error == 0)
     {
-        bool success = elist.updateComputer(name, type, built, date, currentId);
+        bool success = elist.updateComputer(name, type, built, date, currentId,fileName);
         if (success)
         {
             this->done(1);
@@ -73,4 +74,16 @@ void EditComputerDialog::on_button_computer_edit_clicked()
 void EditComputerDialog::on_button_computer_edit_cancel_clicked()
 {
     close();
+}
+
+void EditComputerDialog::on_button_edit_picture_clicked()
+{
+    fileName = QFileDialog::getOpenFileName(this,
+            tr("Jpg image"), "",
+            tr("Image file (*.jpg *.png);;All Files (*)"));
+
+    QFileInfo name(fileName);
+    QString baseName = name.fileName();
+
+    ui->button_edit_picture->setText(baseName);
 }

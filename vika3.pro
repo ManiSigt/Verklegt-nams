@@ -28,7 +28,10 @@ SOURCES += main.cpp\
     editconnectionsdialog.cpp \
     themedialog.cpp \
     addconnectiondialog.cpp \
+    infoscientistdialog.cpp \
+    infocomputerdialog.cpp \
     images.cpp
+
 
 
 HEADERS  += mainwindow.h \
@@ -45,7 +48,10 @@ HEADERS  += mainwindow.h \
     editconnectionsdialog.h \
     themedialog.h \
     addconnectiondialog.h \
+    infoscientistdialog.h \
+    infocomputerdialog.h \
     images.h
+
 
 FORMS    += mainwindow.ui \
     addscientistdialog.ui \
@@ -54,7 +60,9 @@ FORMS    += mainwindow.ui \
     editcomputerdialog.ui \
     editconnectionsdialog.ui \
     themedialog.ui \
-    addconnectiondialog.ui
+    addconnectiondialog.ui \
+    infoscientistdialog.ui \
+    infocomputerdialog.ui
 
 RESOURCES += \
     myresourcefile.qrc

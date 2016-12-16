@@ -35,8 +35,8 @@ public:
     void searchConnectionsBySci(int n);                                                               // Calls the function searchConnectionsBySci in datalayer.
     void removeConnection(string scientist, string computer);                                         // Removes a computer or a scientist from the database.
     bool removeConnection(int s, int c);                                                              // Removes a computer or a scientist from the database.
-    bool updateScientist(string name,char gender, int birth, int death, string comment, int sciId);   // Calls the function updateScientist in datalayer.
-    bool updateComputer(string name, string type, string isbuilt, int Yearbuilt, int compId);         // Calls the function updateComputer in datalayer.
+    bool updateScientist(string name,char gender, int birth, int death, string comment, int sciId, QString fileName);   // Calls the function updateScientist in datalayer.
+    bool updateComputer(string name, string type, string isbuilt, int Yearbuilt, int compId, QString fileName);         // Calls the function updateComputer in datalayer.
     bool computerNameSearcher(string name);                                                           // Searches for a specific name within the vector com.
     bool ageSearcher(int age);                                                                        // Searches for a specific age within the vector using a for-loop.
     bool builtDateSearcher(int year);                                                                 // Searches for a specific date within the vector using a for-loop
@@ -47,7 +47,7 @@ public:
     bool removeComputer(int rowNumber);                                                                 // Remove a computer from the vector com.
     bool removeComputerFound(string name);                                                            // Check if the computer tat the user wants to remove is found or not.
     bool typeSearcher(string type);                                                                   // Finds a specific type of computer.
-    bool removeConnectionById(int id);
+    bool removeConnectionById(int id);                                                                // Finds the connection id of the scientist and computer and removes it.
     bool yearSearcher(int year);                                                                      // Searches for a specific year within the vector using a for loop.
     int computerIdFinder();                                                                           // Finds ID of computer.
     int scientistIdFinder();                                                                          // Finds ID of scientist.

@@ -162,6 +162,19 @@
     <string>Name</string>
    </property>
   </widget>
+  <widget class="QPushButton" name="button_edit_picture">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>220</y>
+     <width>371</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Edit Picture</string>
+   </property>
+  </widget>
  </widget>
  <resources>
   <include location="myresourcefile.qrc"/>
