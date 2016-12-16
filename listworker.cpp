@@ -556,7 +556,7 @@ int ListWorker::getImageSci(int sciId)
     int result;
     int found = 0;
 
-    for(int i = 0; i < img.size(); i++)
+    for(size_t i = 0; i < img.size(); i++)
     {
         if(sciId == img[i].getSciId())
         {
@@ -577,7 +577,7 @@ int ListWorker::getImageCom(int comId)
     int result;
     int found = 0;
 
-    for(int i = 0; i < img.size(); i++)
+    for(size_t i = 0; i < img.size(); i++)
     {
         if(comId == img[i].getComId())
         {
