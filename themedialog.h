@@ -16,9 +16,8 @@ public:
     ~ThemeDialog();
 
 private slots:
-    void on_theme_ok_button_clicked();
-
-    void on_theme_cancel_button_clicked();
+    void on_theme_ok_button_clicked();                          // a function that dictates what happens when the user presses a specific button
+    void on_theme_cancel_button_clicked();                      // a function that dictates what happens when the user presses a specific button
 
 private:
     Ui::ThemeDialog *ui;

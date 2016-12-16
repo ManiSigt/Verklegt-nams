@@ -13,6 +13,10 @@
   <property name="windowTitle">
    <string>Edit computer</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="myresourcefile.qrc">
+    <normaloff>:/icons/icons/edit2.png</normaloff>:/icons/icons/edit2.png</iconset>
+  </property>
   <widget class="QLineEdit" name="input_computer_type">
    <property name="geometry">
     <rect>

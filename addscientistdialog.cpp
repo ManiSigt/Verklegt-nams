@@ -26,12 +26,30 @@ void addScientistDialog::on_button_add_scientist_clicked()
         return;
     }
     QString birth = ui->input_scientist_birth->text();
+    int birth1 = ui->input_scientist_birth->text().toUInt();
     if (birth.isEmpty())
     {
         ui->error_birth->setText("<span style='color: #FF1100'>No birth year in input!</span>");
         return;
     }
+    if (birth1 < 0)
+    {
+        ui->error_birth->setText("<span style='color: #FF1100'>Not a valid birth year!</span>");
+        return;
+    }
+    else if (birth1 > 2016)
+    {
+        ui->error_birth->setText("<span style='color: #FF1100'>Not a valid birth year!</span>");
+        return;
+    }
     QString death = ui->input_scientist_death->text();
+    int death1 = ui->input_scientist_death->text().toUInt();
+
+    if(death1 < birth1)
+    {
+        ui->label_error_death->setText("<span style='color: #FF1100'>Not a valid death year!</span>");
+        return;
+    }
     QString comment = ui->input_scientist_comment->text();
 
 
@@ -48,12 +66,12 @@ void addScientistDialog::on_button_add_scientist_clicked()
     if (success)
     {
         this->done(1);
-        qDebug() << "wassup";
+
     }
     else
     {
         this->done(-1);
-        qDebug() << "mani ad flasha";
+
     }
 
 }

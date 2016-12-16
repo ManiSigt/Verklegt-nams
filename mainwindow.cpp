@@ -27,7 +27,6 @@ MainWindow::MainWindow(QWidget *parent) :
     showConnectionsNameSci();
     showScientistsName();
     populateDropdownMenus();
-    setStyleSheet("background-color: white;");
     defaultTheme();
 }
 
@@ -443,7 +442,6 @@ void MainWindow::showConnectionsNameComp()
     ui->table_connections->resizeColumnsToContents();
 }
 
-
 void MainWindow::populateDropdownMenus()
 {
         ui->dropdown_scientist->addItem("Name");
@@ -487,10 +485,11 @@ void MainWindow::on_button_scientist_remove_clicked()
 {
     int scientistRemove = ui->table_scientist->currentRow();
     bool success = list.removePerson(scientistRemove);
-    QMessageBox::StandardButton reply;
-    reply = QMessageBox::question(this, "Test", "Are you sure you want to remove scientist?",
+
+    QMessageBox::StandardButton textBox;
+    textBox = QMessageBox::question(this, "Remove", "Are you sure you want to remove scientist?",
                               QMessageBox::Yes|QMessageBox::No);
-    if (reply == QMessageBox::Yes)
+    if (textBox == QMessageBox::Yes)
     {
         if (success)
         {
@@ -503,7 +502,7 @@ void MainWindow::on_button_scientist_remove_clicked()
     }
     else
     {
-        QMessageBox::warning(this, "Warning!", "Unable to remove scientist!😡");
+        QMessageBox::warning(this, "Abort", "Scientist not removed.");
     }
 
   disableButtons();
@@ -574,10 +573,10 @@ void MainWindow::on_button_computer_remove_clicked()
     int computerRemove = ui->table_computer->currentRow();
     bool success = list.removeComputer(computerRemove);
 
-    QMessageBox::StandardButton reply;
-    reply = QMessageBox::question(this, "Test", "Are you sure you want to remove computer?",
+    QMessageBox::StandardButton textBox;
+    textBox = QMessageBox::question(this, "Remove", "Are you sure you want to remove computer?",
                               QMessageBox::Yes|QMessageBox::No);
-     if (reply == QMessageBox::Yes)
+     if (textBox == QMessageBox::Yes)
     {
         if (success)
         {
@@ -590,7 +589,7 @@ void MainWindow::on_button_computer_remove_clicked()
     }
     else
     {
-        QMessageBox::warning(this, "Warning!", "Unable to remove computer!😡");
+        QMessageBox::warning(this, "Abort", "Computer not removed.");
     }
 
     disableButtons();
@@ -649,9 +648,9 @@ void MainWindow::on_button_scientist_edit_clicked()
     {
         list.eraser();
         list.refreshVector();
-        showComputersName();
+        showScientistsName();
         disableButtons();
-        statusBar()->showMessage("Computer edited!",2000);
+        statusBar()->showMessage("Scientist edited!",2000);
     }
     else
     {
@@ -692,6 +691,20 @@ void MainWindow::on_button_computer_edit_clicked()
         EditComputerDialog editCom;
         editCom.prepare(ecom);
 
+        bool add = editCom.exec();
+
+        if (add == 1)
+        {
+            list.eraser();
+            list.refreshVector();
+            showComputersName();
+            disableButtons();
+            statusBar()->showMessage("Computer edited!",2000);
+        }
+        else
+        {
+            statusBar()->showMessage("Canceled!",2000);
+        }
 
 }
 void MainWindow::disableButtons()
@@ -731,8 +744,8 @@ void MainWindow::on_button_connections_remove_clicked()
         }
     }
     bool success = list.removeConnectionById(id);
-    QMessageBox::StandardButton reply;
-    reply = QMessageBox::question(this, "Test", "Are you sure you want to remove connection?",
+    QMessageBox::StandardButton textBox;
+    textBox = QMessageBox::question(this, "Remove", "Are you sure you want to remove connection?",
                                 QMessageBox::Yes|QMessageBox::No);
     if (success)
     {
@@ -744,7 +757,7 @@ void MainWindow::on_button_connections_remove_clicked()
     }
     else
     {
-        QMessageBox::warning(this, "Warning!", "Unable to remove connection!😡");
+        QMessageBox::warning(this, "Abort", "Connection not removed.");
     }
     disableButtons();
 }
@@ -917,7 +930,7 @@ void MainWindow::christmasTheme()
 }
 void MainWindow::defaultTheme()
 {
-    setWindowIcon(QIcon(":/icons/icons/skull-512.ico"));
+    setWindowIcon(QIcon(":/icons/icons/mainmynd"));
     ui->button_computer_add->setIcon(QIcon(":/icons/icons/add2"));
     ui->button_computer_add->setIconSize(QSize(30,30));
     ui->button_computer_theme->setIcon(QIcon(":/icons/icons/theme"));
