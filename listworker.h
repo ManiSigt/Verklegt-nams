@@ -33,7 +33,8 @@ public:
     void sortConnections(string selection);                                                           // Sort connections menu.
     void searchConnectionsByComp(int n);                                                              // Calls the function searchConnectionsByComp in datalayer.
     void searchConnectionsBySci(int n);                                                               // Calls the function searchConnectionsBySci in datalayer.
-    void removeConnection(string scientist, string computer);                                         // Removes a computer or a scientist from the database.
+    void removeConnection(string scientist, string computer);                                         // Removes a computer or a scientist from the database.   
+    void eraser();                                                                                    // Erases a few vectors.
     bool removeConnection(int s, int c);                                                              // Removes a computer or a scientist from the database.
     bool updateScientist(string name,char gender, int birth, int death, string comment, int sciId, QString fileName);   // Calls the function updateScientist in datalayer.
     bool updateComputer(string name, string type, string isbuilt, int Yearbuilt, int compId, QString fileName);         // Calls the function updateComputer in datalayer.
@@ -54,6 +55,13 @@ public:
     int editPersonFinder(string name);                                                                // Edit a scientist.
     int getScientistNameSize(int n) const;                                                            // Returns the size of _name from persons.
     int getComputerNameSize(int n) const;                                                             // Returns the size of _name from Computer.
+    int getLinkoutputCompNameSize(int n);                                                             // Returns the size of computer name in linkoutput.
+    int getComputerIdFromName(string name) const;                                                     // Returns computer id from scientist name.
+    int getScientistIdFromName(string name) const;                                                    // Returns scientist id from scientist name.
+    int getLinkIdFromSciComIds(int sciId, int comId) const;                                           // Finds link id with scientist id and computer id.
+    bool updateConnection(int currentId,int sciId,int comId);                                         // Calls updateConnection in datalayer.
+    int getImageSci(int sciId);                                                                       // Returns image number in vector.
+    int getImageCom(int comId);                                                                       // Returns image number in vector.
     string getComputerNameFromId(int n) const;                                                        // Get computer name from compId
     string getScientistNameFromId(int n) const;                                                       // Get scientist name from sciId
     string getScientistName(int n) const                                                              // Make _name from the vector persons available.
@@ -164,18 +172,10 @@ public:
     {
         return linkout[n].getSciNameLower();
     }
-    QPixmap getImage(int n)
+    QPixmap getImage(int n)                                                                           // Returns QPixmap from img vector.
     {
         return img[n].getImage();
     }
-
-    int getLinkoutputCompNameSize(int n);                                                             //
-    int getComputerIdFromName(string name) const;                                                     //
-    int getScientistIdFromName(string name) const;                                                    //
-    int getLinkIdFromSciComIds(int sciId, int comId) const;                                           //
-    bool updateConnection(int currentId,int sciId,int comId);                                         //
-    int getImageSci(int sciId);                                                                       //
-    int getImageCom(int comId);                                                                       //
     int personsSize() const                                                                           // Returns the size of vector persons.
     {
         return persons.size();
@@ -185,15 +185,14 @@ public:
         return com.size();
     }
 
-    void eraser();
 private:
 
     DataLayer data;
     vector<Person> persons;                                                                           // The vector containing all persons from the database.
     vector<Computer> com;                                                                             // The vector containing all computers from the database.
-    vector<Images> img;
+    vector<Images> img;                                                                               // The vector containing images and their connections from the database.
     vector<Linker> link;                                                                              // The vector containing all connections from the database.
-    vector<LinkerOutput> linkout;                                                                    // The vector containing all names from connections from the database.
+    vector<LinkerOutput> linkout;                                                                     // The vector containing all names from connections from the database.
 };
 
 #endif // LISTWORKER_H

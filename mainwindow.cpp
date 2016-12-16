@@ -601,8 +601,6 @@ void MainWindow::on_button_connections_edit_clicked()
     {
         statusBar()->showMessage("Canceled!",2000);
     }
-
-    editCon.exec();
 }
 void MainWindow::on_button_scientist_edit_clicked()
 {
