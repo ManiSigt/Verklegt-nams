@@ -70,7 +70,7 @@ void addComputerDialog::on_button_add_picture_clicked()
 {
     fileName = QFileDialog::getOpenFileName(this,
             tr("Jpg image"), "",
-            tr("Image file (*.jpg *.png *.bmp *.gif);;All Files (*)"));
+            tr("Image file (*.jpg *.png);;All Files (*)"));
 
     QFileInfo name(fileName);
     QString baseName = name.fileName();
