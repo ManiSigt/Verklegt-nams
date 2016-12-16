@@ -31,7 +31,6 @@ void EditComputerDialog::on_button_computer_edit_clicked()
     string built = "";
     string name = ui->input_computer_name->text().toStdString();
     int date = ui->input_computer_date->text().toUInt();
-    qDebug() << date;
     string type = ui->input_computer_type->text().toStdString();
 
     if(ui->edit_computer_radiobutton_yes->isChecked())

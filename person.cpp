@@ -16,6 +16,8 @@ Person::Person(string name, char gender, int birth, int death, string comment, i
     _yearOfDeath = death;
     _comment = comment;
     _id = id;
+    _stringYear = to_string(birth);
+    _stringDeath = to_string(death);
 
     if(_yearOfDeath > 0)
     {

@@ -92,6 +92,14 @@ public:
     {
         return persons[n].getScientistGender();
     }
+    string getScientistBirthString(int n) const
+    {
+        return persons[n].getScientistBirthString();
+    }
+    string getScientistDeathString(int n) const
+    {
+        return persons[n].getScientistDeathString();
+    }
     int getScientistBirth(int n) const                                                                // Make yearOfBirth from the vector persons available.
     {
         return persons[n].getScientistBirth();
@@ -103,6 +111,10 @@ public:
     int getComputerDate(int n) const                                                                  // Make getDate from the vector com available.
     {
         return com[n].getComputerDate();
+    }
+    string getComputerStringDate(int n) const
+    {
+        return com[n].getComputerStringDate();
     }
     int getComputerId(int n) const                                                                    // Make getDate from the vector com available.
     {
@@ -152,6 +164,11 @@ public:
     {
         return linkout[n].getSciNameLower();
     }
+    QPixmap getImage(int n)
+    {
+        return img[n].getImage();
+    }
+
     int getLinkoutputCompNameSize(int n);
     int getComputerIdFromName(string name) const;
     int getScientistIdFromName(string name) const;
