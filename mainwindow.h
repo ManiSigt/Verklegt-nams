@@ -25,23 +25,23 @@ private slots:
     void sexyTheme();                                       // The setup for the sexy theme, makes all the icons into sexy icons.
     void skullTheme();                                      // The setup for the skull theme, makes all the icons into skull icons.
     void defaultTheme();                                    // The setup for the normal theme, makes all the icons normal.
-    void showComputersName();                               //
-    void showComputersYear();                               //
-    void showComputersType();                               //
-    void showConnectionsNameSci();                          //
-    void showConnectionsNameComp();                         //
-    void showScientistsName();                              //
-    void showScientistsGender();                            //
-    void showScientistsBirthYear();                         //
-    void showScientistsDeathYear();                         //
-    void populateDropdownMenus();                           //
+    void showComputersName();                               // Adds the computer name to the table in the mainwindow.
+    void showComputersYear();                               // Adds the computer year to the table in the mainwindow.
+    void showComputersType();                               // Adds the computer type to the table in the mainwindow.
+    void showConnectionsNameSci();                          // Adds the scientist name to the connection table in the mainwindow.
+    void showConnectionsNameComp();                         // Adds the computer name to the connection table in the mainwindow.
+    void showScientistsName();                              // Adds the scientist name to the table in the mainwindow.
+    void showScientistsGender();                            // Adds the scientist gender to the table in the mainwindow.
+    void showScientistsBirthYear();                         // Adds the scientist birth year to the table in the mainwindow.
+    void showScientistsDeathYear();                         // Adds the scientist death year to the table in the mainwindow.
+    void populateDropdownMenus();                           // Adds selection menu to the dropdown menu, for search.
     void on_button_scientist_add_clicked();                 // a function that dictates what happens when the user presses a specific button
     void on_table_scientist_clicked();                      // a function that dictates what happens when the user presses a specific button
     void on_button_scientist_remove_clicked();              // a function that dictates what happens when the user presses a specific button
-    void on_input_scientist_textEdited();                   //
-    void on_input_computer_textEdited();                    //
-    void on_input_connections_textEdited();                 //
-    void on_table_computer_clicked();                       //
+    void on_input_scientist_textEdited();                   // Searches for input in the text box in the scientist menu.
+    void on_input_computer_textEdited();                    // Searches for input in the text box in the computer menu.
+    void on_input_connections_textEdited();                 // Searches for input in the text box in the connections menu.
+    void on_table_computer_clicked();                       // Makes the buttons available if you click on a item in the table menu.
     void on_button_computer_remove_clicked();               // a function that dictates what happens when the user presses a specific button
     void on_button_connections_edit_clicked();              // a function that dictates what happens when the user presses a specific button
     void disableButtons();                                  // Disables buttons, f.e. the remove button after you remove someone
