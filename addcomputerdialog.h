@@ -18,7 +18,7 @@ public:
     ~addComputerDialog();
 
 private slots:
-    void on_add_computer_button_clicked();
+    void on_add_computer_button_clicked();              // a function that dictates what happens when the user presses a specific button
 
 private:
     Ui::addComputerDialog *ui;
