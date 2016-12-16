@@ -68,7 +68,6 @@ private slots:
 
     void on_button_computer_info_clicked();
 
-    void on_button_connection_info_clicked();
 
 private:
     Ui::MainWindow *ui;
