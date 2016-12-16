@@ -44,7 +44,7 @@ private slots:
     void on_table_computer_clicked();                       //
     void on_button_computer_remove_clicked();               // a function that dictates what happens when the user presses a specific button
     void on_button_connections_edit_clicked();              // a function that dictates what happens when the user presses a specific button
-    void disableButtons();                                  //
+    void disableButtons();                                  // Disables buttons, f.e. the remove button after you remove someone
     void on_button_scientist_edit_clicked();                // a function that dictates what happens when the user presses a specific button
     void on_button_computer_add_clicked();                  // a function that dictates what happens when the user presses a specific button
     void on_button_computer_edit_clicked();                 // a function that dictates what happens when the user presses a specific button
