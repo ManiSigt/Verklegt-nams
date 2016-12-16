@@ -21,10 +21,10 @@ public:
     ~MainWindow();
 
 private slots:
-    void christmasTheme();                                  //
-    void sexyTheme();                                       //
-    void skullTheme();                                      //
-    void defaultTheme();                                    //
+    void christmasTheme();                                  // The setup for the christmas theme, makes all the icons into christmas icons.
+    void sexyTheme();                                       // The setup for the sexy theme, makes all the icons into sexy icons.
+    void skullTheme();                                      // The setup for the skull theme, makes all the icons into skull icons.
+    void defaultTheme();                                    // The setup for the normal theme, makes all the icons normal.
     void showComputersName();                               //
     void showComputersYear();                               //
     void showComputersType();                               //
