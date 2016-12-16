@@ -97,7 +97,7 @@ void EditScientistDialog::on_button_scientist_edit_clicked()
 
     if(error == 0)
     {
-        bool success = elist.updateScientist(name, gender, birth, death, comment, currentId);
+        bool success = elist.updateScientist(name, gender, birth, death, comment, currentId, fileName);
         if (success)
         {
             this->done(1);
@@ -109,45 +109,15 @@ void EditScientistDialog::on_button_scientist_edit_clicked()
     }
 }
 
-void EditScientistDialog::on_button_file_open_clicked()
+
+void EditScientistDialog::on_button_edit_picture_clicked()
 {
-    QString fileName = QFileDialog::getOpenFileName(this,
+    fileName = QFileDialog::getOpenFileName(this,
             tr("Jpg image"), "",
-            tr("Image file (*.jpg);;All Files (*)"));
-    ui->input_imagename->setText(fileName);
-    //elist.updateScientistImage(fileName);
-    QPixmap  mypix(fileName);
+            tr("Image file (*.jpg *.png);;All Files (*)"));
 
-    int w = mypix.width();
-    int h = mypix.height();
+    QFileInfo name(fileName);
+    QString baseName = name.fileName();
 
-    int labelHeight = ui->label_image->height();
-
-    if(h >= w)
-    {
-        do
-        {
-
-            h--;
-            w--;
-
-        }while(h >= 250);
-    }
-    else
-        do
-        {
-
-            h--;
-            w--;
-
-        }while(w >= 350);
-
-    ui->label_image->setPixmap(mypix);
-    ui->label_image->setSizePolicy(QSizePolicy::Ignored, QSizePolicy::Ignored);
-    ui->label_image->setPixmap(mypix.scaled(w,h,Qt::KeepAspectRatioByExpanding));
-}
-
-void EditScientistDialog::on_button_file_save_clicked()
-{
-
+    ui->button_edit_picture->setText(baseName);
 }

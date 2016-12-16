@@ -335,6 +335,8 @@ void ListWorker::refreshVector()
     link.erase(link.begin(),link.end());
     linkout.erase(linkout.begin(),linkout.end());
     data.readLinksFromDatabase(link);
+    img.erase(img.begin(),img.end());
+    data.readImagesFromDatabase(img);
 }
 string ListWorker::getComputerNameFromId(int n) const
 {
@@ -455,14 +457,46 @@ int ListWorker::getLinkoutputCompNameSize(int n)
     int size = name.size();
     return size;
 }
-bool ListWorker::updateScientist(string name,char gender, int birth, int death, string comment, int sciId)
+bool ListWorker::updateScientist(string name,char gender, int birth, int death, string comment, int sciId, QString fileName)
 {
+    int found = 0;
     data.updateScientist(name,gender,birth,death,comment,sciId);
+    for(unsigned int i = 0; i < img.size(); i++)
+    {
+        int id = img[i].getId();
+        if(sciId == img[i].getSciId())
+        {
+            qDebug() << id << sciId << img[i].getSciId();
+            data.updateImage(fileName, id);
+            found++;
+        }
+    }
+    if (found == 0)
+        {
+            data.addImage(fileName,sciId, 0);
+        }
+
     return true;
 }
-bool ListWorker::updateComputer(string name, string type, string isbuilt, int Yearbuilt, int compId)
+bool ListWorker::updateComputer(string name, string type, string isbuilt, int Yearbuilt, int compId, QString fileName)
 {
+    int found = 0;
     data.updateComputer(name, type, isbuilt, Yearbuilt, compId);
+
+    for(unsigned int i = 0; i < img.size(); i++)
+    {
+        int id = img[i].getId();
+        if(compId == img[i].getComId())
+        {
+            data.updateImage(fileName, id);
+            found++;
+        }
+    }
+    if (found == 0)
+        {
+            data.addImage(fileName,0, compId);
+        }
+
     return true;
 }
 void ListWorker::searchConnectionsByComp(int n)

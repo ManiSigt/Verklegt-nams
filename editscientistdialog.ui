@@ -6,236 +6,108 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>837</width>
+    <width>416</width>
     <height>325</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Edit scientist</string>
   </property>
-  <widget class="QLineEdit" name="input_scientist_name">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>28</y>
-     <width>378</width>
-     <height>22</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_scientist_birth">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>109</y>
-     <width>378</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Birth</string>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="input_scientist_birth">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>132</y>
-     <width>378</width>
-     <height>22</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="input_scientist_death">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>184</y>
-     <width>378</width>
-     <height>22</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_scientist_gender">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>57</y>
-     <width>378</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Gender</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_scientist_comment">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>213</y>
-     <width>378</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Comment</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_scientist_name">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>5</y>
-     <width>378</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Name</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="button_scientist_edit">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>265</y>
-     <width>185</width>
-     <height>28</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string> Edit scientist</string>
-   </property>
-   <property name="icon">
-    <iconset resource="myresourcefile.qrc">
-     <normaloff>:/icons/icons/edit2.png</normaloff>:/icons/icons/edit2.png</iconset>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="input_scientist_comment">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>236</y>
-     <width>378</width>
-     <height>22</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_scientist_death">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>161</y>
-     <width>378</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Death</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="button_scientist_edit_cancel">
-   <property name="geometry">
-    <rect>
-     <x>210</x>
-     <y>265</y>
-     <width>185</width>
-     <height>28</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string> Cancel</string>
-   </property>
-   <property name="icon">
-    <iconset resource="myresourcefile.qrc">
-     <normaloff>:/icons/icons/cancel.png</normaloff>:/icons/icons/cancel.png</iconset>
-   </property>
-  </widget>
-  <widget class="QRadioButton" name="edit_scientist_radio_button_male">
-   <property name="geometry">
-    <rect>
-     <x>100</x>
-     <y>80</y>
-     <width>81</width>
-     <height>20</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Male</string>
-   </property>
-  </widget>
-  <widget class="QRadioButton" name="edit_scientist_radio_button_female">
-   <property name="geometry">
-    <rect>
-     <x>24</x>
-     <y>80</y>
-     <width>69</width>
-     <height>20</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Female</string>
-   </property>
-   <property name="checked">
-    <bool>true</bool>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="button_file_open">
-   <property name="geometry">
-    <rect>
-     <x>420</x>
-     <y>265</y>
-     <width>93</width>
-     <height>28</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>File</string>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="input_imagename">
-   <property name="geometry">
-    <rect>
-     <x>530</x>
-     <y>265</y>
-     <width>181</width>
-     <height>28</height>
-    </rect>
-   </property>
-   <property name="readOnly">
-    <bool>true</bool>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_image">
-   <property name="geometry">
-    <rect>
-     <x>440</x>
-     <y>20</y>
-     <width>351</width>
-     <height>221</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>image</string>
-   </property>
-   <property name="scaledContents">
-    <bool>false</bool>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="button_file_save">
-   <property name="geometry">
-    <rect>
-     <x>730</x>
-     <y>265</y>
-     <width>93</width>
-     <height>28</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Save</string>
-   </property>
-  </widget>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0">
+    <widget class="QLabel" name="label_scientist_name">
+     <property name="text">
+      <string>Name</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="0" colspan="3">
+    <widget class="QLineEdit" name="input_scientist_name"/>
+   </item>
+   <item row="2" column="0">
+    <widget class="QLabel" name="label_scientist_gender">
+     <property name="text">
+      <string>Gender</string>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="0">
+    <widget class="QRadioButton" name="edit_scientist_radio_button_female">
+     <property name="text">
+      <string>Female</string>
+     </property>
+     <property name="checked">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="1">
+    <widget class="QRadioButton" name="edit_scientist_radio_button_male">
+     <property name="text">
+      <string>Male</string>
+     </property>
+    </widget>
+   </item>
+   <item row="4" column="0">
+    <widget class="QLabel" name="label_scientist_birth">
+     <property name="text">
+      <string>Birth</string>
+     </property>
+    </widget>
+   </item>
+   <item row="5" column="0" colspan="3">
+    <widget class="QLineEdit" name="input_scientist_birth"/>
+   </item>
+   <item row="6" column="0">
+    <widget class="QLabel" name="label_scientist_death">
+     <property name="text">
+      <string>Death</string>
+     </property>
+    </widget>
+   </item>
+   <item row="7" column="0" colspan="3">
+    <widget class="QLineEdit" name="input_scientist_death"/>
+   </item>
+   <item row="8" column="0">
+    <widget class="QLabel" name="label_scientist_comment">
+     <property name="text">
+      <string>Comment</string>
+     </property>
+    </widget>
+   </item>
+   <item row="9" column="0" colspan="3">
+    <widget class="QLineEdit" name="input_scientist_comment"/>
+   </item>
+   <item row="10" column="0" colspan="3">
+    <widget class="QPushButton" name="button_edit_picture">
+     <property name="text">
+      <string>Edit picture</string>
+     </property>
+    </widget>
+   </item>
+   <item row="11" column="0" colspan="2">
+    <widget class="QPushButton" name="button_scientist_edit">
+     <property name="text">
+      <string> Edit scientist</string>
+     </property>
+     <property name="icon">
+      <iconset resource="myresourcefile.qrc">
+       <normaloff>:/icons/icons/edit2.png</normaloff>:/icons/icons/edit2.png</iconset>
+     </property>
+    </widget>
+   </item>
+   <item row="11" column="2">
+    <widget class="QPushButton" name="button_scientist_edit_cancel">
+     <property name="text">
+      <string> Cancel</string>
+     </property>
+     <property name="icon">
+      <iconset resource="myresourcefile.qrc">
+       <normaloff>:/icons/icons/cancel.png</normaloff>:/icons/icons/cancel.png</iconset>
+     </property>
+    </widget>
+   </item>
+  </layout>
  </widget>
  <resources>
   <include location="myresourcefile.qrc"/>

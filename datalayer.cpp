@@ -383,8 +383,6 @@ void DataLayer::searchConnectionsByComp(vector<LinkerOutput>& linkout, int compI
 
 void DataLayer::addImage(QString fileName, int sciId, int comId)
 {
-
-
     //Alternatively, load an image file directly into a QByteArray
     QFile file(fileName);
     if (!file.open(QIODevice::ReadOnly)) return;
@@ -418,7 +416,7 @@ void DataLayer::addImage(QString fileName, int sciId, int comId)
     }
 }
 
-void DataLayer::updateImage(QString fileName, int sciId, int comId, int id)
+void DataLayer::updateImage(QString fileName, int id)
 {
 
 
@@ -432,29 +430,16 @@ void DataLayer::updateImage(QString fileName, int sciId, int comId, int id)
 
     db.open();
     QSqlQuery query(db);
+                        //UPDATE Computers SET CompName=:name, Type=:type, Date=:yearbuilt, WasItBuilt=:isbuilt WHERE ID=:id
 
-    if(comId == 0)
-    {
-        query.prepare( "UPDATE Images SET sciId=:sciid, fileName=:filename, Image=:image WHERE ID=:id)" );
+        query.prepare( "UPDATE Images SET fileName=:name, Image=:img WHERE ID=:id" );
 
-        query.bindValue( ":sciId", sciId);
-        query.bindValue( ":filename", baseName);
-        query.bindValue( ":image", inByteArray);
-        query.bindValue( ":id", id );
+        query.bindValue( ":id", id);
+        query.bindValue( ":name", baseName);
+        query.bindValue( ":img", inByteArray);
         if( !query.exec() )
             qDebug() << "Error inserting image into table:\n" << query.lastError();
-    }
-    else if(sciId == 0)
-    {
-        query.prepare( "UPDATE Images SET comId=:comid, fileName=:filename, Image=:image WHERE ID=:id)" );
 
-        query.bindValue( ":comid", comId);
-        query.bindValue( ":filename", baseName);
-        query.bindValue( ":image", inByteArray);
-        query.bindValue( ":id", id );
-        if( !query.exec() )
-            qDebug() << "Error inserting image into table:\n" << query.lastError();
-    }
 }
 void DataLayer::readImagesFromDatabase(vector<Images>& img)
 {

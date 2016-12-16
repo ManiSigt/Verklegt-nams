@@ -22,13 +22,14 @@ private slots:
 
     void on_button_scientist_edit_cancel_clicked();                     // a function that dictates what happens when the user presses a specific button
     void on_button_scientist_edit_clicked();                            // a function that dictates what happens when the user presses a specific button
-    void on_button_file_open_clicked();                                 // a function that dictates what happens when the user presses a specific button
-    void on_button_file_save_clicked();                                 // a function that dictates what happens when the user presses a specific button
+
+    void on_button_edit_picture_clicked();
 
 private:
     Ui::EditScientistDialog *ui;
     ListWorker elist;
     int currentId;
+    QString fileName;
 };
 
 #endif // EDITSCIENTISTDIALOG_H
