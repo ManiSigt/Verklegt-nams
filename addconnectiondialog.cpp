@@ -19,14 +19,11 @@ void AddConnectionDialog::prepare()
     {
         ui->list_scientists->insertItem(i,QString::fromStdString(elist.getScientistName(i)));
     }
-
 }
-
 AddConnectionDialog::~AddConnectionDialog()
 {
     delete ui;
 }
-
 void AddConnectionDialog::on_list_scientists_clicked()
 {
     ui->input_current_scientist->clear();
@@ -40,7 +37,6 @@ void AddConnectionDialog::on_list_scientists_clicked()
         ui->button_add_connection->setEnabled(true);
     }
 }
-
 void AddConnectionDialog::on_list_computers_clicked()
 {
     ui->input_current_computer->clear();
@@ -54,17 +50,14 @@ void AddConnectionDialog::on_list_computers_clicked()
         ui->button_add_connection->setEnabled(true);
     }
 }
-
 void AddConnectionDialog::on_button_edit_connection_cancel_clicked()
 {
     this->close();
 }
-
 void AddConnectionDialog::on_button_add_connection_clicked()
 {
     string comName = ui->input_current_computer->text().toStdString();
     string sciName = ui->input_current_scientist->text().toStdString();
-
     int sciId = elist.getScientistIdFromName(sciName);
     int comId = elist.getComputerIdFromName(comName);
 
@@ -77,5 +70,4 @@ void AddConnectionDialog::on_button_add_connection_clicked()
     {
         this->done(-1);
     }
-
 }

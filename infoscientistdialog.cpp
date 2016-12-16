@@ -7,7 +7,6 @@ infoScientistDialog::infoScientistDialog(QWidget *parent) :
     ui(new Ui::infoScientistDialog)
 {
     ui->setupUi(this);
-    //prepareShowSci(person);
 }
 
 infoScientistDialog::~infoScientistDialog()
@@ -18,15 +17,19 @@ void infoScientistDialog::prepareShowSci(Person infoSci)
 {
     currentID = infoSci.getScientistId();
     ui->label_show_name->setText(QString::fromStdString(infoSci.getScientistName()));
+
     if(infoSci.getScientistGender() == 'M')
     {
         ui->label_show_gender->setText("Male");
     }
+
     if(infoSci.getScientistGender() == 'F')
     {
         ui->label_show_gender->setText("Female");
     }
+
     ui->label_show_year_birth->setText(QString::number(infoSci.getScientistBirth()));
+
     if(infoSci.getScientistDeath() == 0)
     {
         ui->label_show_year_death->setText("");
@@ -39,20 +42,15 @@ void infoScientistDialog::prepareShowSci(Person infoSci)
     ui->label_show_comment->setText(QString::fromStdString(infoSci.getScientistComment()));
 
     int imageNumber = ilist.getImageSci(currentID);
-    qDebug() << imageNumber;
-
     QPixmap  mypix(ilist.getImage(imageNumber));
 
     int w = mypix.width();
     int h = mypix.height();
 
-    int labelHeight = ui->label_image->height();
-
     if(h >= w)
     {
         do
         {
-
             h--;
             w--;
 
@@ -61,14 +59,15 @@ void infoScientistDialog::prepareShowSci(Person infoSci)
     else
         do
         {
-
             h--;
             w--;
-
         }while(w >= 270);
 
     ui->label_image->setPixmap(mypix);
     ui->label_image->setSizePolicy(QSizePolicy::Ignored, QSizePolicy::Ignored);
     ui->label_image->setPixmap(mypix.scaled(w,h,Qt::KeepAspectRatioByExpanding));
-
+}
+void infoScientistDialog::on_button_close_clicked()
+{
+    this->close();
 }

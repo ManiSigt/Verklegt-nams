@@ -10,12 +10,10 @@ addScientistDialog::addScientistDialog(QWidget *parent) :
 {
     ui->setupUi(this);
 }
-
 addScientistDialog::~addScientistDialog()
 {
     delete ui;
 }
-
 void addScientistDialog::on_button_add_scientist_clicked()
 {
     char sex = 'a';
@@ -54,7 +52,6 @@ void addScientistDialog::on_button_add_scientist_clicked()
     }
     QString comment = ui->input_scientist_comment->text();
 
-
     if(ui->radio_button_female->isChecked())
     {
         sex = 'F';
@@ -63,27 +60,22 @@ void addScientistDialog::on_button_add_scientist_clicked()
     {
         sex = 'M';
     }
-
     bool success = list.addNewScientist(name.toStdString(), sex , birth.toInt(), death.toInt(), comment.toStdString(), fileName);
+
     if (success)
     {
         this->done(1);
-
     }
     else
     {
         this->done(-1);
-
     }
-
 }
-
-
 void addScientistDialog::on_button_add_picture_clicked()
 {
     fileName = QFileDialog::getOpenFileName(this,
-            tr("Jpg image"), "",
-            tr("Image file (*.jpg *.png);;All Files (*)"));
+    tr("Jpg image"), "",
+    tr("Image file (*.jpg *.png);;All Files (*)"));
 
     QFileInfo name(fileName);
     QString baseName = name.fileName();

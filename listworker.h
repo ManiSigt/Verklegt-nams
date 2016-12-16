@@ -169,13 +169,13 @@ public:
         return img[n].getImage();
     }
 
-    int getLinkoutputCompNameSize(int n);
-    int getComputerIdFromName(string name) const;
-    int getScientistIdFromName(string name) const;
-    int getLinkIdFromSciComIds(int sciId, int comId) const;
-    bool updateConnection(int currentId,int sciId,int comId);
-    int getImageSci(int sciId);
-    int getImageCom(int comId);
+    int getLinkoutputCompNameSize(int n);                                                             //
+    int getComputerIdFromName(string name) const;                                                     //
+    int getScientistIdFromName(string name) const;                                                    //
+    int getLinkIdFromSciComIds(int sciId, int comId) const;                                           //
+    bool updateConnection(int currentId,int sciId,int comId);                                         //
+    int getImageSci(int sciId);                                                                       //
+    int getImageCom(int comId);                                                                       //
     int personsSize() const                                                                           // Returns the size of vector persons.
     {
         return persons.size();

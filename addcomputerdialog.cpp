@@ -5,7 +5,6 @@
 #include <QFileDialog>
 #include <QPixmap>
 
-
 addComputerDialog::addComputerDialog(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::addComputerDialog)
