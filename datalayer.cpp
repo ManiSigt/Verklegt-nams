@@ -7,6 +7,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <QFileInfo>
 using namespace std;
 
 DataLayer::DataLayer()
@@ -378,4 +379,26 @@ void DataLayer::searchConnectionsByComp(vector<LinkerOutput>& linkout, int compI
         string compName = query.value("CompName").toString().toStdString();
         linkout.push_back(LinkerOutput(sciName, compName));
     }
+}
+
+void DataLayer::addScientistImage(QString fileName)
+{
+    //Alternatively, load an image file directly into a QByteArray
+    QFile file(fileName);
+    if (!file.open(QIODevice::ReadOnly)) return;
+    QByteArray inByteArray = file.readAll();
+
+    QFileInfo name(fileName);
+    QString baseName = name.fileName();
+
+    db.open();
+    QSqlQuery query(db);
+    // Insert image bytes into the database
+        // Note: make sure to wrap the :placeholder in parenthesis
+        query.prepare( "INSERT INTO SciImage (SciId, Filename, ImageData) VALUES (1, :filename , :imageData)" );
+
+        query.bindValue( ":filename", baseName);
+        query.bindValue( ":imageData", inByteArray );
+        if( !query.exec() )
+            qDebug() << "Error inserting image into table:\n" << query.lastError();
 }

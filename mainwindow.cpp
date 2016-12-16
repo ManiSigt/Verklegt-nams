@@ -491,7 +491,13 @@ void MainWindow::on_table_scientist_clicked()
 
 void MainWindow::on_button_scientist_remove_clicked()
 {
-    int scientistRemove = ui->table_scientist->currentRow();
+    int getRow = ui->table_scientist->currentRow();
+    QTableWidgetItem *cellName = ui->table_scientist->item(getRow, 0);
+    QString qsciName = cellName->text();
+    string sciName = qsciName.toStdString();
+    qDebug() << qsciName;
+    int scientistRemove = list.getScientistIdFromName(sciName);
+    qDebug() << scientistRemove;
     bool success = list.removePerson(scientistRemove);
     QMessageBox::StandardButton reply;
     reply = QMessageBox::question(this, "Test", "Are you sure you want to remove scientist?",
@@ -576,10 +582,12 @@ void MainWindow::on_table_computer_clicked()
 
 void MainWindow::on_button_computer_remove_clicked()
 {
-
-    int computerRemove = ui->table_computer->currentRow();
+    int getRow = ui->table_computer->currentRow();
+    QTableWidgetItem *cellName = ui->table_computer->item(getRow, 0);
+    QString qcompName = cellName->text();
+    string compName = qcompName.toStdString();
+    int computerRemove = list.getComputerIdFromName(compName);
     bool success = list.removeComputer(computerRemove);
-
     QMessageBox::StandardButton reply;
     reply = QMessageBox::question(this, "Test", "Are you sure you want to remove computer?",
                               QMessageBox::Yes|QMessageBox::No);

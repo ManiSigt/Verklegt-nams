@@ -24,6 +24,10 @@ private slots:
 
     void on_button_scientist_edit_clicked();
 
+    void on_button_file_open_clicked();
+
+    void on_button_file_save_clicked();
+
 private:
     Ui::EditScientistDialog *ui;
     ListWorker elist;
