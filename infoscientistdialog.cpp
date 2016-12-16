@@ -17,7 +17,6 @@ infoScientistDialog::~infoScientistDialog()
 void infoScientistDialog::prepareShowSci(Person infoSci)
 {
     currentID = infoSci.getScientistId();
-    qDebug() << "hérna";
     ui->label_show_name->setText(QString::fromStdString(infoSci.getScientistName()));
     if(infoSci.getScientistGender() == 'M')
     {

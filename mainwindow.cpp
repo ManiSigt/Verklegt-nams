@@ -1070,7 +1070,32 @@ void MainWindow::on_button_scientist_info_clicked()
 
 void MainWindow::on_button_computer_info_clicked()
 {
+    int getRow = ui->table_computer->currentRow();
+        QTableWidgetItem *cellName = ui->table_computer->item(getRow, 0);
+        QString qcomName = cellName->text();
+        string comName = qcomName.toStdString();
+        int comId = list.getComputerIdFromName(comName);
+        string wasItBuilt;
+        string type;
+        int date;
+        int id;
+
+        Computer icom;
+
+        for(int i = 0; i < list.computerSize(); i++)
+        {
+            if(comName == list.getComputerName(i))
+            {
+                type = list.getComputerType(i);
+                wasItBuilt = list.getComputerWasItBuilt(i);
+                date = list.getComputerDate(i);
+                id = list.getComputerId(i);
+            }
+        }
+        icom = Computer(comName,wasItBuilt,date,type,id);
+
     infoComputerDialog infoCom;
+    infoCom.prepareShowCom(icom);
     infoCom.exec();
 
 }
