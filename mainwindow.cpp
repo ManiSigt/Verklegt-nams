@@ -836,7 +836,6 @@ void MainWindow::skullTheme()
     ui->button_connections_remove->setIcon(QIcon(":/icons/icons/death"));
     ui->button_connections_remove->setIconSize(QSize(30,30));
 
-    setStyleSheet("background-color:grey");
 }
 void MainWindow::sexyTheme()
 {
@@ -875,7 +874,6 @@ void MainWindow::sexyTheme()
     ui->button_connections_theme->setIcon(QIcon(":/icons/icons/themesexy"));
     ui->button_connections_theme->setIconSize(QSize(30,30));
 
-    setStyleSheet("background-color:pink");
 }
 void MainWindow::christmasTheme()
 {
@@ -911,7 +909,6 @@ void MainWindow::christmasTheme()
     ui->button_connections_remove->setIcon(QIcon(":/icons/icons/christmas4"));
     ui->button_connections_remove->setIconSize(QSize(30,30));
 
-    setStyleSheet("background-color:crimson");
     EditComputerDialog editcomp;
 
 }
@@ -1018,12 +1015,55 @@ void MainWindow::on_button_connections_theme_clicked()
 
 void MainWindow::on_button_scientist_info_clicked()
 {
+    int getRow = ui->table_scientist->currentRow();
+        QTableWidgetItem *cellName = ui->table_scientist->item(getRow, 0);
+        QString qsciName = cellName->text();
+        string sciName = qsciName.toStdString();
+        int sciId = list.getScientistIdFromName(sciName);
+        char gender;
+        string comment;
+        int birth;
+        int death;
+        int id;
+
+        Person isci;
+
+        for(int i = 0; i < list.personsSize(); i++)
+        {
+            if(sciName == list.getScientistName(i))
+            {
+                gender = list.getScientistGender(i);
+                birth = list.getScientistBirth(i);
+                death = list.getScientistDeath(i);
+                comment = list.getScientistComment(i);
+                id = list.getScientistId(i);
+            }
+        }
+
+    isci = Person(sciName,gender,birth,death,comment,id);
+
+
     infoScientistDialog infoSci;
+    infoSci.prepareShowSci(isci);
     infoSci.exec();
+ /*
+    if (view == 1)
+    {
+        list.eraser();
+        list.refreshVector();
+        showScientistsName();
+        disableButtons();
+        statusBar()->showMessage("Scientist edited!",2000);
+    }
+    else
+    {
+        statusBar()->showMessage("Canceled!",2000);
+    } */
 }
 
 void MainWindow::on_button_computer_info_clicked()
 {
     infoComputerDialog infoCom;
     infoCom.exec();
+
 }
