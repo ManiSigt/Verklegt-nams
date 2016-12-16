@@ -560,34 +560,34 @@ void MainWindow::on_button_computer_remove_clicked()
 }
 void MainWindow::on_button_connections_edit_clicked()
 {
-        int row = ui->table_connections->currentRow();
-        string comName = list.getLinkOutputCompName(row);
-        string sciName = list.getLinkOutputSciName(row);
+    int row = ui->table_connections->currentRow();
+    string comName = list.getLinkOutputCompName(row);
+    string sciName = list.getLinkOutputSciName(row);
 
-        int sciId = list.getScientistIdFromName(sciName);
-        int comId = list.getComputerIdFromName(comName);
-        int id = list.getLinkIdFromSciComIds(sciId,comId);
+    int sciId = list.getScientistIdFromName(sciName);
+    int comId = list.getComputerIdFromName(comName);
+    int id = list.getLinkIdFromSciComIds(sciId,comId);
 
-        Linker elink = Linker(id,sciId,comId);
-        EditConnectionsDialog editCon;
-        editCon.prepare(elink);
+    Linker elink = Linker(id,sciId,comId);
+    EditConnectionsDialog editCon;
+    editCon.prepare(elink);
 
-        bool add = editCon.exec();
+    bool add = editCon.exec();
 
-        if (add == 1)
-        {
-            list.eraser();
-            list.refreshVector();
-            showConnectionsNameComp();
-            disableButtons();
-            statusBar()->showMessage("Connection edited!",2000);
-        }
-        else
-        {
-            statusBar()->showMessage("Canceled!",2000);
-        }
+    if (add == 1)
+    {
+        list.eraser();
+        list.refreshVector();
+        showConnectionsNameComp();
+        disableButtons();
+        statusBar()->showMessage("Connection edited!",2000);
+    }
+    else
+    {
+        statusBar()->showMessage("Canceled!",2000);
+    }
 
-        editCon.exec();
+    editCon.exec();
 }
 void MainWindow::on_button_scientist_edit_clicked()
 {
@@ -617,7 +617,6 @@ void MainWindow::on_button_scientist_edit_clicked()
     }
 
     esci = Person(sciName,gender,birth,death,comment,id);
-
     EditScientistDialog editSci;
     editSci.prepare(esci);
 
@@ -677,26 +676,25 @@ void MainWindow::on_button_computer_edit_clicked()
             id = list.getComputerId(i);
         }
     }
-        ecom = Computer(comName, wasItBuilt, date, type, id);
+    ecom = Computer(comName, wasItBuilt, date, type, id);
 
-        EditComputerDialog editCom;
-        editCom.prepare(ecom);
+    EditComputerDialog editCom;
+    editCom.prepare(ecom);
 
-        bool add = editCom.exec();
+    bool add = editCom.exec();
 
-        if (add == 1)
-        {
-            list.eraser();
-            list.refreshVector();
-            showComputersName();
-            disableButtons();
-            statusBar()->showMessage("Computer edited!",2000);
-        }
-        else
-        {
-            statusBar()->showMessage("Canceled!",2000);
-        }
-
+    if (add == 1)
+    {
+        list.eraser();
+        list.refreshVector();
+        showComputersName();
+        disableButtons();
+        statusBar()->showMessage("Computer edited!",2000);
+    }
+    else
+    {
+        statusBar()->showMessage("Canceled!",2000);
+    }
 }
 void MainWindow::disableButtons()
 {
@@ -739,7 +737,7 @@ void MainWindow::on_button_connections_remove_clicked()
     bool success = list.removeConnectionById(id);
     QMessageBox::StandardButton textBox;
     textBox = QMessageBox::question(this, "Remove", "Are you sure you want to remove connection?",
-                                QMessageBox::Yes|QMessageBox::No);
+    QMessageBox::Yes|QMessageBox::No);
     if(textBox == QMessageBox::Yes)
     {
         if (success)
@@ -757,7 +755,6 @@ void MainWindow::on_button_connections_remove_clicked()
     }
     disableButtons();
 }
-
 
 void MainWindow::on_tabWidget_tabBarClicked()
 {
@@ -807,7 +804,6 @@ void MainWindow::on_actionNormal_triggered()
 {
     setStyleSheet("background-color: normal;");
 }
-
 
 void MainWindow::skullTheme()
 {
@@ -1023,49 +1019,36 @@ void MainWindow::on_button_connections_theme_clicked()
 void MainWindow::on_button_scientist_info_clicked()
 {
     int getRow = ui->table_scientist->currentRow();
-        QTableWidgetItem *cellName = ui->table_scientist->item(getRow, 0);
-        QString qsciName = cellName->text();
-        string sciName = qsciName.toStdString();
-        int sciId = list.getScientistIdFromName(sciName);
-        char gender;
-        string comment;
-        int birth;
-        int death;
-        int id;
+    QTableWidgetItem *cellName = ui->table_scientist->item(getRow, 0);
+    QString qsciName = cellName->text();
+    string sciName = qsciName.toStdString();
+    int sciId = list.getScientistIdFromName(sciName);
+    char gender;
+    string comment;
+    int birth;
+    int death;
+    int id;
 
-        Person isci;
+    Person isci;
 
-        for(int i = 0; i < list.personsSize(); i++)
+    for(int i = 0; i < list.personsSize(); i++)
+    {
+        if(sciName == list.getScientistName(i))
         {
-            if(sciName == list.getScientistName(i))
-            {
-                gender = list.getScientistGender(i);
-                birth = list.getScientistBirth(i);
-                death = list.getScientistDeath(i);
-                comment = list.getScientistComment(i);
-                id = list.getScientistId(i);
-            }
+            gender = list.getScientistGender(i);
+            birth = list.getScientistBirth(i);
+            death = list.getScientistDeath(i);
+            comment = list.getScientistComment(i);
+            id = list.getScientistId(i);
         }
+    }
 
     isci = Person(sciName,gender,birth,death,comment,id);
-
 
     infoScientistDialog infoSci;
     infoSci.prepareShowSci(isci);
     infoSci.exec();
- /*
-    if (view == 1)
-    {
-        list.eraser();
-        list.refreshVector();
-        showScientistsName();
-        disableButtons();
-        statusBar()->showMessage("Scientist edited!",2000);
-    }
-    else
-    {
-        statusBar()->showMessage("Canceled!",2000);
-    } */
+
 }
 
 void MainWindow::on_button_computer_info_clicked()

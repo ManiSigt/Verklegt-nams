@@ -12,12 +12,10 @@ addComputerDialog::addComputerDialog(QWidget *parent) :
 {
     ui->setupUi(this);
 }
-
 addComputerDialog::~addComputerDialog()
 {
     delete ui;
 }
-
 void addComputerDialog::on_add_computer_button_clicked()
 {
     string yesNo;
@@ -98,8 +96,8 @@ void addComputerDialog::themeChanger(int changer)
 void addComputerDialog::on_button_add_picture_clicked()
 {
     fileName = QFileDialog::getOpenFileName(this,
-            tr("Jpg image"), "",
-            tr("Image file (*.jpg *.png);;All Files (*)"));
+    tr("Jpg image"), "",
+    tr("Image file (*.jpg *.png);;All Files (*)"));
 
     QFileInfo name(fileName);
     QString baseName = name.fileName();
