@@ -30,20 +30,13 @@
        </font>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="tab">
        <attribute name="title">
         <string>Scientists</string>
        </attribute>
        <layout class="QGridLayout" name="gridLayout">
-        <item row="5" column="0">
-         <widget class="QPushButton" name="button_scientist_add">
-          <property name="text">
-           <string> Add</string>
-          </property>
-         </widget>
-        </item>
         <item row="4" column="0" colspan="4">
          <widget class="QTableWidget" name="table_scientist">
           <property name="font">
@@ -87,13 +80,10 @@
           </column>
          </widget>
         </item>
-        <item row="5" column="1">
-         <widget class="QPushButton" name="button_scientist_remove">
-          <property name="enabled">
-           <bool>false</bool>
-          </property>
+        <item row="2" column="3">
+         <widget class="QPushButton" name="button_scientist_theme">
           <property name="text">
-           <string> Remove</string>
+           <string>Theme</string>
           </property>
          </widget>
         </item>
@@ -113,10 +103,17 @@
         <item row="2" column="2">
          <widget class="QComboBox" name="dropdown_scientist"/>
         </item>
-        <item row="2" column="3">
-         <widget class="QPushButton" name="button_scientist_theme">
+        <item row="5" column="0">
+         <widget class="QPushButton" name="button_scientist_add">
           <property name="text">
-           <string>Theme</string>
+           <string> Add</string>
+          </property>
+         </widget>
+        </item>
+        <item row="5" column="3">
+         <widget class="QPushButton" name="button_scientist_info">
+          <property name="text">
+           <string>Info</string>
           </property>
          </widget>
         </item>
@@ -130,10 +127,13 @@
           </property>
          </widget>
         </item>
-        <item row="5" column="3">
-         <widget class="QPushButton" name="button_scientist_info">
+        <item row="5" column="1">
+         <widget class="QPushButton" name="button_scientist_remove">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
           <property name="text">
-           <string>Info</string>
+           <string> Remove</string>
           </property>
          </widget>
         </item>
@@ -185,10 +185,6 @@
           <property name="text">
            <string> Add</string>
           </property>
-          <property name="icon">
-           <iconset resource="myresourcefile.qrc">
-            <normaloff>:/icons/icons/add2.png</normaloff>:/icons/icons/add2.png</iconset>
-          </property>
          </widget>
         </item>
         <item row="2" column="1">
@@ -199,10 +195,6 @@
           <property name="text">
            <string> Remove</string>
           </property>
-          <property name="icon">
-           <iconset resource="myresourcefile.qrc">
-            <normaloff>:/icons/icons/remove.png</normaloff>:/icons/icons/remove.png</iconset>
-          </property>
          </widget>
         </item>
         <item row="2" column="2">
@@ -212,10 +204,6 @@
           </property>
           <property name="text">
            <string> Edit</string>
-          </property>
-          <property name="icon">
-           <iconset resource="myresourcefile.qrc">
-            <normaloff>:/icons/icons/edit2.png</normaloff>:/icons/icons/edit2.png</iconset>
           </property>
          </widget>
         </item>
@@ -281,10 +269,6 @@
           <property name="text">
            <string> Add</string>
           </property>
-          <property name="icon">
-           <iconset resource="myresourcefile.qrc">
-            <normaloff>:/icons/icons/add2.png</normaloff>:/icons/icons/add2.png</iconset>
-          </property>
          </widget>
         </item>
         <item row="2" column="1">
@@ -295,10 +279,6 @@
           <property name="text">
            <string> Remove</string>
           </property>
-          <property name="icon">
-           <iconset resource="myresourcefile.qrc">
-            <normaloff>:/icons/icons/remove.png</normaloff>:/icons/icons/remove.png</iconset>
-          </property>
          </widget>
         </item>
         <item row="2" column="2">
@@ -308,10 +288,6 @@
           </property>
           <property name="text">
            <string> Edit</string>
-          </property>
-          <property name="icon">
-           <iconset resource="myresourcefile.qrc">
-            <normaloff>:/icons/icons/edit2.png</normaloff>:/icons/icons/edit2.png</iconset>
           </property>
          </widget>
         </item>
@@ -449,8 +425,6 @@
   <tabstop>table_connections</tabstop>
   <tabstop>input_scientist</tabstop>
   <tabstop>button_scientist_add</tabstop>
-  <tabstop>button_scientist_remove</tabstop>
-  <tabstop>button_scientist_edit</tabstop>
   <tabstop>input_computer</tabstop>
   <tabstop>button_computer_add</tabstop>
   <tabstop>button_computer_remove</tabstop>
@@ -460,8 +434,6 @@
   <tabstop>button_connections_remove</tabstop>
   <tabstop>button_connections_edit</tabstop>
  </tabstops>
- <resources>
-  <include location="myresourcefile.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>
