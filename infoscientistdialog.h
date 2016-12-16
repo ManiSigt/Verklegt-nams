@@ -19,6 +19,7 @@ public:
      void prepareShowSci(Person infoSci);
 private:
     Ui::infoScientistDialog *ui;
+    ListWorker ilist;
     int currentID;
     Person person;
 };

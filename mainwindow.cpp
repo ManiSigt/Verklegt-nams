@@ -432,6 +432,7 @@ void MainWindow::on_table_scientist_clicked()
      ui->button_scientist_remove->setEnabled(true);
      ui->button_scientist_edit->setEnabled(true);
      ui->action_edit_scientist->setEnabled(true);
+     ui->button_scientist_info->setEnabled(true);
 }
 
 void MainWindow::on_button_scientist_remove_clicked()
@@ -523,6 +524,7 @@ void MainWindow::on_table_computer_clicked()
     ui->button_computer_remove->setEnabled(true);
     ui->button_computer_edit->setEnabled(true);
     ui->action_edit_computer->setEnabled(true);
+    ui->button_computer_info->setEnabled(true);
 }
 
 void MainWindow::on_button_computer_remove_clicked()
@@ -704,6 +706,8 @@ void MainWindow::disableButtons()
     ui->button_computer_edit->setEnabled(false);
     ui->button_connections_remove->setEnabled(false);
     ui->button_connections_edit->setEnabled(false);
+    ui->button_computer_info->setEnabled(false);
+    ui->button_scientist_info->setEnabled(false);
 }
 
 void MainWindow::on_table_connections_clicked()
