@@ -1,5 +1,7 @@
 #include "addcomputerdialog.h"
 #include "ui_addcomputerdialog.h"
+#include <QFileDialog>
+#include <QPixmap>
 
 addComputerDialog::addComputerDialog(QWidget *parent) :
     QDialog(parent),
@@ -53,7 +55,7 @@ void addComputerDialog::on_add_computer_button_clicked()
         yesNo = "No";
     }
 
-    bool success = list.addNewComputer(name.toStdString(), type.toStdString(), date.toInt(), yesNo);
+    bool success = list.addNewComputer(name.toStdString(), type.toStdString(), date.toInt(), yesNo, fileName);
     if (success)
     {
         this->done(1);
@@ -62,4 +64,16 @@ void addComputerDialog::on_add_computer_button_clicked()
     {
         this->done(-1);
     }
+}
+
+void addComputerDialog::on_button_add_picture_clicked()
+{
+    fileName = QFileDialog::getOpenFileName(this,
+            tr("Jpg image"), "",
+            tr("Image file (*.jpg *.png *.bmp *.gif);;All Files (*)"));
+
+    QFileInfo name(fileName);
+    QString baseName = name.fileName();
+
+    ui->button_add_picture->setText(baseName);
 }

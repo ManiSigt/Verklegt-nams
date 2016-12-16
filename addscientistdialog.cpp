@@ -1,6 +1,8 @@
 #include "addscientistdialog.h"
 #include "ui_addscientistdialog.h"
 #include <QDebug>
+#include <QFileDialog>
+#include <QPixmap>
 
 addScientistDialog::addScientistDialog(QWidget *parent) :
     QDialog(parent),
@@ -60,7 +62,7 @@ void addScientistDialog::on_button_add_scientist_clicked()
         sex = 'M';
     }
 
-    bool success = list.addNewScientist(name.toStdString(), sex , birth.toInt(), death.toInt(), comment.toStdString());
+    bool success = list.addNewScientist(name.toStdString(), sex , birth.toInt(), death.toInt(), comment.toStdString(), fileName);
     if (success)
     {
         this->done(1);
@@ -72,4 +74,17 @@ void addScientistDialog::on_button_add_scientist_clicked()
 
     }
 
+}
+
+
+void addScientistDialog::on_button_add_picture_clicked()
+{
+    fileName = QFileDialog::getOpenFileName(this,
+            tr("Jpg image"), "",
+            tr("Image file (*.jpg *.png *.bmp *.gif);;All Files (*)"));
+
+    QFileInfo name(fileName);
+    QString baseName = name.fileName();
+
+    ui->button_add_picture->setText(baseName);
 }

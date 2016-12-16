@@ -3,6 +3,7 @@
 #include "person.h"
 #include "computer.h"
 #include "linker.h"
+#include "images.h"
 #include <vector>
 #include <Qtsql>
 #include "linkeroutput.h"
@@ -36,7 +37,9 @@ public:
     void readLinksFromDatabase(vector<Linker>& link);                                                           // Adds the links between computers and scientists to the vector link.
     void readScientistsFromDatabase(vector<Person>& sci);                                                       // Adds the computers from the SQL database to the vector com.
     void readComputersFromDatabase(vector<Computer>& com);                                                      // Adds the scientists from the SQL database to the vector person.
-    void addScientistImage(QString fileName);
+    void addImage(QString fileName, int sciId, int comId);
+    void readImagesFromDatabase(vector<Images>& img);
+    void updateImage(QString fileName, int sciId, int comId,  int id);
     bool addScientist(string name, char gender, int yearOfBirth, int yearOfDeath, string comment, int vsize);   // Adds a scientist to the SQL database.
     void addComputer(string name, string type, int yearbuilt, string isbuilt, int vsize);                       // Adds a computer to the SQL databse.
     void addConnection(int linkId, int sciId, int compId);                                                      // Adds a connection from to the SQL databse.

@@ -29,7 +29,9 @@ SOURCES += main.cpp\
     themedialog.cpp \
     addconnectiondialog.cpp \
     infoscientistdialog.cpp \
-    infocomputerdialog.cpp
+    infocomputerdialog.cpp \
+    images.cpp
+
 
 
 HEADERS  += mainwindow.h \
@@ -47,7 +49,9 @@ HEADERS  += mainwindow.h \
     themedialog.h \
     addconnectiondialog.h \
     infoscientistdialog.h \
-    infocomputerdialog.h
+    infocomputerdialog.h \
+    images.h
+
 
 FORMS    += mainwindow.ui \
     addscientistdialog.ui \
