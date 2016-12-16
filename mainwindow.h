@@ -62,9 +62,7 @@ private slots:
     void on_button_scientist_theme_clicked();               // A function that dictates what happens when the user presses a specific button.
     void on_button_scientist_info_clicked();                // A function that dictates what happens when the user presses a specific button.
     void on_button_computer_info_clicked();                 // A function that dictates what happens when the user presses a specific button.
-
-
-    void on_tabWidget_tabBarClicked(int index);
+    void on_tabWidget_tabBarClicked(int index);             // Automaticly disables all buttons when you switch between tabs.
 
 private:
     Ui::MainWindow *ui;

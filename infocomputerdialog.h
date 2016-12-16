@@ -15,10 +15,10 @@ class infoComputerDialog : public QDialog
 public:
     explicit infoComputerDialog(QWidget *parent = 0);
     ~infoComputerDialog();
-    void prepareShowCom(Computer infoCom);
+    void prepareShowCom(Computer infoCom);      // Takes one computer out of the vector and shows it.
 
 private slots:
-    void on_button_close_clicked();
+    void on_button_close_clicked();             // Closes the dialog when you click the button.
 
 private:
     Ui::infoComputerDialog *ui;
