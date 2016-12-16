@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include "listworker.h"
 #include "addscientistdialog.h"
+#include "addcomputerdialog.h"
 
 #include <string>
 
@@ -72,6 +73,7 @@ private slots:
 private:
     Ui::MainWindow *ui;
     ListWorker list;
+    addComputerDialog addComp;
 };
 
 #endif // MAINWINDOW_H

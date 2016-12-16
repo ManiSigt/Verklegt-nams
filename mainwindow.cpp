@@ -39,6 +39,9 @@ void MainWindow::showScientistsName()
 {
     ui->table_scientist->clear();
 
+    ui->table_scientist->horizontalHeader()->setStyleSheet("QHeaderView { font-size: 12pt; }");
+    ui->table_scientist->resizeColumnsToContents();
+
     ui->table_scientist->setHorizontalHeaderItem(0,new QTableWidgetItem("Name"));
     ui->table_scientist->setHorizontalHeaderItem(1,new QTableWidgetItem("Gender"));
     ui->table_scientist->setHorizontalHeaderItem(2,new QTableWidgetItem("Birth"));
@@ -258,6 +261,8 @@ void MainWindow::showComputersName()
 {
     ui->table_computer->clear();
     ui->table_computer->clearContents();
+    ui->table_computer->horizontalHeader()->setStyleSheet("QHeaderView { font-size: 12pt; }");
+    ui->table_computer->resizeColumnsToContents();
     ui->table_computer->setHorizontalHeaderItem(0,new QTableWidgetItem("Name"));
     ui->table_computer->setHorizontalHeaderItem(1,new QTableWidgetItem("Type"));
     ui->table_computer->setHorizontalHeaderItem(2,new QTableWidgetItem("Date"));
@@ -384,7 +389,8 @@ void MainWindow::showConnectionsNameSci()
     list.sortConnections("1"); //þegar sort verður lagfært þá verður þetta kannski fært.
 
     ui->table_connections->clear();
-
+    ui->table_connections->horizontalHeader()->setStyleSheet("QHeaderView { font-size: 12pt; }");
+    ui->table_connections->resizeColumnsToContents();
     ui->table_connections->setHorizontalHeaderItem(0,new QTableWidgetItem("Scientist Name"));
     ui->table_connections->setHorizontalHeaderItem(1,new QTableWidgetItem("Computer Name"));
 
@@ -483,7 +489,13 @@ void MainWindow::on_table_scientist_clicked()
 
 void MainWindow::on_button_scientist_remove_clicked()
 {
-    int scientistRemove = ui->table_scientist->currentRow();
+    int getRow = ui->table_scientist->currentRow();
+    QTableWidgetItem *cellName = ui->table_scientist->item(getRow, 0);
+    QString qsciName = cellName->text();
+    string sciName = qsciName.toStdString();
+    qDebug() << qsciName;
+    int scientistRemove = list.getScientistIdFromName(sciName);
+    qDebug() << scientistRemove;
     bool success = list.removePerson(scientistRemove);
 
     QMessageBox::StandardButton textBox;
@@ -569,14 +581,17 @@ void MainWindow::on_table_computer_clicked()
 
 void MainWindow::on_button_computer_remove_clicked()
 {
-
-    int computerRemove = ui->table_computer->currentRow();
+    int getRow = ui->table_computer->currentRow();
+    QTableWidgetItem *cellName = ui->table_computer->item(getRow, 0);
+    QString qcompName = cellName->text();
+    string compName = qcompName.toStdString();
+    int computerRemove = list.getComputerIdFromName(compName);
     bool success = list.removeComputer(computerRemove);
 
     QMessageBox::StandardButton textBox;
     textBox = QMessageBox::question(this, "Remove", "Are you sure you want to remove computer?",
-                              QMessageBox::Yes|QMessageBox::No);
-     if (textBox == QMessageBox::Yes)
+    QMessageBox::Yes|QMessageBox::No);
+    if (textBox == QMessageBox::Yes)
     {
         if (success)
         {

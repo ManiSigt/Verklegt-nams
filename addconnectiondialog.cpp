@@ -1,5 +1,6 @@
 #include "addconnectiondialog.h"
 #include "ui_addconnectiondialog.h"
+#include <QDebug>
 
 AddConnectionDialog::AddConnectionDialog(QWidget *parent) :
     QDialog(parent),
