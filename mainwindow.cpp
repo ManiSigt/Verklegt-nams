@@ -740,13 +740,16 @@ void MainWindow::on_button_connections_remove_clicked()
     QMessageBox::StandardButton textBox;
     textBox = QMessageBox::question(this, "Remove", "Are you sure you want to remove connection?",
                                 QMessageBox::Yes|QMessageBox::No);
-    if (success)
+    if(textBox == QMessageBox::Yes)
     {
-        list.eraser();
-        list.refreshVector();
-        showConnectionsNameComp();
-        ui->button_connections_remove->setEnabled(false);
-        statusBar()->showMessage("Connection removed!",2000);
+        if (success)
+        {
+            list.eraser();
+            list.refreshVector();
+            showConnectionsNameComp();
+            ui->button_connections_remove->setEnabled(false);
+            statusBar()->showMessage("Connection removed!",2000);
+        }
     }
     else
     {
