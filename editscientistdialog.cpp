@@ -115,7 +115,7 @@ void EditScientistDialog::on_button_file_open_clicked()
             tr("Jpg image"), "",
             tr("Image file (*.jpg);;All Files (*)"));
     ui->input_imagename->setText(fileName);
-    elist.updateScientistImage(fileName);
+    //elist.updateScientistImage(fileName);
     QPixmap  mypix(fileName);
 
     int w = mypix.width();

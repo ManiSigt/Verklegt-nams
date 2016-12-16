@@ -381,8 +381,10 @@ void DataLayer::searchConnectionsByComp(vector<LinkerOutput>& linkout, int compI
     }
 }
 
-void DataLayer::addScientistImage(QString fileName)
+void DataLayer::addImage(QString fileName, int sciId, int comId)
 {
+
+
     //Alternatively, load an image file directly into a QByteArray
     QFile file(fileName);
     if (!file.open(QIODevice::ReadOnly)) return;
@@ -393,12 +395,83 @@ void DataLayer::addScientistImage(QString fileName)
 
     db.open();
     QSqlQuery query(db);
-    // Insert image bytes into the database
-        // Note: make sure to wrap the :placeholder in parenthesis
-        query.prepare( "INSERT INTO SciImage (SciId, Filename, ImageData) VALUES (1, :filename , :imageData)" );
+
+    if(comId == 0)
+    {
+        query.prepare( "INSERT INTO Images (sciId, fileName, Image) VALUES (:sciId, :filename , :imageData)" );
 
         query.bindValue( ":filename", baseName);
+        query.bindValue( ":sciId", sciId);
         query.bindValue( ":imageData", inByteArray );
         if( !query.exec() )
             qDebug() << "Error inserting image into table:\n" << query.lastError();
+    }
+    else if(sciId == 0)
+    {
+        query.prepare( "INSERT INTO Images (comId, Filename, Image) VALUES (:comId, :filename , :imageData)" );
+
+        query.bindValue( ":filename", baseName);
+        query.bindValue( ":comId", comId);
+        query.bindValue( ":imageData", inByteArray );
+        if( !query.exec() )
+            qDebug() << "Error inserting image into table:\n" << query.lastError();
+    }
+}
+
+void DataLayer::updateImage(QString fileName, int sciId, int comId, int id)
+{
+
+
+    //Alternatively, load an image file directly into a QByteArray
+    QFile file(fileName);
+    if (!file.open(QIODevice::ReadOnly)) return;
+    QByteArray inByteArray = file.readAll();
+
+    QFileInfo name(fileName);
+    QString baseName = name.fileName();
+
+    db.open();
+    QSqlQuery query(db);
+
+    if(comId == 0)
+    {
+        query.prepare( "UPDATE Images SET sciId=:sciid, fileName=:filename, Image=:image WHERE ID=:id)" );
+
+        query.bindValue( ":sciId", sciId);
+        query.bindValue( ":filename", baseName);
+        query.bindValue( ":image", inByteArray);
+        query.bindValue( ":id", id );
+        if( !query.exec() )
+            qDebug() << "Error inserting image into table:\n" << query.lastError();
+    }
+    else if(sciId == 0)
+    {
+        query.prepare( "UPDATE Images SET comId=:comid, fileName=:filename, Image=:image WHERE ID=:id)" );
+
+        query.bindValue( ":comid", comId);
+        query.bindValue( ":filename", baseName);
+        query.bindValue( ":image", inByteArray);
+        query.bindValue( ":id", id );
+        if( !query.exec() )
+            qDebug() << "Error inserting image into table:\n" << query.lastError();
+    }
+}
+void DataLayer::readImagesFromDatabase(vector<Images>& img)
+{
+    db.open();
+
+    QSqlQuery query(db);
+    query.exec("SELECT * FROM Images");
+
+    while(query.next())
+    {
+        int id = query.value("id").toUInt();
+        string name = query.value("fileName").toString().toStdString();
+        QByteArray imageArray = query.value("Image").toByteArray();
+        QPixmap outPixmap = QPixmap();
+        outPixmap.loadFromData( imageArray );
+        int sciId = query.value("sciId").toUInt();
+        int comId = query.value("comId").toUInt();
+        img.push_back(Images(id, name, outPixmap, sciId, comId));
+    }
 }

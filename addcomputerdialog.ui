@@ -7,11 +7,15 @@
     <x>0</x>
     <y>0</y>
     <width>454</width>
-    <height>300</height>
+    <height>335</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Add new computer</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="myresourcefile.qrc">
+    <normaloff>:/icons/icons/add2.png</normaloff>:/icons/icons/add2.png</iconset>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
@@ -125,6 +129,13 @@
       </widget>
      </item>
     </layout>
+   </item>
+   <item>
+    <widget class="QPushButton" name="button_add_picture">
+     <property name="text">
+      <string>Add picture</string>
+     </property>
+    </widget>
    </item>
    <item>
     <widget class="QPushButton" name="add_computer_button">

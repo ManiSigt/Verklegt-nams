@@ -7,11 +7,15 @@
     <x>0</x>
     <y>0</y>
     <width>400</width>
-    <height>356</height>
+    <height>382</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Add new scientist</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="myresourcefile.qrc">
+    <normaloff>:/icons/icons/add2.png</normaloff>:/icons/icons/add2.png</iconset>
   </property>
   <property name="whatsThis">
    <string/>
@@ -102,11 +106,28 @@
     </widget>
    </item>
    <item>
-    <widget class="QLabel" name="label_scientist_death">
-     <property name="text">
-      <string>Death</string>
-     </property>
-    </widget>
+    <layout class="QHBoxLayout" name="horizontalLayout_4">
+     <item>
+      <widget class="QLabel" name="label_scientist_death">
+       <property name="maximumSize">
+        <size>
+         <width>100</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>Death</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="label_error_death">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </item>
    <item>
     <widget class="QLineEdit" name="input_scientist_death">
@@ -126,6 +147,13 @@
     <widget class="QLineEdit" name="input_scientist_comment">
      <property name="placeholderText">
       <string>Enter a comment (optional)</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QPushButton" name="button_add_picture">
+     <property name="text">
+      <string>Add Picture</string>
      </property>
     </widget>
    </item>

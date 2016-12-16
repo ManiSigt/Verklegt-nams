@@ -20,19 +20,17 @@ public:
     void prepare();
 
 private slots:
-    void on_list_scientists_clicked();
+    void on_list_scientists_clicked();                              // a function that dictates what happens when the user presses a specific button
+    void on_list_computers_clicked();                               // a function that dictates what happens when the user presses a specific button
+    void on_button_edit_connection_cancel_clicked();                // a function that dictates what happens when the user presses a specific button
+    void on_button_add_connection_clicked();                        // a function that dictates what happens when the user presses a specific button
 
-    void on_list_computers_clicked();
-
-    void on_button_edit_connection_cancel_clicked();
-
-    void on_button_add_connection_clicked();
 
 private:
     Ui::AddConnectionDialog *ui;
     ListWorker elist;
-    bool clickedScientist;
-    bool clickedComputer;
+    bool clickedScientist;                                          // checks if the a scientist was picked from a list.
+    bool clickedComputer;                                           // checks if a computer was picked from a list.
 };
 
 #endif // ADDCONNECTIONDIALOG_H

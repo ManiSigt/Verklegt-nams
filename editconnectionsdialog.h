@@ -17,23 +17,21 @@ class EditConnectionsDialog : public QDialog
 public:
     explicit EditConnectionsDialog(QWidget *parent = 0);
     ~EditConnectionsDialog();
-    void prepare(Linker elink);
+    void prepare(Linker elink);                                         //
 
 private slots:
-    void on_list_computers_clicked();
+    void on_list_computers_clicked();                                   // a function that dictates what happens when the user presses a specific button
+    void on_list_scientists_clicked();                                  // a function that dictates what happens when the user presses a specific button
+    void on_button_edit_connection_cancel_clicked();                    // a function that dictates what happens when the user presses a specific button
+    void on_button_edit_connection_clicked();                           // a function that dictates what happens when the user presses a specific button
 
-    void on_list_scientists_clicked();
-
-    void on_button_edit_connection_cancel_clicked();
-
-    void on_button_edit_connection_clicked();
 
 private:
     Ui::EditConnectionsDialog *ui;
     ListWorker elist;
     int currentId = 0;
-    bool clickedScientist = false;
-    bool clickedComputer = false;
+    bool clickedScientist = false;                                       // checks if the a scientist was picked from a list.
+    bool clickedComputer = false;                                        // checks if the a computer was picked from a list.
 };
 
 #endif // EDITCONNECTIONSDIALOG_H
