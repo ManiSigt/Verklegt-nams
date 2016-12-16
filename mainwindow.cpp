@@ -8,6 +8,8 @@
 #include "editcomputerdialog.h"
 #include "editconnectionsdialog.h"
 #include "themedialog.h"
+#include "infoscientistdialog.h"
+#include "infocomputerdialog.h"
 #include <QMessageBox>
 #include <algorithm>
 #include <QDebug>
@@ -1021,4 +1023,15 @@ void MainWindow::on_button_connections_theme_clicked()
     {
         defaultTheme();
     }
+}
+
+
+void MainWindow::on_button_scientist_info_clicked()
+{
+    infoScientistDialog infoSci;
+}
+
+void MainWindow::on_button_computer_info_clicked()
+{
+    infoComputerDialog infoCom;
 }

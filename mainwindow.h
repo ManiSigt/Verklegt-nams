@@ -64,6 +64,12 @@ private slots:
     void on_button_computer_theme_clicked();                // a function that dictates what happens when the user presses a specific button
     void on_button_scientist_theme_clicked();               // a function that dictates what happens when the user presses a specific button
 
+    void on_button_scientist_info_clicked();
+
+    void on_button_computer_info_clicked();
+
+    void on_button_connection_info_clicked();
+
 private:
     Ui::MainWindow *ui;
     ListWorker list;
