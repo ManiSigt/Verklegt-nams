@@ -144,7 +144,6 @@ void MainWindow::showScientistsGender()
 }
 void MainWindow::showScientistsBirthYear()
 {
-    int yearSearch = -1;
     ui->table_scientist->clear();
 
     ui->table_scientist->setHorizontalHeaderItem(0,new QTableWidgetItem("Name"));
@@ -157,30 +156,12 @@ void MainWindow::showScientistsBirthYear()
     int count = 0;
     for(int i = 0; i < list.personsSize(); i++)
     {
-        yearSearch = ui->input_scientist->text().toInt();
-        if(yearSearch == list.getScientistBirth(i)) // Brotið, matchar ekki hluta af tölu.
+        string birthSearch = ui->input_scientist->text().toStdString();
+        size_t found = list.getScientistBirthString(i).find(birthSearch);
+        if(found!=std::string::npos)
         {
             int birth = list.getScientistBirth(i);
             int death = list.getScientistDeath(i);
-
-            QString qname = QString::fromStdString(list.getScientistName(i));
-            QString qgender = QChar(list.getScientistGender(i));
-            QString qbirth = QString::number(birth);
-            QString qdeath = QString::number(death);
-            QString qcomment = QString::fromStdString(list.getScientistComment(i));
-
-            ui->table_scientist->setItem(count,0,new QTableWidgetItem(qname));
-            ui->table_scientist->setItem(count,1,new QTableWidgetItem(qgender));
-            ui->table_scientist->setItem(count,2,new QTableWidgetItem(qbirth));
-            ui->table_scientist->setItem(count,3,new QTableWidgetItem(qdeath));
-            ui->table_scientist->setItem(count,4,new QTableWidgetItem(qcomment));
-            count++;
-        }
-        else if(yearSearch == -1)
-        {
-            int birth = list.getScientistBirth(i);
-            int death = list.getScientistDeath(i);
-
             QString qname = QString::fromStdString(list.getScientistName(i));
             QString qgender = QChar(list.getScientistGender(i));
             QString qbirth = QString::number(birth);
@@ -200,7 +181,6 @@ void MainWindow::showScientistsBirthYear()
 }
 void MainWindow::showScientistsDeathYear()
 {
-    int yearSearch = -1;
     ui->table_scientist->clear();
 
     ui->table_scientist->setHorizontalHeaderItem(0,new QTableWidgetItem("Name"));
@@ -213,30 +193,12 @@ void MainWindow::showScientistsDeathYear()
     int count = 0;
     for(int i = 0; i < list.personsSize(); i++)
     {
-        yearSearch = ui->input_scientist->text().toInt();
-        if(yearSearch == list.getScientistDeath(i)) // Brotið, matchar ekki hluta af tölu.
+        string deathSearch = ui->input_scientist->text().toStdString();
+        size_t found = list.getScientistDeathString(i).find(deathSearch);
+        if(found!=std::string::npos)
         {
             int birth = list.getScientistBirth(i);
             int death = list.getScientistDeath(i);
-
-            QString qname = QString::fromStdString(list.getScientistName(i));
-            QString qgender = QChar(list.getScientistGender(i));
-            QString qbirth = QString::number(birth);
-            QString qdeath = QString::number(death);
-            QString qcomment = QString::fromStdString(list.getScientistComment(i));
-
-            ui->table_scientist->setItem(count,0,new QTableWidgetItem(qname));
-            ui->table_scientist->setItem(count,1,new QTableWidgetItem(qgender));
-            ui->table_scientist->setItem(count,2,new QTableWidgetItem(qbirth));
-            ui->table_scientist->setItem(count,3,new QTableWidgetItem(qdeath));
-            ui->table_scientist->setItem(count,4,new QTableWidgetItem(qcomment));
-            count++;
-        }
-        else if(yearSearch == -1)
-        {
-            int birth = list.getScientistBirth(i);
-            int death = list.getScientistDeath(i);
-
             QString qname = QString::fromStdString(list.getScientistName(i));
             QString qgender = QChar(list.getScientistGender(i));
             QString qbirth = QString::number(birth);
@@ -331,7 +293,6 @@ void MainWindow::showComputersType()
 }
 void MainWindow::showComputersYear()
 {
-    int yearSearch = -1;
     ui->table_computer->clear();
 
     ui->table_computer->clear();
@@ -345,23 +306,9 @@ void MainWindow::showComputersYear()
     int count = 0;
     for(int i = 0; i < list.computerSize(); i++)
     {
-        yearSearch = ui->input_computer->text().toInt();
-        if(yearSearch == list.getComputerDate(i)) // Brotið, matchar ekki hluta af tölu.
-        {
-            int date = list.getComputerDate(i);
-
-            QString qname = QString::fromStdString(list.getComputerName(i));
-            QString qtype = QString::fromStdString(list.getComputerType(i));
-            QString qdate = QString::number(date);
-            QString qwasitbuilt = QString::fromStdString(list.getComputerWasItBuilt(i));
-
-            ui->table_computer->setItem(count,0,new QTableWidgetItem(qname));
-            ui->table_computer->setItem(count,1,new QTableWidgetItem(qtype));
-            ui->table_computer->setItem(count,2,new QTableWidgetItem(qdate));
-            ui->table_computer->setItem(count,3,new QTableWidgetItem(qwasitbuilt));
-            count++;
-        }
-        else if(yearSearch == -1)
+        string yearSearch = ui->input_computer->text().toStdString();
+        size_t found = list.getComputerStringDate(i).find(yearSearch);
+        if(found!=std::string::npos)
         {
             int date = list.getComputerDate(i);
 

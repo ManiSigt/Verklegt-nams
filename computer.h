@@ -42,6 +42,10 @@ public:
     {
         return _lowerCaseType;
     }
+    string getComputerStringDate() const
+    {
+        return _stringDate;
+    }
 
 private:
     string _name;
@@ -49,6 +53,7 @@ private:
     string _lowerCaseType;
     string _type;
     string _wasItBuilt;
+    string _stringDate;
     int _date;
     int _id;
 
