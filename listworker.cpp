@@ -48,11 +48,19 @@ bool ListWorker::addNewConnection(int compId, int sciId)
 {
     int linkId;
     //get free ID in database
-    for(int i = 1; i < getLinkSize()+2; i++)
+
+    if(getLinkSize() == 0)
     {
-        if(i != getLinkId(i))
+        linkId = 1;
+    }
+    else
+    {
+        for(int i = 1; i < getLinkSize()+2; i++)
         {
-            linkId = i;
+            if(i != getLinkId(i))
+            {
+                linkId = i;
+            }
         }
     }
     Linker l(linkId, sciId, compId);
