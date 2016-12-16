@@ -37,7 +37,30 @@
         <string>Scientists</string>
        </attribute>
        <layout class="QGridLayout" name="gridLayout">
-        <item row="4" column="0" colspan="4">
+        <item row="0" column="0" colspan="2">
+         <widget class="QLineEdit" name="input_scientist">
+          <property name="text">
+           <string/>
+          </property>
+          <property name="frame">
+           <bool>true</bool>
+          </property>
+          <property name="placeholderText">
+           <string>Filter scientist</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="2">
+         <widget class="QComboBox" name="dropdown_scientist"/>
+        </item>
+        <item row="0" column="3">
+         <widget class="QPushButton" name="button_scientist_theme">
+          <property name="text">
+           <string>Theme</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0" colspan="4">
          <widget class="QTableWidget" name="table_scientist">
           <property name="font">
            <font>
@@ -80,44 +103,24 @@
           </column>
          </widget>
         </item>
-        <item row="2" column="3">
-         <widget class="QPushButton" name="button_scientist_theme">
-          <property name="text">
-           <string>Theme</string>
-          </property>
-         </widget>
-        </item>
-        <item row="2" column="0" colspan="2">
-         <widget class="QLineEdit" name="input_scientist">
-          <property name="minimumSize">
-           <size>
-            <width>364</width>
-            <height>0</height>
-           </size>
-          </property>
-          <property name="placeholderText">
-           <string>Filter Scientists</string>
-          </property>
-         </widget>
-        </item>
-        <item row="2" column="2">
-         <widget class="QComboBox" name="dropdown_scientist"/>
-        </item>
-        <item row="5" column="0">
+        <item row="2" column="0">
          <widget class="QPushButton" name="button_scientist_add">
           <property name="text">
            <string> Add</string>
           </property>
          </widget>
         </item>
-        <item row="5" column="3">
-         <widget class="QPushButton" name="button_scientist_info">
+        <item row="2" column="1">
+         <widget class="QPushButton" name="button_scientist_remove">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
           <property name="text">
-           <string>Info</string>
+           <string> Remove</string>
           </property>
          </widget>
         </item>
-        <item row="5" column="2">
+        <item row="2" column="2">
          <widget class="QPushButton" name="button_scientist_edit">
           <property name="enabled">
            <bool>false</bool>
@@ -127,13 +130,10 @@
           </property>
          </widget>
         </item>
-        <item row="5" column="1">
-         <widget class="QPushButton" name="button_scientist_remove">
-          <property name="enabled">
-           <bool>false</bool>
-          </property>
+        <item row="2" column="3">
+         <widget class="QPushButton" name="button_scientist_info">
           <property name="text">
-           <string> Remove</string>
+           <string>Info</string>
           </property>
          </widget>
         </item>
@@ -320,7 +320,7 @@
      <x>0</x>
      <y>0</y>
      <width>662</width>
-     <height>26</height>
+     <height>22</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -423,7 +423,6 @@
   <tabstop>table_scientist</tabstop>
   <tabstop>table_computer</tabstop>
   <tabstop>table_connections</tabstop>
-  <tabstop>input_scientist</tabstop>
   <tabstop>button_scientist_add</tabstop>
   <tabstop>input_computer</tabstop>
   <tabstop>button_computer_add</tabstop>

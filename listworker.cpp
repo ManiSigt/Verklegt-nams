@@ -513,3 +513,39 @@ void ListWorker::eraser()
     linkout.erase(linkout.begin(),linkout.end());
     //link.erase(link.begin(),link.end());
 }
+int ListWorker::getImageSci(int sciId)
+{
+    int result;
+    int found = 0;
+    for(int i = 0; i < img.size(); i++)
+    {
+        if(sciId == img[i].getSciId())
+        {
+            result = i;
+            found++;
+        }
+    }
+    if(found == 0)
+    {
+        result = 12;
+    }
+    return result;
+}
+int ListWorker::getImageCom(int comId)
+{
+    int result;
+    int found = 0;
+    for(int i = 0; i < img.size(); i++)
+    {
+        if(comId == img[i].getComId())
+        {
+            result = i;
+            found++;
+        }
+    }
+    if(found == 0)
+    {
+        result = 0;
+    }
+    return result;
+}

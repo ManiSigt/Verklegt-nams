@@ -38,4 +38,37 @@ void infoScientistDialog::prepareShowSci(Person infoSci)
 
     ui->label_show_comment->setText(QString::fromStdString(infoSci.getScientistComment()));
 
+    int imageNumber = ilist.getImageSci(currentID);
+    qDebug() << imageNumber;
+
+    QPixmap  mypix(ilist.getImage(imageNumber));
+
+    int w = mypix.width();
+    int h = mypix.height();
+
+    int labelHeight = ui->label_image->height();
+
+    if(h >= w)
+    {
+        do
+        {
+
+            h--;
+            w--;
+
+        }while(h >= 280);
+    }
+    else
+        do
+        {
+
+            h--;
+            w--;
+
+        }while(w >= 270);
+
+    ui->label_image->setPixmap(mypix);
+    ui->label_image->setSizePolicy(QSizePolicy::Ignored, QSizePolicy::Ignored);
+    ui->label_image->setPixmap(mypix.scaled(w,h,Qt::KeepAspectRatioByExpanding));
+
 }
