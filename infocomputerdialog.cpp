@@ -1,5 +1,6 @@
 #include "infocomputerdialog.h"
 #include "ui_infocomputerdialog.h"
+#include "computer.h"
 #include <QPixmap>
 
 infoComputerDialog::infoComputerDialog(QWidget *parent) :
@@ -7,7 +8,6 @@ infoComputerDialog::infoComputerDialog(QWidget *parent) :
     ui(new Ui::infoComputerDialog)
 {
     ui->setupUi(this);
-    test();
 }
 
 infoComputerDialog::~infoComputerDialog()
@@ -15,10 +15,16 @@ infoComputerDialog::~infoComputerDialog()
     delete ui;
 }
 
-void infoComputerDialog::test()
+void infoComputerDialog::prepareShowCom(Computer infoCom)
 {
-
-        QPixmap  mypix(elist.getImage(1));
+    qDebug() << "1";
+    currentID = infoCom.getComputerId();
+    ui->label_show_name->setText(QString::fromStdString(infoCom.getComputerName()));
+    ui->label_show_type->setText(QString::fromStdString(infoCom.getComputerType()));
+    ui->label_show_date->setText(QString::number(infoCom.getComputerDate()));
+    ui->label_show_wasItMade->setText(QString::fromStdString(infoCom.getComputerWasItBuilt()));
+qDebug() << "2";
+        /*QPixmap  mypix(elist.getImage(1));
 
         int w = mypix.width();
         int h = mypix.height();
@@ -49,7 +55,7 @@ void infoComputerDialog::test()
         ui->label_image->setPixmap(mypix);
         ui->label_image->setSizePolicy(QSizePolicy::Ignored, QSizePolicy::Ignored);
         ui->label_image->setPixmap(mypix.scaled(w,h,Qt::KeepAspectRatioByExpanding));
-
+*/
 
 
 }

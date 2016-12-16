@@ -15,14 +15,15 @@ class infoComputerDialog : public QDialog
 public:
     explicit infoComputerDialog(QWidget *parent = 0);
     ~infoComputerDialog();
-    void test();
+    void prepareShowCom(Computer infoCom);
 
 private slots:
     void on_button_close_clicked();
 
 private:
     Ui::infoComputerDialog *ui;
-
+    Computer computer;
+    int currentID;
     ListWorker elist;
 };
 
