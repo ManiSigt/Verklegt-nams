@@ -1074,3 +1074,8 @@ void MainWindow::on_button_computer_info_clicked()
     infoCom.exec();
 
 }
+
+void MainWindow::on_tabWidget_tabBarClicked(int index)
+{
+    disableButtons();
+}

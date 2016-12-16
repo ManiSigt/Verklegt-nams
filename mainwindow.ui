@@ -132,6 +132,9 @@
         </item>
         <item row="2" column="3">
          <widget class="QPushButton" name="button_scientist_info">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
           <property name="text">
            <string>Info</string>
           </property>
@@ -226,6 +229,9 @@
         </item>
         <item row="2" column="3">
          <widget class="QPushButton" name="button_computer_info">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
           <property name="text">
            <string>Info</string>
           </property>
@@ -320,7 +326,7 @@
      <x>0</x>
      <y>0</y>
      <width>662</width>
-     <height>22</height>
+     <height>26</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
