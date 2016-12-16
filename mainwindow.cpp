@@ -649,9 +649,9 @@ void MainWindow::on_button_scientist_edit_clicked()
     {
         list.eraser();
         list.refreshVector();
-        showComputersName();
+        showScientistsName();
         disableButtons();
-        statusBar()->showMessage("Computer edited!",2000);
+        statusBar()->showMessage("Scientist edited!",2000);
     }
     else
     {
