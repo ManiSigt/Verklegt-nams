@@ -493,9 +493,7 @@ void MainWindow::on_button_scientist_remove_clicked()
     QTableWidgetItem *cellName = ui->table_scientist->item(getRow, 0);
     QString qsciName = cellName->text();
     string sciName = qsciName.toStdString();
-    qDebug() << qsciName;
     int scientistRemove = list.getScientistIdFromName(sciName);
-    qDebug() << scientistRemove;
     bool success = list.removePerson(scientistRemove);
 
     QMessageBox::StandardButton textBox;

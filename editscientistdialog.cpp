@@ -123,7 +123,6 @@ void EditScientistDialog::on_button_file_open_clicked()
 
     int labelHeight = ui->label_image->height();
 
-    qDebug() << w << " " << h << " " << labelHeight;
     if(h >= w)
     {
         do
@@ -142,7 +141,6 @@ void EditScientistDialog::on_button_file_open_clicked()
             w--;
 
         }while(w >= 350);
-    qDebug() << w << " " << h << " " << labelHeight;
 
     ui->label_image->setPixmap(mypix);
     ui->label_image->setSizePolicy(QSizePolicy::Ignored, QSizePolicy::Ignored);
