@@ -807,7 +807,6 @@ void MainWindow::skullTheme()
     ui->button_connections_remove->setIcon(QIcon(":/icons/icons/death"));
     ui->button_connections_remove->setIconSize(QSize(30,30));
 
-    setStyleSheet("background-color:grey");
 }
 void MainWindow::sexyTheme()
 {
@@ -846,7 +845,6 @@ void MainWindow::sexyTheme()
     ui->button_connections_theme->setIcon(QIcon(":/icons/icons/themesexy"));
     ui->button_connections_theme->setIconSize(QSize(30,30));
 
-    setStyleSheet("background-color:pink");
 }
 void MainWindow::christmasTheme()
 {
@@ -882,7 +880,6 @@ void MainWindow::christmasTheme()
     ui->button_connections_remove->setIcon(QIcon(":/icons/icons/christmas4"));
     ui->button_connections_remove->setIconSize(QSize(30,30));
 
-    setStyleSheet("background-color:crimson");
     EditComputerDialog editcomp;
 
 }
