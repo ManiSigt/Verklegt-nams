@@ -1,5 +1,7 @@
 #ifndef INFOSCIENTISTDIALOG_H
 #define INFOSCIENTISTDIALOG_H
+#include <person.h>
+#include "listworker.h"
 
 #include <QDialog>
 
@@ -14,9 +16,11 @@ class infoScientistDialog : public QDialog
 public:
     explicit infoScientistDialog(QWidget *parent = 0);
     ~infoScientistDialog();
-
+     void prepareShowSci(Person infoSci);
 private:
     Ui::infoScientistDialog *ui;
+    int currentID;
+    Person person;
 };
 
 #endif // INFOSCIENTISTDIALOG_H
