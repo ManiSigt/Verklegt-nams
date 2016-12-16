@@ -487,10 +487,11 @@ void MainWindow::on_button_scientist_remove_clicked()
 {
     int scientistRemove = ui->table_scientist->currentRow();
     bool success = list.removePerson(scientistRemove);
-    QMessageBox::StandardButton reply;
-    reply = QMessageBox::question(this, "Test", "Are you sure you want to remove scientist?",
+
+    QMessageBox::StandardButton textBox;
+    textBox = QMessageBox::question(this, "Remove", "Are you sure you want to remove scientist?",
                               QMessageBox::Yes|QMessageBox::No);
-    if (reply == QMessageBox::Yes)
+    if (textBox == QMessageBox::Yes)
     {
         if (success)
         {
@@ -503,7 +504,7 @@ void MainWindow::on_button_scientist_remove_clicked()
     }
     else
     {
-        QMessageBox::warning(this, "Warning!", "Unable to remove scientist!😡");
+        QMessageBox::warning(this, "Abort", "Scientist not removed.");
     }
 
   disableButtons();
@@ -574,10 +575,10 @@ void MainWindow::on_button_computer_remove_clicked()
     int computerRemove = ui->table_computer->currentRow();
     bool success = list.removeComputer(computerRemove);
 
-    QMessageBox::StandardButton reply;
-    reply = QMessageBox::question(this, "Test", "Are you sure you want to remove computer?",
+    QMessageBox::StandardButton textBox;
+    textBox = QMessageBox::question(this, "Remove", "Are you sure you want to remove computer?",
                               QMessageBox::Yes|QMessageBox::No);
-     if (reply == QMessageBox::Yes)
+     if (textBox == QMessageBox::Yes)
     {
         if (success)
         {
@@ -590,7 +591,7 @@ void MainWindow::on_button_computer_remove_clicked()
     }
     else
     {
-        QMessageBox::warning(this, "Warning!", "Unable to remove computer!😡");
+        QMessageBox::warning(this, "Abort", "Computer not removed.");
     }
 
     disableButtons();
@@ -731,8 +732,8 @@ void MainWindow::on_button_connections_remove_clicked()
         }
     }
     bool success = list.removeConnectionById(id);
-    QMessageBox::StandardButton reply;
-    reply = QMessageBox::question(this, "Test", "Are you sure you want to remove connection?",
+    QMessageBox::StandardButton textBox;
+    textBox = QMessageBox::question(this, "Remove", "Are you sure you want to remove connection?",
                                 QMessageBox::Yes|QMessageBox::No);
     if (success)
     {
@@ -744,7 +745,7 @@ void MainWindow::on_button_connections_remove_clicked()
     }
     else
     {
-        QMessageBox::warning(this, "Warning!", "Unable to remove connection!😡");
+        QMessageBox::warning(this, "Abort", "Connection not removed.");
     }
     disableButtons();
 }

@@ -13,6 +13,10 @@
   <property name="windowTitle">
    <string>Add new computer</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="myresourcefile.qrc">
+    <normaloff>:/icons/icons/add2.png</normaloff>:/icons/icons/add2.png</iconset>
+  </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout_2">
