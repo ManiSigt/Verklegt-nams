@@ -42,7 +42,11 @@
     </layout>
    </item>
    <item>
-    <widget class="QLineEdit" name="input_scientist_name"/>
+    <widget class="QLineEdit" name="input_scientist_name">
+     <property name="placeholderText">
+      <string>Enter scientist name</string>
+     </property>
+    </widget>
    </item>
    <item>
     <widget class="QLabel" name="label_scientist_gender">
@@ -91,7 +95,11 @@
     </layout>
    </item>
    <item>
-    <widget class="QLineEdit" name="input_scientist_birth"/>
+    <widget class="QLineEdit" name="input_scientist_birth">
+     <property name="placeholderText">
+      <string>Enter the year of birth</string>
+     </property>
+    </widget>
    </item>
    <item>
     <widget class="QLabel" name="label_scientist_death">
@@ -101,7 +109,11 @@
     </widget>
    </item>
    <item>
-    <widget class="QLineEdit" name="input_scientist_death"/>
+    <widget class="QLineEdit" name="input_scientist_death">
+     <property name="placeholderText">
+      <string>Enter the year of death (optinal)</string>
+     </property>
+    </widget>
    </item>
    <item>
     <widget class="QLabel" name="label_scientist_comment">
@@ -111,7 +123,11 @@
     </widget>
    </item>
    <item>
-    <widget class="QLineEdit" name="input_scientist_comment"/>
+    <widget class="QLineEdit" name="input_scientist_comment">
+     <property name="placeholderText">
+      <string>Enter a comment (optional)</string>
+     </property>
+    </widget>
    </item>
    <item>
     <widget class="QPushButton" name="button_add_scientist">

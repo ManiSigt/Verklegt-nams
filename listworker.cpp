@@ -294,7 +294,7 @@ int ListWorker::computerIdFinder()
 int ListWorker::scientistIdFinder()
 {
     int idValue;
-    for (int i = 1; i < personsSize(); i++)
+    for (int i = 1; i < personsSize()+1; i++)
     {
         if(i != getScientistId(i-1))
         {

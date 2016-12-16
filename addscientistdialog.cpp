@@ -1,5 +1,6 @@
 #include "addscientistdialog.h"
 #include "ui_addscientistdialog.h"
+#include <QDebug>
 
 addScientistDialog::addScientistDialog(QWidget *parent) :
     QDialog(parent),
@@ -45,10 +46,12 @@ void addScientistDialog::on_button_add_scientist_clicked()
     if (success)
     {
         this->done(1);
+        qDebug() << "wassup";
     }
     else
     {
         this->done(-1);
+        qDebug() << "mani ad flasha";
     }
 
 }

@@ -13,6 +13,7 @@
 #include <QDebug>
 #include <string>
 #include <QList>
+#include <QPushButton>
 
 
 using namespace std;
@@ -27,6 +28,7 @@ MainWindow::MainWindow(QWidget *parent) :
     showScientistsName();
     populateDropdownMenus();
     setStyleSheet("background-color: white;");
+    defaultTheme();
 }
 
 MainWindow::~MainWindow()
@@ -71,8 +73,8 @@ void MainWindow::showScientistsName()
             count++;
         }
     }
-   ui->table_scientist->resizeColumnsToContents();
-   ui->table_scientist->setRowCount(count);
+    ui->table_scientist->resizeColumnsToContents();
+    ui->table_scientist->setRowCount(count);
 
 }
 void MainWindow::showScientistsGender()
@@ -137,8 +139,8 @@ void MainWindow::showScientistsGender()
             count++;
         }
     }
-   ui->table_scientist->resizeColumnsToContents();
-   ui->table_scientist->setRowCount(count);
+    ui->table_scientist->resizeColumnsToContents();
+    ui->table_scientist->setRowCount(count);
 }
 void MainWindow::showScientistsBirthYear()
 {
@@ -193,8 +195,8 @@ void MainWindow::showScientistsBirthYear()
             count++;
         }
     }
-   ui->table_scientist->resizeColumnsToContents();
-   ui->table_scientist->setRowCount(count);
+    ui->table_scientist->resizeColumnsToContents();
+    ui->table_scientist->setRowCount(count);
 }
 void MainWindow::showScientistsDeathYear()
 {
@@ -249,8 +251,8 @@ void MainWindow::showScientistsDeathYear()
             count++;
         }
     }
-   ui->table_scientist->resizeColumnsToContents();
-   ui->table_scientist->setRowCount(count);
+    ui->table_scientist->resizeColumnsToContents();
+    ui->table_scientist->setRowCount(count);
 
 }
 void MainWindow::showComputersName()
@@ -373,8 +375,8 @@ void MainWindow::showComputersYear()
             count++;
         }
     }
-   ui->table_computer->resizeColumnsToContents();
-   ui->table_computer->setRowCount(count);
+    ui->table_computer->resizeColumnsToContents();
+    ui->table_computer->setRowCount(count);
 
 }
 void MainWindow::showConnectionsNameSci()
@@ -464,7 +466,7 @@ void MainWindow::on_button_scientist_add_clicked()
     int add = addScientist.exec();
     if (add == 1)
     {
-        list.eraser();
+        //list.eraser();
         list.refreshVector();
         showScientistsName();
         statusBar()->showMessage("Scientist added!",2000);
@@ -585,7 +587,6 @@ void MainWindow::on_button_connections_edit_clicked()
         string comName = list.getLinkOutputCompName(row);
         string sciName = list.getLinkOutputSciName(row);
 
-
         int sciId = list.getScientistIdFromName(sciName);
         int comId = list.getComputerIdFromName(comName);
         int id = list.getLinkIdFromSciComIds(sciId,comId);
@@ -610,12 +611,7 @@ void MainWindow::on_button_connections_edit_clicked()
         }
 
         editCon.exec();
-
-
-
 }
-
-
 void MainWindow::on_button_scientist_edit_clicked()
 {
     int row = ui->table_scientist->currentRow();
@@ -632,7 +628,6 @@ void MainWindow::on_button_scientist_edit_clicked()
 
     EditScientistDialog editSci;
     editSci.prepare(esci);
-
 
     bool add = editSci.exec();
 
@@ -666,7 +661,6 @@ void MainWindow::on_button_computer_add_clicked()
     list.refreshVector();
     showComputersName();
 }
-
 void MainWindow::on_button_computer_edit_clicked()
 {
         int row = ui->table_computer->currentRow();
@@ -683,20 +677,6 @@ void MainWindow::on_button_computer_edit_clicked()
 
         EditComputerDialog editCom;
         editCom.prepare(ecom);
-            bool add = editCom.exec();
-
-            if (add == 1)
-            {
-                list.eraser();
-                list.refreshVector();
-                showComputersName();
-                disableButtons();
-                statusBar()->showMessage("Computer edited!",2000);
-            }
-            else
-            {
-                statusBar()->showMessage("Canceled!",2000);
-            }
 
 
 }
@@ -825,19 +805,129 @@ void MainWindow::on_actionNormal_triggered()
 void MainWindow::skullTheme()
 {
     setWindowIcon(QIcon(":/icons/icons/skull-512.ico"));
+    ui->button_computer_add->setIcon(QIcon(":/icons/icons/ninjaskull"));
+    ui->button_computer_add->setIconSize(QSize(30,30));
+    ui->button_computer_theme->setIcon(QIcon(":/icons/icons/skull"));
+    ui->button_computer_theme->setIconSize(QSize(30,30));
+    ui->button_computer_edit->setIcon(QIcon(":/icons/icons/pirateSkull"));
+    ui->button_computer_edit->setIconSize(QSize(30,30));
+    ui->button_computer_remove->setIcon(QIcon(":/icons/icons/death"));
+    ui->button_computer_remove->setIconSize(QSize(30,30));
+
+    ui->button_scientist_add->setIcon(QIcon(":/icons/icons/ninjaskull"));
+    ui->button_scientist_add->setIconSize(QSize(30,30));
+    ui->button_scientist_theme->setIcon(QIcon(":/icons/icons/skull"));
+    ui->button_scientist_theme->setIconSize(QSize(30,30));
+    ui->button_scientist_edit->setIcon(QIcon(":/icons/icons/pirateSkull"));
+    ui->button_scientist_edit->setIconSize(QSize(30,30));
+    ui->button_scientist_remove->setIcon(QIcon(":/icons/icons/death"));
+    ui->button_scientist_remove->setIconSize(QSize(30,30));
+
+    ui->button_connections_add->setIcon(QIcon(":/icons/icons/ninjaskull"));
+    ui->button_connections_add->setIconSize(QSize(30,30));
+    ui->button_connections_theme->setIcon(QIcon(":/icons/icons/skull"));
+    ui->button_connections_theme->setIconSize(QSize(30,30));
+    ui->button_connections_edit->setIcon(QIcon(":/icons/icons/pirateSkull"));
+    ui->button_connections_edit->setIconSize(QSize(30,30));
+    ui->button_connections_remove->setIcon(QIcon(":/icons/icons/death"));
+    ui->button_connections_remove->setIconSize(QSize(30,30));
 
 }
 void MainWindow::sexyTheme()
 {
-    //setWindowIcon(QIcon(":/icons/icon.png"));
+    setWindowIcon(QIcon(":/icons/icons/Sexymainicon.png"));
+    ui->button_computer_add->setIcon(QIcon(":/icons/icons/addsexy"));
+    ui->button_computer_add->setIconSize(QSize(30,30));
+    ui->button_scientist_add->setIcon(QIcon(":/icons/icons/addsexy"));
+    ui->button_scientist_add->setIconSize(QSize(30,30));
+    ui->button_connections_add->setIcon(QIcon(":/icons/icons/addsexy"));
+    ui->button_connections_add->setIconSize(QSize(30,30));
+
+    ui->button_computer_edit->setIcon(QIcon(":/icons/icons/editsexy"));
+    ui->button_computer_edit->setIconSize(QSize(30,30));
+    ui->button_scientist_edit->setIcon(QIcon(":/icons/icons/editsexy"));
+    ui->button_scientist_edit->setIconSize(QSize(30,30));
+    ui->button_connections_edit->setIcon(QIcon(":/icons/icons/editsexy"));
+    ui->button_connections_edit->setIconSize(QSize(30,30));
+
+    ui->button_computer_remove->setIcon(QIcon(":/icons/icons/deletesexy2"));
+    ui->button_computer_remove->setIconSize(QSize(30,30));
+    ui->button_scientist_remove->setIcon(QIcon(":/icons/icons/deletesexy2"));
+    ui->button_scientist_remove->setIconSize(QSize(30,30));
+    ui->button_connections_remove->setIcon(QIcon(":/icons/icons/deletesexy2"));
+    ui->button_connections_remove->setIconSize(QSize(30,30));
+
+    ui->button_computer_theme->setIcon(QIcon(":/icons/icons/themesexy"));
+    ui->button_computer_theme->setIconSize(QSize(30,30));
+    ui->button_scientist_theme->setIcon(QIcon(":/icons/icons/themesexy"));
+    ui->button_scientist_theme->setIconSize(QSize(30,30));
+    ui->button_connections_theme->setIcon(QIcon(":/icons/icons/themesexy"));
+    ui->button_connections_theme->setIconSize(QSize(30,30));
 
 }
 void MainWindow::christmasTheme()
 {
-    //setWindowIcon(QIcon(":/icons/icon.png"));
+    setWindowIcon(QIcon(":/icons/icons/christmas2"));
+    ui->button_computer_add->setIcon(QIcon(":/icons/icons/christmas6"));
+    ui->button_computer_add->setIconSize(QSize(30,30));
+    ui->button_computer_theme->setIcon(QIcon(":/icons/icons/christmas"));
+    ui->button_computer_theme->setIconSize(QSize(30,30));
+    ui->button_computer_edit->setIcon(QIcon(":/icons/icons/christmas3"));
+    ui->button_computer_edit->setIconSize(QSize(30,30));
+    ui->button_computer_remove->setIcon(QIcon(":/icons/icons/christmas4"));
+    ui->button_computer_remove->setIconSize(QSize(30,30));
+
+    ui->button_scientist_add->setIcon(QIcon(":/icons/icons/christmas6"));
+    ui->button_scientist_add->setIconSize(QSize(30,30));
+    ui->button_scientist_theme->setIcon(QIcon(":/icons/icons/christmas"));
+    ui->button_scientist_theme->setIconSize(QSize(30,30));
+    ui->button_scientist_edit->setIcon(QIcon(":/icons/icons/christmas3"));
+    ui->button_scientist_edit->setIconSize(QSize(30,30));
+    ui->button_scientist_remove->setIcon(QIcon(":/icons/icons/christmas4"));
+    ui->button_scientist_remove->setIconSize(QSize(30,30));
+
+    ui->button_connections_add->setIcon(QIcon(":/icons/icons/christmas6"));
+    ui->button_connections_add->setIconSize(QSize(30,30));
+    ui->button_connections_theme->setIcon(QIcon(":/icons/icons/christmas"));
+    ui->button_connections_theme->setIconSize(QSize(30,30));
+    ui->button_connections_edit->setIcon(QIcon(":/icons/icons/christmas3"));
+    ui->button_connections_edit->setIconSize(QSize(30,30));
+    ui->button_connections_remove->setIcon(QIcon(":/icons/icons/christmas4"));
+    ui->button_connections_remove->setIconSize(QSize(30,30));
+
+    EditComputerDialog editcomp;
 
 }
+void MainWindow::defaultTheme()
+{
+    setWindowIcon(QIcon(":/icons/icons/skull-512.ico"));
+    ui->button_computer_add->setIcon(QIcon(":/icons/icons/add2"));
+    ui->button_computer_add->setIconSize(QSize(30,30));
+    ui->button_computer_theme->setIcon(QIcon(":/icons/icons/theme"));
+    ui->button_computer_theme->setIconSize(QSize(30,30));
+    ui->button_computer_edit->setIcon(QIcon(":/icons/icons/edit2"));
+    ui->button_computer_edit->setIconSize(QSize(30,30));
+    ui->button_computer_remove->setIcon(QIcon(":/icons/icons/remove"));
+    ui->button_computer_remove->setIconSize(QSize(30,30));
 
+    ui->button_scientist_add->setIcon(QIcon(":/icons/icons/add2"));
+    ui->button_scientist_add->setIconSize(QSize(30,30));
+    ui->button_scientist_theme->setIcon(QIcon(":/icons/icons/theme"));
+    ui->button_scientist_theme->setIconSize(QSize(30,30));
+    ui->button_scientist_edit->setIcon(QIcon(":/icons/icons/edit2"));
+    ui->button_scientist_edit->setIconSize(QSize(30,30));
+    ui->button_scientist_remove->setIcon(QIcon(":/icons/icons/remove"));
+    ui->button_scientist_remove->setIconSize(QSize(30,30));
+
+    ui->button_connections_add->setIcon(QIcon(":/icons/icons/add2"));
+    ui->button_connections_add->setIconSize(QSize(30,30));
+    ui->button_connections_theme->setIcon(QIcon(":/icons/icons/theme"));
+    ui->button_connections_theme->setIconSize(QSize(30,30));
+    ui->button_connections_edit->setIcon(QIcon(":/icons/icons/edit2"));
+    ui->button_connections_edit->setIconSize(QSize(30,30));
+    ui->button_connections_remove->setIcon(QIcon(":/icons/icons/remove"));
+    ui->button_connections_remove->setIconSize(QSize(30,30));
+}
 void MainWindow::on_button_scientist_theme_clicked()
 {
     ThemeDialog theme;
@@ -854,8 +944,11 @@ void MainWindow::on_button_scientist_theme_clicked()
     {
         christmasTheme();
     }
+    else if (themes == 4)
+    {
+        defaultTheme();
+    }
 }
-
 void MainWindow::on_button_computer_theme_clicked()
 {
     ThemeDialog theme;
@@ -871,6 +964,10 @@ void MainWindow::on_button_computer_theme_clicked()
     else if(themes == 3)
     {
         christmasTheme();
+    }
+    else if(themes == 4)
+    {
+        defaultTheme();
     }
 }
 void MainWindow::on_button_connections_theme_clicked()
@@ -888,5 +985,9 @@ void MainWindow::on_button_connections_theme_clicked()
     else if(themes == 3)
     {
         christmasTheme();
+    }
+    else if (themes == 4)
+    {
+        defaultTheme();
     }
 }
