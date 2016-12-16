@@ -27,7 +27,8 @@ SOURCES += main.cpp\
     editcomputerdialog.cpp \
     editconnectionsdialog.cpp \
     themedialog.cpp \
-    addconnectiondialog.cpp
+    addconnectiondialog.cpp \
+    images.cpp
 
 
 HEADERS  += mainwindow.h \
@@ -43,7 +44,8 @@ HEADERS  += mainwindow.h \
     editcomputerdialog.h \
     editconnectionsdialog.h \
     themedialog.h \
-    addconnectiondialog.h
+    addconnectiondialog.h \
+    images.h
 
 FORMS    += mainwindow.ui \
     addscientistdialog.ui \

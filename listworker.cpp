@@ -12,13 +12,18 @@ ListWorker::ListWorker()
     data.readScientistsFromDatabase(persons);
     data.readComputersFromDatabase(com);
     data.readLinksFromDatabase(link);
+    data.readImagesFromDatabase(img);
 }
-bool ListWorker::addNewScientist(string name, char gender, int yearOfBirth, int yearOfDeath, string comment)
+bool ListWorker::addNewScientist(string name, char gender, int yearOfBirth, int yearOfDeath, string comment, QString fileName)
 {
     int vsize = scientistIdFinder();
     Person p(name, gender, yearOfBirth, yearOfDeath, comment, vsize);
     persons.push_back(p);
     data.addScientist(name, gender, yearOfBirth, yearOfDeath, comment, vsize);
+    if(fileName != "0")
+    {
+        data.addImage(fileName, vsize, 0);
+    }
     return true;
 }
 bool ListWorker::removeConnectionById(int id)
@@ -26,12 +31,16 @@ bool ListWorker::removeConnectionById(int id)
     data.removeConnection(id);
     return true;
 }
-bool ListWorker::addNewComputer(string name, string type, int yearbuilt, string isbuilt)
+bool ListWorker::addNewComputer(string name, string type, int yearbuilt, string isbuilt, QString fileName)
 {
     int vsize = computerIdFinder();
     Computer c(name, isbuilt, yearbuilt, type, vsize);
     com.erase (com.begin(),com.end());
     data.addComputer(name, type, yearbuilt, isbuilt, vsize);
+    if(fileName != "0")
+    {
+        data.addImage(fileName, 0, vsize);
+    }
     return true;
 }
 bool ListWorker::addNewConnection(int compId, int sciId)
@@ -369,10 +378,7 @@ int ListWorker::getLinkIdFromSciComIds(int sciId, int comId) const
     return id;
 }
 
-bool ListWorker::updateScientistImage(QString fileName)
-{
-    data.addScientistImage(fileName);
-}
+
 
 bool ListWorker::updateConnection(int currentId, int sciId, int comId)
 {

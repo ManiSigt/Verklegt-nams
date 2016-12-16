@@ -7,6 +7,7 @@
 #include <iostream>
 #include <string>
 #include "linkeroutput.h"
+#include "images.h"
 
 using namespace std;
 
@@ -14,8 +15,8 @@ class ListWorker
 {
 public:
     ListWorker();
-    bool addNewScientist(string name, char gender, int yearOfBirth, int yearOFDeath, string comment); // Adds a person to the vector persons and adds them to the database.
-    bool addNewComputer(string name, string type, int yearbuilt, string isbuilt);                     // Adds a computer to the vector that holds the list of computers and then adds it to the database.
+    bool addNewScientist(string name, char gender, int yearOfBirth, int yearOFDeath, string comment, QString fileName); // Adds a person to the vector persons and adds them to the database.
+    bool addNewComputer(string name, string type, int yearbuilt, string isbuilt, QString fileName);                     // Adds a computer to the vector that holds the list of computers and then adds it to the database.
     bool addNewConnection(int compId, int sciId);                                                     // Adds a link between a computer and a scientist that the user chooses and adds them to the SQL database.
     void sortScientistBirth();                                                                        // Calls the function sortScientistBirth from the datalayer class.
     void sortScientistBirthReverse();                                                                 // Calls the function sortScientistBirthReverse from the datalayer class.
@@ -155,7 +156,6 @@ public:
     int getComputerIdFromName(string name) const;
     int getScientistIdFromName(string name) const;
     int getLinkIdFromSciComIds(int sciId, int comId) const;
-    bool updateScientistImage(QString fileName);
     bool updateConnection(int currentId,int sciId,int comId);
     int personsSize() const                                                                           // Returns the size of vector persons.
     {
@@ -172,6 +172,7 @@ private:
     DataLayer data;
     vector<Person> persons;                                                                           // The vector containing all persons from the database.
     vector<Computer> com;                                                                             // The vector containing all computers from the database.
+    vector<Images> img;
     vector<Linker> link;                                                                              // The vector containing all connections from the database.
     vector<LinkerOutput> linkout;                                                                    // The vector containing all names from connections from the database.
 };

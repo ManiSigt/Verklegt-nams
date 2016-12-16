@@ -20,9 +20,12 @@ public:
 private slots:
     void on_button_add_scientist_clicked();
 
+    void on_button_add_picture_clicked();
+
 private:
     Ui::addScientistDialog *ui;
     ListWorker list;
+    QString fileName = "0";
 };
 
 #endif // ADDSCIENTISTDIALOG_H
