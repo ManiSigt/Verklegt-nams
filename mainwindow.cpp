@@ -443,7 +443,6 @@ void MainWindow::showConnectionsNameComp()
     ui->table_connections->resizeColumnsToContents();
 }
 
-
 void MainWindow::populateDropdownMenus()
 {
         ui->dropdown_scientist->addItem("Name");

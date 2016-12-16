@@ -48,7 +48,7 @@ void addComputerDialog::on_add_computer_button_clicked()
     {
         yesNo = "Yes";
     }
-    if(ui->radioButton_Yes->isChecked())
+    if(ui->radioButton_No->isChecked())
     {
         yesNo = "No";
     }
