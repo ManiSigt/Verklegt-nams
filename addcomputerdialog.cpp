@@ -105,6 +105,12 @@ void addComputerDialog::on_button_add_picture_clicked()
     QFileInfo name(fileName);
     QString baseName = name.fileName();
 
-    ui->button_add_picture->setText(baseName);
+    if(baseName == "")
+    {
 
+    }
+    else
+    {
+        ui->button_add_picture->setText(baseName);
+    }
 }
