@@ -595,7 +595,6 @@ void MainWindow::on_button_scientist_edit_clicked()
     QTableWidgetItem *cellName = ui->table_scientist->item(getRow, 0);
     QString qsciName = cellName->text();
     string sciName = qsciName.toStdString();
-    int sciId = list.getScientistIdFromName(sciName);
     char gender;
     string comment;
     int birth;
@@ -658,7 +657,6 @@ void MainWindow::on_button_computer_edit_clicked()
     QTableWidgetItem *cellName = ui->table_computer->item(getRow, 0);
     QString qcomName = cellName->text();
     string comName = qcomName.toStdString();
-    int comId = list.getComputerIdFromName(comName);
     string wasItBuilt;
     string type;
     int date;
@@ -1022,7 +1020,6 @@ void MainWindow::on_button_scientist_info_clicked()
     QTableWidgetItem *cellName = ui->table_scientist->item(getRow, 0);
     QString qsciName = cellName->text();
     string sciName = qsciName.toStdString();
-    int sciId = list.getScientistIdFromName(sciName);
     char gender;
     string comment;
     int birth;
@@ -1057,7 +1054,6 @@ void MainWindow::on_button_computer_info_clicked()
         QTableWidgetItem *cellName = ui->table_computer->item(getRow, 0);
         QString qcomName = cellName->text();
         string comName = qcomName.toStdString();
-        int comId = list.getComputerIdFromName(comName);
         string wasItBuilt;
         string type;
         int date;
