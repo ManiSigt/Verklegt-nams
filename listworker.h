@@ -152,6 +152,11 @@ public:
     {
         return linkout[n].getSciNameLower();
     }
+    QPixmap getImage(int n)
+    {
+        return img[n].getImage();
+    }
+
     int getLinkoutputCompNameSize(int n);
     int getComputerIdFromName(string name) const;
     int getScientistIdFromName(string name) const;
