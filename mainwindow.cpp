@@ -453,6 +453,7 @@ void MainWindow::on_button_scientist_remove_clicked()
             list.eraser();
             list.refreshVector();
             showScientistsName();
+            showConnectionsNameComp();
             ui->button_scientist_remove->setEnabled(false);
             statusBar()->showMessage("Scientist removed!",2000);
         }
@@ -543,6 +544,7 @@ void MainWindow::on_button_computer_remove_clicked()
             list.eraser();
             list.refreshVector();
             showComputersName();
+            showConnectionsNameComp();
             ui->button_computer_remove->setEnabled(false);
             statusBar()->showMessage("Computer removed!",2000);
         }
@@ -587,17 +589,32 @@ void MainWindow::on_button_connections_edit_clicked()
 }
 void MainWindow::on_button_scientist_edit_clicked()
 {
-    int row = ui->table_scientist->currentRow();
+    int getRow = ui->table_scientist->currentRow();
+    QTableWidgetItem *cellName = ui->table_scientist->item(getRow, 0);
+    QString qsciName = cellName->text();
+    string sciName = qsciName.toStdString();
+    int sciId = list.getScientistIdFromName(sciName);
+    char gender;
+    string comment;
+    int birth;
+    int death;
+    int id;
+
     Person esci;
 
-    string name = list.getScientistName(row);
-    char gender = list.getScientistGender(row);
-    int birth = list.getScientistBirth(row);
-    int death = list.getScientistDeath(row);
-    string comment = list.getScientistComment(row);
-    int id = list.getScientistId(row);
+    for(int i = 0; i < list.personsSize(); i++)
+    {
+        if(sciName == list.getScientistName(i))
+        {
+            gender = list.getScientistGender(i);
+            birth = list.getScientistBirth(i);
+            death = list.getScientistDeath(i);
+            comment = list.getScientistComment(i);
+            id = list.getScientistId(i);
+        }
+    }
 
-    esci = Person(name,gender,birth,death,comment,id);
+    esci = Person(sciName,gender,birth,death,comment,id);
 
     EditScientistDialog editSci;
     editSci.prepare(esci);
@@ -636,17 +653,29 @@ void MainWindow::on_button_computer_add_clicked()
 }
 void MainWindow::on_button_computer_edit_clicked()
 {
-        int row = ui->table_computer->currentRow();
-        Computer ecom;
+    int getRow = ui->table_computer->currentRow();
+    QTableWidgetItem *cellName = ui->table_computer->item(getRow, 0);
+    QString qcomName = cellName->text();
+    string comName = qcomName.toStdString();
+    int comId = list.getComputerIdFromName(comName);
+    string wasItBuilt;
+    string type;
+    int date;
+    int id;
 
-        string name = list.getComputerName(row);
-        string type = list.getComputerType(row);
+    Computer ecom;
 
-        int date = list.getComputerDate(row);
-        string wasItBuilt = list.getComputerWasItBuilt(row);
-        int id = list.getComputerId(row);
-
-        ecom = Computer(name, wasItBuilt, date, type, id);
+    for(int i = 0; i < list.computerSize(); i++)
+    {
+        if(comName == list.getComputerName(i))
+        {
+            type = list.getComputerType(i);
+            wasItBuilt = list.getComputerWasItBuilt(i);
+            date = list.getComputerDate(i);
+            id = list.getComputerId(i);
+        }
+    }
+        ecom = Computer(comName, wasItBuilt, date, type, id);
 
         EditComputerDialog editCom;
         editCom.prepare(ecom);
