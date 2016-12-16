@@ -29,10 +29,20 @@ void addComputerDialog::on_add_computer_button_clicked()
         return;
     }
     QString date = ui->input_computer_date->text();
+    int date1 = ui->input_computer_date->text().toUInt();
     if (date.isEmpty())
     {
         ui->error_date->setText("<span style='color: #FF1100'>No date in input!</span>");
         return;
+    }
+    if(date1 > 2016)
+    {
+       ui->error_date->setText("<span style='color: #FF1100'>Not a valid date!</span>");
+       return;
+    }
+    if(date < 0)
+    {
+      ui->error_date->setText("<span style='color: #FF1100'>Not a valid date!</span>");
     }
     if(ui->radioButton_Yes->isChecked())
     {
