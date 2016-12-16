@@ -14,8 +14,6 @@
 #include <string>
 #include <QList>
 #include <QPushButton>
-
-
 using namespace std;
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -861,7 +859,7 @@ void MainWindow::skullTheme()
     ui->button_connections_edit->setIconSize(QSize(30,30));
     ui->button_connections_remove->setIcon(QIcon(":/icons/icons/death"));
     ui->button_connections_remove->setIconSize(QSize(30,30));
-
+    setStyleSheet("background-color:grey");
 }
 void MainWindow::sexyTheme()
 {
@@ -893,7 +891,7 @@ void MainWindow::sexyTheme()
     ui->button_scientist_theme->setIconSize(QSize(30,30));
     ui->button_connections_theme->setIcon(QIcon(":/icons/icons/themesexy"));
     ui->button_connections_theme->setIconSize(QSize(30,30));
-
+    setStyleSheet("background-color:pink");
 }
 void MainWindow::christmasTheme()
 {
@@ -924,7 +922,7 @@ void MainWindow::christmasTheme()
     ui->button_connections_edit->setIconSize(QSize(30,30));
     ui->button_connections_remove->setIcon(QIcon(":/icons/icons/christmas4"));
     ui->button_connections_remove->setIconSize(QSize(30,30));
-
+    setStyleSheet("background-color:crimson");
     EditComputerDialog editcomp;
 
 }
@@ -957,6 +955,7 @@ void MainWindow::defaultTheme()
     ui->button_connections_edit->setIconSize(QSize(30,30));
     ui->button_connections_remove->setIcon(QIcon(":/icons/icons/remove"));
     ui->button_connections_remove->setIconSize(QSize(30,30));
+    setStyleSheet("background-color:normal");
 }
 void MainWindow::on_button_scientist_theme_clicked()
 {
