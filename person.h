@@ -45,11 +45,20 @@ public:
     {
         return _lowerCaseName;
     }
-
+    string getScientistBirthString() const
+    {
+        return _stringYear;
+    }
+    string getScientistDeathString() const
+    {
+        return _stringDeath;
+    }
 private:
     string _name;
     string _lowerCaseName;
     string _comment;
+    string _stringYear;
+    string _stringDeath;
     char _gender;
     int _yearOfBirth;
     int _yearOfDeath;

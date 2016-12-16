@@ -15,7 +15,7 @@ Computer::Computer(string name, string wasItBuilt, int date, string type, int id
     _id = id;
     _lowerCaseName = name;
     _lowerCaseType = type;
-
+    _stringDate = to_string(date);
     transform(_lowerCaseName.begin(), _lowerCaseName.end(), _lowerCaseName.begin(), ::tolower);
     transform(_lowerCaseType.begin(), _lowerCaseType.end(), _lowerCaseType.begin(), ::tolower);
 }

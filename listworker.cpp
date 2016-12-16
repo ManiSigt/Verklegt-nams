@@ -116,7 +116,6 @@ bool ListWorker::removePerson(int rowNumber)
 {
     string name = getScientistNameFromId(rowNumber);
     QString qname = QString::fromStdString(name);
-    qDebug() << qname;
     for(size_t i = 0; i < persons.size(); ++i)
     {
         if(name == persons[i].getScientistName())
@@ -135,7 +134,6 @@ bool ListWorker::removeConnection(int s, int c)
     {
         int removeId = getScientistId(s);
         QString qbirth = QString::number(removeId);
-        qDebug() << qbirth;
         for(int i = 0; i < getLinkSize()+2; i++)
         {
             if(removeId == getLinkSciId(i))

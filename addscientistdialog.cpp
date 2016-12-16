@@ -44,11 +44,13 @@ void addScientistDialog::on_button_add_scientist_clicked()
     }
     QString death = ui->input_scientist_death->text();
     int death1 = ui->input_scientist_death->text().toUInt();
-
-    if(death1 < birth1)
+    if (death1 != 0 || death != "")
     {
-        ui->label_error_death->setText("<span style='color: #FF1100'>Not a valid death year!</span>");
-        return;
+    if(death1 < birth1)
+        {
+            ui->label_error_death->setText("<span style='color: #FF1100'>Not a valid death year!</span>");
+            return;
+        }
     }
     QString comment = ui->input_scientist_comment->text();
 
