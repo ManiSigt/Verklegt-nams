@@ -16,7 +16,8 @@ class infoScientistDialog : public QDialog
 public:
     explicit infoScientistDialog(QWidget *parent = 0);
     ~infoScientistDialog();
-     void prepareShowSci(Person infoSci);
+    void prepareShowSci(Person infoSci);           // Takes one Scientist out of the vector and shows it.
+
 private slots:
      void on_button_close_clicked();
 

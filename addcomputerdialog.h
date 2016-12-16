@@ -19,9 +19,9 @@ public:
 
     void themeChanger(int changer);
 private slots:
-    void on_add_computer_button_clicked();              // a function that dictates what happens when the user presses a specific button
+    void on_add_computer_button_clicked();              // A function that dictates what happens when the user presses a specific button.
 
-    void on_button_add_picture_clicked();
+    void on_button_add_picture_clicked();               // A function dat dictates what happens when the user presses a specific button.
 
 private:
     Ui::addComputerDialog *ui;

@@ -37,15 +37,15 @@ public:
     void readLinksFromDatabase(vector<Linker>& link);                                                           // Adds the links between computers and scientists to the vector link.
     void readScientistsFromDatabase(vector<Person>& sci);                                                       // Adds the computers from the SQL database to the vector com.
     void readComputersFromDatabase(vector<Computer>& com);                                                      // Adds the scientists from the SQL database to the vector person.
-    void addImage(QString fileName, int sciId, int comId);
-    void readImagesFromDatabase(vector<Images>& img);
-    void updateImage(QString fileName, int id);
+    void addImage(QString fileName, int sciId, int comId);                                                      // Adds a picture to the database
+    void readImagesFromDatabase(vector<Images>& img);                                                           // Reads image from the database and adds it to the vector
+    void updateImage(QString fileName, int id);                                                                 // Updates the images
     bool addScientist(string name, char gender, int yearOfBirth, int yearOfDeath, string comment, int vsize);   // Adds a scientist to the SQL database.
     void addComputer(string name, string type, int yearbuilt, string isbuilt, int vsize);                       // Adds a computer to the SQL databse.
     void addConnection(int linkId, int sciId, int compId);                                                      // Adds a connection from to the SQL databse.
     void updateScientist(string name, char gender, int yearOfBirth, int yearOfDeath, string comment, int sciId);// Updates a scientist in the database with new info.
     void updateComputer(string name, string type, string isbuilt, int Yearbuilt, int compId);                   // Updates a computer in the database with new info.
-    void updateConnection(int currentId,int sciId,int comId);
+    void updateConnection(int currentId,int sciId,int comId);                                                   // Updates the connection.
     friend bool sortByNameComputers(const Computer &lhs, const Computer &rhs);                                  // Compares two instances of name in the vector com and returns the one that is lower in alphabetical order.
     friend bool sortByNameComputersReverse(const Computer &lhs, const Computer &rhs);                           // Compares two instances of name in the vector com and returns the one that is higher in alphabetical order.
     friend bool sortByDateComputers(const Computer &lhs, const Computer &rhs);                                  // Compares two instances of date in the vector com and returns the one that is lower in chronological order.
